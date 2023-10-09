@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Salvely&#39;s blog • Posts by &#34;tag1&#34; tag</title>
+        <link>https://salvely.github.io/blog</link>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 09 Oct 2023 16:36:44 +0800</pubDate>
+        <lastBuildDate>Mon, 09 Oct 2023 16:36:44 +0800</lastBuildDate>
+        <category>tag1</category>
+        <category>tag2</category>
+        <item>
+            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/09/computer-science/cpp/course-1/my-new-post/</guid>
+            <title>my new post</title>
+            <link>https://salvely.github.io/blog/2023/10/09/computer-science/cpp/course-1/my-new-post/</link>
+            <category>tag1</category>
+            <category>tag2</category>
+            <pubDate>Mon, 09 Oct 2023 16:36:44 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
+    </channel>
+</rss>
