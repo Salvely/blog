@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>Hexo</title>
+        <title>Salvely&#39;s blog</title>
         <subtitle></subtitle>
         <icon>https://salvely.github.io/blog/assets/favicon.ico</icon>
         <link>https://salvely.github.io/blog</link>
         <author>
-          <name>John Doe</name>
+          <name>Wen Gao</name>
         </author>
         <description></description>
-        <language>en</language>
+        <language>zh</language>
         <pubDate>Sun, 08 Oct 2023 20:26:13 +0800</pubDate>
         <lastBuildDate>Sun, 08 Oct 2023 20:26:13 +0800</lastBuildDate>
         <item>

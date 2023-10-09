@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://salvely.github.io/blog</id>
-    <title>Hexo</title>
+    <title>Salvely&#39;s blog</title>
     <subtitle></subtitle>
     <icon>https://salvely.github.io/blog/assets/favicon.ico</icon>
     <link href="https://salvely.github.io/blog" />
     <author>
-      <name>John Doe</name>
+      <name>Wen Gao</name>
     </author>
     <updated>2023-10-08T12:26:13.178Z</updated>
     <entry>
