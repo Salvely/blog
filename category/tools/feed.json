@@ -1,0 +1,16 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "望春风 • All posts by \"tools\" category",
+    "description": "计算机&数理&文学爱好者，喜欢健身、下厨、听音乐和看电影",
+    "home_page_url": "https://salvely.github.io/blog",
+    "items": [
+        {
+            "id": "https://salvely.github.io/blog/2023/10/11/cs/tools/Arch/Arch%20Linux%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/",
+            "url": "https://salvely.github.io/blog/2023/10/11/cs/tools/Arch/Arch%20Linux%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/",
+            "title": "Arch Linux配置教程",
+            "date_published": "2023-10-11T06:05:27.000Z",
+            "content_html": "",
+            "tags": []
+        }
+    ]
+}
