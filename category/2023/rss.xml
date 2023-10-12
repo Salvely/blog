@@ -36,7 +36,6 @@
 &lt;h2 id=&#34;tasks&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tasks&#34;&gt;#&lt;/a&gt; Tasks&lt;/h2&gt;
 &lt;ul class=&#34;task-list&#34;&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; 健身任务完成&lt;/label&gt;&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_1&#34;&gt; Arch Linux 安装好&lt;/label&gt;&lt;/li&gt;
 &lt;li&gt;[ ]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;notes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#notes&#34;&gt;#&lt;/a&gt; Notes&lt;/h2&gt;
