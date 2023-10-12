@@ -5,14 +5,116 @@
         <link>https://salvely.github.io/blog</link>
         <description>计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 11 Oct 2023 14:05:27 +0800</pubDate>
-        <lastBuildDate>Wed, 11 Oct 2023 14:05:27 +0800</lastBuildDate>
+        <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
+        <lastBuildDate>Thu, 12 Oct 2023 13:50:44 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/Arch%20Linux%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
-            <title>Arch Linux配置教程</title>
-            <link>https://salvely.github.io/blog/2023/10/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/Arch%20Linux%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
-            <pubDate>Wed, 11 Oct 2023 14:05:27 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
+            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+            <title>VMWare中的Arch Linux安装实录（超详细！）</title>
+            <link>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+            <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;在使用 Arch 前看了 UCB System Admin Decal 的 Linux Pre-install and Install 一节，其中的实验是在 Ubuntu 虚拟机上安装 Arch。Arch 的安装涉及到自己进行分区，对系统进行加密和解密等，我觉得非常有趣，对于操作系统本身也是一个探索的过程。因此决定挑战自己跟着官方文档进行安装。&lt;br&gt;
+以前每次安装 Linux 虚拟机，包括 Ubuntu 和 Debian，都是跟着一些博主自己写的奶妈式手把手安装教程一步步的装。每次都能安装成功，但是总是感觉少了一些 &lt;code&gt;【探索的乐趣】&lt;/code&gt; 😆。&lt;br&gt;
+今天我就要跟着 Arch Linux 的官方文档一步步装，感受一把极致的安装酸爽体验！&lt;br&gt;
+参考链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSW5zdGFsbGF0aW9uX2d1aWRlI0FjcXVpcmVfYW5faW5zdGFsbGF0aW9uX2ltYWdl&#34;&gt;Arch Linux 官方安装文档&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;其中可能伴有踩坑，但是也是一种经验啦！&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;获取安装镜像后缀为iso&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取安装镜像后缀为iso&#34;&gt;#&lt;/a&gt; 获取安装镜像（后缀为.iso）&lt;/h1&gt;
+&lt;p&gt;看了一下下载界面，最顶部写了当前发行版的信息，下面是对于几种不同用户的安装方式以及校验和，最后是所有的 Arch 镜像源集合。&lt;/p&gt;
+&lt;h2 id=&#34;发行版信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#发行版信息&#34;&gt;#&lt;/a&gt; 发行版信息&lt;/h2&gt;
+&lt;p&gt;当前发布版本: 2023.09.01&lt;br&gt;
+ 内核版本: 6.4.12&lt;br&gt;
+ISO 镜像文件大小: 804.3 MB&lt;br&gt;
+ 相关资源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSW5zdGFsbGF0aW9uX2d1aWRl&#34;&gt;安装教程&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRsYWIuYXJjaGxpbnV4Lm9yZy9hcmNobGludXgvYXJjaGlzby8tL2lzc3Vlcw==&#34;&gt;Issue tracker&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9saXN0cy5hcmNobGludXgub3JnL21haWxtYW4zL2xpc3RzL2FyY2gtcmVsZW5nLmxpc3RzLmFyY2hsaW51eC5vcmcv&#34;&gt;Mailing List&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;几种下载方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#几种下载方式&#34;&gt;#&lt;/a&gt; 几种下载方式&lt;/h2&gt;
+&lt;h3 id=&#34;对于已经是arch用户的人&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#对于已经是arch用户的人&#34;&gt;#&lt;/a&gt; 对于已经是 Arch 用户的人&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;通过命令 &lt;code&gt;pacman -Syu&lt;/code&gt;  更新&lt;/li&gt;
+&lt;li&gt;通过&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL21pcnJvcmxpc3Qv&#34;&gt;这里&lt;/span&gt;更新镜像源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;种子链接下载官方推荐&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#种子链接下载官方推荐&#34;&gt;#&lt;/a&gt; 种子链接下载（官方推荐）&lt;/h3&gt;
+&lt;p&gt;对于这种资源，可以使用 &lt;code&gt;百度网盘&lt;/code&gt; 或者 &lt;code&gt;迅雷&lt;/code&gt; 下载（和下载电影相同），下载格式为.torrent，该种子链接需要上传到百度网盘 / 迅雷，然后将其中的 iso 镜像文件下载到本地目录中。&lt;/p&gt;
+&lt;h3 id=&#34;netboot&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#netboot&#34;&gt;#&lt;/a&gt; Netboot&lt;/h3&gt;
+&lt;p&gt;安装时需要联网，最新版本会自动推送，可用于在系统启动时即时下载最新的 Arch Linux 版本。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Netboot 使用定制的 iPXE 版本。 实时系统的 Linux 内核、initramfs 和 squashfs 文件是从 Arch Linux 镜像下载的。 所有下载文件的完整性都使用加密签名进行验证。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;details&gt;&lt;summary&gt;iPXE是啥？&lt;/summary&gt;&lt;div&gt;
+&lt;p&gt;让俺看看。。。&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;h3 id=&#34;vagrant-images&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vagrant-images&#34;&gt;#&lt;/a&gt; Vagrant images&lt;/h3&gt;
+&lt;h3 id=&#34;docker-image&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-image&#34;&gt;#&lt;/a&gt; Docker image&lt;/h3&gt;
+&lt;h3 id=&#34;vm-image&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vm-image&#34;&gt;#&lt;/a&gt; VM image&lt;/h3&gt;
+&lt;h3 id=&#34;http-直接下载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#http-直接下载&#34;&gt;#&lt;/a&gt; HTTP 直接下载&lt;/h3&gt;
+&lt;h2 id=&#34;校验和&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#校验和&#34;&gt;#&lt;/a&gt; 校验和&lt;/h2&gt;
+&lt;h2 id=&#34;方法一&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#方法一&#34;&gt;#&lt;/a&gt; 方法一&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt; Download 界面&lt;/span&gt;选择推荐的 BitTorrent Download:&lt;br&gt;
+&lt;img data-src=&#34;download.png&#34; alt=&#34;下载界面&#34;&gt;&lt;/li&gt;
+&lt;li&gt;下载到本地电脑的 Downloads 文件夹中，其后缀名为 &lt;code&gt;.torrent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;打开百度网盘，在其中上传该文件&lt;/li&gt;
+&lt;li&gt;上传后双击该文件，点击开始下载到网盘，等待下载完成（有点慢哈！）&lt;/li&gt;
+&lt;li&gt;下载到网盘后，将 &lt;code&gt;iso镜像文件&lt;/code&gt; 下载到在自选的本地目录中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;由于这种方式下载过慢，笔者建议使用方法二，即通过开源镜像站进行下载。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;方法二&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#方法二&#34;&gt;#&lt;/a&gt; 方法二&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt; Download 界面&lt;/span&gt;下翻，找到中国的镜像站列表:&lt;br&gt;
+&lt;img data-src=&#34;mirrors.png&#34; alt=&#34;中国镜像站列表&#34;&gt;&lt;/li&gt;
+&lt;li&gt;在其中选择 &lt;code&gt;tuna.tsinghua.edu.cn&lt;/code&gt; ，即清华大学镜像站（我每次都用他们的镜像，速度不错）&lt;br&gt;
+&lt;img data-src=&#34;tsinghua_mirror.png&#34; alt=&#34;清华大学镜像站&#34;&gt;&lt;/li&gt;
+&lt;li&gt;选择 &lt;code&gt;archlinux-2023.09.01-x86_64.iso&lt;/code&gt;  下载&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;.iso&lt;/code&gt;  文件保存到我们想要虚拟机保存的目录中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;获取gnupg签名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取gnupg签名&#34;&gt;#&lt;/a&gt; 获取&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL0dudVBH&#34;&gt; GnuPG&lt;/span&gt; 签名&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GnuPG 是什么？&lt;br&gt;
+GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自由软件。GnuPG 可以加密和签名你的数据和通讯信息，包含一个通用的密钥管理系统以及用于各种公钥目录的访问模块。GnuPG，简称 GPG，是一个易于与其它程序整合的命令行工具，拥有很多前端程序和函数库。GnuPG 还支持 S/MIME 和 Secure Shell (ssh)。&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/</guid>
+            <title>2023-10-12日记</title>
+            <link>https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/</link>
+            <pubDate>Thu, 12 Oct 2023 07:41:52 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;thursday-october-12-2023&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#thursday-october-12-2023&#34;&gt;#&lt;/a&gt; Thursday, October 12 2023&lt;/h1&gt;
+&lt;h2 id=&#34;现阶段主要学习任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#现阶段主要学习任务&#34;&gt;#&lt;/a&gt; 现阶段主要学习任务&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux 系统管理&lt;/li&gt;
+&lt;li&gt;Web 编程基础&lt;/li&gt;
+&lt;li&gt;数据结构与算法&lt;/li&gt;
+&lt;li&gt;数学基础&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;下阶段主要学习任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下阶段主要学习任务&#34;&gt;#&lt;/a&gt; 下阶段主要学习任务&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;系统入门&lt;/li&gt;
+&lt;li&gt;体系结构&lt;/li&gt;
+&lt;li&gt;操作系统&lt;/li&gt;
+&lt;li&gt;编译原理&lt;/li&gt;
+&lt;li&gt;计算机网络&lt;/li&gt;
+&lt;li&gt;数据库系统&lt;/li&gt;
+&lt;li&gt;分布式系统&lt;/li&gt;
+&lt;li&gt;系统安全&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;格言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#格言&#34;&gt;#&lt;/a&gt; 格言&lt;/h2&gt;
+&lt;p&gt;别玩手机！Just do it！&lt;/p&gt;
+&lt;h2 id=&#34;tasks&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tasks&#34;&gt;#&lt;/a&gt; Tasks&lt;/h2&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; 健身任务完成&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_1&#34;&gt; Arch Linux 安装好&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;[ ]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;notes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#notes&#34;&gt;#&lt;/a&gt; Notes&lt;/h2&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>
