@@ -1,6 +1,6 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "望春风",
+    "title": "望春风 • All posts by \"linux\" tag",
     "description": "计算机&数理&文学爱好者，喜欢健身、下厨、听音乐和看电影",
     "home_page_url": "https://salvely.github.io/blog",
     "items": [
@@ -16,14 +16,6 @@
                 "安装教程",
                 "操作系统"
             ]
-        },
-        {
-            "id": "https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/",
-            "url": "https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/",
-            "title": "2023-10-12日记",
-            "date_published": "2023-10-11T23:41:52.963Z",
-            "content_html": "<h1 id=\"thursday-october-12-2023\"><a class=\"markdownIt-Anchor\" href=\"#thursday-october-12-2023\">#</a> Thursday, October 12 2023</h1>\n<h2 id=\"现阶段主要学习任务\"><a class=\"markdownIt-Anchor\" href=\"#现阶段主要学习任务\">#</a> 现阶段主要学习任务</h2>\n<ul>\n<li>Linux 系统管理</li>\n<li>Web 编程基础</li>\n<li>数据结构与算法</li>\n<li>数学基础</li>\n</ul>\n<h2 id=\"下阶段主要学习任务\"><a class=\"markdownIt-Anchor\" href=\"#下阶段主要学习任务\">#</a> 下阶段主要学习任务</h2>\n<ul>\n<li>系统入门</li>\n<li>体系结构</li>\n<li>操作系统</li>\n<li>编译原理</li>\n<li>计算机网络</li>\n<li>数据库系统</li>\n<li>分布式系统</li>\n<li>系统安全</li>\n</ul>\n<h2 id=\"格言\"><a class=\"markdownIt-Anchor\" href=\"#格言\">#</a> 格言</h2>\n<p>别玩手机！Just do it！</p>\n<h2 id=\"tasks\"><a class=\"markdownIt-Anchor\" href=\"#tasks\">#</a> Tasks</h2>\n<ul class=\"task-list\">\n<li class=\"task-list-item\"><input type=\"checkbox\" id=\"cbx_0\" checked=\"true\" disabled=\"true\"><label for=\"cbx_0\"> 健身任务完成</label></li>\n<li>[ ]</li>\n</ul>\n<h2 id=\"notes\"><a class=\"markdownIt-Anchor\" href=\"#notes\">#</a> Notes</h2>\n",
-            "tags": []
         }
     ]
 }

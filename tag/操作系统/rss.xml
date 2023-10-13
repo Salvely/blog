@@ -1,18 +1,26 @@
 <?xml version="1.0"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://salvely.github.io/blog</id>
-    <title>望春风 • Posts by &#34;计算机科学&#34; category</title>
-    <link href="https://salvely.github.io/blog" />
-    <updated>2023-10-12T05:50:44.000Z</updated>
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="安装教程" />
-    <category term="操作系统" />
-    <entry>
-        <id>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
-        <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
-        <link rel="alternate" href="https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
-        <content type="html">&lt;div class=&#34;note danger&#34;&gt;
+<rss version="2.0">
+    <channel>
+        <title>望春风 • Posts by &#34;操作系统&#34; tag</title>
+        <link>https://salvely.github.io/blog</link>
+        <description>计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
+        <lastBuildDate>Thu, 12 Oct 2023 13:50:44 +0800</lastBuildDate>
+        <category>Arch</category>
+        <category>Linux</category>
+        <category>安装教程</category>
+        <category>操作系统</category>
+        <item>
+            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+            <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
+            <link>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+            <category>Arch</category>
+            <category>Linux</category>
+            <category>安装教程</category>
+            <category>操作系统</category>
+            <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
+            <description><![CDATA[ &lt;div class=&#34;note danger&#34;&gt;
 &lt;p&gt;此坑还没填完，暂时只添加了安装部分（装完发现 Arch wiki 实在是已经写得很详细了），还有很多的知识还没有完全弄清楚和补充。&lt;br&gt;
 等我学习完 &lt;code&gt;计算机组成原理&lt;/code&gt; ， &lt;code&gt;操作系统&lt;/code&gt; 和 &lt;code&gt;计算机网络&lt;/code&gt; 后会再来填坑。&lt;/p&gt;
 &lt;/div&gt;
@@ -398,11 +406,7 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 &lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装后的工作&#34;&gt;#&lt;/a&gt; 安装后的工作&lt;/h1&gt;
 &lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;引用程序列表&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
-</content>
-        <category term="Arch" />
-        <category term="Linux" />
-        <category term="安装教程" />
-        <category term="操作系统" />
-        <updated>2023-10-12T05:50:44.000Z</updated>
-    </entry>
-</feed>
+ ]]></description>
+        </item>
+    </channel>
+</rss>

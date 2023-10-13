@@ -4,12 +4,17 @@
     <title>望春风 • Posts by &#34;arch&#34; category</title>
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-12T05:50:44.000Z</updated>
+    <category term="Arch" />
+    <category term="Linux" />
+    <category term="安装教程" />
+    <category term="操作系统" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
         <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
         <link rel="alternate" href="https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
         <content type="html">&lt;div class=&#34;note danger&#34;&gt;
-&lt;p&gt;此坑还没填完，暂请先不要阅读&lt;/p&gt;
+&lt;p&gt;此坑还没填完，暂时只添加了安装部分（装完发现 Arch wiki 实在是已经写得很详细了），还有很多的知识还没有完全弄清楚和补充。&lt;br&gt;
+等我学习完 &lt;code&gt;计算机组成原理&lt;/code&gt; ， &lt;code&gt;操作系统&lt;/code&gt; 和 &lt;code&gt;计算机网络&lt;/code&gt; 后会再来填坑。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;note info&#34;&gt;
 &lt;p&gt;本文安装过程基本按照 Arch Linux 安装文档，附带了额外的相关知识。其中可能伴有踩坑，但是也是一种经验啦！😄&lt;br&gt;
@@ -316,30 +321,88 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; reflector &lt;span class=&#34;token parameter variable&#34;&gt;--country&lt;/span&gt; China &lt;span class=&#34;token parameter variable&#34;&gt;--save&lt;/span&gt; /etc/pacman.d/mirrorlist.pacnew&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;确保源准确无误后，将 &lt;code&gt;mirrorlist.pacnew&lt;/code&gt;  复制到 &lt;code&gt;mirrorlist&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;安装必须的软件包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装必须的软件包&#34;&gt;#&lt;/a&gt; 安装必须的软件包&lt;/h2&gt;
 &lt;p&gt;使用 pacstrap (8) 脚本，安装 base 包 软件包和 Linux 内核以及常规硬件的固件：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pacstrap &lt;span class=&#34;token parameter variable&#34;&gt;-K&lt;/span&gt; /mnt base linux &lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; man-db man-pages textinfo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这时候可以同时额外安装计算机的 CPU 微码包。如果计算机是 Intel 的 CPU ，使用 &lt;code&gt;intel-ucode&lt;/code&gt;  包，AMD CPU 则使用  &lt;code&gt;amd-ucode&lt;/code&gt;  包。也可以暂时都不安装，等到进入系统后再安装。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pacstrap &lt;span class=&#34;token parameter variable&#34;&gt;-K&lt;/span&gt; /mnt base linux &lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; man-db man-pages texinfo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这时候可以同时额外安装计算机的 CPU 微码包。如果计算机是 Intel 的 CPU ，使用 &lt;code&gt;intel-ucode&lt;/code&gt;  包，AMD CPU 则使用  &lt;code&gt;amd-ucode&lt;/code&gt;  包。也可以暂时都不安装，等到进入系统后再安装。&lt;/p&gt;
 &lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;因为我是在虚拟机中安装，因此我不安装固件 &lt;code&gt;linux-firmware&lt;/code&gt;  和微码包 &lt;code&gt;intel-ucode&lt;/code&gt; 。如果你有想补充的软件，请加在 &lt;code&gt;pacstrap&lt;/code&gt;  后面。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;因为我是在虚拟机中安装，因此我不安装固件 &lt;code&gt;linux-firmware&lt;/code&gt;  和微码包 &lt;code&gt;intel-ucode&lt;/code&gt; 。如果你有想补充的软件，请加在 &lt;code&gt;pacstrap&lt;/code&gt;  后面。&lt;/li&gt;
+&lt;li&gt;是 &lt;code&gt;texinfo&lt;/code&gt; ，不是 &lt;code&gt;textinfo&lt;/code&gt; ，不要看错啦！&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
+&lt;!-- ~~# 三号坑：出现`error: failed to install packages to new root`~~
+解决方案：
+1. `pacman -S archlinux-keyring`
+2. `pacman-key --refresh-keys`
+--&gt;
 &lt;h1 id=&#34;配置系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置系统&#34;&gt;#&lt;/a&gt; 配置系统&lt;/h1&gt;
 &lt;h2 id=&#34;生成fstab文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#生成fstab文件&#34;&gt;#&lt;/a&gt; 生成 fstab 文件&lt;/h2&gt;
 &lt;p&gt;通过以下命令生成 fstab 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;genfstab &lt;span class=&#34;token parameter variable&#34;&gt;-U&lt;/span&gt; /mnt &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt; /mnt/etc/fstab&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;强烈建议在执行完以上命令后，检查一下生成的 &lt;code&gt;/mnt/etc/fstab&lt;/code&gt;  文件是否正确。&lt;/p&gt;
 &lt;h2 id=&#34;chroot到新安装的系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chroot到新安装的系统&#34;&gt;#&lt;/a&gt; chroot 到新安装的系统&lt;/h2&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;arch-chroot /mnt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;提示：此处使用的是 arch-chroot 而不是直接使用 chroot，注意不要输错了。&lt;/p&gt;
+&lt;p&gt;提示：此处使用的是 arch-chroot 而不是直接使用 chroot，注意不要输错了。在 &lt;code&gt;arch-chroot&lt;/code&gt;  进入 &lt;code&gt;/mnt&lt;/code&gt;  后，提示符应该变为了 &lt;code&gt;[root@archiso]&lt;/code&gt;  样式，如果没有，请检查一下前面的步骤是否都准确完成了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;设置时区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置时区&#34;&gt;#&lt;/a&gt; 设置时区&lt;/h2&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-sf&lt;/span&gt; /usr/share/zoneinfo/Region（地区名）/City（城市名） /etc/localtime&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;地区名填 Asia, 城市名填 Shanghai&lt;br&gt;
  然后运行 hwclock (8) 以生成 /etc/adjtime：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hwclock &lt;span class=&#34;token parameter variable&#34;&gt;--systohc&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个命令假定已设置硬件时间为 UTC 时间。&lt;/p&gt;
 &lt;h2 id=&#34;区域和本地化设置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#区域和本地化设置&#34;&gt;#&lt;/a&gt; 区域和本地化设置&lt;/h2&gt;
-&lt;h2 id=&#34;网络配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网络配置&#34;&gt;#&lt;/a&gt; 网络配置&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;编辑 &lt;code&gt;/etc/locale.gen&lt;/code&gt; 。将 &lt;code&gt;en_US.UTF-8&lt;/code&gt;  或其他你想要的配置，对应那行取消注释。修改后，执行 &lt;code&gt;locale-gen&lt;/code&gt; ，以生成 &lt;code&gt;locale信息&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;创建 &lt;code&gt;/etc/locale.conf&lt;/code&gt; ，在其中写入：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;&lt;span class=&#34;token environment constant&#34;&gt;LANG&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;en_US.UTF-8&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;控制台键盘布局和字体设置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#控制台键盘布局和字体设置&#34;&gt;#&lt;/a&gt; 控制台键盘布局和字体设置&lt;/h2&gt;
+&lt;p&gt;如果需要修改控制台键盘布局和字体，可编辑 /etc/vconsole.conf 使其长期生效，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;KEYMAP&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;de-latin1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;网络配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网络配置&#34;&gt;#&lt;/a&gt; 网络配置&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;网络配置很重要，否则安装系统后会连不上网（例如 &lt;code&gt;VirtualBox&lt;/code&gt;  桥接模式就需要配置 DHCP）&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;设置主机名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置主机名&#34;&gt;#&lt;/a&gt; 设置主机名&lt;/h3&gt;
+&lt;p&gt;创建 &lt;code&gt;/etc/hostname&lt;/code&gt;  文件，在其中直接填写你所设定的主机名，我填写的主机名是 &lt;code&gt;arch&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;检查连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#检查连接&#34;&gt;#&lt;/a&gt; 检查连接&lt;/h3&gt;
+&lt;p&gt;TODO&lt;/p&gt;
+&lt;h3 id=&#34;安装网络管理器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装网络管理器&#34;&gt;#&lt;/a&gt; 安装网络管理器&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;pacman -S networkmanager&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;systemctl enable NetworkManager.service&lt;/code&gt;  设置网络管理器开机自启动&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;关于-initramfs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于-initramfs&#34;&gt;#&lt;/a&gt; 关于 initramfs&lt;/h2&gt;
+&lt;p&gt;通常不需要自己创建新的 initramfs，因为在执行 pacstrap 时已经安装 linux 包，这时已经运行过 mkinitcpio 了。&lt;/p&gt;
 &lt;h2 id=&#34;设置root密码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置root密码&#34;&gt;#&lt;/a&gt; 设置 root 密码&lt;/h2&gt;
+&lt;p&gt;输入 &lt;code&gt;passwd&lt;/code&gt;  创建一个 &lt;code&gt;root&lt;/code&gt;  密码&lt;/p&gt;
 &lt;h2 id=&#34;安装引导程序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装引导程序&#34;&gt;#&lt;/a&gt; 安装引导程序&lt;/h2&gt;
+&lt;p&gt;需要安装 Linux 引导加载程序，才能在安装后启动系统，可以使用的的引导程序已在启动加载器中列出，请选择一个安装并配置它，GRUB 是最常见的选择。&lt;br&gt;
+如果有 Intel 或 AMD 的 CPU，请另外启用微码更新。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 &lt;code&gt;grub&lt;/code&gt;  和 &lt;code&gt;efibootmgr&lt;/code&gt; ：输入 &lt;code&gt;pacman -S grub efibootmgr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;输入 &lt;code&gt;grub-install --target=x86_64-efi --efi-directory=[esp] --bootloader-id=GRUB&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;我的 &lt;code&gt;esp&lt;/code&gt;  挂载点是 &lt;code&gt;/mnt/boot&lt;/code&gt; ，因为我已经 &lt;code&gt;arch-chroot&lt;/code&gt;  到 &lt;code&gt;/mnt&lt;/code&gt;  中了，因此 &lt;code&gt;esp&lt;/code&gt;  字段填写 &lt;code&gt;/boot&lt;/code&gt;  即可。如果你安装在了其他挂载点上，请在 &lt;code&gt;esp&lt;/code&gt;  字段填写你自己的挂载点。如果出现问题，检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是否已经 &lt;code&gt;arch-chroot&lt;/code&gt;  到了 &lt;code&gt;/mnt&lt;/code&gt;  下？命令提示符为 &lt;code&gt;[root@archiso]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;前面的配置过程有没有出现问题？&lt;br&gt;
+ &lt;code&gt;grub-install&lt;/code&gt;  命令成功时应该出现:&lt;br&gt;
+&lt;img data-src=&#34;grub-install.png&#34; alt=&#34;grub-install成功&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;生成主配置文件: &lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt; &lt;br&gt;
+ 配置成功时界面：&lt;br&gt;
+&lt;img data-src=&#34;configure.png&#34; alt=&#34;配置成功&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;重新启动计算机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重新启动计算机&#34;&gt;#&lt;/a&gt; 重新启动计算机&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;exit&lt;/code&gt;  退出 &lt;code&gt;chroot&lt;/code&gt;  环境&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;umount -R /mnt&lt;/code&gt;  取消挂载 &lt;code&gt;/mnt&lt;/code&gt; （也等到可 &lt;code&gt;reboot&lt;/code&gt;  时 systemd 自动卸载）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reboot&lt;/code&gt;  重启系统&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装后的工作&#34;&gt;#&lt;/a&gt; 安装后的工作&lt;/h1&gt;
+&lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;引用程序列表&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
 </content>
+        <category term="Arch" />
+        <category term="Linux" />
+        <category term="安装教程" />
+        <category term="操作系统" />
         <updated>2023-10-12T05:50:44.000Z</updated>
     </entry>
 </feed>
