@@ -10,7 +10,7 @@
     <category term="操作系统" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
-        <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
+        <title>2023.10.13-Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
         <link rel="alternate" href="https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
         <content type="html">&lt;div class=&#34;note danger&#34;&gt;
 &lt;p&gt;此坑还没填完，暂时只添加了安装部分（装完发现 Arch wiki 实在是已经写得很详细了），还有很多的知识还没有完全弄清楚和补充。&lt;br&gt;
@@ -380,15 +380,13 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 &lt;p&gt;我的 &lt;code&gt;esp&lt;/code&gt;  挂载点是 &lt;code&gt;/mnt/boot&lt;/code&gt; ，因为我已经 &lt;code&gt;arch-chroot&lt;/code&gt;  到 &lt;code&gt;/mnt&lt;/code&gt;  中了，因此 &lt;code&gt;esp&lt;/code&gt;  字段填写 &lt;code&gt;/boot&lt;/code&gt;  即可。如果你安装在了其他挂载点上，请在 &lt;code&gt;esp&lt;/code&gt;  字段填写你自己的挂载点。如果出现问题，检查：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;是否已经 &lt;code&gt;arch-chroot&lt;/code&gt;  到了 &lt;code&gt;/mnt&lt;/code&gt;  下？命令提示符为 &lt;code&gt;[root@archiso]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;前面的配置过程有没有出现问题？&lt;br&gt;
- &lt;code&gt;grub-install&lt;/code&gt;  命令成功时应该出现:&lt;br&gt;
-&lt;img data-src=&#34;grub-install.png&#34; alt=&#34;grub-install成功&#34;&gt;&lt;/li&gt;
+&lt;li&gt;前面的配置过程有没有出现问题？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;生成主配置文件: &lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt; &lt;br&gt;
+&lt;p&gt;&lt;code&gt;grub-install&lt;/code&gt;  命令成功时应该出现:&lt;br&gt;
+&lt;img data-src=&#34;grub-install.png&#34; alt=&#34;grub-install成功&#34;&gt;&lt;br&gt;
+ 3. 生成主配置文件: &lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt; &lt;br&gt;
  配置成功时界面：&lt;br&gt;
-&lt;img data-src=&#34;configure.png&#34; alt=&#34;配置成功&#34;&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;img data-src=&#34;configure.png&#34; alt=&#34;配置成功&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;重新启动计算机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重新启动计算机&#34;&gt;#&lt;/a&gt; 重新启动计算机&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;exit&lt;/code&gt;  退出 &lt;code&gt;chroot&lt;/code&gt;  环境&lt;/li&gt;
