@@ -7,18 +7,18 @@
         <language>zh-CN</language>
         <pubDate>Sat, 14 Oct 2023 14:23:52 +0800</pubDate>
         <lastBuildDate>Sat, 14 Oct 2023 14:23:52 +0800</lastBuildDate>
-        <category>Debian</category>
-        <category>Linux</category>
-        <category>包管理</category>
         <category>Arch</category>
+        <category>Linux</category>
         <category>安装教程</category>
         <category>操作系统</category>
+        <category>Debian</category>
+        <category>包管理</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
             <title>Debian包管理探索</title>
             <link>https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</link>
-            <category>Debian</category>
             <category>Linux</category>
+            <category>Debian</category>
             <category>包管理</category>
             <pubDate>Sat, 14 Oct 2023 14:23:52 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;linux-发行版&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-发行版&#34;&gt;#&lt;/a&gt; Linux 发行版&lt;/h1&gt;
@@ -120,16 +120,22 @@ App Store:
 &lt;/ul&gt;
 &lt;h1 id=&#34;包管理工具&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包管理工具&#34;&gt;#&lt;/a&gt; 包管理工具&lt;/h1&gt;
 &lt;h2 id=&#34;apt&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#apt&#34;&gt;#&lt;/a&gt;  &lt;code&gt;apt&lt;/code&gt;&lt;/h2&gt;
-&lt;h2 id=&#34;dpkg&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dpkg&#34;&gt;#&lt;/a&gt;  &lt;code&gt;dpkg&lt;/code&gt;&lt;/h2&gt;
-&lt;h1 id=&#34;相关命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#相关命令&#34;&gt;#&lt;/a&gt; 相关命令&lt;/h1&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;apt upgrade&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;apt update&lt;/code&gt; ：生成列表，显示仓库中包含哪些包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt upgrade&lt;/code&gt; / &lt;code&gt;apt dist-upgrade&lt;/code&gt; ：把列表中的包升级到最新版本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt policy &amp;lt;packagename&amp;gt;&lt;/code&gt; ：列举可安装的包版本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt -t [targetrelease] install [package]&lt;/code&gt; ：安装特定版本包&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;apt install &amp;lt;packagename&amp;gt;&lt;/code&gt; ：安装包&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;apt remove &amp;lt;packagename&amp;gt;&lt;/code&gt; ：卸载包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt dist-upgrade&lt;/code&gt; ：更新包并解决其相关依赖冲突 / 缺失等&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;apt search &amp;lt;packagename&amp;gt;&lt;/code&gt; ：搜索包&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;apt install ./&amp;lt;packagename&amp;gt;.deb&lt;/code&gt; ：安装本地的 &lt;code&gt;deb&lt;/code&gt;  包&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;dpkg多用于安装本地包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dpkg多用于安装本地包&#34;&gt;#&lt;/a&gt;  &lt;code&gt;dpkg&lt;/code&gt; : 多用于安装本地包&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;dpkg -i [packagefilename]&lt;/code&gt; ：安装本地包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dpkg --remove [packagename]&lt;/code&gt; ：卸载本地包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dpkg -I [packagename]&lt;/code&gt; ：查看本地包的更多信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dpkg --configure -a&lt;/code&gt; ：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;手动安装包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#手动安装包&#34;&gt;#&lt;/a&gt; 手动安装包&lt;/h1&gt;
 &lt;p&gt;包中通常含有 &lt;code&gt;Makefile&lt;/code&gt;  文件，我们可以手动的进行安装。&lt;br&gt;
@@ -175,12 +181,12 @@ App Store:
 &lt;p&gt;不同的仓库中的软件版本可能不同，需要通过 &lt;code&gt;apt policy&lt;/code&gt;  来看软件包所属的仓库。&lt;/p&gt;
 &lt;h2 id=&#34;这里面每行内容如何解读摘录原文&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#这里面每行内容如何解读摘录原文&#34;&gt;#&lt;/a&gt; 这里面每行内容如何解读？（摘录原文）&lt;/h2&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/debian/ stretch-backports main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;blockquote&gt;
-&lt;p&gt;deb is binary package source. deb-src indicates src packages.&lt;br&gt;
-http://… describes the location&lt;br&gt;
-stretch-backports means that this is for Jessie stretch and from a backport repository&lt;br&gt;
-main means that the repo has packages licensed under Debian Free Software Guidelines (DFSG)&lt;br&gt;
-contrib repos have packages licensed under DSFG but require non-free dependencies&lt;br&gt;
-non-free repos have packages that do not comply with DSFG&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;deb&lt;/code&gt;  is binary package source.  &lt;code&gt;deb-src&lt;/code&gt;  indicates src packages.&lt;br&gt;
+ &lt;code&gt;http://…&lt;/code&gt;  describes the location&lt;br&gt;
+ &lt;code&gt;stretch-backports&lt;/code&gt;  means that this is for  &lt;code&gt;Jessie stretch&lt;/code&gt;  and from a  &lt;code&gt;backport&lt;/code&gt;  repository&lt;br&gt;
+ &lt;code&gt;main&lt;/code&gt;  means that the repo has packages licensed under  &lt;code&gt;Debian Free Software Guidelines (DFSG)&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;contrib&lt;/code&gt;  repos have packages licensed under  &lt;code&gt;DSFG&lt;/code&gt;  but require  &lt;code&gt;non-free dependencies&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;non-free&lt;/code&gt;  repos have packages that do not comply with  &lt;code&gt;DSFG&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;自己组包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自己组包&#34;&gt;#&lt;/a&gt; 自己组包&lt;/h1&gt;
 &lt;h2 id=&#34;usr-目录下几个重要的目录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#usr-目录下几个重要的目录&#34;&gt;#&lt;/a&gt; /usr 目录下几个重要的目录&lt;/h2&gt;
