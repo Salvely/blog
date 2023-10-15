@@ -174,7 +174,9 @@ App Store:
 &lt;p&gt;&lt;code&gt;deb&lt;/code&gt;  is binary package source.  &lt;code&gt;deb-src&lt;/code&gt;  indicates src packages.&lt;br&gt;
  &lt;code&gt;http://…&lt;/code&gt;  describes the location&lt;br&gt;
  &lt;code&gt;stretch-backports&lt;/code&gt;  means that this is for  &lt;code&gt;Jessie stretch&lt;/code&gt;  and from a  &lt;code&gt;backport&lt;/code&gt;  repository&lt;br&gt;
- &lt;code&gt;main&lt;/code&gt;  means that the repo has packages licensed under  &lt;code&gt;Debian Free Software Guidelines (DFSG)&lt;/code&gt;  &amp;gt;  &lt;code&gt;contrib&lt;/code&gt;  repos have packages licensed under  &lt;code&gt;DSFG&lt;/code&gt;  but require  &lt;code&gt;non-free dependencies&lt;/code&gt;  &amp;gt;  &lt;code&gt;non-free&lt;/code&gt;  repos have packages that do not comply with  &lt;code&gt;DSFG&lt;/code&gt;&lt;/p&gt;
+ &lt;code&gt;main&lt;/code&gt;  means that the repo has packages licensed under  &lt;code&gt;Debian Free Software Guidelines (DFSG)&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;contrib&lt;/code&gt;  repos have packages licensed under  &lt;code&gt;DSFG&lt;/code&gt;  but require  &lt;code&gt;non-free dependencies&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;non-free&lt;/code&gt;  repos have packages that do not comply with  &lt;code&gt;DSFG&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;手动安装包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#手动安装包&#34;&gt;#&lt;/a&gt; 手动安装包&lt;/h1&gt;
 &lt;p&gt;包中通常含有 &lt;code&gt;Makefile&lt;/code&gt;  文件，我们可以手动的进行安装。&lt;br&gt;
