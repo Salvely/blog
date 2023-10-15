@@ -4,12 +4,12 @@
     <title>望春风</title>
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-15T01:38:16.000Z</updated>
-    <category term="Arch" />
+    <category term="Debian" />
     <category term="Linux" />
+    <category term="包管理" />
+    <category term="Arch" />
     <category term="安装教程" />
     <category term="操作系统" />
-    <category term="Debian" />
-    <category term="包管理" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</id>
         <title>Arch Linux系统配置教程</title>
@@ -268,8 +268,8 @@ App Store:
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90bGRyLnNoLw==&#34;&gt;TLDR 页面&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="Linux" />
         <category term="Debian" />
+        <category term="Linux" />
         <category term="包管理" />
         <updated>2023-10-14T06:23:52.000Z</updated>
     </entry>
@@ -684,8 +684,8 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 &lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装后的工作&#34;&gt;#&lt;/a&gt; 安装后的工作&lt;/h1&gt;
 &lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;应用程序列表&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="Arch" />
         <category term="Linux" />
+        <category term="Arch" />
         <category term="安装教程" />
         <category term="操作系统" />
         <updated>2023-10-12T05:50:44.000Z</updated>
