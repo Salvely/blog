@@ -15,10 +15,44 @@
         <category>操作系统</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/%E6%A0%87%E5%87%86CPP%E5%9F%BA%E7%A1%80/</guid>
-            <title>Standard C++ Guide</title>
+            <title>Stanford CS106L——Standard C++ Basics</title>
             <link>https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/%E6%A0%87%E5%87%86CPP%E5%9F%BA%E7%A1%80/</link>
             <pubDate>Sun, 22 Oct 2023 11:36:26 +0800</pubDate>
-            <description><![CDATA[  ]]></description>
+            <description><![CDATA[ &lt;h1 id=&#34;课程资料&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#课程资料&#34;&gt;#&lt;/a&gt; 课程资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1SenVTRU05R3c0VSZhbXA7bGlzdD1QTG9DTXN5RTFjdmRVSnZ2QmpCT0pLZjNyYzF4ajdfRzdnJmFtcDtpbmRleD0x&#34;&gt;Video&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2FyY2hpdmUvY3MvY3MxMDZsL2NzMTA2bC4xMjI0Lw==&#34;&gt;Slides/Code&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9mdWxsX2NvdXJzZV9yZWFkZXIucGRm&#34;&gt;Course Reader&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9hc3NpZ25tZW50LXNldHVw&#34;&gt;Assignment&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL29yZ3MvY291cnNld29ya3MvcmVwb3NpdG9yaWVzP3E9QVAxNDAxLTImYW1wO3R5cGU9YWxsJmFtcDtsYW5ndWFnZT0mYW1wO3NvcnQ9&#34;&gt;AP1401-2&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;学习流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#学习流程&#34;&gt;#&lt;/a&gt; 学习流程&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;for(int i = 0; i &amp;lt; 17; i++) &amp;#123;
+	1. 观看video
+	2. 阅读Slides + Code
+	3. 阅读 Course Reader对应章节
+	4. 完成AP1401-2对应作业
+	5. (Optional)完成Assignment对应作业
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;welcome&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#welcome&#34;&gt;#&lt;/a&gt; Welcome&lt;/h1&gt;
+&lt;h1 id=&#34;type-and-structs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#type-and-structs&#34;&gt;#&lt;/a&gt; Type and Structs&lt;/h1&gt;
+&lt;h1 id=&#34;streams&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#streams&#34;&gt;#&lt;/a&gt; Streams&lt;/h1&gt;
+&lt;h1 id=&#34;initialization-and-references&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#initialization-and-references&#34;&gt;#&lt;/a&gt; Initialization and References&lt;/h1&gt;
+&lt;h1 id=&#34;containers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#containers&#34;&gt;#&lt;/a&gt; Containers&lt;/h1&gt;
+&lt;h1 id=&#34;iterators-and-pointers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#iterators-and-pointers&#34;&gt;#&lt;/a&gt; Iterators and Pointers&lt;/h1&gt;
+&lt;h1 id=&#34;classes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#classes&#34;&gt;#&lt;/a&gt; Classes&lt;/h1&gt;
+&lt;h1 id=&#34;template-classes-and-const-correctness&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#template-classes-and-const-correctness&#34;&gt;#&lt;/a&gt; Template Classes and Const Correctness&lt;/h1&gt;
+&lt;h1 id=&#34;template-functions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#template-functions&#34;&gt;#&lt;/a&gt; Template Functions&lt;/h1&gt;
+&lt;h1 id=&#34;functions-and-lambdas&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#functions-and-lambdas&#34;&gt;#&lt;/a&gt; Functions and Lambdas&lt;/h1&gt;
+&lt;h1 id=&#34;midquarter-review&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#midquarter-review&#34;&gt;#&lt;/a&gt; Midquarter Review&lt;/h1&gt;
+&lt;h1 id=&#34;operators&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#operators&#34;&gt;#&lt;/a&gt; Operators&lt;/h1&gt;
+&lt;h1 id=&#34;special-member-functions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#special-member-functions&#34;&gt;#&lt;/a&gt; Special Member Functions&lt;/h1&gt;
+&lt;h1 id=&#34;move-semantics&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#move-semantics&#34;&gt;#&lt;/a&gt; Move Semantics&lt;/h1&gt;
+&lt;h1 id=&#34;stdoptional-and-type-safety&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stdoptional-and-type-safety&#34;&gt;#&lt;/a&gt; std::optional and Type Safety&lt;/h1&gt;
+&lt;h1 id=&#34;raii-smart-pointers-and-building-c-projects&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#raii-smart-pointers-and-building-c-projects&#34;&gt;#&lt;/a&gt; RAII, Smart Pointers, and Building C++ Projects&lt;/h1&gt;
+&lt;h1 id=&#34;c-for-data-science-and-ml&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c-for-data-science-and-ml&#34;&gt;#&lt;/a&gt; C++ for Data Science and ML&lt;/h1&gt;
+ ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</guid>
