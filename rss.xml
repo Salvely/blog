@@ -5,14 +5,21 @@
         <link>https://salvely.github.io/blog</link>
         <description>计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 15 Oct 2023 09:38:16 +0800</pubDate>
-        <lastBuildDate>Sun, 15 Oct 2023 09:38:16 +0800</lastBuildDate>
+        <pubDate>Sun, 22 Oct 2023 11:36:26 +0800</pubDate>
+        <lastBuildDate>Sun, 22 Oct 2023 11:36:26 +0800</lastBuildDate>
         <category>Debian</category>
         <category>Linux</category>
         <category>包管理</category>
         <category>Arch</category>
         <category>安装教程</category>
         <category>操作系统</category>
+        <item>
+            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/%E6%A0%87%E5%87%86CPP%E5%9F%BA%E7%A1%80/</guid>
+            <title>Standard C++ Guide</title>
+            <link>https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/%E6%A0%87%E5%87%86CPP%E5%9F%BA%E7%A1%80/</link>
+            <pubDate>Sun, 22 Oct 2023 11:36:26 +0800</pubDate>
+            <description><![CDATA[  ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</guid>
             <title>Arch Linux系统配置教程</title>
@@ -691,39 +698,6 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 &lt;/ol&gt;
 &lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装后的工作&#34;&gt;#&lt;/a&gt; 安装后的工作&lt;/h1&gt;
 &lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;应用程序列表&lt;/span&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/</guid>
-            <title>2023-10-12日记</title>
-            <link>https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/</link>
-            <pubDate>Thu, 12 Oct 2023 07:41:52 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;thursday-october-12-2023&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#thursday-october-12-2023&#34;&gt;#&lt;/a&gt; Thursday, October 12 2023&lt;/h1&gt;
-&lt;h2 id=&#34;现阶段主要学习任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#现阶段主要学习任务&#34;&gt;#&lt;/a&gt; 现阶段主要学习任务&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux 系统管理&lt;/li&gt;
-&lt;li&gt;Web 编程基础&lt;/li&gt;
-&lt;li&gt;数据结构与算法&lt;/li&gt;
-&lt;li&gt;数学基础&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;下阶段主要学习任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下阶段主要学习任务&#34;&gt;#&lt;/a&gt; 下阶段主要学习任务&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;系统入门&lt;/li&gt;
-&lt;li&gt;体系结构&lt;/li&gt;
-&lt;li&gt;操作系统&lt;/li&gt;
-&lt;li&gt;编译原理&lt;/li&gt;
-&lt;li&gt;计算机网络&lt;/li&gt;
-&lt;li&gt;数据库系统&lt;/li&gt;
-&lt;li&gt;分布式系统&lt;/li&gt;
-&lt;li&gt;系统安全&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;格言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#格言&#34;&gt;#&lt;/a&gt; 格言&lt;/h2&gt;
-&lt;p&gt;别玩手机！Just do it！&lt;/p&gt;
-&lt;h2 id=&#34;tasks&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tasks&#34;&gt;#&lt;/a&gt; Tasks&lt;/h2&gt;
-&lt;ul class=&#34;task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; 健身任务完成&lt;/label&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;notes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#notes&#34;&gt;#&lt;/a&gt; Notes&lt;/h2&gt;
  ]]></description>
         </item>
     </channel>

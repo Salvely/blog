@@ -3,13 +3,20 @@
     <id>https://salvely.github.io/blog</id>
     <title>望春风</title>
     <link href="https://salvely.github.io/blog" />
-    <updated>2023-10-15T01:38:16.000Z</updated>
+    <updated>2023-10-22T03:36:26.000Z</updated>
     <category term="Debian" />
     <category term="Linux" />
     <category term="包管理" />
     <category term="Arch" />
     <category term="安装教程" />
     <category term="操作系统" />
+    <entry>
+        <id>https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/%E6%A0%87%E5%87%86CPP%E5%9F%BA%E7%A1%80/</id>
+        <title>Standard C++ Guide</title>
+        <link rel="alternate" href="https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/%E6%A0%87%E5%87%86CPP%E5%9F%BA%E7%A1%80/"/>
+        <content type="html"></content>
+        <updated>2023-10-22T03:36:26.000Z</updated>
+    </entry>
     <entry>
         <id>https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</id>
         <title>Arch Linux系统配置教程</title>
@@ -689,38 +696,5 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
         <category term="安装教程" />
         <category term="操作系统" />
         <updated>2023-10-12T05:50:44.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/</id>
-        <title>2023-10-12日记</title>
-        <link rel="alternate" href="https://salvely.github.io/blog/2023/10/12/%E6%97%A5%E8%AE%B0/2023/10/12/"/>
-        <content type="html">&lt;h1 id=&#34;thursday-october-12-2023&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#thursday-october-12-2023&#34;&gt;#&lt;/a&gt; Thursday, October 12 2023&lt;/h1&gt;
-&lt;h2 id=&#34;现阶段主要学习任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#现阶段主要学习任务&#34;&gt;#&lt;/a&gt; 现阶段主要学习任务&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux 系统管理&lt;/li&gt;
-&lt;li&gt;Web 编程基础&lt;/li&gt;
-&lt;li&gt;数据结构与算法&lt;/li&gt;
-&lt;li&gt;数学基础&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;下阶段主要学习任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#下阶段主要学习任务&#34;&gt;#&lt;/a&gt; 下阶段主要学习任务&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;系统入门&lt;/li&gt;
-&lt;li&gt;体系结构&lt;/li&gt;
-&lt;li&gt;操作系统&lt;/li&gt;
-&lt;li&gt;编译原理&lt;/li&gt;
-&lt;li&gt;计算机网络&lt;/li&gt;
-&lt;li&gt;数据库系统&lt;/li&gt;
-&lt;li&gt;分布式系统&lt;/li&gt;
-&lt;li&gt;系统安全&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;格言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#格言&#34;&gt;#&lt;/a&gt; 格言&lt;/h2&gt;
-&lt;p&gt;别玩手机！Just do it！&lt;/p&gt;
-&lt;h2 id=&#34;tasks&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tasks&#34;&gt;#&lt;/a&gt; Tasks&lt;/h2&gt;
-&lt;ul class=&#34;task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; 健身任务完成&lt;/label&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;notes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#notes&#34;&gt;#&lt;/a&gt; Notes&lt;/h2&gt;
-</content>
-        <updated>2023-10-11T23:41:52.963Z</updated>
     </entry>
 </feed>
