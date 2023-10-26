@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://salvely.github.io/blog</id>
+    <title>望春风 • Posts by &#34;课程笔记&#34; tag</title>
+    <link href="https://salvely.github.io/blog" />
+    <updated>2023-10-22T03:36:26.000Z</updated>
+    <category term="Debian" />
+    <category term="Linux" />
+    <category term="包管理" />
+    <category term="Arch" />
+    <category term="安装教程" />
+    <category term="操作系统" />
+    <category term="课程笔记" />
+    <entry>
+        <id>https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/CS106L/</id>
+        <title>Stanford CS106L:Standard C++ Programming</title>
+        <link rel="alternate" href="https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/CS106L/"/>
+        <content type="html">&lt;h1 id=&#34;课程资料&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#课程资料&#34;&gt;#&lt;/a&gt; 课程资料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1SenVTRU05R3c0VSZhbXA7bGlzdD1QTG9DTXN5RTFjdmRVSnZ2QmpCT0pLZjNyYzF4ajdfRzdnJmFtcDtpbmRleD0x&#34;&gt;Video&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2FyY2hpdmUvY3MvY3MxMDZsL2NzMTA2bC4xMjI0Lw==&#34;&gt;Slides/Code&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9mdWxsX2NvdXJzZV9yZWFkZXIucGRm&#34;&gt;Course Reader&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9hc3NpZ25tZW50LXNldHVw&#34;&gt;Assignment&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL29yZ3MvY291cnNld29ya3MvcmVwb3NpdG9yaWVzP3E9QVAxNDAxLTImYW1wO3R5cGU9YWxsJmFtcDtsYW5ndWFnZT0mYW1wO3NvcnQ9&#34;&gt;AP1401-2&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2FyY2hpdmUvY3MvY3MxMDZsL2NzMTA2bC4xMjEyLw==&#34;&gt;Spring 2021 资料&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9sZWN0dXJlcy8=&#34;&gt;综合资料&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMUs4NDExYjdBVS8/c3BtX2lkX2Zyb209MzMzLjMzNy5zZWFyY2gtY2FyZC5hbGwuY2xpY2smYW1wO3ZkX3NvdXJjZT04NWFjZjBhNTlkZWQwMmU0Yzc1YWUxMTU4YmFjYTIwNw==&#34;&gt;特别版视频&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;学习流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#学习流程&#34;&gt;#&lt;/a&gt; 学习流程&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;for(int i = 0; i &amp;lt; 17; i++) &amp;#123;
+	1. 观看video
+	2. 阅读Slides + Code
+	3. (Optional)阅读 Course Reader对应章节
+	4. 完成AP1401-2对应作业
+	5. (Optional)完成Assignment对应作业
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;welcome&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#welcome&#34;&gt;#&lt;/a&gt; Welcome&lt;/h1&gt;
+&lt;p&gt;本节课主要讲述了 C++ 的应用前景，历史发展和设计哲学。&lt;/p&gt;
+&lt;h2 id=&#34;c应用前景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c应用前景&#34;&gt;#&lt;/a&gt; C++ 应用前景&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;future.png&#34; alt=&#34;C++应用前景&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;c的历史&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c的历史&#34;&gt;#&lt;/a&gt; C++ 的历史&lt;/h2&gt;
+&lt;h3 id=&#34;汇编语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#汇编语言&#34;&gt;#&lt;/a&gt; 汇编语言&lt;/h3&gt;
+&lt;p&gt;在早期阶段，尚没有高级语言这一说。程序员大多使用汇编语言编写程序，汇编语言的好处在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用较为简单的指令进行编程&lt;/li&gt;
+&lt;li&gt;汇编语言执行速度较快&lt;/li&gt;
+&lt;li&gt;程序员可以直接操作计算机底层寄存器等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但是，汇编语言编程也有它的缺陷，缺陷就在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序涉及到对计算机底层硬件的基础操作，而不只是处理逻辑，因此对其他程序员来说，阅读起来较为困难&lt;/li&gt;
+&lt;li&gt;因为汇编语言涉及到指令集架构，而指令集架构和计算机底层硬件和操作系统紧密相关，因此在一台机器上运行的程序可能无法迁移到另一台程序，简单来说就是可移植性较差&lt;/li&gt;
+&lt;li&gt;汇编语言编写的程序因为使用的是一些基本的操作，因此程序较长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此， &lt;code&gt;Ken Thompson&lt;/code&gt;  和 &lt;code&gt;Dennis Ritchie&lt;/code&gt;  于 1972 年发明了 C 语言。&lt;/p&gt;
+&lt;h3 id=&#34;c-语言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c-语言&#34;&gt;#&lt;/a&gt; C 语言&lt;/h3&gt;
+&lt;p&gt;C 语言是一门高级语言，相较汇编，它的优势在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;面向过程编程，较为简单。程序员在编写程序时，无需考虑计算机底层架构，而只需要考虑处理逻辑，因此编程较为简单&lt;/li&gt;
+&lt;li&gt;C 语言可以由编译器编译为汇编指令，在不同的机器上，可以编译出不同的汇编指令，而后汇编器又可以将汇编指令转化为针对该计算机指令集架构的机器指令，实现 C 语言的可迁移性&lt;/li&gt;
+&lt;li&gt;C 语言程序执行速度非常快&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然而，在面对更复杂的编程问题时，C 语言也表现出了它的不足：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C 语言是面向过程的语言，它无法面向对象。当我们需要更复杂的结构和它的一系列方法时，C 语言只为我们提供了一些有限的结构，无法满足我们对高级结构的需求&lt;/li&gt;
+&lt;li&gt;C 语言无法对不同类型提供一个泛化的模板，对于不同类型的传入参数，我们可能需要重复写多个几乎一致的处理函数&lt;/li&gt;
+&lt;li&gt;写大型项目时，很多时候很难将一个问题拆解为一个面向过程的模型，不是所有问题都可以使用模块化的过程方法解决&lt;/li&gt;
+&lt;li&gt;写出来的程序较长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;c&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c&#34;&gt;#&lt;/a&gt; C++&lt;/h3&gt;
+&lt;p&gt;针对 C 语言的问题， &lt;code&gt;Bjarne Stroustrup&lt;/code&gt;  于 1983 年开发了 C++ 语言，他希望能够在 C 语言基础上实现一个具有多种不同特性的高级语言。 C++ 语言一开始只是 &lt;code&gt;C with classes&lt;/code&gt; ，实现了 C 语言面向对象的延伸。而后逐步发展，直到今天的 &lt;code&gt;C++23&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;evolution.png&#34; alt=&#34;C++的演化&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;c的几大特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c的几大特性&#34;&gt;#&lt;/a&gt; C++ 的几大特性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;通用语言&lt;br&gt;
+有的语言可以在应用到多个场景中，但是在解决特定场景问题时会显得复杂，比如 C++ 在做矩阵乘除法时，需要程序员手动编写程序，效率较低。但是 C++ 的用途很广。而有的语言，可以解决特定问题，但是并不泛用。比如 Matlab 在做科学计算时非常的常用，但是在解决其他问题时并没有 C++ 高效。&lt;/li&gt;
+&lt;li&gt;编译型语言&lt;br&gt;
+高级语言需要转换成机器可以阅读的二进制码才能被计算机执行。而高级语言分为编译型和解释型。其区别在于，解释型语言使用解释器 (Interpreters) 进行翻译，一边翻译一边执行。解释器在执行一条语句的同时，获取下一条语句。而编译型语言使用编译器进行编译。将整个源代码编译完成后，直接执行生成的二进制码。&lt;/li&gt;
+&lt;li&gt;静态类型语言&lt;br&gt;
+静态类型语言是指语句中的每个变量在声明后都有固定的类型，一旦确定，不能随意更改。而动态类型（如 Python、Javascript）会在执行的过程中动态的判断变量的类型。静态类型语言会在编译阶段检查语句是否合法，否则产生编译错误。而动态类型通常无法在编译阶段确定该语句是否有编译错误，错误均在程序运行时产生，也称为运行时错误。编译阶段排错让运行时错误出现的概率大大降低。这样无需运行即可排除程序错误。&lt;/li&gt;
+&lt;li&gt;多范式语言&lt;br&gt;
+部分语言只有单一范式，如 C 语言，无法编写面向对象程序。而 C++ 可以同时实现面向对象特性，泛型特性，和面向过程的特性。非常灵活。&lt;/li&gt;
+&lt;li&gt;中间语言&lt;br&gt;
+部分底层语言（如汇编）直接和计算机内存打交道，但是利用其写出的程序逻辑不清晰，难以理解。而部分语言无法直接对计算机底层进行操纵（如 Python、Java) 等，程序员在编写程序时就像是被禁锢，无法探索底层的奥秘。C++ 可以像 C 语言那样接触底层硬件（利用指针），也可以利用其面向对象特性构造大型程序，同时实现封装和抽象。触及底层系统和实现抽象的目的同时达到，非常便于程序员大展身手。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;c的设计哲学&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c的设计哲学&#34;&gt;#&lt;/a&gt; C++ 的设计哲学&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;只有在需要解决特定问题时引入新的特性&lt;/li&gt;
+&lt;li&gt;程序员可以自由选择编程风格&lt;/li&gt;
+&lt;li&gt;隐藏实现细节，抽象出编程接口&lt;/li&gt;
+&lt;li&gt;让程序员能够完全以自己想要的方式编写程序&lt;/li&gt;
+&lt;li&gt;让编写的程序尽可能高效&lt;/li&gt;
+&lt;li&gt;编译时进行类型检查&lt;/li&gt;
+&lt;li&gt;可以兼容早期版本程序，也兼容 C 语言程序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;c的应用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c的应用&#34;&gt;#&lt;/a&gt; C++ 的应用&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;浏览器&lt;/li&gt;
+&lt;li&gt;JVM&lt;/li&gt;
+&lt;li&gt;火星探索车&lt;/li&gt;
+&lt;li&gt;等等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;type-and-structs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#type-and-structs&#34;&gt;#&lt;/a&gt; Type and Structs&lt;/h1&gt;
+&lt;h1 id=&#34;streams&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#streams&#34;&gt;#&lt;/a&gt; Streams&lt;/h1&gt;
+&lt;h2 id=&#34;streams-overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#streams-overview&#34;&gt;#&lt;/a&gt; Streams Overview&lt;/h2&gt;
+&lt;h3 id=&#34;environment&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#environment&#34;&gt;#&lt;/a&gt; Environment&lt;/h3&gt;
+&lt;p&gt;在学习 Stream 之前，我们先要了解 &lt;code&gt;Environment&lt;/code&gt; （环境）的概念。我们家里有温度计，我们通常通过温度计上的水银球去检测环境温度，然后将摄氏度显示在数轴上，人们通过观测数轴上的数字来查看当前温度。在这个例子中，外界就是环境，水银球就是将温度转化为实际示数的媒介，而数轴就是温度的输出，将温度显示出来供人们了解。而在程序编写的过程中，也可能存在一个外部环境，程序需要从这个环境获取信息，然后在利用一些处理逻辑来进行一些计算，最后返回输出或者将输出打印在屏幕上。这个环境可能是用户输入，也可能是外部文件，还有可能是其他程序。&lt;/p&gt;
+&lt;h3 id=&#34;stream-是什么&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-是什么&#34;&gt;#&lt;/a&gt; Stream 是什么&lt;/h3&gt;
+&lt;p&gt;Stream 是程序与外部环境交流的媒介。Stream 的输入与输出可能来自用户，也可能来自程序，也可能来自其他文件。如果要将一个变量输出到终端，那么变量就会以字符串的形式打入 Stream，然后 Stream 将其输出到终端。如果要从用户输入读取数据，那么也是将用户输入转化为字符串存储在 Stream 中，然后再将其转储到变量中。&lt;/p&gt;
+&lt;h3 id=&#34;stream-特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-特点&#34;&gt;#&lt;/a&gt; Stream 特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;可以对大体积数据进行分片读取，然后存储&lt;/li&gt;
+&lt;li&gt;可以读取多个类型的数据&lt;/li&gt;
+&lt;li&gt;可以串联多个 &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  读取&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;cin-与-cout来自键盘去往终端&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cin-与-cout来自键盘去往终端&#34;&gt;#&lt;/a&gt; cin 与 cout：来自键盘，去往终端&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;cout&lt;/code&gt;  为 Stream 对象，它从变量中获取数据，存储到一个 Buffer 中，然后将其&lt;strong&gt;输出到终端上&lt;/strong&gt;。&lt;br&gt;
+ &lt;code&gt;cin&lt;/code&gt;  也是 Stream 对象，它从&lt;strong&gt;用户输入&lt;/strong&gt;获取值，存储到一个 Buffer 中，然后将其转储到对应类型的变量中。&lt;/p&gt;
+&lt;h2 id=&#34;ifstream-与-ofstream来自文件去往文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-与-ofstream来自文件去往文件&#34;&gt;#&lt;/a&gt; ifstream 与 ofstream：来自文件，去往文件&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;问题思考：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  分别是什么？&lt;/li&gt;
+&lt;li&gt;还有什么特殊的读写文件类？特殊在哪？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;i/ofstream&lt;/code&gt;  和 &lt;code&gt;cin/cout&lt;/code&gt;  在使用上有什么不一样之处？&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  需要包含什么头文件？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ifstream&lt;/code&gt;  怎么初始化？初始化后需要做哪些检查？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ofstream&lt;/code&gt;  怎么初始化？初始化后需要做哪些检查？&lt;/li&gt;
+&lt;li&gt;如果传入的文件名是 &lt;code&gt;string&lt;/code&gt;  类型，如何处理？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;close()&lt;/code&gt;  时有哪些需要注意的地方？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;ifstream-ofstream-overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-ofstream-overview&#34;&gt;#&lt;/a&gt; ifstream &amp;amp; ofstream Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  分别从文件读取和写入文件 (此外，还有一个叫做 &lt;code&gt;fstream&lt;/code&gt;  的类型，即可以完成写入，又可以完成读取）。此外， &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  在使用上与 &lt;code&gt;cin/cout&lt;/code&gt;  不一样之处在于， &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  是一个类型，而不是一个对象，但是 &lt;code&gt;cin&lt;/code&gt;  及 &lt;code&gt;cout&lt;/code&gt;  是一个对象。在使用对象的方法时 ( &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  和 &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;  已被重载) 可以直接调用，但是在使用一个类的方法时，首先需要初始化这个类的一个对象，然后再对其方法进行调用。&lt;/p&gt;
+&lt;h3 id=&#34;ifstream-ofstream-使用说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-ofstream-使用说明&#34;&gt;#&lt;/a&gt; ifstream &amp;amp; ofstream 使用说明&lt;/h3&gt;
+&lt;h4 id=&#34;包含头文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包含头文件&#34;&gt;#&lt;/a&gt; 包含头文件&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;fstream&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ifstream-初始化-使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-初始化-使用&#34;&gt;#&lt;/a&gt; ifstream 初始化 &amp;amp; 使用&lt;/h4&gt;
+&lt;p&gt;可以直接使用构造函数，在参数列表中填入文件名进行初始化：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;ifstream myStream(&amp;quot;file.txt&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也可以在使用默认构造函数初始化后，利用类的 &lt;code&gt;open()&lt;/code&gt;  方法打开文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;ifstream myStream;
+myStream.open(&amp;quot;file.txt&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用 &lt;code&gt;ifstream&lt;/code&gt;  对象的方法与使用 &lt;code&gt;cin&lt;/code&gt;  相似，如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;myStream &amp;gt;&amp;gt; myInteger
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意，在 &lt;code&gt;open()&lt;/code&gt;  方法调用后，推荐使用 &lt;code&gt;myStream.is_open()&lt;/code&gt;  来探测是否真的成功打开了文件。&lt;/p&gt;
+&lt;h4 id=&#34;ofstream-初始化-使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ofstream-初始化-使用&#34;&gt;#&lt;/a&gt; ofstream 初始化 &amp;amp; 使用&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;ofstream&lt;/code&gt;  初始化过程及使用过程与前文 &lt;code&gt;ifstream&lt;/code&gt;  相似。若文件不存在，调用 &lt;code&gt;open()&lt;/code&gt;  方法会新创建一个文件，否则会覆盖原有的同名文件。（所以尽量做好备份）&lt;/p&gt;
+&lt;h4 id=&#34;关闭流close&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关闭流close&#34;&gt;#&lt;/a&gt; 关闭流： &lt;code&gt;close()&lt;/code&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;当流的生命周期结束时，C++ 会为你自动关闭流&lt;/li&gt;
+&lt;li&gt;你也可以手动使用 &lt;code&gt;close()&lt;/code&gt;  方法关闭流&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;使用-string-作为文件名时&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用-string-作为文件名时&#34;&gt;#&lt;/a&gt; 使用 string 作为文件名时…&lt;/h4&gt;
+&lt;p&gt;注意， &lt;code&gt;string&lt;/code&gt;  类的开发时间要晚于 &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt; ，彼时 &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  只接受 C 语言的字符串类型。因此，要将一个 &lt;code&gt;string&lt;/code&gt;  类型的文件名传入这两个类的对象，我们必须调用 &lt;code&gt;.c_str()&lt;/code&gt;  来将其转化为 C 语言格式的字符串。&lt;/p&gt;
+&lt;h2 id=&#34;stream-manipulators&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-manipulators&#34;&gt;#&lt;/a&gt; Stream manipulators&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;stream manipulator&lt;/code&gt;  可以让对变量及输出的处理更加方便，程序员无需手动编程实现一些较为繁琐的功能。几种常用的 &lt;code&gt;stream manipulator&lt;/code&gt;  如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;endl&lt;/code&gt; : 输出后换行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setw&lt;/code&gt; : 设置输出的宽度&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;left/right&lt;/code&gt; : 通常与 &lt;code&gt;setw&lt;/code&gt;  连用，表示左补空格 / 右补空格&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setfill&lt;/code&gt; : 在宽度一定，文字没有填满处补充特定的占位符&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;boolalpha&lt;/code&gt; : 用 &lt;code&gt;true/false&lt;/code&gt;  表示 &lt;code&gt;1/0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hex&lt;/code&gt; : 将输入输出理解为 16 进制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dec&lt;/code&gt; : 输入输出为 10 进制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;oct&lt;/code&gt; : 输入输出为 8 进制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ws&lt;/code&gt; : 跳过所有的空格&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;stream-异常处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-异常处理&#34;&gt;#&lt;/a&gt; Stream 异常处理&lt;/h2&gt;
+&lt;p&gt;在使用 &lt;code&gt;stream&lt;/code&gt;  进行读取时，可能会出现读取异常的情况，比如读进来的值是个字符串，但是程序想把它保存到一个 &lt;code&gt;int&lt;/code&gt;  类中，这样就产生了类型异常。我们需要在读取后使用 &lt;code&gt;cout.fail()&lt;/code&gt;  或 &lt;code&gt;cin.fail()&lt;/code&gt;  来判断读取是否成功，如果有异常，我们需要手动处理异常，然后用 &lt;code&gt;cin.clear()&lt;/code&gt;  表达异常已经处理完毕。&lt;/p&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;注意，在使用 &lt;code&gt;while&lt;/code&gt;  循环进行读取时，尽量把异常判断放在 &lt;code&gt;while&lt;/code&gt;  循环内，如果判断到异常则退出，否则就进行下一次读取。不要把 &lt;code&gt;while&lt;/code&gt;  循环放在条件判断中，否则可能会导致读取异常后依然在进行输出，因此尽量使用如下的结构。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;while(true) &amp;#123;
+  ...
+  if(cin.fail())
+    break;
+  ...
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因为 &lt;code&gt;stream&lt;/code&gt;  在读取到最后或读取错误时会返回 &lt;code&gt;false&lt;/code&gt; ，而其他情况下会返回 &lt;code&gt;stream&lt;/code&gt;  对象本身（也可以判断为 &lt;code&gt;true&lt;/code&gt; ），因此我们可以使用 &lt;code&gt;cin &amp;lt;&amp;lt; intValue &amp;lt;&amp;lt; doubleValue&lt;/code&gt;  之类的语句作为判断的条件，以简化上述的循环，结构如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;while(cin &amp;lt;&amp;lt; intValue &amp;lt;&amp;lt; doubleVALUE) &amp;#123;
+  ...
+  ...
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;stream-的麻烦之处&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-的麻烦之处&#34;&gt;#&lt;/a&gt; Stream 的麻烦之处&lt;/h2&gt;
+&lt;p&gt;Stream 存在一个问题，如果用户多次连续读取值，而其中某一次读入的值的类型不匹配的话，则会连环影响到后面的读取。这其中的根本原因是， &lt;code&gt;stream&lt;/code&gt;  本身是一个附带了一个读写头的 &lt;code&gt;buffer&lt;/code&gt;  字符数组，而每次读取后，读写后都会向后移动，下一次读取的位置是上一次读取的位置 + 上一次读取的长度。比如说我们需要读取一个 &lt;code&gt;int&lt;/code&gt; ，再读取一个 &lt;code&gt;string&lt;/code&gt; 。上一次用户输入了 &lt;code&gt;8.265&lt;/code&gt; , 那么第一次就只会读入 &lt;code&gt;8&lt;/code&gt; ，下一次读取从 &lt;code&gt;.265&lt;/code&gt;  开始，导致 &lt;code&gt;string&lt;/code&gt;  读取出错。&lt;/p&gt;
+&lt;p&gt;要解决标准的 &lt;code&gt;stream&lt;/code&gt;  带来的麻烦，我们引入一个新的函数： &lt;code&gt;getline()&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;用getline函数读取标准输入&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用getline函数读取标准输入&#34;&gt;#&lt;/a&gt; 用 &lt;code&gt;getline()&lt;/code&gt;  函数读取标准输入&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;getline()&lt;/code&gt;  可以将输入保存在 &lt;code&gt;string&lt;/code&gt;  中，&lt;/p&gt;
+&lt;h2 id=&#34;用getline函数读取文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用getline函数读取文件&#34;&gt;#&lt;/a&gt; 用 &lt;code&gt;getline()&lt;/code&gt;  函数读取文件&lt;/h2&gt;
+&lt;h1 id=&#34;initialization-and-references&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#initialization-and-references&#34;&gt;#&lt;/a&gt; Initialization and References&lt;/h1&gt;
+&lt;h1 id=&#34;containers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#containers&#34;&gt;#&lt;/a&gt; Containers&lt;/h1&gt;
+&lt;h1 id=&#34;iterators-and-pointers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#iterators-and-pointers&#34;&gt;#&lt;/a&gt; Iterators and Pointers&lt;/h1&gt;
+&lt;h1 id=&#34;classes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#classes&#34;&gt;#&lt;/a&gt; Classes&lt;/h1&gt;
+&lt;h1 id=&#34;template-classes-and-const-correctness&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#template-classes-and-const-correctness&#34;&gt;#&lt;/a&gt; Template Classes and Const Correctness&lt;/h1&gt;
+&lt;h1 id=&#34;template-functions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#template-functions&#34;&gt;#&lt;/a&gt; Template Functions&lt;/h1&gt;
+&lt;h1 id=&#34;functions-and-lambdas&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#functions-and-lambdas&#34;&gt;#&lt;/a&gt; Functions and Lambdas&lt;/h1&gt;
+&lt;h1 id=&#34;midquarter-review&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#midquarter-review&#34;&gt;#&lt;/a&gt; Midquarter Review&lt;/h1&gt;
+&lt;h1 id=&#34;operators&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#operators&#34;&gt;#&lt;/a&gt; Operators&lt;/h1&gt;
+&lt;h1 id=&#34;special-member-functions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#special-member-functions&#34;&gt;#&lt;/a&gt; Special Member Functions&lt;/h1&gt;
+&lt;h1 id=&#34;move-semantics&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#move-semantics&#34;&gt;#&lt;/a&gt; Move Semantics&lt;/h1&gt;
+&lt;h1 id=&#34;stdoptional-and-type-safety&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stdoptional-and-type-safety&#34;&gt;#&lt;/a&gt; std::optional and Type Safety&lt;/h1&gt;
+&lt;h1 id=&#34;raii-smart-pointers-and-building-c-projects&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#raii-smart-pointers-and-building-c-projects&#34;&gt;#&lt;/a&gt; RAII, Smart Pointers, and Building C++ Projects&lt;/h1&gt;
+&lt;h1 id=&#34;c-for-data-science-and-ml&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c-for-data-science-and-ml&#34;&gt;#&lt;/a&gt; C++ for Data Science and ML&lt;/h1&gt;
+</content>
+        <category term="课程笔记" />
+        <updated>2023-10-22T03:36:26.000Z</updated>
+    </entry>
+</feed>
