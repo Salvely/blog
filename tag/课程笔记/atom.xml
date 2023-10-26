@@ -28,9 +28,9 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;学习流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#学习流程&#34;&gt;#&lt;/a&gt; 学习流程&lt;/h1&gt;
 &lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;for(int i = 0; i &amp;lt; 17; i++) &amp;#123;
-	1. 观看video
-	2. 阅读Slides + Code
-	3. (Optional)阅读 Course Reader对应章节
+	1. (Optional)阅读 Course Reader对应章节
+	2. 观看video
+	3. 阅读Slides + Code
 	4. 完成AP1401-2对应作业
 	5. (Optional)完成Assignment对应作业
 &amp;#125;
@@ -116,7 +116,8 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;cin-与-cout来自键盘去往终端&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cin-与-cout来自键盘去往终端&#34;&gt;#&lt;/a&gt; cin 与 cout：来自键盘，去往终端&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;cout&lt;/code&gt;  为 Stream 对象，它从变量中获取数据，存储到一个 Buffer 中，然后将其&lt;strong&gt;输出到终端上&lt;/strong&gt;。&lt;br&gt;
- &lt;code&gt;cin&lt;/code&gt;  也是 Stream 对象，它从&lt;strong&gt;用户输入&lt;/strong&gt;获取值，存储到一个 Buffer 中，然后将其转储到对应类型的变量中。&lt;/p&gt;
+ &lt;code&gt;cin&lt;/code&gt;  也是 Stream 对象，它从&lt;strong&gt;用户输入&lt;/strong&gt;获取值，存储到一个 Buffer 中，然后将其转储到对应类型的变量中。&lt;br&gt;
+在使用这两个输入流前，需要在程序开始处 &lt;code&gt;#include &amp;lt;iostream&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;ifstream-与-ofstream来自文件去往文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-与-ofstream来自文件去往文件&#34;&gt;#&lt;/a&gt; ifstream 与 ofstream：来自文件，去往文件&lt;/h2&gt;
 &lt;div class=&#34;note info&#34;&gt;
 &lt;p&gt;问题思考：&lt;/p&gt;
@@ -191,10 +192,51 @@ myStream.open(&amp;quot;file.txt&amp;quot;);
 &lt;/div&gt;
 &lt;h2 id=&#34;stream-的麻烦之处&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-的麻烦之处&#34;&gt;#&lt;/a&gt; Stream 的麻烦之处&lt;/h2&gt;
 &lt;p&gt;Stream 存在一个问题，如果用户多次连续读取值，而其中某一次读入的值的类型不匹配的话，则会连环影响到后面的读取。这其中的根本原因是， &lt;code&gt;stream&lt;/code&gt;  本身是一个附带了一个读写头的 &lt;code&gt;buffer&lt;/code&gt;  字符数组，而每次读取后，读写后都会向后移动，下一次读取的位置是上一次读取的位置 + 上一次读取的长度。比如说我们需要读取一个 &lt;code&gt;int&lt;/code&gt; ，再读取一个 &lt;code&gt;string&lt;/code&gt; 。上一次用户输入了 &lt;code&gt;8.265&lt;/code&gt; , 那么第一次就只会读入 &lt;code&gt;8&lt;/code&gt; ，下一次读取从 &lt;code&gt;.265&lt;/code&gt;  开始，导致 &lt;code&gt;string&lt;/code&gt;  读取出错。&lt;/p&gt;
-&lt;p&gt;要解决标准的 &lt;code&gt;stream&lt;/code&gt;  带来的麻烦，我们引入一个新的函数： &lt;code&gt;getline()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;此外， &lt;code&gt;cin&lt;/code&gt;  的特点是： &lt;code&gt;cin&lt;/code&gt;  越过一切前导空格和换行符，在读入有效字符后，遇到空格或换行符就停止读取，见如下程序：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+int main(void)
+&amp;#123;
+	string name;
+	string city;
+	cin &amp;gt;&amp;gt; name &amp;gt;&amp;gt; city;
+	cout &amp;lt;&amp;lt; &amp;quot;My name is &amp;quot; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; endl;
+	cout &amp;lt;&amp;lt; &amp;quot;The city is &amp;quot; &amp;lt;&amp;lt; city &amp;lt;&amp;lt; endl;
+	return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果输入的第一个 &lt;code&gt;name&lt;/code&gt;  是 &lt;code&gt;First Last&lt;/code&gt; ， &lt;code&gt;city&lt;/code&gt;  输入的是 &lt;code&gt;Wuhan&lt;/code&gt; 。由于 &lt;code&gt;cin&lt;/code&gt;  遇到空格就停止读取，那么 &lt;code&gt;name&lt;/code&gt;  中存储的值就是 &lt;code&gt;First&lt;/code&gt; ， &lt;code&gt;city&lt;/code&gt;  中存储的值就是 &lt;code&gt;Last&lt;/code&gt; ，而 &lt;code&gt;Wuhan&lt;/code&gt;  依然在 &lt;code&gt;buffer&lt;/code&gt;  中无法读取。&lt;/p&gt;
+&lt;p&gt;因此，要解决标准的 &lt;code&gt;stream&lt;/code&gt;  带来的麻烦，我们引入一个新的函数： &lt;code&gt;getline()&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;用getline函数读取标准输入&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用getline函数读取标准输入&#34;&gt;#&lt;/a&gt; 用 &lt;code&gt;getline()&lt;/code&gt;  函数读取标准输入&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;getline()&lt;/code&gt;  可以将输入保存在 &lt;code&gt;string&lt;/code&gt;  中，&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;getline()&lt;/code&gt;  可以将输入保存在 &lt;code&gt;string&lt;/code&gt;  中。 &lt;code&gt;getline&lt;/code&gt;  函数的用途在于，如同他的名字，它可以一次读取一行，而 &lt;code&gt;cin&lt;/code&gt;  每次读到空格或换行符就停止。 &lt;code&gt;getline&lt;/code&gt;  不会忽略空格，会将其一并读入，但是 &lt;code&gt;getline&lt;/code&gt;  遇到换行符就停止读取，并且换行符依然留存在 &lt;code&gt;stream buffer&lt;/code&gt;  中。因此 &lt;code&gt;getline&lt;/code&gt;  非常适合那种用户需要在这个字符串中保留空格的情况。&lt;/p&gt;
+&lt;p&gt;前文我们说过， &lt;code&gt;cin&lt;/code&gt;  会在开始读取时越过一切前导的空格和换行符，读取有效字符后，遇到空格和换行符就停止读取，并且将其留在 &lt;code&gt;stream buffer&lt;/code&gt;  中，以待下一次的读取。那么如果我们将 &lt;code&gt;cin&lt;/code&gt;  和 &lt;code&gt;getline&lt;/code&gt;  混用时，便会出现一些问题。&lt;/p&gt;
+&lt;p&gt;参考如下示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;int dummyInt;
+string dummyString;
+cin &amp;gt;&amp;gt; dummyInt;
+getline(cin,dummyString);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;cin&lt;/code&gt;  首先读入了一个数，然后&lt;strong&gt;将换行符留在了 &lt;code&gt;buffer&lt;/code&gt;  中&lt;/strong&gt;，但是下一次调用 &lt;code&gt;getline&lt;/code&gt;  时， &lt;code&gt;getline&lt;/code&gt;  遇到换行符就停止读取。导致读入的 &lt;code&gt;dummyString&lt;/code&gt;  并不是我们下一次输入的字符串，而是一个空串。这都是因为上一个字符串的换行符还没有处理干净。&lt;br&gt;
+最好的解决办法是将这种原始的输入输出读取，改为调用封装好的功能完善的库函数。&lt;/p&gt;
 &lt;h2 id=&#34;用getline函数读取文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用getline函数读取文件&#34;&gt;#&lt;/a&gt; 用 &lt;code&gt;getline()&lt;/code&gt;  函数读取文件&lt;/h2&gt;
+&lt;p&gt;参考之前 &lt;code&gt;cin&lt;/code&gt;  循环从文件读取的形式，我们可以编写一个使用 &lt;code&gt;getline&lt;/code&gt;  循环读取文件的格式:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;ifstream capitals(&amp;quot;capitals.txt&amp;quot;);
+string capital,country;
+... // check if the file is correctly opened
+while(getline(capitals,capital) &amp;amp;&amp;amp; getlien(capitals,country)) &amp;#123;
+	...
+	...
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;a-string-bufferstringstream&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#a-string-bufferstringstream&#34;&gt;#&lt;/a&gt; A string buffer: &lt;code&gt;stringstream&lt;/code&gt;&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;有时候，我们想要连接字符串和数字，譬如 &lt;code&gt;&amp;quot;I ate&amp;quot; + 3 &amp;quot;peaches today&amp;quot;&lt;/code&gt; ，可是 C++ 不允许我们拼接不一样类型的值，怎么办呢？&lt;br&gt;
+下面我们引入一个新的 &lt;code&gt;stream&lt;/code&gt;  类： &lt;code&gt;stringstream&lt;/code&gt; 。通过  &lt;code&gt;myStringStream &amp;lt;&amp;lt; &amp;quot;I ate&amp;quot; &amp;lt;&amp;lt; 3 &amp;lt;&amp;lt; &amp;quot;peaches today&amp;quot;&lt;/code&gt; , 我们可以实现字符串和其他类型值的拼接。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;stringstream&lt;/code&gt;  是一个类似于 &lt;code&gt;cin&lt;/code&gt;  和 &lt;code&gt;cout&lt;/code&gt;  的 &lt;code&gt;stream&lt;/code&gt; 。和 &lt;code&gt;ifstream/ofstream&lt;/code&gt;  一样，在使用 &lt;code&gt;stringstream&lt;/code&gt;  前，我们需要先初始化一个 &lt;code&gt;stringstream&lt;/code&gt;  类的对象，然后再对这个对象进行读入和写出。 &lt;code&gt;stringstream&lt;/code&gt;  和标准 &lt;code&gt;iostream&lt;/code&gt;  的差别在于，其写入和写出的值并不保存在程序外，而是作为程序的一个变量，可以通过调用 &lt;code&gt;myStringStream.str()&lt;/code&gt;  随时读取。&lt;/p&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;在使用 &lt;code&gt;stringstream&lt;/code&gt;  之前，需要引入头文件 &lt;code&gt;#include &amp;lt;sstream&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;h1 id=&#34;initialization-and-references&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#initialization-and-references&#34;&gt;#&lt;/a&gt; Initialization and References&lt;/h1&gt;
 &lt;h1 id=&#34;containers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#containers&#34;&gt;#&lt;/a&gt; Containers&lt;/h1&gt;
 &lt;h1 id=&#34;iterators-and-pointers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#iterators-and-pointers&#34;&gt;#&lt;/a&gt; Iterators and Pointers&lt;/h1&gt;
