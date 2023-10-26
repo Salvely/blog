@@ -7,12 +7,12 @@
         <language>zh-CN</language>
         <pubDate>Sun, 22 Oct 2023 11:36:26 +0800</pubDate>
         <lastBuildDate>Sun, 22 Oct 2023 11:36:26 +0800</lastBuildDate>
-        <category>Debian</category>
-        <category>Linux</category>
-        <category>包管理</category>
         <category>Arch</category>
+        <category>Linux</category>
         <category>安装教程</category>
         <category>操作系统</category>
+        <category>Debian</category>
+        <category>包管理</category>
         <category>课程笔记</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/CS106L/</guid>
@@ -33,13 +33,17 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;学习流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#学习流程&#34;&gt;#&lt;/a&gt; 学习流程&lt;/h1&gt;
 &lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;for(int i = 0; i &amp;lt; 17; i++) &amp;#123;
-	1. (Optional)阅读 Course Reader对应章节
+	1. 阅读 Course Reader对应章节
 	2. 观看video
-	3. 阅读Slides + Code
-	4. 完成AP1401-2对应作业
-	5. (Optional)完成Assignment对应作业
+	3. 阅读Slides
+	4. 整理Code
 &amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上流程完成后：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;完成 CS106L 所有 Assignment&lt;/li&gt;
+&lt;li&gt;完成 AP1401-2 所有作业&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;welcome&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#welcome&#34;&gt;#&lt;/a&gt; Welcome&lt;/h1&gt;
 &lt;p&gt;本节课主要讲述了 C++ 的应用前景，历史发展和设计哲学。&lt;/p&gt;
 &lt;h2 id=&#34;c应用前景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c应用前景&#34;&gt;#&lt;/a&gt; C++ 应用前景&lt;/h2&gt;
@@ -108,10 +112,17 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;type-and-structs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#type-and-structs&#34;&gt;#&lt;/a&gt; Type and Structs&lt;/h1&gt;
 &lt;h1 id=&#34;streams&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#streams&#34;&gt;#&lt;/a&gt; Streams&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How can we convert between string-represented data and the real thing? Streams!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本节首先介绍了什么是环境，而后引入 &lt;code&gt;Stream&lt;/code&gt;  的概念，讲解了 &lt;code&gt;Streams&lt;/code&gt;  在读入和写出数据时的一些特点。而 &lt;code&gt;Streams&lt;/code&gt;  可以利用 &lt;code&gt;cin&lt;/code&gt;  和 &lt;code&gt;cout&lt;/code&gt;  这两种 &lt;code&gt;iostream&lt;/code&gt;  类的对象，实现从标准输入和控制台进行读取。也可以通过 &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  两种来实现文件的读取和写入。亦可以通过 &lt;code&gt;istringstrean&lt;/code&gt;  和 &lt;code&gt;ostringstream&lt;/code&gt;  来实现字符串和其他类型之间的连接。但是普通的 &lt;code&gt;cin&lt;/code&gt;  和 &lt;code&gt;cout&lt;/code&gt;  在使用时也可能出现读取的问题，因此我们还可以使用 &lt;code&gt;std::getline()&lt;/code&gt;  来进行一行一次的读取。此外，在使用 &lt;code&gt;Stream&lt;/code&gt;  时，还应该注意判别读取异常和写入异常。&lt;/p&gt;
 &lt;h2 id=&#34;streams-overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#streams-overview&#34;&gt;#&lt;/a&gt; Streams Overview&lt;/h2&gt;
 &lt;h3 id=&#34;environment&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#environment&#34;&gt;#&lt;/a&gt; Environment&lt;/h3&gt;
 &lt;p&gt;在学习 Stream 之前，我们先要了解 &lt;code&gt;Environment&lt;/code&gt; （环境）的概念。我们家里有温度计，我们通常通过温度计上的水银球去检测环境温度，然后将摄氏度显示在数轴上，人们通过观测数轴上的数字来查看当前温度。在这个例子中，外界就是环境，水银球就是将温度转化为实际示数的媒介，而数轴就是温度的输出，将温度显示出来供人们了解。而在程序编写的过程中，也可能存在一个外部环境，程序需要从这个环境获取信息，然后在利用一些处理逻辑来进行一些计算，最后返回输出或者将输出打印在屏幕上。这个环境可能是用户输入，也可能是外部文件，还有可能是其他程序。&lt;/p&gt;
 &lt;h3 id=&#34;stream-是什么&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-是什么&#34;&gt;#&lt;/a&gt; Stream 是什么&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Streams is an abstraction for input and output. Streams convert between data and the string representation of data.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Stream 是程序与外部环境交流的媒介。Stream 的输入与输出可能来自用户，也可能来自程序，也可能来自其他文件。如果要将一个变量输出到终端，那么变量就会以字符串的形式打入 Stream，然后 Stream 将其输出到终端。如果要从用户输入读取数据，那么也是将用户输入转化为字符串存储在 Stream 中，然后再将其转储到变量中。&lt;/p&gt;
 &lt;h3 id=&#34;stream-特点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stream-特点&#34;&gt;#&lt;/a&gt; Stream 特点&lt;/h3&gt;
 &lt;ul&gt;
@@ -138,7 +149,7 @@
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;ifstream-ofstream-overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-ofstream-overview&#34;&gt;#&lt;/a&gt; ifstream &amp;amp; ofstream Overview&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  分别从文件读取和写入文件 (此外，还有一个叫做 &lt;code&gt;fstream&lt;/code&gt;  的类型，即可以完成写入，又可以完成读取）。此外， &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  在使用上与 &lt;code&gt;cin/cout&lt;/code&gt;  不一样之处在于， &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  是一个类型，而不是一个对象，但是 &lt;code&gt;cin&lt;/code&gt;  及 &lt;code&gt;cout&lt;/code&gt;  是一个对象。在使用对象的方法时 ( &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  和 &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;  已被重载) 可以直接调用，但是在使用一个类的方法时，首先需要初始化这个类的一个对象，然后再对其方法进行调用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  分别从文件读取和写入文件。此外，还有一个叫做 &lt;code&gt;fstream&lt;/code&gt;  的类型，即可以完成写入，又可以完成读取）。此外， &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  在使用上与 &lt;code&gt;cin/cout&lt;/code&gt;  不一样之处在于， &lt;code&gt;ifstream&lt;/code&gt;  和 &lt;code&gt;ofstream&lt;/code&gt;  是一个类型，而不是一个对象，但是 &lt;code&gt;cin&lt;/code&gt;  及 &lt;code&gt;cout&lt;/code&gt;  分别是 &lt;code&gt;std::istream&lt;/code&gt;  和 &lt;code&gt;std::ostream&lt;/code&gt;  类的对象。在使用对象的方法时 ( &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  和 &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;  已被重载) 可以直接调用，但是在使用一个类的方法时，首先需要初始化这个类的一个对象，然后再对其方法进行调用。&lt;/p&gt;
 &lt;h3 id=&#34;ifstream-ofstream-使用说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ifstream-ofstream-使用说明&#34;&gt;#&lt;/a&gt; ifstream &amp;amp; ofstream 使用说明&lt;/h3&gt;
 &lt;h4 id=&#34;包含头文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包含头文件&#34;&gt;#&lt;/a&gt; 包含头文件&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include &amp;lt;fstream&amp;gt;
