@@ -6,16 +6,16 @@
     <updated>2023-10-12T05:50:44.000Z</updated>
     <category term="Arch" />
     <category term="Linux" />
-    <category term="配置教程" />
+    <category term="安装教程" />
     <category term="操作系统" />
     <category term="notes" />
-    <category term="安装教程" />
+    <category term="配置教程" />
     <category term="C++" />
     <category term="参考资料" />
-    <category term="CMake" />
-    <category term="Makefile" />
     <category term="Debian" />
     <category term="包管理" />
+    <category term="CMake" />
+    <category term="Makefile" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
         <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
@@ -329,9 +329,9 @@ timedatectl set-timezone &amp;quot;Asia/Shanghai&amp;quot; # 设置为亚洲上�
 </content>
         <category term="Arch" />
         <category term="Linux" />
+        <category term="安装教程" />
         <category term="操作系统" />
         <category term="notes" />
-        <category term="安装教程" />
         <updated>2023-10-12T05:50:44.000Z</updated>
     </entry>
 </feed>

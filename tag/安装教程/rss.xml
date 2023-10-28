@@ -9,25 +9,25 @@
         <lastBuildDate>Thu, 12 Oct 2023 13:50:44 +0800</lastBuildDate>
         <category>Arch</category>
         <category>Linux</category>
-        <category>配置教程</category>
+        <category>安装教程</category>
         <category>操作系统</category>
         <category>notes</category>
-        <category>安装教程</category>
+        <category>配置教程</category>
         <category>C++</category>
         <category>参考资料</category>
-        <category>CMake</category>
-        <category>Makefile</category>
         <category>Debian</category>
         <category>包管理</category>
+        <category>CMake</category>
+        <category>Makefile</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
             <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
             <link>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
             <category>Arch</category>
             <category>Linux</category>
+            <category>安装教程</category>
             <category>操作系统</category>
             <category>notes</category>
-            <category>安装教程</category>
             <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;:::danger&lt;br&gt;此坑还没填完，暂时只添加了安装部分（装完发现 Arch wiki 实在是已经写得很详细了），还有很多的知识还没有完全弄清楚和补充。&lt;br&gt;等我学习完&lt;code&gt;计算机组成原理&lt;/code&gt;，&lt;code&gt;操作系统&lt;/code&gt;和&lt;code&gt;计算机网络&lt;/code&gt;后会再来填坑。&lt;br&gt;:::&lt;/p&gt;
 &lt;p&gt;:::info&lt;br&gt;本文安装过程基本按照 Arch Linux 安装文档，附带了额外的相关知识。其中可能伴有踩坑，但是也是一种经验啦！:smile:&lt;br&gt;如发现本文某些地方有误，请在评论区评论，我看到的话会改过来哒！&lt;br&gt;:::&lt;/p&gt;
