@@ -9,39 +9,35 @@
         <lastBuildDate>Thu, 12 Oct 2023 13:50:44 +0800</lastBuildDate>
         <category>Arch</category>
         <category>Linux</category>
-        <category>安装教程</category>
+        <category>配置教程</category>
         <category>操作系统</category>
+        <category>notes</category>
+        <category>安装教程</category>
+        <category>C++</category>
+        <category>参考资料</category>
+        <category>CMake</category>
+        <category>Makefile</category>
         <category>Debian</category>
         <category>包管理</category>
-        <category>notes</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
             <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
             <link>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
             <category>Arch</category>
             <category>Linux</category>
-            <category>安装教程</category>
             <category>操作系统</category>
+            <category>notes</category>
+            <category>安装教程</category>
             <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
-            <description><![CDATA[ &lt;div class=&#34;note danger&#34;&gt;
-&lt;p&gt;此坑还没填完，暂时只添加了安装部分（装完发现 Arch wiki 实在是已经写得很详细了），还有很多的知识还没有完全弄清楚和补充。&lt;br&gt;
-等我学习完 &lt;code&gt;计算机组成原理&lt;/code&gt; ， &lt;code&gt;操作系统&lt;/code&gt; 和 &lt;code&gt;计算机网络&lt;/code&gt; 后会再来填坑。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;本文安装过程基本按照 Arch Linux 安装文档，附带了额外的相关知识。其中可能伴有踩坑，但是也是一种经验啦！😄&lt;br&gt;
-如发现本文某些地方有误，请在评论区评论，我看到的话会改过来哒！&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;写作起因&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#写作起因&#34;&gt;#&lt;/a&gt; 写作起因&lt;/h1&gt;
-&lt;p&gt;Arch Linux 的安装过程涉及较多的操作系统知识，而不仅仅是像 Ubuntu/Debian 那样提供 GUI 中的几个选项供你选择。此外，Arch Linux 的文档较为详细（Arch wiki 简直是棒极了！）。&lt;br&gt;
-因此，本教程不只是演示本人的安装 &amp;amp; 踩坑过程，还附带许多的相关文档带读、踩坑原因分析等。&lt;/p&gt;
-&lt;h1 id=&#34;本文适合哪些人&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#本文适合哪些人&#34;&gt;#&lt;/a&gt; 本文适合哪些人&lt;/h1&gt;
-&lt;ol&gt;
+            <description><![CDATA[ &lt;p&gt;:::danger&lt;br&gt;此坑还没填完，暂时只添加了安装部分（装完发现 Arch wiki 实在是已经写得很详细了），还有很多的知识还没有完全弄清楚和补充。&lt;br&gt;等我学习完&lt;code&gt;计算机组成原理&lt;/code&gt;，&lt;code&gt;操作系统&lt;/code&gt;和&lt;code&gt;计算机网络&lt;/code&gt;后会再来填坑。&lt;br&gt;:::&lt;/p&gt;
+&lt;p&gt;:::info&lt;br&gt;本文安装过程基本按照 Arch Linux 安装文档，附带了额外的相关知识。其中可能伴有踩坑，但是也是一种经验啦！:smile:&lt;br&gt;如发现本文某些地方有误，请在评论区评论，我看到的话会改过来哒！&lt;br&gt;:::&lt;/p&gt;
+&lt;h1 id=&#34;写作起因&#34;&gt;&lt;a href=&#34;#写作起因&#34; class=&#34;headerlink&#34; title=&#34;写作起因&#34;&gt;&lt;/a&gt;写作起因&lt;/h1&gt;&lt;p&gt;Arch Linux 的安装过程涉及较多的操作系统知识，而不仅仅是像 Ubuntu&amp;#x2F;Debian 那样提供 GUI 中的几个选项供你选择。此外，Arch Linux 的文档较为详细（Arch wiki 简直是棒极了！）。&lt;br&gt;因此，本教程不只是演示本人的安装&amp;amp;踩坑过程，还附带许多的相关文档带读、踩坑原因分析等。&lt;/p&gt;
+&lt;h1 id=&#34;本文适合哪些人&#34;&gt;&lt;a href=&#34;#本文适合哪些人&#34; class=&#34;headerlink&#34; title=&#34;本文适合哪些人&#34;&gt;&lt;/a&gt;本文适合哪些人&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;热爱倒腾的&lt;/li&gt;
 &lt;li&gt;不怕踩坑的&lt;/li&gt;
 &lt;li&gt;想要通过 Arch Linux 安装过程递归学习其他知识的&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;对于其他同学&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#对于其他同学&#34;&gt;#&lt;/a&gt; 对于其他同学&lt;/h1&gt;
-&lt;p&gt;若您仅需要高效的安装 Arch Linux，而不希望看相关知识及其他无关的踩坑过程的，可以：&lt;/p&gt;
+&lt;h1 id=&#34;对于其他同学&#34;&gt;&lt;a href=&#34;#对于其他同学&#34; class=&#34;headerlink&#34; title=&#34;对于其他同学&#34;&gt;&lt;/a&gt;对于其他同学&lt;/h1&gt;&lt;p&gt;若您仅需要高效的安装 Arch Linux，而不希望看相关知识及其他无关的踩坑过程的，可以：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;参考其他博主的奶妈式教程&lt;/li&gt;
 &lt;/ol&gt;
@@ -77,11 +73,7 @@
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQ2F0ZWdvcnk6SW5zdGFsbGF0aW9uX3Byb2Nlc3M=&#34;&gt;其他安装方式&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;要在一个 Ubuntu 虚拟机上安装 Arch 虚拟机（嵌套虚拟机），请看&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZWNhbC5vY2YuYmVya2VsZXkuZWR1L2FyY2hpdmVzLzIwMjItc3ByaW5nL2xhYnMvYTMv&#34;&gt;这里&lt;/span&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
-&lt;p&gt;在使用 Arch 前看了 UCB System Admin Decal 的 Linux Pre-install and Install 一节，其中的实验是在 Ubuntu 虚拟机上安装 Arch。Arch 的安装涉及到自己进行分区，对系统进行加密和解密等，我觉得非常有趣，对于操作系统本身也是一个探索的过程。因此决定挑战自己跟着官方文档进行安装。&lt;br&gt;
-以前每次安装 Linux 虚拟机，包括 Ubuntu 和 Debian，都是跟着一些博主自己写的奶妈式手把手安装教程一步步的装。每次都能安装成功，但是总是感觉少了一些 &lt;code&gt;【探索的乐趣】&lt;/code&gt; 😆。&lt;br&gt;
-今天我就要跟着 Arch Linux 的官方文档一步步装，感受一把极致的安装酸爽体验！&lt;/p&gt;
-&lt;details&gt;&lt;summary&gt;如果你也想体验自己安装Arch，或者是想成为Arch开发者，下面内容可能对你有帮助：&lt;/summary&gt;&lt;div&gt;
+&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在使用 Arch 前看了 UCB System Admin Decal 的 Linux Pre-install and Install 一节，其中的实验是在 Ubuntu 虚拟机上安装 Arch。Arch 的安装涉及到自己进行分区，对系统进行加密和解密等，我觉得非常有趣，对于操作系统本身也是一个探索的过程。因此决定挑战自己跟着官方文档进行安装。&lt;br&gt;以前每次安装 Linux 虚拟机，包括 Ubuntu 和 Debian，都是跟着一些博主自己写的奶妈式手把手安装教程一步步的装。每次都能安装成功，但是总是感觉少了一些&lt;code&gt;【探索的乐趣】&lt;/code&gt;:laughing:。&lt;br&gt;今天我就要跟着 Arch Linux 的官方文档一步步装，感受一把极致的安装酸爽体验！&lt;br&gt;+++ 如果你也想体验自己安装 Arch，或者是想成为 Arch 开发者，下面内容可能对你有帮助：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSW5zdGFsbGF0aW9uX2d1aWRlI0FjcXVpcmVfYW5faW5zdGFsbGF0aW9uX2ltYWdl&#34;&gt;Arch Linux 官方安装文档&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRsYWIuYXJjaGxpbnV4Lm9yZy9hcmNobGludXgvYXJjaGlzby8tL2lzc3Vlcw==&#34;&gt;Issue tracker&lt;/span&gt;&lt;/li&gt;
@@ -89,55 +81,40 @@
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCOCVCOCVFOCVBNyU4MSVFOSU5NyVBRSVFOSVBMiU5OA==&#34;&gt;常见问题及解答&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL0hlbHA6JUU5JTk4JTg1JUU4JUFGJUJC&#34;&gt;帮助&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL1Byb2plY3Q6JUU1JTg1JUIzJUU0JUJBJThF&#34;&gt;贡献项目&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL01hbl9wYWdl&#34;&gt;帮助手册&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL01hbl9wYWdl&#34;&gt;帮助手册&lt;/span&gt;&lt;br&gt;+++&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;&lt;/details&gt;
-&lt;h1 id=&#34;过程简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#过程简介&#34;&gt;#&lt;/a&gt; 过程简介&lt;/h1&gt;
-&lt;p&gt;安装过程涉及到的步骤包含：&lt;/p&gt;
+&lt;h1 id=&#34;过程简介&#34;&gt;&lt;a href=&#34;#过程简介&#34; class=&#34;headerlink&#34; title=&#34;过程简介&#34;&gt;&lt;/a&gt;过程简介&lt;/h1&gt;&lt;p&gt;安装过程涉及到的步骤包含：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;UEFI 模式启动（或 BIOS，但是分区会不一样，需要注意）&lt;/li&gt;
 &lt;li&gt;设置键盘模式&lt;/li&gt;
 &lt;li&gt;检查网络连接&lt;/li&gt;
 &lt;li&gt;更新系统时钟&lt;/li&gt;
 &lt;li&gt;创建磁盘分区&lt;/li&gt;
-&lt;li&gt;初始化分区中的文件系统（ &lt;code&gt;/&lt;/code&gt;  文件系统可选是否加密）&lt;/li&gt;
+&lt;li&gt;初始化分区中的文件系统（&lt;code&gt;/&lt;/code&gt;文件系统可选是否加密）&lt;/li&gt;
 &lt;li&gt;挂载文件系统&lt;/li&gt;
-&lt;li&gt;利用 &lt;code&gt;pacstrap&lt;/code&gt;  安装必要的包：linux 内核， &lt;code&gt;initrd&lt;/code&gt; 、 &lt;code&gt;init system&lt;/code&gt; 、 &lt;code&gt;pacman&lt;/code&gt; \、 &lt;code&gt;base&lt;/code&gt;  等等&lt;/li&gt;
-&lt;li&gt;利用 &lt;code&gt;genfstab&lt;/code&gt;  生成 &lt;code&gt;/etc/fstab&lt;/code&gt; （文件系统表）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;arch-chroot&lt;/code&gt;  进入 &lt;code&gt;/mnt&lt;/code&gt;  目录&lt;/li&gt;
-&lt;li&gt;通过修改 &lt;code&gt;/etc/hostname&lt;/code&gt;  修改主机名&lt;/li&gt;
-&lt;/ol&gt;
-&lt;details&gt;&lt;summary&gt;boot启动原理&lt;/summary&gt;&lt;div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;图源自 UCB System Admin Decal (&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vcHJlc2VudGF0aW9uL2QvMW9MdHNqc0VJc3ZDaE9JMzFfNVlZRmhJTGZ6R2x5eDdIazlEc0wxTnYtbWMvZWRpdD9wbGk9MSNzbGlkZT1pZC5nOWI0MTRkZGEwNF8wXzE1OA==&#34;&gt;https://docs.google.com/presentation/d/1oLtsjsEIsvChOI31_5YYFhILfzGlyx7Hk9DsL1Nv-mc/edit?pli=1#slide=id.g9b414dda04_0_158&lt;/span&gt;)&lt;/p&gt;
+&lt;li&gt;利用&lt;code&gt;pacstrap&lt;/code&gt;安装必要的包：linux 内核，&lt;code&gt;initrd&lt;/code&gt;、&lt;code&gt;init system&lt;/code&gt;、&lt;code&gt;pacman&lt;/code&gt;\、&lt;code&gt;base&lt;/code&gt;等等&lt;/li&gt;
+&lt;li&gt;利用&lt;code&gt;genfstab&lt;/code&gt;生成&lt;code&gt;/etc/fstab&lt;/code&gt;（文件系统表）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arch-chroot&lt;/code&gt;进入&lt;code&gt;/mnt&lt;/code&gt;目录&lt;/li&gt;
+&lt;li&gt;通过修改&lt;code&gt;/etc/hostname&lt;/code&gt;修改主机名&lt;br&gt;+++ boot 启动原理&lt;blockquote&gt;
+&lt;p&gt;图源自 UCB System Admin Decal(&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vcHJlc2VudGF0aW9uL2QvMW9MdHNqc0VJc3ZDaE9JMzFfNVlZRmhJTGZ6R2x5eDdIazlEc0wxTnYtbWMvZWRpdD9wbGk9MSNzbGlkZT1pZC5nOWI0MTRkZGEwNF8wXzE1OA==&#34;&gt;https://docs.google.com/presentation/d/1oLtsjsEIsvChOI31_5YYFhILfzGlyx7Hk9DsL1Nv-mc/edit?pli=1#slide=id.g9b414dda04_0_158&lt;/span&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;boot.png&#34; alt=&#34;boot启动原理&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;&lt;/details&gt;
-&lt;h1 id=&#34;获取安装镜像后缀为iso&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取安装镜像后缀为iso&#34;&gt;#&lt;/a&gt; 获取安装镜像（后缀为.iso）&lt;/h1&gt;
-&lt;p&gt;看了一下下载界面，最顶部写了当前发行版的信息，下面是对于几种不同用户的安装方式以及校验和，最后是所有的 Arch 镜像源集合。&lt;/p&gt;
-&lt;h2 id=&#34;发行版信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#发行版信息&#34;&gt;#&lt;/a&gt; 发行版信息&lt;/h2&gt;
-&lt;p&gt;当前发布版本: 2023.09.01&lt;br&gt;
- 内核版本: 6.4.12&lt;br&gt;
-ISO 镜像文件大小: 804.3 MB&lt;/p&gt;
-&lt;h2 id=&#34;几种下载方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#几种下载方式&#34;&gt;#&lt;/a&gt; 几种下载方式&lt;/h2&gt;
-&lt;h3 id=&#34;对于已经是arch用户的人&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#对于已经是arch用户的人&#34;&gt;#&lt;/a&gt; 对于已经是 Arch 用户的人&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;通过命令 &lt;code&gt;pacman -Syu&lt;/code&gt;  更新&lt;/li&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/boot.png&#34; alt=&#34;boot启动原理&#34;&gt;&lt;br&gt;+++&lt;/p&gt;
+&lt;h1 id=&#34;获取安装镜像（后缀为-iso）&#34;&gt;&lt;a href=&#34;#获取安装镜像（后缀为-iso）&#34; class=&#34;headerlink&#34; title=&#34;获取安装镜像（后缀为.iso）&#34;&gt;&lt;/a&gt;获取安装镜像（后缀为.iso）&lt;/h1&gt;&lt;p&gt;看了一下下载界面，最顶部写了当前发行版的信息，下面是对于几种不同用户的安装方式以及校验和，最后是所有的 Arch 镜像源集合。&lt;/p&gt;
+&lt;h2 id=&#34;发行版信息&#34;&gt;&lt;a href=&#34;#发行版信息&#34; class=&#34;headerlink&#34; title=&#34;发行版信息&#34;&gt;&lt;/a&gt;发行版信息&lt;/h2&gt;&lt;p&gt;当前发布版本: 2023.09.01&lt;br&gt;内核版本: 6.4.12&lt;br&gt;ISO 镜像文件大小: 804.3 MB&lt;/p&gt;
+&lt;h2 id=&#34;几种下载方式&#34;&gt;&lt;a href=&#34;#几种下载方式&#34; class=&#34;headerlink&#34; title=&#34;几种下载方式&#34;&gt;&lt;/a&gt;几种下载方式&lt;/h2&gt;&lt;h3 id=&#34;对于已经是-Arch-用户的人&#34;&gt;&lt;a href=&#34;#对于已经是-Arch-用户的人&#34; class=&#34;headerlink&#34; title=&#34;对于已经是 Arch 用户的人&#34;&gt;&lt;/a&gt;对于已经是 Arch 用户的人&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;通过命令&lt;code&gt;pacman -Syu&lt;/code&gt;更新&lt;/li&gt;
 &lt;li&gt;通过&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL21pcnJvcmxpc3Qv&#34;&gt;这里&lt;/span&gt;更新镜像源&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;种子链接下载官方推荐&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#种子链接下载官方推荐&#34;&gt;#&lt;/a&gt; 种子链接下载（官方推荐）&lt;/h3&gt;
-&lt;p&gt;对于这种资源，可以使用 &lt;code&gt;百度网盘&lt;/code&gt; 或者 &lt;code&gt;迅雷&lt;/code&gt; 下载（和下载电影相同），下载格式为.torrent，该种子链接需要上传到百度网盘 / 迅雷，然后将其中的 iso 镜像文件下载到本地目录中。&lt;/p&gt;
-&lt;h3 id=&#34;netboot&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#netboot&#34;&gt;#&lt;/a&gt; Netboot&lt;/h3&gt;
-&lt;p&gt;安装时需要联网，最新版本会自动推送，可用于在系统启动时即时下载最新的 Arch Linux 版本。&lt;/p&gt;
+&lt;h3 id=&#34;种子链接下载（官方推荐）&#34;&gt;&lt;a href=&#34;#种子链接下载（官方推荐）&#34; class=&#34;headerlink&#34; title=&#34;种子链接下载（官方推荐）&#34;&gt;&lt;/a&gt;种子链接下载（官方推荐）&lt;/h3&gt;&lt;p&gt;对于这种资源，可以使用&lt;code&gt;百度网盘&lt;/code&gt;或者&lt;code&gt;迅雷&lt;/code&gt;下载（和下载电影相同），下载格式为.torrent，该种子链接需要上传到百度网盘&amp;#x2F;迅雷，然后将其中的 iso 镜像文件下载到本地目录中。&lt;/p&gt;
+&lt;h3 id=&#34;Netboot&#34;&gt;&lt;a href=&#34;#Netboot&#34; class=&#34;headerlink&#34; title=&#34;Netboot&#34;&gt;&lt;/a&gt;Netboot&lt;/h3&gt;&lt;p&gt;安装时需要联网，最新版本会自动推送，可用于在系统启动时即时下载最新的 Arch Linux 版本。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Netboot 使用定制的  &lt;code&gt;iPXE&lt;/code&gt;  版本。 实时系统的 Linux 内核、 &lt;code&gt;initramfs&lt;/code&gt;  和  &lt;code&gt;squashfs 文件&lt;/code&gt; 是从 Arch Linux 镜像下载的。 所有下载文件的完整性都使用 &lt;code&gt;加密签名&lt;/code&gt; 进行验证。&lt;/p&gt;
+&lt;p&gt;Netboot 使用定制的 &lt;code&gt;iPXE&lt;/code&gt; 版本。 实时系统的 Linux 内核、&lt;code&gt;initramfs&lt;/code&gt; 和 &lt;code&gt;squashfs 文件&lt;/code&gt;是从 Arch Linux 镜像下载的。 所有下载文件的完整性都使用&lt;code&gt;加密签名&lt;/code&gt;进行验证。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这其中有几个问题：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pcHhlLm9yZy9zdGFydA==&#34;&gt;iPXE&lt;/span&gt; 是啥？&lt;strong&gt;一种开源的网络启动固件&lt;/strong&gt;&lt;br&gt;
-其官方文档中的描述如下：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pcHhlLm9yZy9zdGFydA==&#34;&gt;iPXE&lt;/span&gt;是啥？&lt;strong&gt;一种开源的网络启动固件&lt;/strong&gt;&lt;br&gt;其官方文档中的描述如下：&lt;blockquote&gt;
 &lt;p&gt;iPXE 是领先的开源网络引导固件。它提供了完整的 PXE 实现，并通过其他功能进行了增强，例如：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;通过 HTTP 从 Web 服务器启动&lt;/li&gt;
@@ -150,285 +127,214 @@ ISO 镜像文件大小: 804.3 MB&lt;/p&gt;
 &lt;li&gt;使用脚本控制引导过程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;由此可以看出，iPXE 是一种基于网络进行系统启动的固件。它的启动需要依附于计算机网络的各种协议。在 Arch Linux 文档中也指明，使用 Netboot 安装需要满足以下两点要求：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;具有 DHCP 自配置的网络&lt;/li&gt;
 &lt;li&gt;能够运行系统的足够存储&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;而它的具体实现是基于 &lt;code&gt;PXE&lt;/code&gt;  协议。&lt;br&gt;
-基于递归学习的理念，我又查了查&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JUEyJTg0JUU1JTkwJUFGJUU1JThBJUE4JUU2JTg5JUE3JUU4JUExJThDJUU3JThFJUFGJUU1JUEyJTgzIw==&#34;&gt; PXE&lt;/span&gt;。。。&lt;br&gt;
-其基本概念如下：&lt;/p&gt;
+&lt;p&gt;而它的具体实现是基于&lt;code&gt;PXE&lt;/code&gt;协议。&lt;br&gt;基于递归学习的理念，我又查了查&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JUEyJTg0JUU1JTkwJUFGJUU1JThBJUE4JUU2JTg5JUE3JUU4JUExJThDJUU3JThFJUFGJUU1JUEyJTgzIw==&#34;&gt;PXE&lt;/span&gt;。。。&lt;br&gt;其基本概念如下：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;预启动执行环境（Preboot eXecution Environment，PXE，也被称为预执行环境）提供了一种使用网络接口（Network Interface）启动计算机的机制。这种机制让计算机的启动可以不依赖本地数据存储设备（如硬盘）或本地已安装的操作系统。&lt;br&gt;
-PXE 当初是作为 Intel 的有线管理体系的一部分，Intel 和 Systemsoft 于 1999 年 9 月 20 日公布其规格（版本 2.1）[1]。通过使用像网际协议（IP）、用户数据报协议（UDP）、动态主机设定协定（DHCP）、BOOTP、小型文件传输协议（TFTP）等几种网络协议和全局唯一标识符（GUID）、通用网络驱动接口（UNDI）、通用唯一识别码（UUID）的概念并通过对客户机（通过 PXE 自检的电脑）固件扩展预设的 API 来实现目的。&lt;br&gt;
-PXE 客户机（client）这个术语是指机器在 PXE 启动过程中的角色。&lt;/p&gt;
+&lt;p&gt;预启动执行环境（Preboot eXecution Environment，PXE，也被称为预执行环境）提供了一种使用网络接口（Network Interface）启动计算机的机制。这种机制让计算机的启动可以不依赖本地数据存储设备（如硬盘）或本地已安装的操作系统。&lt;br&gt;PXE 当初是作为 Intel 的有线管理体系的一部分，Intel 和 Systemsoft 于 1999 年 9 月 20 日公布其规格（版本 2.1）[1]。通过使用像网际协议（IP）、用户数据报协议（UDP）、动态主机设定协定（DHCP）、BOOTP、小型文件传输协议（TFTP）等几种网络协议和全局唯一标识符（GUID）、通用网络驱动接口（UNDI）、通用唯一识别码（UUID）的概念并通过对客户机（通过 PXE 自检的电脑）固件扩展预设的 API 来实现目的。&lt;br&gt;PXE 客户机（client）这个术语是指机器在 PXE 启动过程中的角色。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;其基本的运行机制是：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;客户机的固件（如网卡的 PXE 固件）通过 DHCP 协议找到可用的 PXE 启动服务器。在找到可用的 PXE 启动服务器后，固件会向合适的启动服务器询问网络启动程序（NBP，Network Boot Program）的路径，并且通过 TFTP 协议将网络启动程序下载到电脑的内存中，最后执行它 [2]。&lt;/p&gt;
+&lt;p&gt;客户机的固件（如网卡的 PXE 固件）通过 DHCP 协议找到可用的 PXE 启动服务器。在找到可用的 PXE 启动服务器后，固件会向合适的启动服务器询问网络启动程序（NBP，Network Boot Program）的路径，并且通过 TFTP 协议将网络启动程序下载到电脑的内存中，最后执行它[2]。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;由 &lt;code&gt;PXE&lt;/code&gt;  机制又衍生出了无盘系统，其利用网络服务器下载启动系统的镜像，而不是本地硬盘。 &lt;code&gt;PXE&lt;/code&gt;  的协议规范在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuYXJjaGl2ZS5vcmcvd2ViLzIwMTMxMTAyMDAzMTQxL2h0dHA6Ly9kb3dubG9hZC5pbnRlbC5jb20vZGVzaWduL2FyY2hpdmVzL3dmbS9kb3dubG9hZHMvcHhlc3BlYy5wZGY=&#34;&gt; intel 的这篇文档中&lt;/span&gt;可以查到。而 PXE 的两个实现，一个为 &lt;code&gt;iPXE&lt;/code&gt; ，另一个则是 &lt;code&gt;gPXE&lt;/code&gt; 。 &lt;code&gt;gPXE&lt;/code&gt;  目前已经停止开发，取而代之的是 &lt;code&gt;iPXE&lt;/code&gt; 。&lt;br&gt;
-对于 &lt;code&gt;iPXE&lt;/code&gt;  和 &lt;code&gt;gPXE&lt;/code&gt;  更详细的介绍，可以参考&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmhjbC5tb2UvYXJjaGl2ZXMvMjE3Nw==&#34;&gt;这篇博文&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;由&lt;code&gt;PXE&lt;/code&gt;机制又衍生出了无盘系统，其利用网络服务器下载启动系统的镜像，而不是本地硬盘。&lt;code&gt;PXE&lt;/code&gt;的协议规范在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuYXJjaGl2ZS5vcmcvd2ViLzIwMTMxMTAyMDAzMTQxL2h0dHA6Ly9kb3dubG9hZC5pbnRlbC5jb20vZGVzaWduL2FyY2hpdmVzL3dmbS9kb3dubG9hZHMvcHhlc3BlYy5wZGY=&#34;&gt;intel 的这篇文档中&lt;/span&gt;可以查到。而 PXE 的两个实现，一个为&lt;code&gt;iPXE&lt;/code&gt;，另一个则是&lt;code&gt;gPXE&lt;/code&gt;。&lt;code&gt;gPXE&lt;/code&gt;目前已经停止开发，取而代之的是&lt;code&gt;iPXE&lt;/code&gt;。&lt;br&gt;对于&lt;code&gt;iPXE&lt;/code&gt;和&lt;code&gt;gPXE&lt;/code&gt;更详细的介绍，可以参考&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmhjbC5tb2UvYXJjaGl2ZXMvMjE3Nw==&#34;&gt;这篇博文&lt;/span&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;initramfs文件&lt;/code&gt; 和 &lt;code&gt;squashfs文件&lt;/code&gt; 做什么用？&lt;br&gt;
-TODO&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;initramfs文件&lt;/code&gt;和&lt;code&gt;squashfs文件&lt;/code&gt;做什么用？&lt;br&gt;TODO&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为什么 &lt;code&gt;Arch Linux&lt;/code&gt;  在下载过程中需要使用加密签名对镜像完整性进行验证？&lt;br&gt;
-TODO&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;为什么&lt;code&gt;Arch Linux&lt;/code&gt;在下载过程中需要使用加密签名对镜像完整性进行验证？&lt;br&gt;TODO&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;vagrant-images-docker-images&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vagrant-images-docker-images&#34;&gt;#&lt;/a&gt; Vagrant images &amp;amp; docker images&lt;/h3&gt;
-&lt;p&gt;TODO&lt;/p&gt;
-&lt;h3 id=&#34;vm-image&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vm-image&#34;&gt;#&lt;/a&gt; VM image&lt;/h3&gt;
-&lt;p&gt;archlinux 虚拟机可从&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRsYWIuYXJjaGxpbnV4Lm9yZy9hcmNobGludXgvYXJjaC1ib3hlcy8tL3BhY2thZ2Vz&#34;&gt;这里&lt;/span&gt;下载，使用手册&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRsYWIuYXJjaGxpbnV4Lm9yZy9hcmNobGludXgvYXJjaC1ib3hlcw==&#34;&gt;在此&lt;/span&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;http-下载最常用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#http-下载最常用&#34;&gt;#&lt;/a&gt; HTTP 下载（最常用）&lt;/h3&gt;
-&lt;p&gt;从后文中的镜像源中下载镜像。需要注意的是，我们需要保证下载的镜像的校验和，和同一目录 &lt;code&gt;sha256sums.txt&lt;/code&gt;  及 &lt;code&gt;b2sums.txt&lt;/code&gt;  文件中的校验和匹配。&lt;br&gt;
-下载签名： &lt;code&gt;sq wkd get pierre@archlinux.org -o release-key.pgp&lt;/code&gt; &lt;br&gt;
- 验证： &lt;code&gt;sq verify --signer-file release-key.pgp --detached archlinux-2023.09.01-x86_64.iso.sig archlinux-2023.09.01-x86_64.iso&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;&lt;code&gt;sq&lt;/code&gt;  命令需要使用 &lt;code&gt;scoop&lt;/code&gt;  进行安装，如果是 windows 用户，会比较麻烦，详细解决办法见后文&lt;/p&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;校验和&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#校验和&#34;&gt;#&lt;/a&gt; 校验和&lt;/h2&gt;
-&lt;p&gt;最新版本的校验和下载详见官网。在镜像源网站上也可以看到 &lt;code&gt;sha256sums.txt&lt;/code&gt;  和 &lt;code&gt;b2sums.txt&lt;/code&gt; &lt;br&gt;
-&lt;img data-src=&#34;tsinghua_mirror.png&#34; alt=&#34;清华大学镜像站&#34;&gt;。下载镜像后我们需要利用它与我们下载到的镜像的校验和进行比对 (主要是用于比对，这两个文件可下载也可不下载，在镜像站上也能打开，只要我们下载到的镜像的校验和文件中版本对应的那行的校验和匹配就行了)。&lt;/p&gt;
-&lt;h2 id=&#34;方法一&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#方法一&#34;&gt;#&lt;/a&gt; 方法一&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt; Download 界面&lt;/span&gt;选择推荐的 BitTorrent Download:&lt;br&gt;
-&lt;img data-src=&#34;download.png&#34; alt=&#34;下载界面&#34;&gt;&lt;/li&gt;
-&lt;li&gt;下载到本地电脑的 Downloads 文件夹中，其后缀名为 &lt;code&gt;.torrent&lt;/code&gt;&lt;/li&gt;
+&lt;h3 id=&#34;Vagrant-images-docker-images&#34;&gt;&lt;a href=&#34;#Vagrant-images-docker-images&#34; class=&#34;headerlink&#34; title=&#34;Vagrant images &amp;amp; docker images&#34;&gt;&lt;/a&gt;Vagrant images &amp;amp; docker images&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;h3 id=&#34;VM-image&#34;&gt;&lt;a href=&#34;#VM-image&#34; class=&#34;headerlink&#34; title=&#34;VM image&#34;&gt;&lt;/a&gt;VM image&lt;/h3&gt;&lt;p&gt;archlinux 虚拟机可从&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRsYWIuYXJjaGxpbnV4Lm9yZy9hcmNobGludXgvYXJjaC1ib3hlcy8tL3BhY2thZ2Vz&#34;&gt;这里&lt;/span&gt;下载，使用手册&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRsYWIuYXJjaGxpbnV4Lm9yZy9hcmNobGludXgvYXJjaC1ib3hlcw==&#34;&gt;在此&lt;/span&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;HTTP-下载（最常用）&#34;&gt;&lt;a href=&#34;#HTTP-下载（最常用）&#34; class=&#34;headerlink&#34; title=&#34;HTTP 下载（最常用）&#34;&gt;&lt;/a&gt;HTTP 下载（最常用）&lt;/h3&gt;&lt;p&gt;从后文中的镜像源中下载镜像。需要注意的是，我们需要保证下载的镜像的校验和，和同一目录&lt;code&gt;sha256sums.txt&lt;/code&gt;及&lt;code&gt;b2sums.txt&lt;/code&gt;文件中的校验和匹配。&lt;br&gt;下载签名：&lt;code&gt;sq wkd get pierre@archlinux.org -o release-key.pgp&lt;/code&gt;&lt;br&gt;验证：&lt;code&gt;sq verify --signer-file release-key.pgp --detached archlinux-2023.09.01-x86_64.iso.sig archlinux-2023.09.01-x86_64.iso&lt;/code&gt;&lt;br&gt;:::info&lt;br&gt;&lt;code&gt;sq&lt;/code&gt;命令需要使用&lt;code&gt;scoop&lt;/code&gt;进行安装，如果是 windows 用户，会比较麻烦，详细解决办法见后文&lt;br&gt;:::&lt;/p&gt;
+&lt;h2 id=&#34;校验和&#34;&gt;&lt;a href=&#34;#校验和&#34; class=&#34;headerlink&#34; title=&#34;校验和&#34;&gt;&lt;/a&gt;校验和&lt;/h2&gt;&lt;p&gt;最新版本的校验和下载详见官网。在镜像源网站上也可以看到&lt;code&gt;sha256sums.txt&lt;/code&gt;和&lt;code&gt;b2sums.txt&lt;/code&gt;&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/tsinghua_mirror.png&#34; alt=&#34;清华大学镜像站&#34;&gt;。下载镜像后我们需要利用它与我们下载到的镜像的校验和进行比对(主要是用于比对，这两个文件可下载也可不下载，在镜像站上也能打开，只要我们下载到的镜像的校验和文件中版本对应的那行的校验和匹配就行了)。&lt;/p&gt;
+&lt;h2 id=&#34;方法一&#34;&gt;&lt;a href=&#34;#方法一&#34; class=&#34;headerlink&#34; title=&#34;方法一&#34;&gt;&lt;/a&gt;方法一&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt;Download 界面&lt;/span&gt;选择推荐的 BitTorrent Download:&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/download.png&#34; alt=&#34;下载界面&#34;&gt;&lt;/li&gt;
+&lt;li&gt;下载到本地电脑的 Downloads 文件夹中，其后缀名为&lt;code&gt;.torrent&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;打开百度网盘，在其中上传该文件&lt;/li&gt;
 &lt;li&gt;上传后双击该文件，点击开始下载到网盘，等待下载完成（有点慢哈！）&lt;/li&gt;
-&lt;li&gt;下载到网盘后，将 &lt;code&gt;iso镜像文件&lt;/code&gt; 下载到在自选的本地目录中&lt;/li&gt;
+&lt;li&gt;下载到网盘后，将&lt;code&gt;iso镜像文件&lt;/code&gt;下载到在自选的本地目录中&lt;br&gt;:::info&lt;br&gt;由于这种方式下载过慢，笔者建议使用方法二，即通过开源镜像站进行下载。&lt;br&gt;:::&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;由于这种方式下载过慢，笔者建议使用方法二，即通过开源镜像站进行下载。&lt;/p&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;方法二&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#方法二&#34;&gt;#&lt;/a&gt; 方法二&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt; Download 界面&lt;/span&gt;下翻，找到中国的镜像站列表:&lt;br&gt;
-&lt;img data-src=&#34;mirrors.png&#34; alt=&#34;中国镜像站列表&#34;&gt;&lt;/li&gt;
-&lt;li&gt;在其中选择 &lt;code&gt;tuna.tsinghua.edu.cn&lt;/code&gt; ，即清华大学镜像站（我每次都用他们的镜像，速度不错）&lt;br&gt;
-&lt;img data-src=&#34;tsinghua_mirror.png&#34; alt=&#34;清华大学镜像站&#34;&gt;&lt;/li&gt;
-&lt;li&gt;选择 &lt;code&gt;archlinux-2023.09.01-x86_64.iso&lt;/code&gt;  下载&lt;/li&gt;
-&lt;li&gt;将 &lt;code&gt;.iso&lt;/code&gt;  文件保存到我们想要虚拟机保存的目录中&lt;/li&gt;
+&lt;h2 id=&#34;方法二&#34;&gt;&lt;a href=&#34;#方法二&#34; class=&#34;headerlink&#34; title=&#34;方法二&#34;&gt;&lt;/a&gt;方法二&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt;Download 界面&lt;/span&gt;下翻，找到中国的镜像站列表:&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/mirrors.png&#34; alt=&#34;中国镜像站列表&#34;&gt;&lt;/li&gt;
+&lt;li&gt;在其中选择&lt;code&gt;tuna.tsinghua.edu.cn&lt;/code&gt;，即清华大学镜像站（我每次都用他们的镜像，速度不错）&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/tsinghua_mirror.png&#34; alt=&#34;清华大学镜像站&#34;&gt;&lt;/li&gt;
+&lt;li&gt;选择&lt;code&gt;archlinux-2023.09.01-x86_64.iso&lt;/code&gt;下载&lt;/li&gt;
+&lt;li&gt;将&lt;code&gt;.iso&lt;/code&gt;文件保存到我们想要虚拟机保存的目录中&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;获取gnupg签名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取gnupg签名&#34;&gt;#&lt;/a&gt; 获取&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL0dudVBH&#34;&gt; GnuPG&lt;/span&gt; 签名&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;GnuPG 是什么？&lt;br&gt;
-GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自由软件。GnuPG 可以加密和签名你的数据和通讯信息，包含一个通用的密钥管理系统以及用于各种公钥目录的访问模块。GnuPG，简称 GPG，是一个易于与其它程序整合的命令行工具，拥有很多前端程序和函数库。GnuPG 还支持 S/MIME 和 Secure Shell (ssh)。&lt;/p&gt;
+&lt;h1 id=&#34;获取GnuPG签名&#34;&gt;&lt;a href=&#34;#获取GnuPG签名&#34; class=&#34;headerlink&#34; title=&#34;获取GnuPG签名&#34;&gt;&lt;/a&gt;获取&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL0dudVBH&#34;&gt;GnuPG&lt;/span&gt;签名&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;GnuPG 是什么？&lt;br&gt;GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自由软件。GnuPG 可以加密和签名你的数据和通讯信息，包含一个通用的密钥管理系统以及用于各种公钥目录的访问模块。GnuPG，简称 GPG，是一个易于与其它程序整合的命令行工具，拥有很多前端程序和函数库。GnuPG 还支持 S&amp;#x2F;MIME 和 Secure Shell (ssh)。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;从上述清华大学镜像站，可获取 iso 版本对应的 PGP 签名 &lt;code&gt;archlinux-2023.09.01-x86_64.iso.sig`` ![清华大学镜像站](tsinghua_mirror.png) 在本次安装中，我使用的是&lt;/code&gt;  Git Bash &lt;code&gt;，其中装有GPG，&lt;/code&gt; cmd &lt;code&gt;和&lt;/code&gt;  powershell` 中也装有 gpg，可选择一个终端进行后续操作。&lt;/p&gt;
-&lt;h1 id=&#34;验证签名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#验证签名&#34;&gt;#&lt;/a&gt; 验证签名&lt;/h1&gt;
-&lt;p&gt;为避免因 HTTP 连接下载镜像时遭到拦截，获取到恶意镜像，我们需要利用 PGP 签名对镜像进行验证。&lt;br&gt;
-通过以下命令验证:&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg --keyserver-options auto-key-retrieve &lt;span class=&#34;token parameter variable&#34;&gt;--verify&lt;/span&gt; archlinux-version-x86_64.iso.sig&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中 &lt;code&gt;version&lt;/code&gt;  替换成你所下载的版本号，如 &lt;code&gt;2023.09.01&lt;/code&gt; 。我的显示结果是：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;legion@DESKTOP-ROOSFVQ MINGW64 /e/VMs/Arch&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ gpg --keyserver-options auto-key-retrieve &lt;span class=&#34;token parameter variable&#34;&gt;--verify&lt;/span&gt; archlinux-2023.09.01-x86_64.iso.sig&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg: assuming signed data &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;archlinux-2023.09.01-x86_64.iso&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg: Signature made &lt;span class=&#34;token number&#34;&gt;2023&lt;/span&gt;年09月 &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;日 &lt;span class=&#34;token number&#34;&gt;18&lt;/span&gt;:48:49&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg:                using EDDSA key 3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg:                issuer &lt;span class=&#34;token string&#34;&gt;&#34;pierre@archlinux.org&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg: Good signature from &lt;span class=&#34;token string&#34;&gt;&#34;Pierre Schmitz &amp;lt;pierre@archlinux.org&gt;&#34;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;unknown&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg: WARNING: This key is not certified with a trusted signature&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gpg:          There is no indication that the signature belongs to the owner.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Primary key fingerprint: 3E80 CA1A 8B89 F69C BA57  D98A 76A5 EF90 &lt;span class=&#34;token number&#34;&gt;5444&lt;/span&gt; 9A5C&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;若从镜像站下载，则会显示 &lt;code&gt;fingerprint&lt;/code&gt; ，我们需要打开&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9rZXlzZXJ2ZXIudWJ1bnR1LmNvbS9wa3MvbG9va3VwP29wPXZpbmRleCZhbXA7ZmluZ2VycHJpbnQ9b24mYW1wO2V4YWN0PW9uJmFtcDtzZWFyY2g9MHgzRTgwQ0ExQThCODlGNjlDQkE1N0Q5OEE3NkE1RUY5MDU0NDQ5QTVD&#34;&gt; fingerprint 合集&lt;/span&gt;，确保我们所获得的镜像的 &lt;code&gt;fingerprint&lt;/code&gt;  和该网站上的 fingerprint 吻合。（确保公钥的指纹等于其中一位签署了 ISO 文件 Arch Linux 开发者的指纹）&lt;/p&gt;
-&lt;h1 id=&#34;准备安装介质&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备安装介质&#34;&gt;#&lt;/a&gt; 准备安装介质&lt;/h1&gt;
-&lt;p&gt;安装镜像包括：U 盘，光盘，和带有 PXE 的网络安装镜像。此处我是用 VMWare 虚拟机进行安装。&lt;/p&gt;
-&lt;h1 id=&#34;vmware新建虚拟机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vmware新建虚拟机&#34;&gt;#&lt;/a&gt; VMWare 新建虚拟机&lt;/h1&gt;
-&lt;p&gt;依次选择：&lt;/p&gt;
+&lt;p&gt;从上述清华大学镜像站，可获取 iso 版本对应的 PGP 签名&lt;code&gt;archlinux-2023.09.01-x86_64.iso.sig`` ![清华大学镜像站](tsinghua_mirror.png) 在本次安装中，我使用的是&lt;/code&gt;Git Bash&lt;code&gt;，其中装有GPG，&lt;/code&gt;cmd&lt;code&gt;和&lt;/code&gt;powershell&amp;#96;中也装有 gpg，可选择一个终端进行后续操作。&lt;/p&gt;
+&lt;h1 id=&#34;验证签名&#34;&gt;&lt;a href=&#34;#验证签名&#34; class=&#34;headerlink&#34; title=&#34;验证签名&#34;&gt;&lt;/a&gt;验证签名&lt;/h1&gt;&lt;p&gt;为避免因 HTTP 连接下载镜像时遭到拦截，获取到恶意镜像，我们需要利用 PGP 签名对镜像进行验证。&lt;br&gt;通过以下命令验证:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中&lt;code&gt;version&lt;/code&gt;替换成你所下载的版本号，如&lt;code&gt;2023.09.01&lt;/code&gt;。我的显示结果是：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;legion@DESKTOP-ROOSFVQ MINGW64 /e/VMs/Arch
+$ gpg --keyserver-options auto-key-retrieve --verify archlinux-2023.09.01-x86_64.iso.sig
+gpg: assuming signed data in &amp;#39;archlinux-2023.09.01-x86_64.iso&amp;#39;
+gpg: Signature made 2023年09月 1日 18:48:49
+gpg:                using EDDSA key 3E80CA1A8B89F69CBA57D98A76A5EF9054449A5C
+gpg:                issuer &amp;quot;pierre@archlinux.org&amp;quot;
+gpg: Good signature from &amp;quot;Pierre Schmitz &amp;lt;pierre@archlinux.org&amp;gt;&amp;quot; [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 3E80 CA1A 8B89 F69C BA57  D98A 76A5 EF90 5444 9A5C
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;若从镜像站下载，则会显示&lt;code&gt;fingerprint&lt;/code&gt;，我们需要打开&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9rZXlzZXJ2ZXIudWJ1bnR1LmNvbS9wa3MvbG9va3VwP29wPXZpbmRleCZmaW5nZXJwcmludD1vbiZleGFjdD1vbiZzZWFyY2g9MHgzRTgwQ0ExQThCODlGNjlDQkE1N0Q5OEE3NkE1RUY5MDU0NDQ5QTVD&#34;&gt;fingerprint 合集&lt;/span&gt;,确保我们所获得的镜像的&lt;code&gt;fingerprint&lt;/code&gt;和该网站上的 fingerprint 吻合。（确保公钥的指纹等于其中一位签署了 ISO 文件 Arch Linux 开发者的指纹）&lt;/p&gt;
+&lt;h1 id=&#34;准备安装介质&#34;&gt;&lt;a href=&#34;#准备安装介质&#34; class=&#34;headerlink&#34; title=&#34;准备安装介质&#34;&gt;&lt;/a&gt;准备安装介质&lt;/h1&gt;&lt;p&gt;安装镜像包括：U 盘，光盘，和带有 PXE 的网络安装镜像。此处我是用 VMWare 虚拟机进行安装。&lt;/p&gt;
+&lt;h1 id=&#34;VMWare-新建虚拟机&#34;&gt;&lt;a href=&#34;#VMWare-新建虚拟机&#34; class=&#34;headerlink&#34; title=&#34;VMWare 新建虚拟机&#34;&gt;&lt;/a&gt;VMWare 新建虚拟机&lt;/h1&gt;&lt;p&gt;依次选择：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;自定义（高级）&lt;/li&gt;
 &lt;li&gt;硬件兼容性&lt;/li&gt;
 &lt;li&gt;稍后安装操作系统&lt;/li&gt;
-&lt;li&gt;本内核版本为 6.4.12，因 VMware 中没有 Arch，因此我选择 &lt;code&gt;其他 Linux 5.x 内核 64位&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;本内核版本为 6.4.12，因 VMware 中没有 Arch，因此我选择&lt;code&gt;其他 Linux 5.x 内核 64位&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;选择安装目录（自定）&lt;/li&gt;
-&lt;li&gt;处理器配置、&lt;s&gt;内存大小分配&lt;/s&gt;均选择默认（注意：内存大小选择 2G，768MB 完全不够)&lt;/li&gt;
+&lt;li&gt;处理器配置、&lt;del&gt;内存大小分配&lt;/del&gt;均选择默认（注意：内存大小选择 2G，768MB 完全不够)&lt;/li&gt;
 &lt;li&gt;使用网络地址转换（NAT）&lt;/li&gt;
-&lt;li&gt;SCSI 控制器：LSI Logic（L）&lt;/li&gt;
+&lt;li&gt;SCSI 控制器:LSI Logic（L）&lt;/li&gt;
 &lt;li&gt;虚拟磁盘类型：SCSI（S）&lt;/li&gt;
 &lt;li&gt;创建新虚拟磁盘&lt;/li&gt;
 &lt;li&gt;最大磁盘大小默认，将虚拟磁盘拆分成多个文件&lt;/li&gt;
 &lt;li&gt;磁盘文件名默认&lt;/li&gt;
-&lt;li&gt;自定义硬件 -&amp;gt; 新 CD/DVD-&amp;gt; 使用 ISO 映像文件 -&amp;gt; 选择我们下载的 iso 文件 -&amp;gt; 关闭&lt;/li&gt;
+&lt;li&gt;自定义硬件-&amp;gt;新 CD&amp;#x2F;DVD-&amp;gt;使用 ISO 映像文件-&amp;gt;选择我们下载的 iso 文件-&amp;gt;关闭&lt;/li&gt;
 &lt;li&gt;完成&lt;/li&gt;
 &lt;li&gt;你可以自行决定 BIOS 或 UEFI 模式启动（我选择 UEFI，但是应该影响不大）&lt;/li&gt;
-&lt;li&gt;点击开启此虚拟机&lt;/li&gt;
+&lt;li&gt;点击开启此虚拟机&lt;br&gt;:::info&lt;br&gt;Ready for the journey? Let’s go!&lt;br&gt;:::&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;Ready for the journey? Let’s go!&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;进入安装程序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#进入安装程序&#34;&gt;#&lt;/a&gt; 进入安装程序&lt;/h1&gt;
-&lt;ol&gt;
+&lt;h1 id=&#34;进入安装程序&#34;&gt;&lt;a href=&#34;#进入安装程序&#34; class=&#34;headerlink&#34; title=&#34;进入安装程序&#34;&gt;&lt;/a&gt;进入安装程序&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;默认第一项，等待一会儿，随后进入命令行模式&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;一号坑vmware默认分配内存768mb过小需要2g&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一号坑vmware默认分配内存768mb过小需要2g&#34;&gt;#&lt;/a&gt; 一号坑：VMware 默认分配内存 768MB 过小，需要 2G&lt;/h1&gt;
-&lt;p&gt;开局遇雷：怎么回事？&lt;br&gt;
-&lt;img data-src=&#34;command.png&#34; alt=&#34;命令行模式开启&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;参考了&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NDk5MDgwL2FydGljbGUvZGV0YWlscy8xMzE3MTE1MDMjOn46dGV4dD0yJUUzJTgwJTgxJUU2JTlCJUI0JUU2JTk2JUIwJUU5JTk1JTlDJUU1JTgzJThGJUU2JUJBJTkwcGFjbWFuLC1TeXkzJUUzJTgwJTgxJUU2JTlCJUI0JUU2JTk2JUIwUk9PVCVFNSVBRiU4NiVFNyVBMCU4MXBhc3N3ZDQlRTMlODAlODE=&#34;&gt;这篇博文&lt;/span&gt;虚拟机默认的是 768MB，不够。在设置中修改为 2G, 成功启动。&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;二号坑网络出现问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#二号坑网络出现问题&#34;&gt;#&lt;/a&gt; 二号坑：网络出现问题&lt;/h1&gt;
-&lt;p&gt;&lt;img data-src=&#34;network_error.png&#34; alt=&#34;Arch网络出问题&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;关了虚拟机，重新开机，成功启动&lt;br&gt;
-&lt;img data-src=&#34;success.png&#34; alt=&#34;Arch成功启动&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;配置控制台键盘布局和字体&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置控制台键盘布局和字体&#34;&gt;#&lt;/a&gt; 配置控制台键盘布局和字体&lt;/h1&gt;
-&lt;p&gt;系统启动后，控制台键盘布局默认为 us（美式键盘）。如果您需要列出所有可用的键盘布局，可以使用以下命令：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; /usr/share/kbd/keymaps/**/*.map.gz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;keymaps.png&#34; alt=&#34;显示所有键盘布局&#34;&gt;&lt;br&gt;
-此处我使用 &lt;code&gt;us&lt;/code&gt;  键盘布局，不修改。&lt;/p&gt;
-&lt;h1 id=&#34;检查是否连接到互联网&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#检查是否连接到互联网&#34;&gt;#&lt;/a&gt; 检查是否连接到互联网&lt;/h1&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;link&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ping&lt;/span&gt; archlinux.org&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;network.png&#34; alt=&#34;检查网络连接&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;更新系统时间&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#更新系统时间&#34;&gt;#&lt;/a&gt; 更新系统时间&lt;/h1&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;timedatectl &lt;span class=&#34;token comment&#34;&gt;#查看系统时间&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;timedatectl list-timezones &lt;span class=&#34;token comment&#34;&gt;#查看所有时区&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;timedatectl set-timezone &lt;span class=&#34;token string&#34;&gt;&#34;Asia/Shanghai&#34;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 设置为亚洲上海&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;set-timezone.png&#34; alt=&#34;设置时区&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;要创建磁盘分区了，为保证出问题后还能倒回来，此处拍摄快照 1&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;创建硬盘分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建硬盘分区&#34;&gt;#&lt;/a&gt; 创建硬盘分区&lt;/h1&gt;
-&lt;h2 id=&#34;指南&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#指南&#34;&gt;#&lt;/a&gt; 指南&lt;/h2&gt;
-&lt;p&gt;系统如果识别到计算机的内置硬盘、U 盘或者移动硬盘等类型磁盘，就会将其分配为一个块设备，如 /dev/sda、/dev/nvme0n1 或 /dev/mmcblk0。可以使用 lsblk 或者 fdisk 查看：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;fdisk&lt;/span&gt; -l&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;此处为小写字母l&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;block.png&#34; alt=&#34;块设备&#34;&gt;&lt;br&gt;
-结果中以 rom、loop 或者 airoot 结尾的设备可以被忽略。&lt;/p&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;提示：在分区之前，请您检查 NVMe 驱动器和 Advanced Format 硬盘是否使用了最佳逻辑扇区大小。需要注意的是，更改逻辑扇区大小后，可能会导致在 Windows 系统中出现兼容性问题。&lt;br&gt;
-对于一个选定的设备，以下分区是必须要有的：&lt;/p&gt;
+&lt;h1 id=&#34;一号坑：VMware-默认分配内存-768MB-过小，需要-2G&#34;&gt;&lt;a href=&#34;#一号坑：VMware-默认分配内存-768MB-过小，需要-2G&#34; class=&#34;headerlink&#34; title=&#34;一号坑：VMware 默认分配内存 768MB 过小，需要 2G&#34;&gt;&lt;/a&gt;一号坑：VMware 默认分配内存 768MB 过小，需要 2G&lt;/h1&gt;&lt;p&gt;开局遇雷：怎么回事？&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/command.png&#34; alt=&#34;命令行模式开启&#34;&gt;&lt;br&gt;:::info&lt;br&gt;参考了&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NDk5MDgwL2FydGljbGUvZGV0YWlscy8xMzE3MTE1MDMjOn46dGV4dD0yJUUzJTgwJTgxJUU2JTlCJUI0JUU2JTk2JUIwJUU5JTk1JTlDJUU1JTgzJThGJUU2JUJBJTkwcGFjbWFuLC1TeXkzJUUzJTgwJTgxJUU2JTlCJUI0JUU2JTk2JUIwUk9PVCVFNSVBRiU4NiVFNyVBMCU4MXBhc3N3ZDQlRTMlODAlODE=&#34;&gt;这篇博文&lt;/span&gt;虚拟机默认的是 768MB，不够。在设置中修改为 2G,成功启动。&lt;br&gt;:::&lt;/p&gt;
+&lt;h1 id=&#34;二号坑：网络出现问题&#34;&gt;&lt;a href=&#34;#二号坑：网络出现问题&#34; class=&#34;headerlink&#34; title=&#34;二号坑：网络出现问题&#34;&gt;&lt;/a&gt;二号坑：网络出现问题&lt;/h1&gt;&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/network_error.png&#34; alt=&#34;Arch网络出问题&#34;&gt;&lt;br&gt;:::info&lt;br&gt;关了虚拟机，重新开机，成功启动&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/success.png&#34; alt=&#34;Arch成功启动&#34;&gt;&lt;br&gt;:::&lt;/p&gt;
+&lt;h1 id=&#34;配置控制台键盘布局和字体&#34;&gt;&lt;a href=&#34;#配置控制台键盘布局和字体&#34; class=&#34;headerlink&#34; title=&#34;配置控制台键盘布局和字体&#34;&gt;&lt;/a&gt;配置控制台键盘布局和字体&lt;/h1&gt;&lt;p&gt;系统启动后，控制台键盘布局默认为 us（美式键盘）。如果您需要列出所有可用的键盘布局，可以使用以下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;ls /usr/share/kbd/keymaps/**/*.map.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/keymaps.png&#34; alt=&#34;显示所有键盘布局&#34;&gt;&lt;br&gt;此处我使用&lt;code&gt;us&lt;/code&gt;键盘布局，不修改。&lt;/p&gt;
+&lt;h1 id=&#34;检查是否连接到互联网&#34;&gt;&lt;a href=&#34;#检查是否连接到互联网&#34; class=&#34;headerlink&#34; title=&#34;检查是否连接到互联网&#34;&gt;&lt;/a&gt;检查是否连接到互联网&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;ip link
+ping archlinux.org
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/network.png&#34; alt=&#34;检查网络连接&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;更新系统时间&#34;&gt;&lt;a href=&#34;#更新系统时间&#34; class=&#34;headerlink&#34; title=&#34;更新系统时间&#34;&gt;&lt;/a&gt;更新系统时间&lt;/h1&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;timedatectl #查看系统时间
+timedatectl list-timezones #查看所有时区
+timedatectl set-timezone &amp;quot;Asia/Shanghai&amp;quot; # 设置为亚洲上海
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/set-timezone.png&#34; alt=&#34;设置时区&#34;&gt;&lt;br&gt;:::info&lt;br&gt;要创建磁盘分区了，为保证出问题后还能倒回来，此处拍摄快照 1&lt;br&gt;:::&lt;/p&gt;
+&lt;h1 id=&#34;创建硬盘分区&#34;&gt;&lt;a href=&#34;#创建硬盘分区&#34; class=&#34;headerlink&#34; title=&#34;创建硬盘分区&#34;&gt;&lt;/a&gt;创建硬盘分区&lt;/h1&gt;&lt;h2 id=&#34;指南&#34;&gt;&lt;a href=&#34;#指南&#34; class=&#34;headerlink&#34; title=&#34;指南&#34;&gt;&lt;/a&gt;指南&lt;/h2&gt;&lt;p&gt;系统如果识别到计算机的内置硬盘、U 盘或者移动硬盘等类型磁盘，就会将其分配为一个块设备，如 &amp;#x2F;dev&amp;#x2F;sda、&amp;#x2F;dev&amp;#x2F;nvme0n1 或 &amp;#x2F;dev&amp;#x2F;mmcblk0。可以使用 lsblk 或者 fdisk 查看：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;fdisk -l(此处为小写字母l)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/block.png&#34; alt=&#34;块设备&#34;&gt;&lt;br&gt;结果中以 rom、loop 或者 airoot 结尾的设备可以被忽略。&lt;br&gt;:::info&lt;br&gt;提示：在分区之前，请您检查 NVMe 驱动器和 Advanced Format 硬盘是否使用了最佳逻辑扇区大小。需要注意的是，更改逻辑扇区大小后，可能会导致在 Windows 系统中出现兼容性问题。&lt;br&gt;对于一个选定的设备，以下分区是必须要有的：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;一个根分区（挂载在 根目录）/；&lt;/li&gt;
+&lt;li&gt;一个根分区（挂载在 根目录）&amp;#x2F;；&lt;/li&gt;
 &lt;li&gt;要在 UEFI 模式中启动，还需要一个 EFI 系统分区。&lt;/li&gt;
-&lt;li&gt;如果您需要创建多级存储例如 LVM、磁盘加密 或 RAID，请您在这时候完成。&lt;br&gt;
-请使用分区工具（fdisk 、parted、cfdisk 等等）修改分区表。例如：&lt;/li&gt;
+&lt;li&gt;如果您需要创建多级存储例如 LVM、磁盘加密 或 RAID，请您在这时候完成。&lt;br&gt;请使用分区工具（fdisk 、parted、cfdisk 等等）修改分区表。例如：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;fdisk&lt;/span&gt; /dev/the_disk_to_be_partitioned（要被分区的磁盘）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意：&lt;br&gt;
-如果您想要的磁盘没有显示出来， 确保您的磁盘控制器未处于 RAID 模式。&lt;br&gt;
-如果要启动的磁盘已经有一个 EFI 系统分区，就不要再新建 EFI 分区了，而是使用现有的 EFI 分区。&lt;br&gt;
-如果文件系统支持，交换空间 可以通过 交换文件 实现。&lt;/p&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;分区方案&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分区方案&#34;&gt;#&lt;/a&gt; 分区方案：&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;partition.png&#34; alt=&#34;分区方案&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;分区步骤&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#分区步骤&#34;&gt;#&lt;/a&gt; 分区步骤&lt;/h2&gt;
-&lt;h3 id=&#34;创建gpt分区表&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建gpt分区表&#34;&gt;#&lt;/a&gt; 创建 GPT 分区表&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;输入 &lt;code&gt;fdisk /dev/sda&lt;/code&gt; ，对 &lt;code&gt;/dev/sda&lt;/code&gt;  磁盘进行分区&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;g&lt;/code&gt; ，创建一个 &lt;code&gt;GUID&lt;/code&gt;  分区表&lt;/li&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;fdisk /dev/the_disk_to_be_partitioned（要被分区的磁盘）
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：&lt;br&gt;如果您想要的磁盘没有显示出来， 确保您的磁盘控制器未处于 RAID 模式。&lt;br&gt;如果要启动的磁盘已经有一个 EFI 系统分区，就不要再新建 EFI 分区了，而是使用现有的 EFI 分区。&lt;br&gt;如果文件系统支持，交换空间 可以通过 交换文件 实现。&lt;br&gt;:::&lt;/p&gt;
+&lt;h2 id=&#34;分区方案：&#34;&gt;&lt;a href=&#34;#分区方案：&#34; class=&#34;headerlink&#34; title=&#34;分区方案：&#34;&gt;&lt;/a&gt;分区方案：&lt;/h2&gt;&lt;p&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/partition.png&#34; alt=&#34;分区方案&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;分区步骤&#34;&gt;&lt;a href=&#34;#分区步骤&#34; class=&#34;headerlink&#34; title=&#34;分区步骤&#34;&gt;&lt;/a&gt;分区步骤&lt;/h2&gt;&lt;h3 id=&#34;创建-GPT-分区表&#34;&gt;&lt;a href=&#34;#创建-GPT-分区表&#34; class=&#34;headerlink&#34; title=&#34;创建 GPT 分区表&#34;&gt;&lt;/a&gt;创建 GPT 分区表&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;输入&lt;code&gt;fdisk /dev/sda&lt;/code&gt;，对&lt;code&gt;/dev/sda&lt;/code&gt;磁盘进行分区&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;g&lt;/code&gt;，创建一个&lt;code&gt;GUID&lt;/code&gt;分区表&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;创建第一个分区efi分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建第一个分区efi分区&#34;&gt;#&lt;/a&gt; 创建第一个分区：EFI 分区&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;输入 &lt;code&gt;n&lt;/code&gt; ，创建第一个分区，输入其编号（默认为 1，即 &lt;code&gt;/dev/sda1&lt;/code&gt; ）&lt;/li&gt;
+&lt;h3 id=&#34;创建第一个分区：EFI-分区&#34;&gt;&lt;a href=&#34;#创建第一个分区：EFI-分区&#34; class=&#34;headerlink&#34; title=&#34;创建第一个分区：EFI 分区&#34;&gt;&lt;/a&gt;创建第一个分区：EFI 分区&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;输入&lt;code&gt;n&lt;/code&gt;，创建第一个分区，输入其编号（默认为 1，即&lt;code&gt;/dev/sda1&lt;/code&gt;）&lt;/li&gt;
 &lt;li&gt;回车，默认其大小&lt;/li&gt;
-&lt;li&gt;对最后一个扇区，输入 &lt;code&gt;+512M&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;t&lt;/code&gt;  来将这个新分区改为 &amp;quot;EFI System&amp;quot;&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;L&lt;/code&gt;  来查看所有分区名，输入 &lt;code&gt;q&lt;/code&gt;  退出，可见 &lt;code&gt;EFI System&lt;/code&gt;  分区别名为 1&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;1&lt;/code&gt; ，将分区改为 &lt;code&gt;EFI System&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;对最后一个扇区，输入&lt;code&gt;+512M&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;t&lt;/code&gt;来将这个新分区改为”EFI System”&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;L&lt;/code&gt;来查看所有分区名，输入&lt;code&gt;q&lt;/code&gt;退出，可见&lt;code&gt;EFI System&lt;/code&gt;分区别名为 1&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;1&lt;/code&gt;，将分区改为&lt;code&gt;EFI System&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;创建第二个分区文件系统分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建第二个分区文件系统分区&#34;&gt;#&lt;/a&gt; 创建第二个分区：文件系统分区&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;输入 &lt;code&gt;n&lt;/code&gt; ，创建第二个分区&lt;/li&gt;
+&lt;h3 id=&#34;创建第二个分区：文件系统分区&#34;&gt;&lt;a href=&#34;#创建第二个分区：文件系统分区&#34; class=&#34;headerlink&#34; title=&#34;创建第二个分区：文件系统分区&#34;&gt;&lt;/a&gt;创建第二个分区：文件系统分区&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;输入&lt;code&gt;n&lt;/code&gt;，创建第二个分区&lt;/li&gt;
 &lt;li&gt;两次回车，使用默认分区号和扇区大小&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;-512M&lt;/code&gt; ，为交换分区留出 512MB 大小来&lt;/li&gt;
-&lt;li&gt;分区默认名为 &lt;code&gt;Linux filesystem&lt;/code&gt; ，因此不需要改&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;-512M&lt;/code&gt;，为交换分区留出 512MB 大小来&lt;/li&gt;
+&lt;li&gt;分区默认名为&lt;code&gt;Linux filesystem&lt;/code&gt;，因此不需要改&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;创建第三个分区交换分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建第三个分区交换分区&#34;&gt;#&lt;/a&gt; 创建第三个分区：交换分区&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;输入 &lt;code&gt;n&lt;/code&gt; ，创建第三个分区&lt;/li&gt;
+&lt;h3 id=&#34;创建第三个分区：交换分区&#34;&gt;&lt;a href=&#34;#创建第三个分区：交换分区&#34; class=&#34;headerlink&#34; title=&#34;创建第三个分区：交换分区&#34;&gt;&lt;/a&gt;创建第三个分区：交换分区&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;输入&lt;code&gt;n&lt;/code&gt;，创建第三个分区&lt;/li&gt;
 &lt;li&gt;连按 3 次回车，接受所有默认设置&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;t&lt;/code&gt; ，将新分区改为 &lt;code&gt;Linux Swap&lt;/code&gt; , 别名为 19&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;t&lt;/code&gt;，将新分区改为&lt;code&gt;Linux Swap&lt;/code&gt;,别名为 19&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;查看分区结果&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#查看分区结果&#34;&gt;#&lt;/a&gt; 查看分区结果&lt;/h3&gt;
-&lt;p&gt;输入 &lt;code&gt;p&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;完成修改&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#完成修改&#34;&gt;#&lt;/a&gt; 完成修改&lt;/h3&gt;
-&lt;p&gt;输入 &lt;code&gt;w&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id=&#34;格式化分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#格式化分区&#34;&gt;#&lt;/a&gt; 格式化分区&lt;/h1&gt;
-&lt;p&gt;对于不同的分区，我们使用不同的文件系统：&lt;/p&gt;
-&lt;h2 id=&#34;esp分区格式化mkfsfat格式化fat32文件系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#esp分区格式化mkfsfat格式化fat32文件系统&#34;&gt;#&lt;/a&gt; ESP 分区格式化： &lt;code&gt;mkfs.fat&lt;/code&gt;  格式化 FAT32 文件系统&lt;/h2&gt;
-&lt;p&gt;ESP 在 &lt;code&gt;/dev/sda1&lt;/code&gt;  中，运行 &lt;code&gt;mkfs.fat -F32 /dev/sda1&lt;/code&gt;  来挂载 FAT32 文件系统&lt;/p&gt;
-&lt;h2 id=&#34;根分区通过mkfsext4格式化ext4文件系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#根分区通过mkfsext4格式化ext4文件系统&#34;&gt;#&lt;/a&gt; 根分区：通过 &lt;code&gt;mkfs.ext4&lt;/code&gt;  格式化 ext4 文件系统&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;mkfs.ext4 /dev/sad2&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;交换分区格式化mkswap&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#交换分区格式化mkswap&#34;&gt;#&lt;/a&gt; 交换分区格式化： &lt;code&gt;mkswap&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;mkswap /dev/sda3&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id=&#34;挂载分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#挂载分区&#34;&gt;#&lt;/a&gt; 挂载分区&lt;/h1&gt;
-&lt;h2 id=&#34;挂载根分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#挂载根分区&#34;&gt;#&lt;/a&gt; 挂载根分区&lt;/h2&gt;
-&lt;p&gt;将根磁盘卷挂载到 &lt;code&gt;/mnt&lt;/code&gt; ，使用命令： &lt;code&gt;mount /dev/sda2 /mnt&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;挂载efi分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#挂载efi分区&#34;&gt;#&lt;/a&gt; 挂载 EFI 分区&lt;/h2&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mount&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--mkdir&lt;/span&gt; /dev/sda1 /mnt/boot&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;挂载swap分区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#挂载swap分区&#34;&gt;#&lt;/a&gt; 挂载 swap 分区&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;swapon /dev/sda3&lt;/code&gt;  来启用交换分区&lt;/p&gt;
-&lt;p&gt;稍后 genfstab (8) 将自动检测挂载的文件系统和交换空间。&lt;/p&gt;
-&lt;h1 id=&#34;开始安装系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开始安装系统&#34;&gt;#&lt;/a&gt; 开始安装系统&lt;/h1&gt;
-&lt;h2 id=&#34;选择镜像站&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#选择镜像站&#34;&gt;#&lt;/a&gt; 选择镜像站&lt;/h2&gt;
-&lt;h3 id=&#34;安装reflector包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装reflector包&#34;&gt;#&lt;/a&gt; 安装 &lt;code&gt;reflector&lt;/code&gt;  包&lt;/h3&gt;
-&lt;p&gt;通常来说系统默认有，如果没有的话使用如下命令安装：&lt;br&gt;
- &lt;code&gt;sudo pacman -S reflector&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;更新源&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#更新源&#34;&gt;#&lt;/a&gt; 更新源&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; reflector &lt;span class=&#34;token parameter variable&#34;&gt;--country&lt;/span&gt; China &lt;span class=&#34;token parameter variable&#34;&gt;--save&lt;/span&gt; /etc/pacman.d/mirrorlist.pacnew&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;确保源准确无误后，将 &lt;code&gt;mirrorlist.pacnew&lt;/code&gt;  复制到 &lt;code&gt;mirrorlist&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;安装必须的软件包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装必须的软件包&#34;&gt;#&lt;/a&gt; 安装必须的软件包&lt;/h2&gt;
-&lt;p&gt;使用 pacstrap (8) 脚本，安装 base 包 软件包和 Linux 内核以及常规硬件的固件：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pacstrap &lt;span class=&#34;token parameter variable&#34;&gt;-K&lt;/span&gt; /mnt base linux &lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; man-db man-pages texinfo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这时候可以同时额外安装计算机的 CPU 微码包。如果计算机是 Intel 的 CPU ，使用 &lt;code&gt;intel-ucode&lt;/code&gt;  包，AMD CPU 则使用  &lt;code&gt;amd-ucode&lt;/code&gt;  包。也可以暂时都不安装，等到进入系统后再安装。&lt;/p&gt;
-&lt;div class=&#34;note info&#34;&gt;
+&lt;h3 id=&#34;查看分区结果&#34;&gt;&lt;a href=&#34;#查看分区结果&#34; class=&#34;headerlink&#34; title=&#34;查看分区结果&#34;&gt;&lt;/a&gt;查看分区结果&lt;/h3&gt;&lt;p&gt;输入&lt;code&gt;p&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;完成修改&#34;&gt;&lt;a href=&#34;#完成修改&#34; class=&#34;headerlink&#34; title=&#34;完成修改&#34;&gt;&lt;/a&gt;完成修改&lt;/h3&gt;&lt;p&gt;输入&lt;code&gt;w&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;格式化分区&#34;&gt;&lt;a href=&#34;#格式化分区&#34; class=&#34;headerlink&#34; title=&#34;格式化分区&#34;&gt;&lt;/a&gt;格式化分区&lt;/h1&gt;&lt;p&gt;对于不同的分区，我们使用不同的文件系统：&lt;/p&gt;
+&lt;h2 id=&#34;ESP-分区格式化：mkfs-fat格式化-FAT32-文件系统&#34;&gt;&lt;a href=&#34;#ESP-分区格式化：mkfs-fat格式化-FAT32-文件系统&#34; class=&#34;headerlink&#34; title=&#34;ESP 分区格式化：mkfs.fat格式化 FAT32 文件系统&#34;&gt;&lt;/a&gt;ESP 分区格式化：&lt;code&gt;mkfs.fat&lt;/code&gt;格式化 FAT32 文件系统&lt;/h2&gt;&lt;p&gt;ESP 在&lt;code&gt;/dev/sda1&lt;/code&gt;中，运行&lt;code&gt;mkfs.fat -F32 /dev/sda1&lt;/code&gt;来挂载 FAT32 文件系统&lt;/p&gt;
+&lt;h2 id=&#34;根分区-通过mkfs-ext4格式化-ext4-文件系统&#34;&gt;&lt;a href=&#34;#根分区-通过mkfs-ext4格式化-ext4-文件系统&#34; class=&#34;headerlink&#34; title=&#34;根分区:通过mkfs.ext4格式化 ext4 文件系统&#34;&gt;&lt;/a&gt;根分区:通过&lt;code&gt;mkfs.ext4&lt;/code&gt;格式化 ext4 文件系统&lt;/h2&gt;&lt;p&gt;&lt;code&gt;mkfs.ext4 /dev/sad2&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;交换分区格式化：mkswap&#34;&gt;&lt;a href=&#34;#交换分区格式化：mkswap&#34; class=&#34;headerlink&#34; title=&#34;交换分区格式化：mkswap&#34;&gt;&lt;/a&gt;交换分区格式化：&lt;code&gt;mkswap&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;&lt;code&gt;mkswap /dev/sda3&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;挂载分区&#34;&gt;&lt;a href=&#34;#挂载分区&#34; class=&#34;headerlink&#34; title=&#34;挂载分区&#34;&gt;&lt;/a&gt;挂载分区&lt;/h1&gt;&lt;h2 id=&#34;挂载根分区&#34;&gt;&lt;a href=&#34;#挂载根分区&#34; class=&#34;headerlink&#34; title=&#34;挂载根分区&#34;&gt;&lt;/a&gt;挂载根分区&lt;/h2&gt;&lt;p&gt;将根磁盘卷挂载到&lt;code&gt;/mnt&lt;/code&gt;，使用命令：&lt;code&gt;mount /dev/sda2 /mnt&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;挂载-EFI-分区&#34;&gt;&lt;a href=&#34;#挂载-EFI-分区&#34; class=&#34;headerlink&#34; title=&#34;挂载 EFI 分区&#34;&gt;&lt;/a&gt;挂载 EFI 分区&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;mount --mkdir /dev/sda1 /mnt/boot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;挂载-swap-分区&#34;&gt;&lt;a href=&#34;#挂载-swap-分区&#34; class=&#34;headerlink&#34; title=&#34;挂载 swap 分区&#34;&gt;&lt;/a&gt;挂载 swap 分区&lt;/h2&gt;&lt;p&gt;&lt;code&gt;swapon /dev/sda3&lt;/code&gt;来启用交换分区&lt;/p&gt;
+&lt;p&gt;稍后 genfstab(8) 将自动检测挂载的文件系统和交换空间。&lt;/p&gt;
+&lt;h1 id=&#34;开始安装系统&#34;&gt;&lt;a href=&#34;#开始安装系统&#34; class=&#34;headerlink&#34; title=&#34;开始安装系统&#34;&gt;&lt;/a&gt;开始安装系统&lt;/h1&gt;&lt;h2 id=&#34;选择镜像站&#34;&gt;&lt;a href=&#34;#选择镜像站&#34; class=&#34;headerlink&#34; title=&#34;选择镜像站&#34;&gt;&lt;/a&gt;选择镜像站&lt;/h2&gt;&lt;h3 id=&#34;安装reflector包&#34;&gt;&lt;a href=&#34;#安装reflector包&#34; class=&#34;headerlink&#34; title=&#34;安装reflector包&#34;&gt;&lt;/a&gt;安装&lt;code&gt;reflector&lt;/code&gt;包&lt;/h3&gt;&lt;p&gt;通常来说系统默认有，如果没有的话使用如下命令安装：&lt;br&gt;&lt;code&gt;sudo pacman -S reflector&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;更新源&#34;&gt;&lt;a href=&#34;#更新源&#34; class=&#34;headerlink&#34; title=&#34;更新源&#34;&gt;&lt;/a&gt;更新源&lt;/h3&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;sudo reflector --country China --save /etc/pacman.d/mirrorlist.pacnew
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;确保源准确无误后，将&lt;code&gt;mirrorlist.pacnew&lt;/code&gt;复制到&lt;code&gt;mirrorlist&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装必须的软件包&#34;&gt;&lt;a href=&#34;#安装必须的软件包&#34; class=&#34;headerlink&#34; title=&#34;安装必须的软件包&#34;&gt;&lt;/a&gt;安装必须的软件包&lt;/h2&gt;&lt;p&gt;使用 pacstrap(8) 脚本，安装 base 包 软件包和 Linux 内核以及常规硬件的固件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;pacstrap -K /mnt base linux vim man-db man-pages texinfo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时候可以同时额外安装计算机的 CPU 微码包。如果计算机是 Intel 的 CPU ，使用&lt;code&gt;intel-ucode&lt;/code&gt;包，AMD CPU 则使用 &lt;code&gt;amd-ucode&lt;/code&gt;包。也可以暂时都不安装，等到进入系统后再安装。&lt;br&gt;:::info&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;因为我是在虚拟机中安装，因此我不安装固件 &lt;code&gt;linux-firmware&lt;/code&gt;  和微码包 &lt;code&gt;intel-ucode&lt;/code&gt; 。如果你有想补充的软件，请加在 &lt;code&gt;pacstrap&lt;/code&gt;  后面。&lt;/li&gt;
-&lt;li&gt;是 &lt;code&gt;texinfo&lt;/code&gt; ，不是 &lt;code&gt;textinfo&lt;/code&gt; ，不要看错啦！&lt;/li&gt;
+&lt;li&gt;因为我是在虚拟机中安装，因此我不安装固件&lt;code&gt;linux-firmware&lt;/code&gt;和微码包&lt;code&gt;intel-ucode&lt;/code&gt;。如果你有想补充的软件，请加在&lt;code&gt;pacstrap&lt;/code&gt;后面。&lt;/li&gt;
+&lt;li&gt;是&lt;code&gt;texinfo&lt;/code&gt;，不是&lt;code&gt;textinfo&lt;/code&gt;，不要看错啦！&lt;br&gt;:::&lt;!-- ~~# 三号坑：出现`error: failed to install packages to new root`~~
+解决方案：&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pacman -S archlinux-keyring&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pacman-key --refresh-keys&lt;/code&gt;&lt;br&gt;–&amp;gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-&lt;!-- ~~# 三号坑：出现`error: failed to install packages to new root`~~
-解决方案：
-1. `pacman -S archlinux-keyring`
-2. `pacman-key --refresh-keys`
---&gt;
-&lt;h1 id=&#34;配置系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置系统&#34;&gt;#&lt;/a&gt; 配置系统&lt;/h1&gt;
-&lt;h2 id=&#34;生成fstab文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#生成fstab文件&#34;&gt;#&lt;/a&gt; 生成 fstab 文件&lt;/h2&gt;
-&lt;p&gt;通过以下命令生成 fstab 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;genfstab &lt;span class=&#34;token parameter variable&#34;&gt;-U&lt;/span&gt; /mnt &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt; /mnt/etc/fstab&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;强烈建议在执行完以上命令后，检查一下生成的 &lt;code&gt;/mnt/etc/fstab&lt;/code&gt;  文件是否正确。&lt;/p&gt;
-&lt;h2 id=&#34;chroot到新安装的系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chroot到新安装的系统&#34;&gt;#&lt;/a&gt; chroot 到新安装的系统&lt;/h2&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;arch-chroot /mnt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;提示：此处使用的是 arch-chroot 而不是直接使用 chroot，注意不要输错了。在 &lt;code&gt;arch-chroot&lt;/code&gt;  进入 &lt;code&gt;/mnt&lt;/code&gt;  后，提示符应该变为了 &lt;code&gt;[root@archiso]&lt;/code&gt;  样式，如果没有，请检查一下前面的步骤是否都准确完成了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;设置时区&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置时区&#34;&gt;#&lt;/a&gt; 设置时区&lt;/h2&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-sf&lt;/span&gt; /usr/share/zoneinfo/Region（地区名）/City（城市名） /etc/localtime&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;地区名填 Asia, 城市名填 Shanghai&lt;br&gt;
- 然后运行 hwclock (8) 以生成 /etc/adjtime：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hwclock &lt;span class=&#34;token parameter variable&#34;&gt;--systohc&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这个命令假定已设置硬件时间为 UTC 时间。&lt;/p&gt;
-&lt;h2 id=&#34;区域和本地化设置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#区域和本地化设置&#34;&gt;#&lt;/a&gt; 区域和本地化设置&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;编辑 &lt;code&gt;/etc/locale.gen&lt;/code&gt; 。将 &lt;code&gt;en_US.UTF-8&lt;/code&gt;  或其他你想要的配置，对应那行取消注释。修改后，执行 &lt;code&gt;locale-gen&lt;/code&gt; ，以生成 &lt;code&gt;locale信息&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;创建 &lt;code&gt;/etc/locale.conf&lt;/code&gt; ，在其中写入：&lt;/li&gt;
+&lt;h1 id=&#34;配置系统&#34;&gt;&lt;a href=&#34;#配置系统&#34; class=&#34;headerlink&#34; title=&#34;配置系统&#34;&gt;&lt;/a&gt;配置系统&lt;/h1&gt;&lt;h2 id=&#34;生成-fstab-文件&#34;&gt;&lt;a href=&#34;#生成-fstab-文件&#34; class=&#34;headerlink&#34; title=&#34;生成 fstab 文件&#34;&gt;&lt;/a&gt;生成 fstab 文件&lt;/h2&gt;&lt;p&gt;通过以下命令生成 fstab 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;强烈建议在执行完以上命令后，检查一下生成的&lt;code&gt;/mnt/etc/fstab&lt;/code&gt;文件是否正确。&lt;/p&gt;
+&lt;h2 id=&#34;chroot-到新安装的系统&#34;&gt;&lt;a href=&#34;#chroot-到新安装的系统&#34; class=&#34;headerlink&#34; title=&#34;chroot 到新安装的系统&#34;&gt;&lt;/a&gt;chroot 到新安装的系统&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::info&lt;br&gt;提示：此处使用的是 arch-chroot 而不是直接使用 chroot，注意不要输错了。在&lt;code&gt;arch-chroot&lt;/code&gt;进入&lt;code&gt;/mnt&lt;/code&gt;后，提示符应该变为了&lt;code&gt;[root@archiso]&lt;/code&gt;样式，如果没有，请检查一下前面的步骤是否都准确完成了。&lt;br&gt;:::&lt;/p&gt;
+&lt;h2 id=&#34;设置时区&#34;&gt;&lt;a href=&#34;#设置时区&#34; class=&#34;headerlink&#34; title=&#34;设置时区&#34;&gt;&lt;/a&gt;设置时区&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;ln -sf /usr/share/zoneinfo/Region（地区名）/City（城市名） /etc/localtime
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;地区名填 Asia,城市名填 Shanghai&lt;br&gt;然后运行 hwclock(8) 以生成 &amp;#x2F;etc&amp;#x2F;adjtime：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;hwclock --systohc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个命令假定已设置硬件时间为 UTC 时间。&lt;/p&gt;
+&lt;h2 id=&#34;区域和本地化设置&#34;&gt;&lt;a href=&#34;#区域和本地化设置&#34; class=&#34;headerlink&#34; title=&#34;区域和本地化设置&#34;&gt;&lt;/a&gt;区域和本地化设置&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;编辑&lt;code&gt;/etc/locale.gen&lt;/code&gt;。将&lt;code&gt;en_US.UTF-8&lt;/code&gt;或其他你想要的配置，对应那行取消注释。修改后，执行&lt;code&gt;locale-gen&lt;/code&gt;，以生成&lt;code&gt;locale信息&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;创建&lt;code&gt;/etc/locale.conf&lt;/code&gt;，在其中写入：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;&lt;span class=&#34;token environment constant&#34;&gt;LANG&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;en_US.UTF-8&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;控制台键盘布局和字体设置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#控制台键盘布局和字体设置&#34;&gt;#&lt;/a&gt; 控制台键盘布局和字体设置&lt;/h2&gt;
-&lt;p&gt;如果需要修改控制台键盘布局和字体，可编辑 /etc/vconsole.conf 使其长期生效，例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;KEYMAP&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;de-latin1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;网络配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网络配置&#34;&gt;#&lt;/a&gt; 网络配置&lt;/h2&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;网络配置很重要，否则安装系统后会连不上网（例如 &lt;code&gt;VirtualBox&lt;/code&gt;  桥接模式就需要配置 DHCP）&lt;/p&gt;
-&lt;/div&gt;
-&lt;h3 id=&#34;设置主机名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置主机名&#34;&gt;#&lt;/a&gt; 设置主机名&lt;/h3&gt;
-&lt;p&gt;创建 &lt;code&gt;/etc/hostname&lt;/code&gt;  文件，在其中直接填写你所设定的主机名，我填写的主机名是 &lt;code&gt;arch&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;检查连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#检查连接&#34;&gt;#&lt;/a&gt; 检查连接&lt;/h3&gt;
-&lt;p&gt;TODO&lt;/p&gt;
-&lt;h3 id=&#34;安装网络管理器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装网络管理器&#34;&gt;#&lt;/a&gt; 安装网络管理器&lt;/h3&gt;
-&lt;ol&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;LANG=en_US.UTF-8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;控制台键盘布局和字体设置&#34;&gt;&lt;a href=&#34;#控制台键盘布局和字体设置&#34; class=&#34;headerlink&#34; title=&#34;控制台键盘布局和字体设置&#34;&gt;&lt;/a&gt;控制台键盘布局和字体设置&lt;/h2&gt;&lt;p&gt;如果需要修改控制台键盘布局和字体，可编辑 &amp;#x2F;etc&amp;#x2F;vconsole.conf 使其长期生效，例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;KEYMAP=de-latin1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;网络配置&#34;&gt;&lt;a href=&#34;#网络配置&#34; class=&#34;headerlink&#34; title=&#34;网络配置&#34;&gt;&lt;/a&gt;网络配置&lt;/h2&gt;&lt;p&gt;:::info&lt;br&gt;网络配置很重要,否则安装系统后会连不上网（例如&lt;code&gt;VirtualBox&lt;/code&gt;桥接模式就需要配置 DHCP）&lt;br&gt;:::&lt;/p&gt;
+&lt;h3 id=&#34;设置主机名&#34;&gt;&lt;a href=&#34;#设置主机名&#34; class=&#34;headerlink&#34; title=&#34;设置主机名&#34;&gt;&lt;/a&gt;设置主机名&lt;/h3&gt;&lt;p&gt;创建&lt;code&gt;/etc/hostname&lt;/code&gt;文件，在其中直接填写你所设定的主机名，我填写的主机名是&lt;code&gt;arch&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;检查连接&#34;&gt;&lt;a href=&#34;#检查连接&#34; class=&#34;headerlink&#34; title=&#34;检查连接&#34;&gt;&lt;/a&gt;检查连接&lt;/h3&gt;&lt;p&gt;TODO&lt;/p&gt;
+&lt;h3 id=&#34;安装网络管理器&#34;&gt;&lt;a href=&#34;#安装网络管理器&#34; class=&#34;headerlink&#34; title=&#34;安装网络管理器&#34;&gt;&lt;/a&gt;安装网络管理器&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;code&gt;pacman -S networkmanager&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;systemctl enable NetworkManager.service&lt;/code&gt;  设置网络管理器开机自启动&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;systemctl enable NetworkManager.service&lt;/code&gt;设置网络管理器开机自启动&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;关于-initramfs&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#关于-initramfs&#34;&gt;#&lt;/a&gt; 关于 initramfs&lt;/h2&gt;
-&lt;p&gt;通常不需要自己创建新的 initramfs，因为在执行 pacstrap 时已经安装 linux 包，这时已经运行过 mkinitcpio 了。&lt;/p&gt;
-&lt;h2 id=&#34;设置root密码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置root密码&#34;&gt;#&lt;/a&gt; 设置 root 密码&lt;/h2&gt;
-&lt;p&gt;输入 &lt;code&gt;passwd&lt;/code&gt;  创建一个 &lt;code&gt;root&lt;/code&gt;  密码&lt;/p&gt;
-&lt;h2 id=&#34;安装引导程序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装引导程序&#34;&gt;#&lt;/a&gt; 安装引导程序&lt;/h2&gt;
-&lt;p&gt;需要安装 Linux 引导加载程序，才能在安装后启动系统，可以使用的的引导程序已在启动加载器中列出，请选择一个安装并配置它，GRUB 是最常见的选择。&lt;br&gt;
-如果有 Intel 或 AMD 的 CPU，请另外启用微码更新。&lt;/p&gt;
+&lt;h2 id=&#34;关于-initramfs&#34;&gt;&lt;a href=&#34;#关于-initramfs&#34; class=&#34;headerlink&#34; title=&#34;关于 initramfs&#34;&gt;&lt;/a&gt;关于 initramfs&lt;/h2&gt;&lt;p&gt;通常不需要自己创建新的 initramfs，因为在执行 pacstrap 时已经安装 linux 包，这时已经运行过 mkinitcpio 了。&lt;/p&gt;
+&lt;h2 id=&#34;设置-root-密码&#34;&gt;&lt;a href=&#34;#设置-root-密码&#34; class=&#34;headerlink&#34; title=&#34;设置 root 密码&#34;&gt;&lt;/a&gt;设置 root 密码&lt;/h2&gt;&lt;p&gt;输入&lt;code&gt;passwd&lt;/code&gt;创建一个&lt;code&gt;root&lt;/code&gt;密码&lt;/p&gt;
+&lt;h2 id=&#34;安装引导程序&#34;&gt;&lt;a href=&#34;#安装引导程序&#34; class=&#34;headerlink&#34; title=&#34;安装引导程序&#34;&gt;&lt;/a&gt;安装引导程序&lt;/h2&gt;&lt;p&gt;需要安装 Linux 引导加载程序，才能在安装后启动系统，可以使用的的引导程序已在启动加载器中列出，请选择一个安装并配置它，GRUB 是最常见的选择。&lt;br&gt;如果有 Intel 或 AMD 的 CPU，请另外启用微码更新。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;安装 &lt;code&gt;grub&lt;/code&gt;  和 &lt;code&gt;efibootmgr&lt;/code&gt; ：输入 &lt;code&gt;pacman -S grub efibootmgr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;grub-install --target=x86_64-efi --efi-directory=[esp] --bootloader-id=GRUB&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;安装&lt;code&gt;grub&lt;/code&gt;和&lt;code&gt;efibootmgr&lt;/code&gt;：输入&lt;code&gt;pacman -S grub efibootmgr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;grub-install --target=x86_64-efi --efi-directory=[esp] --bootloader-id=GRUB&lt;/code&gt;&lt;br&gt;:::info&lt;br&gt;我的&lt;code&gt;esp&lt;/code&gt;挂载点是&lt;code&gt;/mnt/boot&lt;/code&gt;，因为我已经&lt;code&gt;arch-chroot&lt;/code&gt;到&lt;code&gt;/mnt&lt;/code&gt;中了，因此&lt;code&gt;esp&lt;/code&gt;字段填写&lt;code&gt;/boot&lt;/code&gt;即可。如果你安装在了其他挂载点上，请在&lt;code&gt;esp&lt;/code&gt;字段填写你自己的挂载点。如果出现问题，检查：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;我的 &lt;code&gt;esp&lt;/code&gt;  挂载点是 &lt;code&gt;/mnt/boot&lt;/code&gt; ，因为我已经 &lt;code&gt;arch-chroot&lt;/code&gt;  到 &lt;code&gt;/mnt&lt;/code&gt;  中了，因此 &lt;code&gt;esp&lt;/code&gt;  字段填写 &lt;code&gt;/boot&lt;/code&gt;  即可。如果你安装在了其他挂载点上，请在 &lt;code&gt;esp&lt;/code&gt;  字段填写你自己的挂载点。如果出现问题，检查：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;是否已经 &lt;code&gt;arch-chroot&lt;/code&gt;  到了 &lt;code&gt;/mnt&lt;/code&gt;  下？命令提示符为 &lt;code&gt;[root@archiso]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;前面的配置过程有没有出现问题？&lt;/li&gt;
+&lt;li&gt;是否已经&lt;code&gt;arch-chroot&lt;/code&gt;到了&lt;code&gt;/mnt&lt;/code&gt;下？命令提示符为&lt;code&gt;[root@archiso]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;前面的配置过程有没有出现问题？&lt;br&gt;:::&lt;br&gt;&lt;code&gt;grub-install&lt;/code&gt;命令成功时应该出现:&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/grub-install.png&#34; alt=&#34;grub-install成功&#34;&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;grub-install&lt;/code&gt;  命令成功时应该出现:&lt;br&gt;
-&lt;img data-src=&#34;grub-install.png&#34; alt=&#34;grub-install成功&#34;&gt;&lt;br&gt;
- 3. 生成主配置文件: &lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt; &lt;br&gt;
- 配置成功时界面：&lt;br&gt;
-&lt;img data-src=&#34;configure.png&#34; alt=&#34;配置成功&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;重新启动计算机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重新启动计算机&#34;&gt;#&lt;/a&gt; 重新启动计算机&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;exit&lt;/code&gt;  退出 &lt;code&gt;chroot&lt;/code&gt;  环境&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;umount -R /mnt&lt;/code&gt;  取消挂载 &lt;code&gt;/mnt&lt;/code&gt; （也等到可 &lt;code&gt;reboot&lt;/code&gt;  时 systemd 自动卸载）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;reboot&lt;/code&gt;  重启系统&lt;/li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;生成主配置文件:&lt;code&gt;grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt;&lt;br&gt;配置成功时界面：&lt;br&gt;&lt;img data-src=&#34;/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/configure.png&#34; alt=&#34;配置成功&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装后的工作&#34;&gt;#&lt;/a&gt; 安装后的工作&lt;/h1&gt;
-&lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;应用程序列表&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;重新启动计算机&#34;&gt;&lt;a href=&#34;#重新启动计算机&#34; class=&#34;headerlink&#34; title=&#34;重新启动计算机&#34;&gt;&lt;/a&gt;重新启动计算机&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;exit&lt;/code&gt;退出&lt;code&gt;chroot&lt;/code&gt;环境&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;umount -R /mnt&lt;/code&gt;取消挂载&lt;code&gt;/mnt&lt;/code&gt;（也等到可&lt;code&gt;reboot&lt;/code&gt;时 systemd 自动卸载）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reboot&lt;/code&gt;重启系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a href=&#34;#安装后的工作&#34; class=&#34;headerlink&#34; title=&#34;安装后的工作&#34;&gt;&lt;/a&gt;安装后的工作&lt;/h1&gt;&lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;应用程序列表&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

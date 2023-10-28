@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>望春风 • Posts by &#34;参考资料&#34; tag</title>
+        <link>https://salvely.github.io/blog</link>
+        <description>计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 22 Oct 2023 16:47:56 +0800</pubDate>
+        <lastBuildDate>Sun, 22 Oct 2023 16:47:56 +0800</lastBuildDate>
+        <category>Arch</category>
+        <category>Linux</category>
+        <category>配置教程</category>
+        <category>操作系统</category>
+        <category>notes</category>
+        <category>安装教程</category>
+        <category>C++</category>
+        <category>参考资料</category>
+        <category>CMake</category>
+        <category>Makefile</category>
+        <category>Debian</category>
+        <category>包管理</category>
+        <item>
+            <guid isPermalink="true">https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/C++%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/</guid>
+            <title>C++参考资料</title>
+            <link>https://salvely.github.io/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/C++%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/</link>
+            <category>C++</category>
+            <category>参考资料</category>
+            <pubDate>Sun, 22 Oct 2023 16:47:56 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pc29jcHAuZ2l0aHViLmlvL0NwcENvcmVHdWlkZWxpbmVzL0NwcENvcmVHdWlkZWxpbmVz&#34;&gt;C++ Core Guidelines&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
