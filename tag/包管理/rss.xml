@@ -7,18 +7,18 @@
         <language>zh-CN</language>
         <pubDate>Sat, 14 Oct 2023 14:23:52 +0800</pubDate>
         <lastBuildDate>Sat, 14 Oct 2023 14:23:52 +0800</lastBuildDate>
+        <category>Arch</category>
+        <category>Linux</category>
+        <category>配置教程</category>
+        <category>操作系统</category>
+        <category>notes</category>
+        <category>安装教程</category>
+        <category>Debian</category>
+        <category>包管理</category>
         <category>C++</category>
         <category>参考资料</category>
         <category>CMake</category>
         <category>Makefile</category>
-        <category>Arch</category>
-        <category>Linux</category>
-        <category>安装教程</category>
-        <category>操作系统</category>
-        <category>notes</category>
-        <category>配置教程</category>
-        <category>Debian</category>
-        <category>包管理</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
             <title>Debian包管理初探</title>

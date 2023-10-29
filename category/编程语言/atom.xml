@@ -4,18 +4,18 @@
     <title>望春风 • Posts by &#34;编程语言&#34; category</title>
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-27T09:45:08.000Z</updated>
+    <category term="Arch" />
+    <category term="Linux" />
+    <category term="配置教程" />
+    <category term="操作系统" />
+    <category term="notes" />
+    <category term="安装教程" />
+    <category term="Debian" />
+    <category term="包管理" />
     <category term="C++" />
     <category term="参考资料" />
     <category term="CMake" />
     <category term="Makefile" />
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="安装教程" />
-    <category term="操作系统" />
-    <category term="notes" />
-    <category term="配置教程" />
-    <category term="Debian" />
-    <category term="包管理" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/C++%E7%BC%96%E8%AF%91%E4%B8%8E%E5%B7%A5%E7%A8%8B%E6%9E%84%E5%BB%BA/</id>
         <title>C++编译与工程构建</title>
@@ -313,9 +313,14 @@
 &lt;div class=&#34;note info&#34;&gt;
 &lt;p&gt;在使用引用时，不允许传入右值，即不允许传入字面量。我们无法对一个常量进行引用，只能对左值 (变量) 进行引用。&lt;/p&gt;
 &lt;/div&gt;
-&lt;h1 id=&#34;常量及常量引用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#常量及常量引用&#34;&gt;#&lt;/a&gt; 常量及常量引用&lt;/h1&gt;
+&lt;h1 id=&#34;const-const-referencecopy&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#const-const-referencecopy&#34;&gt;#&lt;/a&gt; const &amp;amp; const reference/copy&lt;/h1&gt;
 &lt;p&gt;常量是不允许修改的量，使用 &lt;code&gt;const&lt;/code&gt;  声明常量。常量的引用和复制也必须是常量，引用及复制前加 &lt;code&gt;const&lt;/code&gt; 。&lt;/p&gt;
 &lt;h1 id=&#34;containers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#containers&#34;&gt;#&lt;/a&gt; Containers&lt;/h1&gt;
+&lt;h2 id=&#34;stl-是什么&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl-是什么&#34;&gt;#&lt;/a&gt; STL 是什么？&lt;/h2&gt;
+&lt;h2 id=&#34;stl-overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#stl-overview&#34;&gt;#&lt;/a&gt; STL Overview&lt;/h2&gt;
+&lt;h2 id=&#34;为什么需要-stl&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#为什么需要-stl&#34;&gt;#&lt;/a&gt; 为什么需要 STL？&lt;/h2&gt;
+&lt;h2 id=&#34;vector&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vector&#34;&gt;#&lt;/a&gt; vector&lt;/h2&gt;
+&lt;h2 id=&#34;deque&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#deque&#34;&gt;#&lt;/a&gt; deque&lt;/h2&gt;
 &lt;h1 id=&#34;iterators-and-pointers&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#iterators-and-pointers&#34;&gt;#&lt;/a&gt; Iterators and Pointers&lt;/h1&gt;
 &lt;h1 id=&#34;classes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#classes&#34;&gt;#&lt;/a&gt; Classes&lt;/h1&gt;
 &lt;h1 id=&#34;template-classes-and-const-correctness&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#template-classes-and-const-correctness&#34;&gt;#&lt;/a&gt; Template Classes and Const Correctness&lt;/h1&gt;

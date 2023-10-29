@@ -4,18 +4,18 @@
     <title>望春风 • Posts by &#34;操作系统&#34; tag</title>
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-15T01:38:16.000Z</updated>
+    <category term="Arch" />
+    <category term="Linux" />
+    <category term="配置教程" />
+    <category term="操作系统" />
+    <category term="notes" />
+    <category term="安装教程" />
+    <category term="Debian" />
+    <category term="包管理" />
     <category term="C++" />
     <category term="参考资料" />
     <category term="CMake" />
     <category term="Makefile" />
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="安装教程" />
-    <category term="操作系统" />
-    <category term="notes" />
-    <category term="配置教程" />
-    <category term="Debian" />
-    <category term="包管理" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</id>
         <title>Arch Linux系统配置教程</title>
@@ -28,9 +28,9 @@
 </content>
         <category term="Arch" />
         <category term="Linux" />
+        <category term="配置教程" />
         <category term="操作系统" />
         <category term="notes" />
-        <category term="配置教程" />
         <updated>2023-10-15T01:38:16.000Z</updated>
     </entry>
     <entry>
@@ -705,9 +705,9 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 </content>
         <category term="Arch" />
         <category term="Linux" />
-        <category term="安装教程" />
         <category term="操作系统" />
         <category term="notes" />
+        <category term="安装教程" />
         <updated>2023-10-12T05:50:44.000Z</updated>
     </entry>
 </feed>
