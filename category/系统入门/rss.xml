@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>望春风 • Posts by &#34;系统入门&#34; category</title>
+        <link>https://salvely.github.io/blog</link>
+        <description>计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 04 Jan 2024 13:27:01 +0800</pubDate>
+        <lastBuildDate>Thu, 04 Jan 2024 13:27:01 +0800</lastBuildDate>
+        <category>C++</category>
+        <category>Arch</category>
+        <category>Linux</category>
+        <category>配置教程</category>
+        <category>操作系统</category>
+        <category>notes</category>
+        <category>安装教程</category>
+        <category>Debian</category>
+        <category>包管理</category>
+        <category>CMake</category>
+        <category>Makefile</category>
+        <category>参考资料</category>
+        <item>
+            <guid isPermalink="true">https://salvely.github.io/blog/2024/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/</guid>
+            <title>HW3: LRU SimpleVM 实现记录</title>
+            <link>https://salvely.github.io/blog/2024/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/</link>
+            <pubDate>Thu, 04 Jan 2024 13:27:01 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#overview&#34;&gt;#&lt;/a&gt; Overview&lt;/h1&gt;
+&lt;p&gt;本作业要求实现:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Page 对象：
+&lt;ul&gt;
+&lt;li&gt;若 Page 不在 memory 中，那么它的数据被存储在磁盘上的 &lt;code&gt;swap file&lt;/code&gt;  部分。在 &lt;code&gt;swap file&lt;/code&gt;  中，每一页都有对应的顺序存储的数据。&lt;/li&gt;
+&lt;li&gt;可以使用 C++  &lt;code&gt;fstream&lt;/code&gt;  类进行 I/O 读写。尤其是 &lt;code&gt;read()&lt;/code&gt;  和 &lt;code&gt;write()&lt;/code&gt;  方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;PageTable 对象
+&lt;ul&gt;
+&lt;li&gt;包含多个 page 以及 &lt;code&gt;swap file&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;这里主要要求实现 LRU 算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;相关文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#相关文件&#34;&gt;#&lt;/a&gt; 相关文件&lt;/h1&gt;
+&lt;h2 id=&#34;page&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#page&#34;&gt;#&lt;/a&gt; Page&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Page.h&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Page.cc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PageTemplates.cc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pagetable&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pagetable&#34;&gt;#&lt;/a&gt; PageTable&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PageTable.h&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PageTable.cc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;testing&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#testing&#34;&gt;#&lt;/a&gt; Testing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;test_page.cc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;test_pagetable.cc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;todos&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#todos&#34;&gt;#&lt;/a&gt; Todos&lt;/h1&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL1BhZ2VUZW1wbGF0ZXMuY2M=&#34;&gt;PageTemplates.cc&lt;/span&gt; 设计&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_1&#34;&gt; Page.h 定义&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_2&#34;&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL1BhZ2UuY2M=&#34;&gt;Page.cc&lt;/span&gt; 实现&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_3&#34;&gt; 实现 &lt;code&gt;Page.cc&lt;/code&gt;  中的构造函数，析构函数， &lt;code&gt;dirty()&lt;/code&gt; , &lt;code&gt;pno()&lt;/code&gt; &lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_4&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_4&#34;&gt; 通过 &lt;code&gt;basic_ctor&lt;/code&gt;  测试&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_5&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_5&#34;&gt; 实现 &lt;code&gt;PageTemplates.cc&lt;/code&gt;  中的 &lt;code&gt;access()&lt;/code&gt;  函数，并通过 &lt;code&gt;access&lt;/code&gt;  测试&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_6&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_6&#34;&gt; 实现 &lt;code&gt;PageTemplates.cc&lt;/code&gt;  中的 &lt;code&gt;store()&lt;/code&gt;  函数，并通过 &lt;code&gt;store&lt;/code&gt;  测试&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_7&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_7&#34;&gt; 实现复制构造函数和赋值&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_8&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_8&#34;&gt; 通过所有 Page 测试&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_9&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_9&#34;&gt; PageTable.h 设计&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_10&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_10&#34;&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL1BhZ2VUYWJsZS5jYw==&#34;&gt;PageTable.cc&lt;/span&gt; 实现&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_11&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_11&#34;&gt; PageTable 测试&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;提示&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#提示&#34;&gt;#&lt;/a&gt; 提示&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;map, unordered_map, list, vector 结构都很有用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fstream&lt;/code&gt;  中的 &lt;code&gt;read()&lt;/code&gt;  和 &lt;code&gt;write()&lt;/code&gt;  很有用&lt;/li&gt;
+&lt;li&gt;需要将 &lt;code&gt;uint8_t&lt;/code&gt;  切换到 &lt;code&gt;char&lt;/code&gt;  类型来使用 &lt;code&gt;fstream&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;利用初始化列表来初始化引用类型&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

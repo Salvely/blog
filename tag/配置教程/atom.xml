@@ -5,9 +5,6 @@
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-15T01:38:16.000Z</updated>
     <category term="C++" />
-    <category term="参考资料" />
-    <category term="CMake" />
-    <category term="Makefile" />
     <category term="Arch" />
     <category term="Linux" />
     <category term="配置教程" />
@@ -16,11 +13,19 @@
     <category term="安装教程" />
     <category term="Debian" />
     <category term="包管理" />
+    <category term="CMake" />
+    <category term="Makefile" />
+    <category term="参考资料" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</id>
         <title>Arch Linux系统配置教程</title>
         <link rel="alternate" href="https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
-        <content type="html">&lt;h1 id=&#34;初始化用户和组&#34;&gt;&lt;a href=&#34;#初始化用户和组&#34; class=&#34;headerlink&#34; title=&#34;初始化用户和组&#34;&gt;&lt;/a&gt;初始化用户和组&lt;/h1&gt;&lt;h1 id=&#34;权限授予&#34;&gt;&lt;a href=&#34;#权限授予&#34; class=&#34;headerlink&#34; title=&#34;权限授予&#34;&gt;&lt;/a&gt;权限授予&lt;/h1&gt;&lt;h1 id=&#34;安全性配置&#34;&gt;&lt;a href=&#34;#安全性配置&#34; class=&#34;headerlink&#34; title=&#34;安全性配置&#34;&gt;&lt;/a&gt;安全性配置&lt;/h1&gt;&lt;h1 id=&#34;安装基本组件&#34;&gt;&lt;a href=&#34;#安装基本组件&#34; class=&#34;headerlink&#34; title=&#34;安装基本组件&#34;&gt;&lt;/a&gt;安装基本组件&lt;/h1&gt;&lt;h1 id=&#34;让系统更易用&#34;&gt;&lt;a href=&#34;#让系统更易用&#34; class=&#34;headerlink&#34; title=&#34;让系统更易用&#34;&gt;&lt;/a&gt;让系统更易用&lt;/h1&gt;</content>
+        <content type="html">&lt;h1 id=&#34;初始化用户和组&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#初始化用户和组&#34;&gt;#&lt;/a&gt; 初始化用户和组&lt;/h1&gt;
+&lt;h1 id=&#34;权限授予&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#权限授予&#34;&gt;#&lt;/a&gt; 权限授予&lt;/h1&gt;
+&lt;h1 id=&#34;安全性配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安全性配置&#34;&gt;#&lt;/a&gt; 安全性配置&lt;/h1&gt;
+&lt;h1 id=&#34;安装基本组件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装基本组件&#34;&gt;#&lt;/a&gt; 安装基本组件&lt;/h1&gt;
+&lt;h1 id=&#34;让系统更易用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#让系统更易用&#34;&gt;#&lt;/a&gt; 让系统更易用&lt;/h1&gt;
+</content>
         <category term="Arch" />
         <category term="Linux" />
         <category term="配置教程" />
