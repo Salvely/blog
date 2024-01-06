@@ -11,11 +11,11 @@
             "date_published": "2023-10-15T01:38:16.000Z",
             "content_html": "<h1 id=\"初始化用户和组\"><a class=\"markdownIt-Anchor\" href=\"#初始化用户和组\">#</a> 初始化用户和组</h1>\n<h1 id=\"权限授予\"><a class=\"markdownIt-Anchor\" href=\"#权限授予\">#</a> 权限授予</h1>\n<h1 id=\"安全性配置\"><a class=\"markdownIt-Anchor\" href=\"#安全性配置\">#</a> 安全性配置</h1>\n<h1 id=\"安装基本组件\"><a class=\"markdownIt-Anchor\" href=\"#安装基本组件\">#</a> 安装基本组件</h1>\n<h1 id=\"让系统更易用\"><a class=\"markdownIt-Anchor\" href=\"#让系统更易用\">#</a> 让系统更易用</h1>\n",
             "tags": [
-                "Arch",
                 "Linux",
-                "配置教程",
                 "操作系统",
-                "notes"
+                "notes",
+                "Arch",
+                "配置教程"
             ]
         }
     ]

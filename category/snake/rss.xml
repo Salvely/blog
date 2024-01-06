@@ -8,17 +8,17 @@
         <pubDate>Tue, 31 Oct 2023 10:04:46 +0800</pubDate>
         <lastBuildDate>Tue, 31 Oct 2023 10:04:46 +0800</lastBuildDate>
         <category>C++</category>
-        <category>Arch</category>
-        <category>Linux</category>
-        <category>配置教程</category>
-        <category>操作系统</category>
-        <category>notes</category>
-        <category>安装教程</category>
-        <category>Debian</category>
-        <category>包管理</category>
+        <category>参考资料</category>
         <category>CMake</category>
         <category>Makefile</category>
-        <category>参考资料</category>
+        <category>Debian</category>
+        <category>Linux</category>
+        <category>操作系统</category>
+        <category>包管理</category>
+        <category>notes</category>
+        <category>Arch</category>
+        <category>安装教程</category>
+        <category>配置教程</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/31/Projects/Snake/analysis/</guid>
             <title>动手写贪吃蛇游戏</title>

@@ -5,17 +5,17 @@
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-31T02:04:46.000Z</updated>
     <category term="C++" />
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="配置教程" />
-    <category term="操作系统" />
-    <category term="notes" />
-    <category term="安装教程" />
-    <category term="Debian" />
-    <category term="包管理" />
+    <category term="参考资料" />
     <category term="CMake" />
     <category term="Makefile" />
-    <category term="参考资料" />
+    <category term="Debian" />
+    <category term="Linux" />
+    <category term="操作系统" />
+    <category term="包管理" />
+    <category term="notes" />
+    <category term="Arch" />
+    <category term="安装教程" />
+    <category term="配置教程" />
     <entry>
         <id>https://salvely.github.io/blog/2023/10/31/Projects/Snake/analysis/</id>
         <title>动手写贪吃蛇游戏</title>
