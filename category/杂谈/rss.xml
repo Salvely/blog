@@ -25,8 +25,8 @@
             <title>C++的诞生与一些思考</title>
             <link>https://salvely.github.io/blog/2023/10/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%9D%82%E8%B0%88/C++%E7%9A%84%E8%AF%9E%E7%94%9F%E4%B8%8E%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</link>
             <pubDate>Wed, 25 Oct 2023 14:00:48 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;最近在学习斯坦福的 CS106L，学习标准 C++。在阅读&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9mdWxsX2NvdXJzZV9yZWFkZXIucGRm&#34;&gt;Course Reader&lt;/span&gt;的 Introduction 部分时，作者介绍了 C++的诞生故事，对我颇有启发。&lt;/p&gt;
-&lt;p&gt;C++的创始人在剑桥大学读 PhD 时，主要研究的是分布式系统。在当时，他使用了一种叫 Simula 的面向对象语言。他在 Simula 中初始化电脑对象和网络对象，来模拟系统之间通过网络的交互。但是在开发的过程中，他发现，虽然使用 Simula 来对整个过程进行模拟，非常的快速，但是 Simula 的执行速度非常慢。而后，他又尝试通过一种名为 BCPL 的语言进行开发。但是新的问题又出现了，这种语言是一种较底层的系统语言，并不具备面向对象等特性。虽然执行速度快，但是搭建系统的过程非常的痛苦和繁琐。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;最近在学习斯坦福的 CS106L，学习标准 C++。在阅读&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIuc3RhbmZvcmQuZWR1L2NsYXNzL2NzMTA2bC9mdWxsX2NvdXJzZV9yZWFkZXIucGRm&#34;&gt; Course Reader&lt;/span&gt; 的 Introduction 部分时，作者介绍了 C++ 的诞生故事，对我颇有启发。&lt;/p&gt;
+&lt;p&gt;C++ 的创始人在剑桥大学读 PhD 时，主要研究的是分布式系统。在当时，他使用了一种叫 Simula 的面向对象语言。他在 Simula 中初始化电脑对象和网络对象，来模拟系统之间通过网络的交互。但是在开发的过程中，他发现，虽然使用 Simula 来对整个过程进行模拟，非常的快速，但是 Simula 的执行速度非常慢。而后，他又尝试通过一种名为 BCPL 的语言进行开发。但是新的问题又出现了，这种语言是一种较底层的系统语言，并不具备面向对象等特性。虽然执行速度快，但是搭建系统的过程非常的痛苦和繁琐。&lt;/p&gt;
 &lt;p&gt;在博士毕业后，他来到了贝尔实验室工作。在这里他接触了一门高效的高级语言，C 语言。此后，他在 C 语言的基础上，拓展了类，而后又增加了一些新的特性。他把这种语言称之为 C++。&lt;/p&gt;
 &lt;p&gt;从他的故事来看，再结合之前 OpenAI 创始人的书《伟大不能被计划》，我们可以看到，有的时候我们在探索目标的过程中，可能会遇到一些新的尚未发现过的东西，探索这项新知，可能会让我们更慢达到目标，但是可以让我们在沿途看到更多的风景。 C++ 创始人在研究分布式系统的过程中，意外创造了 C++ 语言。有的人可能会因为创造一门语言所需要的工作量而被劝退，殊不知这正是伟大的开端。有时候我们在是做事情时，可以多想一点点，多做一点点，多探索，多思考，多创造，而不是重复原有的工作，那正是创造力和新世界的大门。&lt;/p&gt;
  ]]></description>
