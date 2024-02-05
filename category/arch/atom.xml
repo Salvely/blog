@@ -7,13 +7,13 @@
     <category term="C++" />
     <category term="Arch" />
     <category term="Linux" />
-    <category term="安装教程" />
+    <category term="配置教程" />
     <category term="操作系统" />
     <category term="notes" />
-    <category term="配置教程" />
-    <category term="参考资料" />
     <category term="CMake" />
     <category term="Makefile" />
+    <category term="安装教程" />
+    <category term="参考资料" />
     <category term="Debian" />
     <category term="包管理" />
     <category term="lab" />
@@ -29,9 +29,9 @@
 </content>
         <category term="Arch" />
         <category term="Linux" />
+        <category term="配置教程" />
         <category term="操作系统" />
         <category term="notes" />
-        <category term="配置教程" />
         <updated>2023-10-15T01:38:16.000Z</updated>
     </entry>
     <entry>
@@ -452,9 +452,9 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 </content>
         <category term="Arch" />
         <category term="Linux" />
-        <category term="安装教程" />
         <category term="操作系统" />
         <category term="notes" />
+        <category term="安装教程" />
         <updated>2023-10-12T05:50:44.000Z</updated>
     </entry>
 </feed>
