@@ -9,13 +9,13 @@
             "url": "https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/",
             "title": "Arch Linux系统配置教程",
             "date_published": "2023-10-15T01:38:16.000Z",
-            "content_html": "<h1 id=\"初始化用户和组\"><a class=\"markdownIt-Anchor\" href=\"#初始化用户和组\">#</a> 初始化用户和组</h1>\n<h1 id=\"权限授予\"><a class=\"markdownIt-Anchor\" href=\"#权限授予\">#</a> 权限授予</h1>\n<h1 id=\"安全性配置\"><a class=\"markdownIt-Anchor\" href=\"#安全性配置\">#</a> 安全性配置</h1>\n<h1 id=\"安装基本组件\"><a class=\"markdownIt-Anchor\" href=\"#安装基本组件\">#</a> 安装基本组件</h1>\n<h1 id=\"让系统更易用\"><a class=\"markdownIt-Anchor\" href=\"#让系统更易用\">#</a> 让系统更易用</h1>\n",
+            "content_html": "<h1 id=\"初始化用户和组\"><a href=\"#初始化用户和组\" class=\"headerlink\" title=\"初始化用户和组\"></a>初始化用户和组</h1><h1 id=\"权限授予\"><a href=\"#权限授予\" class=\"headerlink\" title=\"权限授予\"></a>权限授予</h1><h1 id=\"安全性配置\"><a href=\"#安全性配置\" class=\"headerlink\" title=\"安全性配置\"></a>安全性配置</h1><h1 id=\"安装基本组件\"><a href=\"#安装基本组件\" class=\"headerlink\" title=\"安装基本组件\"></a>安装基本组件</h1><h1 id=\"让系统更易用\"><a href=\"#让系统更易用\" class=\"headerlink\" title=\"让系统更易用\"></a>让系统更易用</h1>",
             "tags": [
                 "Arch",
                 "Linux",
-                "配置教程",
                 "操作系统",
-                "notes"
+                "notes",
+                "配置教程"
             ]
         }
     ]
