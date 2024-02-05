@@ -5,14 +5,14 @@
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-15T01:38:16.000Z</updated>
     <category term="C++" />
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="安装教程" />
-    <category term="操作系统" />
-    <category term="notes" />
-    <category term="配置教程" />
     <category term="Debian" />
+    <category term="Linux" />
+    <category term="操作系统" />
     <category term="包管理" />
+    <category term="notes" />
+    <category term="Arch" />
+    <category term="安装教程" />
+    <category term="配置教程" />
     <category term="CMake" />
     <category term="Makefile" />
     <category term="参考资料" />
@@ -26,10 +26,10 @@
 &lt;h1 id=&#34;安装基本组件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装基本组件&#34;&gt;#&lt;/a&gt; 安装基本组件&lt;/h1&gt;
 &lt;h1 id=&#34;让系统更易用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#让系统更易用&#34;&gt;#&lt;/a&gt; 让系统更易用&lt;/h1&gt;
 </content>
-        <category term="Arch" />
         <category term="Linux" />
         <category term="操作系统" />
         <category term="notes" />
+        <category term="Arch" />
         <category term="配置教程" />
         <updated>2023-10-15T01:38:16.000Z</updated>
     </entry>

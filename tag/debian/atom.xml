@@ -5,14 +5,14 @@
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-14T06:23:52.000Z</updated>
     <category term="C++" />
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="安装教程" />
-    <category term="操作系统" />
-    <category term="notes" />
-    <category term="配置教程" />
     <category term="Debian" />
+    <category term="Linux" />
+    <category term="操作系统" />
     <category term="包管理" />
+    <category term="notes" />
+    <category term="Arch" />
+    <category term="安装教程" />
+    <category term="配置教程" />
     <category term="CMake" />
     <category term="Makefile" />
     <category term="参考资料" />
@@ -263,11 +263,11 @@ App Store:
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90bGRyLnNoLw==&#34;&gt;TLDR 页面&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
+        <category term="Debian" />
         <category term="Linux" />
         <category term="操作系统" />
-        <category term="notes" />
-        <category term="Debian" />
         <category term="包管理" />
+        <category term="notes" />
         <updated>2023-10-14T06:23:52.000Z</updated>
     </entry>
 </feed>
