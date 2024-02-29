@@ -20,19 +20,13 @@
         <id>https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</id>
         <title>Debian包管理初探</title>
         <link rel="alternate" href="https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/"/>
-        <content type="html">&lt;h1 id=&#34;linux-发行版&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-发行版&#34;&gt;#&lt;/a&gt; Linux 发行版&lt;/h1&gt;
-&lt;p&gt;Linux 操作系统 = Linux 内核 + 不同功能&lt;br&gt;
-但是因为内核和功能包有多种不同配置，因此 Linux 有多种发行版。&lt;br&gt;
-几种主要的发行版及其衍生是：&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;Linux-发行版&#34;&gt;&lt;a href=&#34;#Linux-发行版&#34; class=&#34;headerlink&#34; title=&#34;Linux 发行版&#34;&gt;&lt;/a&gt;Linux 发行版&lt;/h1&gt;&lt;p&gt;Linux 操作系统 &amp;#x3D; Linux 内核 + 不同功能&lt;br&gt;但是因为内核和功能包有多种不同配置，因此 Linux 有多种发行版。&lt;br&gt;几种主要的发行版及其衍生是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Arch -&amp;gt; Manjaro&lt;/li&gt;
 &lt;li&gt;Debian -&amp;gt; Ubuntu&lt;/li&gt;
 &lt;li&gt;RHEL -&amp;gt; Scientific Linux&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;安装软件的困惑&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装软件的困惑&#34;&gt;#&lt;/a&gt; 安装软件的困惑？&lt;/h1&gt;
-&lt;div class=&#34;note default&#34;&gt;
-&lt;p&gt;我们要在 Linux 操作系统上安装一个软件，思考如下问题：&lt;/p&gt;
-&lt;/div&gt;
+&lt;h1 id=&#34;安装软件的困惑？&#34;&gt;&lt;a href=&#34;#安装软件的困惑？&#34; class=&#34;headerlink&#34; title=&#34;安装软件的困惑？&#34;&gt;&lt;/a&gt;安装软件的困惑？&lt;/h1&gt;&lt;p&gt;:::default&lt;br&gt;我们要在 Linux 操作系统上安装一个软件，思考如下问题：&lt;br&gt;:::&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;你需要哪些文件？如何获取他们？&lt;/li&gt;
 &lt;li&gt;用户需要做多少工作？&lt;/li&gt;
@@ -41,19 +35,15 @@
 &lt;li&gt;如何更新软件包？&lt;/li&gt;
 &lt;li&gt;如何保证软件包来源的安全性？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;note default&#34;&gt;
-&lt;p&gt;一个简陋的安装方案是：直接下载一堆文件。这其中包含的内容有：&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;:::default&lt;br&gt;一个简陋的安装方案是：直接下载一堆文件。这其中包含的内容有：&lt;br&gt;:::&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;编译好的二进制可执行文件&lt;/li&gt;
 &lt;li&gt;配置信息&lt;/li&gt;
 &lt;li&gt;说明文档&lt;/li&gt;
-&lt;li&gt;许可证 (License)&lt;/li&gt;
+&lt;li&gt;许可证(License)&lt;/li&gt;
 &lt;li&gt;其他&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;note default&#34;&gt;
-&lt;p&gt;那么问题来了：&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;:::default&lt;br&gt;那么问题来了：&lt;br&gt;:::&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;我们需要哪些文件？&lt;/li&gt;
 &lt;li&gt;这些文件放在哪里？&lt;/li&gt;
@@ -61,20 +51,15 @@
 &lt;li&gt;这个安装包和我的系统兼容吗？&lt;/li&gt;
 &lt;li&gt;我怎么更新呢？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;note default&#34;&gt;
-&lt;p&gt;一个进阶的安装方案是：下载一个压缩包。但是我们也面临一些问题：&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;:::default&lt;br&gt;一个进阶的安装方案是：下载一个压缩包。但是我们也面临一些问题：&lt;br&gt;:::&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;这里面的文件是编译好的还是未编译的？&lt;/li&gt;
 &lt;li&gt;软件包之间存在依赖关系怎么办？&lt;/li&gt;
 &lt;li&gt;这个软件如何应对不同 Linux 发行版的需求？&lt;/li&gt;
 &lt;li&gt;如何更新？如何保证更新后的版本可靠？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;解决方案打包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解决方案打包&#34;&gt;#&lt;/a&gt; 解决方案：打包！&lt;/h1&gt;
-&lt;h2 id=&#34;什么是包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是包&#34;&gt;#&lt;/a&gt; 什么是包？&lt;/h2&gt;
-&lt;p&gt;包是 Linux 操作系统上软件的组织方式。&lt;/p&gt;
-&lt;h2 id=&#34;什么是仓库repository&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#什么是仓库repository&#34;&gt;#&lt;/a&gt; 什么是仓库（ &lt;code&gt;repository&lt;/code&gt; ）？&lt;/h2&gt;
-&lt;p&gt;仓库是一系列软件包的合集列表。 &lt;code&gt;Debian&lt;/code&gt;  上常见的仓库包括：&lt;/p&gt;
+&lt;h1 id=&#34;解决方案：打包！&#34;&gt;&lt;a href=&#34;#解决方案：打包！&#34; class=&#34;headerlink&#34; title=&#34;解决方案：打包！&#34;&gt;&lt;/a&gt;解决方案：打包！&lt;/h1&gt;&lt;h2 id=&#34;什么是包？&#34;&gt;&lt;a href=&#34;#什么是包？&#34; class=&#34;headerlink&#34; title=&#34;什么是包？&#34;&gt;&lt;/a&gt;什么是包？&lt;/h2&gt;&lt;p&gt;包是 Linux 操作系统上软件的组织方式。&lt;/p&gt;
+&lt;h2 id=&#34;什么是仓库（repository）？&#34;&gt;&lt;a href=&#34;#什么是仓库（repository）？&#34; class=&#34;headerlink&#34; title=&#34;什么是仓库（repository）？&#34;&gt;&lt;/a&gt;什么是仓库（&lt;code&gt;repository&lt;/code&gt;）？&lt;/h2&gt;&lt;p&gt;仓库是一系列软件包的合集列表。&lt;code&gt;Debian&lt;/code&gt;上常见的仓库包括：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Debian stable (all the packages available to install on a default Debian stable install)&lt;/li&gt;
 &lt;li&gt;Debian security updates&lt;/li&gt;
@@ -87,21 +72,18 @@
 &lt;li&gt;包维护者负责对开发者的软件进行打包&lt;/li&gt;
 &lt;li&gt;对于不同的 Linux 发行版，打包的方式不同&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;包和仓库区别的详细解释参考这里:&lt;/p&gt;
+&lt;p&gt;:::info&lt;br&gt;包和仓库区别的详细解释参考这里:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy8xMDkwNzU4L3doYXQtYXJlLXBhY2thZ2VzLWFuZC1yZXBvc2l0b3JpZXM=&#34;&gt;what are packages and repositories&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://linux.cn/article-14994-1.html&#34;&gt; &lt;code&gt;apt-update&lt;/code&gt;  和 &lt;code&gt;apt-upgrade&lt;/code&gt;  的区别&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linux.cn/article-14994-1.html&#34;&gt;&lt;code&gt;apt-update&lt;/code&gt;和&lt;code&gt;apt-upgrade&lt;/code&gt;的区别&lt;/a&gt;&lt;br&gt;:::&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;包的安装过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包的安装过程&#34;&gt;#&lt;/a&gt; 包的安装过程&lt;/h1&gt;
-&lt;ol&gt;
+&lt;h1 id=&#34;包的安装过程&#34;&gt;&lt;a href=&#34;#包的安装过程&#34; class=&#34;headerlink&#34; title=&#34;包的安装过程&#34;&gt;&lt;/a&gt;包的安装过程&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;从包列表中读取该包&lt;/li&gt;
 &lt;li&gt;查看该包的所有依赖项&lt;/li&gt;
 &lt;li&gt;看看依赖项中哪些包已经安装了&lt;/li&gt;
 &lt;li&gt;安装未安装的依赖&lt;/li&gt;
 &lt;li&gt;解压缩文件等&lt;/li&gt;
-&lt;li&gt;完成一些安装后需要做的工作，如将其作为 &lt;code&gt;service&lt;/code&gt;  启动&lt;/li&gt;
+&lt;li&gt;完成一些安装后需要做的工作，如将其作为&lt;code&gt;service&lt;/code&gt;启动&lt;/li&gt;
 &lt;/ol&gt;
 &lt;!-- # 仓库 vs App Store
 仓库和App Store均是集中管理包的地方，但是他们略有不同。
@@ -118,143 +100,146 @@ App Store：
 - 用户可信赖开发者
 App Store:
 - 具有隔离性，一切依赖开发者决定 --&gt;
-&lt;h1 id=&#34;包更新方式&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包更新方式&#34;&gt;#&lt;/a&gt; 包更新方式&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;部分 Linux 发行版采用 &lt;code&gt;periodic release&lt;/code&gt;  方式，例如 &lt;code&gt;Debian&lt;/code&gt; ，2 年一发行&lt;/li&gt;
-&lt;li&gt;部分采用 &lt;code&gt;rolling release&lt;/code&gt;  方式，例如 &lt;code&gt;Arch&lt;/code&gt; ，发行版更新更快，但是是以稳定性为代价&lt;br&gt;
-更多内容参考这里：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly91dGNjLnV0b3JvbnRvLmNhL35ja3Mvc3BhY2UvYmxvZy9saW51eC9Sb2xsaW5nVnNSZWxlYXNlc05vV2lubmVy&#34;&gt;Rolling distribution releases versus periodic releases are a tradeoff&lt;/span&gt;&lt;/li&gt;
+
+&lt;h1 id=&#34;包更新方式&#34;&gt;&lt;a href=&#34;#包更新方式&#34; class=&#34;headerlink&#34; title=&#34;包更新方式&#34;&gt;&lt;/a&gt;包更新方式&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;部分 Linux 发行版采用&lt;code&gt;periodic release&lt;/code&gt;方式，例如&lt;code&gt;Debian&lt;/code&gt;，2 年一发行&lt;/li&gt;
+&lt;li&gt;部分采用&lt;code&gt;rolling release&lt;/code&gt;方式，例如&lt;code&gt;Arch&lt;/code&gt;，发行版更新更快，但是是以稳定性为代价&lt;br&gt;更多内容参考这里：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly91dGNjLnV0b3JvbnRvLmNhL35ja3Mvc3BhY2UvYmxvZy9saW51eC9Sb2xsaW5nVnNSZWxlYXNlc05vV2lubmVy&#34;&gt;Rolling distribution releases versus periodic releases are a tradeoff&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;自动化包管理工具&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自动化包管理工具&#34;&gt;#&lt;/a&gt; 自动化包管理工具&lt;/h1&gt;
-&lt;h2 id=&#34;apt&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#apt&#34;&gt;#&lt;/a&gt;  &lt;code&gt;apt&lt;/code&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;apt update&lt;/code&gt; ：生成列表，显示仓库中包含哪些包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt upgrade&lt;/code&gt; / &lt;code&gt;apt dist-upgrade&lt;/code&gt; ：把列表中的包升级到最新版本&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt policy &amp;lt;packagename&amp;gt;&lt;/code&gt; ：列举可安装的包版本&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt -t [targetrelease] install [package]&lt;/code&gt; ：安装特定版本包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt install &amp;lt;packagename&amp;gt;&lt;/code&gt; ：安装包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt remove &amp;lt;packagename&amp;gt;&lt;/code&gt; ：卸载包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt search &amp;lt;packagename&amp;gt;&lt;/code&gt; ：搜索包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt install ./&amp;lt;packagename&amp;gt;.deb&lt;/code&gt; ：安装本地的 &lt;code&gt;deb&lt;/code&gt;  包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;apt download &amp;lt;packagename&amp;gt;.deb&lt;/code&gt; ：下载包&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;几种不同命令的区别参考这里：&lt;/p&gt;
-&lt;/div&gt;
-&lt;/li&gt;
+&lt;h1 id=&#34;自动化包管理工具&#34;&gt;&lt;a href=&#34;#自动化包管理工具&#34; class=&#34;headerlink&#34; title=&#34;自动化包管理工具&#34;&gt;&lt;/a&gt;自动化包管理工具&lt;/h1&gt;&lt;h2 id=&#34;apt&#34;&gt;&lt;a href=&#34;#apt&#34; class=&#34;headerlink&#34; title=&#34;apt&#34;&gt;&lt;/a&gt;&lt;code&gt;apt&lt;/code&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;apt update&lt;/code&gt;：生成列表，显示仓库中包含哪些包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt upgrade&lt;/code&gt;&amp;#x2F;&lt;code&gt;apt dist-upgrade&lt;/code&gt;：把列表中的包升级到最新版本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt policy &amp;lt;packagename&amp;gt;&lt;/code&gt;：列举可安装的包版本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt -t [targetrelease] install [package]&lt;/code&gt;：安装特定版本包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt install &amp;lt;packagename&amp;gt;&lt;/code&gt;：安装包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt remove &amp;lt;packagename&amp;gt;&lt;/code&gt;：卸载包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt search &amp;lt;packagename&amp;gt;&lt;/code&gt;：搜索包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt install ./&amp;lt;packagename&amp;gt;.deb&lt;/code&gt;：安装本地的&lt;code&gt;deb&lt;/code&gt;包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;apt download &amp;lt;packagename&amp;gt;.deb&lt;/code&gt;：下载包&lt;br&gt;:::info&lt;br&gt;几种不同命令的区别参考这里：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy8xOTQ2NTEvd2h5LXVzZS1hcHQtZ2V0LXVwZ3JhZGUtaW5zdGVhZC1vZi1hcHQtZ2V0LWRpc3QtdXBncmFkZQ==&#34;&gt;Why use apt-get upgrade instead of apt-get dist-upgrade?&lt;/span&gt;&lt;br&gt;
-:::&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy8xOTQ2NTEvd2h5LXVzZS1hcHQtZ2V0LXVwZ3JhZGUtaW5zdGVhZC1vZi1hcHQtZ2V0LWRpc3QtdXBncmFkZQ==&#34;&gt;Why use apt-get upgrade instead of apt-get dist-upgrade?&lt;/span&gt;&lt;br&gt;:::&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;dpkg多用于安装本地包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dpkg多用于安装本地包&#34;&gt;#&lt;/a&gt;  &lt;code&gt;dpkg&lt;/code&gt; : 多用于安装本地包&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;dpkg -i [packagefilename]&lt;/code&gt; ：安装本地包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;dpkg --remove [packagename]&lt;/code&gt; ：卸载本地包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;dpkg -I [packagename]&lt;/code&gt; ：查看本地包的更多信息&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;dpkg --configure -a&lt;/code&gt; ：查看所有解压了但是还没安装的包&lt;/li&gt;
+&lt;h2 id=&#34;dpkg-多用于安装本地包&#34;&gt;&lt;a href=&#34;#dpkg-多用于安装本地包&#34; class=&#34;headerlink&#34; title=&#34;dpkg:多用于安装本地包&#34;&gt;&lt;/a&gt;&lt;code&gt;dpkg&lt;/code&gt;:多用于安装本地包&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;dpkg -i [packagefilename]&lt;/code&gt;：安装本地包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dpkg --remove [packagename]&lt;/code&gt;：卸载本地包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dpkg -I [packagename]&lt;/code&gt;：查看本地包的更多信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dpkg --configure -a&lt;/code&gt;：查看所有解压了但是还没安装的包&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;使用什么包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用什么包&#34;&gt;#&lt;/a&gt; 使用什么包？&lt;/h2&gt;
-&lt;p&gt;在 &lt;code&gt;/etc/apt/sources.list&lt;/code&gt;  和 &lt;code&gt;/etc/apt/sources.list.d&lt;/code&gt;  文件中维护镜像源：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/debian/ stretch-backports main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/debian-security/ stretch/updates main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb-src http://mirrors/debian-security/ stretch/updates main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/debian/ stretch-updates main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb-src http://mirrors/debian/ stretch-updates main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/debian/ stretch main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb-src http://mirrors/debian/ stretch main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# OCF&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://apt/ stretch-backports main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb-src http://apt/ stretch-backports main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://apt/ stretch main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb-src http://apt/ stretch main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/puppetlabs/apt/ stretch puppet&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;我个人的理解是， &lt;code&gt;repository&lt;/code&gt;  是指仓库名，仓库中列举了该仓库有哪些软件包。而 &lt;code&gt;mirror list&lt;/code&gt;  指明了从哪里下载这个仓库中的软件包（网络地址）？在清华的镜像中有这个仓库，而在中科大的镜像中也有这个仓库。镜像中仓库的内容随着官方仓库内容的更新而更新？&lt;br&gt;
-关于什么是镜像，请看这里:&lt;/p&gt;
+&lt;h2 id=&#34;使用什么包？&#34;&gt;&lt;a href=&#34;#使用什么包？&#34; class=&#34;headerlink&#34; title=&#34;使用什么包？&#34;&gt;&lt;/a&gt;使用什么包？&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;/etc/apt/sources.list&lt;/code&gt;和&lt;code&gt;/etc/apt/sources.list.d&lt;/code&gt;文件中维护镜像源：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;deb http://mirrors/debian/ stretch-backports main contrib non-free
+deb http://mirrors/debian-security/ stretch/updates main contrib non-free
+deb-src http://mirrors/debian-security/ stretch/updates main contrib non-free
+deb http://mirrors/debian/ stretch-updates main contrib non-free
+deb-src http://mirrors/debian/ stretch-updates main contrib non-free
+deb http://mirrors/debian/ stretch main contrib non-free
+deb-src http://mirrors/debian/ stretch main contrib non-free
+# OCF
+deb http://apt/ stretch-backports main
+deb-src http://apt/ stretch-backports main
+deb http://apt/ stretch main
+deb-src http://apt/ stretch main
+deb http://mirrors/puppetlabs/apt/ stretch puppet
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::info&lt;br&gt;我个人的理解是，&lt;code&gt;repository&lt;/code&gt;是指仓库名，仓库中列举了该仓库有哪些软件包。而&lt;code&gt;mirror list&lt;/code&gt;指明了从哪里下载这个仓库中的软件包（网络地址）？在清华的镜像中有这个仓库，而在中科大的镜像中也有这个仓库。镜像中仓库的内容随着官方仓库内容的更新而更新？&lt;br&gt;关于什么是镜像，请看这里:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy85MTMxODAvd2hhdC1hcmUtbWlycm9ycw==&#34;&gt;What are mirrors？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hc2t1YnVudHUuY29tL3F1ZXN0aW9ucy85MTMxODAvd2hhdC1hcmUtbWlycm9ycw==&#34;&gt;What are mirrors？&lt;/span&gt;&lt;br&gt;:::&lt;br&gt;不同的仓库中的软件版本可能不同，需要通过&lt;code&gt;apt policy&lt;/code&gt;来看软件包所属的仓库。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;不同的仓库中的软件版本可能不同，需要通过 &lt;code&gt;apt policy&lt;/code&gt;  来看软件包所属的仓库。&lt;/p&gt;
-&lt;h2 id=&#34;每行内容如何解读&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#每行内容如何解读&#34;&gt;#&lt;/a&gt; 每行内容如何解读？&lt;/h2&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;以下内容摘自 UC Berkeley System Admin Decal 原文&lt;/p&gt;
-&lt;/div&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;deb http://mirrors/debian/ stretch-backports main contrib non-free&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;deb&lt;/code&gt;  is binary package source.  &lt;code&gt;deb-src&lt;/code&gt;  indicates src packages.&lt;br&gt;
- &lt;code&gt;http://…&lt;/code&gt;  describes the location&lt;br&gt;
- &lt;code&gt;stretch-backports&lt;/code&gt;  means that this is for  &lt;code&gt;Jessie stretch&lt;/code&gt;  and from a  &lt;code&gt;backport&lt;/code&gt;  repository&lt;br&gt;
- &lt;code&gt;main&lt;/code&gt;  means that the repo has packages licensed under  &lt;code&gt;Debian Free Software Guidelines (DFSG)&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;contrib&lt;/code&gt;  repos have packages licensed under  &lt;code&gt;DSFG&lt;/code&gt;  but require  &lt;code&gt;non-free dependencies&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;non-free&lt;/code&gt;  repos have packages that do not comply with  &lt;code&gt;DSFG&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;每行内容如何解读？&#34;&gt;&lt;a href=&#34;#每行内容如何解读？&#34; class=&#34;headerlink&#34; title=&#34;每行内容如何解读？&#34;&gt;&lt;/a&gt;每行内容如何解读？&lt;/h2&gt;&lt;p&gt;:::info&lt;br&gt;以下内容摘自 UC Berkeley System Admin Decal 原文&lt;br&gt;:::&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;deb http://mirrors/debian/ stretch-backports main contrib non-free
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;deb&lt;/code&gt; is binary package source. &lt;code&gt;deb-src&lt;/code&gt; indicates src packages.&lt;br&gt;&lt;code&gt;http://…&lt;/code&gt; describes the location&lt;br&gt;&lt;code&gt;stretch-backports&lt;/code&gt; means that this is for &lt;code&gt;Jessie stretch&lt;/code&gt; and from a &lt;code&gt;backport&lt;/code&gt; repository&lt;br&gt;&lt;code&gt;main&lt;/code&gt; means that the repo has packages licensed under &lt;code&gt;Debian Free Software Guidelines (DFSG)&lt;/code&gt;&lt;br&gt;&lt;code&gt;contrib&lt;/code&gt; repos have packages licensed under &lt;code&gt;DSFG&lt;/code&gt; but require &lt;code&gt;non-free dependencies&lt;/code&gt;&lt;br&gt;&lt;code&gt;non-free&lt;/code&gt; repos have packages that do not comply with &lt;code&gt;DSFG&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&#34;手动安装包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#手动安装包&#34;&gt;#&lt;/a&gt; 手动安装包&lt;/h1&gt;
-&lt;p&gt;包中通常含有 &lt;code&gt;Makefile&lt;/code&gt;  文件，我们可以手动的进行安装。&lt;br&gt;
-步骤：&lt;/p&gt;
+&lt;h1 id=&#34;手动安装包&#34;&gt;&lt;a href=&#34;#手动安装包&#34; class=&#34;headerlink&#34; title=&#34;手动安装包&#34;&gt;&lt;/a&gt;手动安装包&lt;/h1&gt;&lt;p&gt;包中通常含有&lt;code&gt;Makefile&lt;/code&gt;文件，我们可以手动的进行安装。&lt;br&gt;步骤：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;安装所需的相关包，例如 &lt;code&gt;gcc&lt;/code&gt;  等&lt;/li&gt;
+&lt;li&gt;安装所需的相关包，例如&lt;code&gt;gcc&lt;/code&gt;等&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;./configure&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;make&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;make install&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;不便之处：卸载麻烦。&lt;/p&gt;
-&lt;h1 id=&#34;包结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包结构&#34;&gt;#&lt;/a&gt; 包结构&lt;/h1&gt;
-&lt;p&gt;Debian 包通常具有如下几个目录和文件：&lt;/p&gt;
+&lt;h1 id=&#34;包结构&#34;&gt;&lt;a href=&#34;#包结构&#34; class=&#34;headerlink&#34; title=&#34;包结构&#34;&gt;&lt;/a&gt;包结构&lt;/h1&gt;&lt;p&gt;Debian 包通常具有如下几个目录和文件：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;control&lt;/code&gt; ：涵盖包的元信息，例如包的大小、版本、依赖&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;control&lt;/code&gt;：涵盖包的元信息，例如包的大小、版本、依赖&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;debian-binary&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;etc&lt;/code&gt; ：配置文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;md5sums&lt;/code&gt; ：文件有效性检验&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;usr&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;bin&lt;/code&gt; ：可执行文件，要加到 &lt;code&gt;$PATH&lt;/code&gt;  环境变量中&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;share&lt;/code&gt; ：文档，man page，本地化设置
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;doc&lt;/code&gt; ：文档&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;info&lt;/code&gt; : info page&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;locale&lt;/code&gt; ：本地化设置&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;man&lt;/code&gt; ：man page&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;etc&lt;/code&gt;：配置文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;md5sums&lt;/code&gt;：文件有效性检验&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;usr&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;/code&gt;：可执行文件，要加到&lt;code&gt;$PATH&lt;/code&gt;环境变量中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;share&lt;/code&gt;：文档，man page，本地化设置&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;doc&lt;/code&gt;：文档&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info&lt;/code&gt;: info page&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;locale&lt;/code&gt;：本地化设置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man&lt;/code&gt;：man page&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;自己组包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#自己组包&#34;&gt;#&lt;/a&gt; 自己组包&lt;/h1&gt;
-&lt;h2 id=&#34;usr-目录下几个重要的目录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#usr-目录下几个重要的目录&#34;&gt;#&lt;/a&gt; /usr 目录下几个重要的目录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/usr/bin&lt;/code&gt;  二进制可执行文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/usr/lib&lt;/code&gt;  相关的库&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/usr/include&lt;/code&gt;  头文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;/usr/share&lt;/code&gt;  文档等等&lt;/li&gt;
+&lt;h1 id=&#34;自己组包&#34;&gt;&lt;a href=&#34;#自己组包&#34; class=&#34;headerlink&#34; title=&#34;自己组包&#34;&gt;&lt;/a&gt;自己组包&lt;/h1&gt;&lt;h2 id=&#34;usr-目录下几个重要的目录&#34;&gt;&lt;a href=&#34;#usr-目录下几个重要的目录&#34; class=&#34;headerlink&#34; title=&#34;&amp;#x2F;usr 目录下几个重要的目录&#34;&gt;&lt;/a&gt;&amp;#x2F;usr 目录下几个重要的目录&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/usr/bin&lt;/code&gt; 二进制可执行文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/lib&lt;/code&gt; 相关的库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/include&lt;/code&gt; 头文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/share&lt;/code&gt; 文档等等&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;打包过程将hellopenguinc程序打包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#打包过程将hellopenguinc程序打包&#34;&gt;#&lt;/a&gt; 打包过程：将 &lt;code&gt;hellopenguin.c&lt;/code&gt;  程序打包&lt;/h2&gt;
-&lt;h3 id=&#34;初始准备&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#初始准备&#34;&gt;#&lt;/a&gt; 初始准备&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;编写 &lt;code&gt;hellopenguin.c&lt;/code&gt;  程序&lt;/li&gt;
+&lt;h2 id=&#34;打包过程：将hellopenguin-c程序打包&#34;&gt;&lt;a href=&#34;#打包过程：将hellopenguin-c程序打包&#34; class=&#34;headerlink&#34; title=&#34;打包过程：将hellopenguin.c程序打包&#34;&gt;&lt;/a&gt;打包过程：将&lt;code&gt;hellopenguin.c&lt;/code&gt;程序打包&lt;/h2&gt;&lt;h3 id=&#34;初始准备&#34;&gt;&lt;a href=&#34;#初始准备&#34; class=&#34;headerlink&#34; title=&#34;初始准备&#34;&gt;&lt;/a&gt;初始准备&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;编写&lt;code&gt;hellopenguin.c&lt;/code&gt;程序&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Hello Penguin!\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;编译 &lt;code&gt;hellopenguin.c&lt;/code&gt;  程序，生成可执行文件 &lt;code&gt;hellopenguin&lt;/code&gt;&lt;/li&gt;
+&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+int main(void)
+&amp;#123;
+    printf(&amp;quot;Hello Penguin!\n&amp;quot;);
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;编译&lt;code&gt;hellopenguin.c&lt;/code&gt;程序，生成可执行文件&lt;code&gt;hellopenguin&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc hellopenguin.c &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; hellopenguin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;打包环境准备&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#打包环境准备&#34;&gt;#&lt;/a&gt; 打包环境准备&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;使用 &lt;code&gt;fpm&lt;/code&gt;  工具 ( &lt;code&gt;Ruby Gem&lt;/code&gt; )&lt;/li&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;gcc hellopenguin.c -o hellopenguin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;打包环境准备&#34;&gt;&lt;a href=&#34;#打包环境准备&#34; class=&#34;headerlink&#34; title=&#34;打包环境准备&#34;&gt;&lt;/a&gt;打包环境准备&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;使用&lt;code&gt;fpm&lt;/code&gt;工具(&lt;code&gt;Ruby Gem&lt;/code&gt;)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ &lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; ruby-dev&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ &lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; gem &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; fpm&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ fpm &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;dir&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-t&lt;/span&gt; deb &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;name here&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-v&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;version &lt;span class=&#34;token comment&#34;&gt;#] -C [the directory with the /usr folder]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;如果 &lt;code&gt;gem&lt;/code&gt;  安装 &lt;code&gt;fpm&lt;/code&gt;  过慢的话，需要给 ruby 环境换源，命令如下（这里使用清华源）：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 添加镜像源并移除默认源&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gem sources &lt;span class=&#34;token parameter variable&#34;&gt;--add&lt;/span&gt; https://mirrors.tuna.tsinghua.edu.cn/rubygems/ &lt;span class=&#34;token parameter variable&#34;&gt;--remove&lt;/span&gt; https://rubygems.org/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 列出已有源&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gem sources &lt;span class=&#34;token parameter variable&#34;&gt;-l&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 应该只有镜像源一个&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;或者在 &lt;code&gt;~/.gemrc&lt;/code&gt;  中将 &lt;code&gt;https://mirrors.tuna.tsinghua.edu.cn/rubygems/&lt;/code&gt;  加到 &lt;code&gt;sources&lt;/code&gt;  字段。&lt;/p&gt;
-&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ sudo apt install ruby-dev
+$ sudo gem install fpm
+$ fpm -s dir -t deb -n [name here] -v [version #] -C [the directory with the /usr folder]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;:::info&lt;br&gt;如果&lt;code&gt;gem&lt;/code&gt;安装&lt;code&gt;fpm&lt;/code&gt;过慢的话，需要给 ruby 环境换源，命令如下（这里使用清华源）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;# 添加镜像源并移除默认源
+gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+# 列出已有源
+gem sources -l
+# 应该只有镜像源一个
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或者在&lt;code&gt;~/.gemrc&lt;/code&gt;中将&lt;code&gt;https://mirrors.tuna.tsinghua.edu.cn/rubygems/&lt;/code&gt;加到&lt;code&gt;sources&lt;/code&gt;字段。&lt;br&gt;:::&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;查看 &lt;code&gt;fpm&lt;/code&gt;  是否安装，输入 &lt;code&gt;fpm&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看&lt;code&gt;fpm&lt;/code&gt;是否安装，输入&lt;code&gt;fpm&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;创建包文件夹&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#创建包文件夹&#34;&gt;#&lt;/a&gt; 创建包文件夹&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;创建目录 &lt;code&gt;packpenguin/usr/bin&lt;/code&gt; ，将 &lt;code&gt;hellopenguin&lt;/code&gt;  放进去&lt;/li&gt;
+&lt;h3 id=&#34;创建包文件夹&#34;&gt;&lt;a href=&#34;#创建包文件夹&#34; class=&#34;headerlink&#34; title=&#34;创建包文件夹&#34;&gt;&lt;/a&gt;创建包文件夹&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;创建目录&lt;code&gt;packpenguin/usr/bin&lt;/code&gt;，将&lt;code&gt;hellopenguin&lt;/code&gt;放进去&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-p&lt;/span&gt; packpenguin/usr/bin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mv&lt;/span&gt; hellopenguin packpenguin/usr/bin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;在 &lt;code&gt;packpenguin&lt;/code&gt;  的父目录中，使用 &lt;code&gt;fpm&lt;/code&gt;  进行打包，命令如下：&lt;/li&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;mkdir -p packpenguin/usr/bin
+mv hellopenguin packpenguin/usr/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在&lt;code&gt;packpenguin&lt;/code&gt;的父目录中，使用&lt;code&gt;fpm&lt;/code&gt;进行打包，命令如下：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fpm &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;dir&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-t&lt;/span&gt; deb &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt; hellopenguin &lt;span class=&#34;token parameter variable&#34;&gt;-v&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1.0&lt;/span&gt;~ocf1 &lt;span class=&#34;token parameter variable&#34;&gt;-C&lt;/span&gt; packpenguin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中几个字段解释如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;fpm -s dir -t deb -n hellopenguin -v 1.0~ocf1 -C packpenguin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中几个字段解释如下：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;-s&lt;/code&gt; ：使用一个目录构建&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-t&lt;/code&gt; ：生成 &lt;code&gt;deb&lt;/code&gt;  包&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-n&lt;/code&gt; ：输出包的名字叫 &lt;code&gt;hellopenguin&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-v&lt;/code&gt; ：版本号为 &lt;code&gt;1.0~ocf1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-C&lt;/code&gt; : 由 &lt;code&gt;packpenguin&lt;/code&gt;  目录生成&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-s&lt;/code&gt;：使用一个目录构建&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt;：生成&lt;code&gt;deb&lt;/code&gt;包&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-n&lt;/code&gt;：输出包的名字叫&lt;code&gt;hellopenguin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v&lt;/code&gt;：版本号为&lt;code&gt;1.0~ocf1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-C&lt;/code&gt;:由&lt;code&gt;packpenguin&lt;/code&gt;目录生成&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;安装我们组建的包: &lt;code&gt;sudo dpkg -i ./hellopenguin_1.0~ocf1_amd64.deb&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;hellopenguin&lt;/code&gt; ，运行 &lt;code&gt;hellopenguin&lt;/code&gt; ，可以看到输出了 &lt;code&gt;Hello Penguin!&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;安装我们组建的包:&lt;code&gt;sudo dpkg -i ./hellopenguin_1.0~ocf1_amd64.deb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;hellopenguin&lt;/code&gt;，运行&lt;code&gt;hellopenguin&lt;/code&gt;，可以看到输出了&lt;code&gt;Hello Penguin!&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;note info&#34;&gt;
-&lt;p&gt;要卸载我们安装的包，可以使用 &lt;code&gt;dpkg --remove hellopenguin&lt;/code&gt;  命令。&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#参考资料&#34;&gt;#&lt;/a&gt; 参考资料&lt;/h1&gt;
-&lt;ul&gt;
+&lt;p&gt;:::info&lt;br&gt;要卸载我们安装的包，可以使用&lt;code&gt;dpkg --remove hellopenguin&lt;/code&gt;命令。&lt;br&gt;:::&lt;/p&gt;
+&lt;h1 id=&#34;参考资料&#34;&gt;&lt;a href=&#34;#参考资料&#34; class=&#34;headerlink&#34; title=&#34;参考资料&#34;&gt;&lt;/a&gt;参考资料&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vcHJlc2VudGF0aW9uL2QvMVJNTlBSSE5vaDRhNUtXd1hZOGZCV0o0OW5CYWZ4Ym80Zy1PdlNaWjg1VjgvZWRpdCNzbGlkZT1pZC5nNTM2NGNlYzI4Y18wXzEx&#34;&gt;Packaging&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZWNhbC5vY2YuYmVya2VsZXkuZWR1L2FyY2hpdmVzLzIwMjItc3ByaW5nL2xhYnMvYTIvI2dyYWRpbmctbm90ZQ==&#34;&gt;Advanced Lab 2 - Packages and Packaging and Troubleshooting&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vcHJlc2VudGF0aW9uL2QvMVVKSE83Zlhvay02Uk43REFKNVNQVHFjQ1hpUlNSOGhwR1p4OU9RTW5NT1UvZWRpdCNzbGlkZT1pZC5w&#34;&gt;Distros, Packaging, and Compiling&lt;/span&gt;&lt;/li&gt;
