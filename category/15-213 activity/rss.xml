@@ -10,10 +10,10 @@
         <category>C++</category>
         <category>Arch</category>
         <category>Linux</category>
-        <category>安装教程</category>
+        <category>配置教程</category>
         <category>操作系统</category>
         <category>notes</category>
-        <category>配置教程</category>
+        <category>安装教程</category>
         <category>Debian</category>
         <category>包管理</category>
         <category>参考资料</category>
@@ -24,27 +24,13 @@
             <title>15-213 Attack lab recitation</title>
             <link>https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Attack%20lab%20recitation/</link>
             <pubDate>Thu, 29 Feb 2024 17:20:40 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;输入&lt;code&gt;gdb activity&lt;/code&gt;，开启 activity 之旅。&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;输入 &lt;code&gt;gdb activity&lt;/code&gt; ，开启 activity 之旅。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Objective: The goal of this activity is to input a string that causes the program to call win(0x15213),&lt;br&gt;and thereby win a cookie.&lt;br&gt;在开启之前，先查看一下&lt;code&gt;solve&lt;/code&gt;函数的内容：&lt;/p&gt;
+&lt;p&gt;Objective: The goal of this activity is to input a string that causes the program to call win(0x15213),&lt;br&gt;
+and thereby win a cookie.&lt;br&gt;
+ 在开启之前，先查看一下 &lt;code&gt;solve&lt;/code&gt;  函数的内容：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;void solve(void) &amp;#123;
-    volatile long before = 0xb4;
-    char buf[16];
-    volatile long after = 0xaf;
-
-    Gets(buf);
-
-    if (before == 0x3331323531) &amp;#123;
-        win(0x15213);
-    &amp;#125;
-
-    if (after == 0x3331323831) &amp;#123;
-        win(0x18213);
-    &amp;#125;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;看一下&lt;code&gt;solve&lt;/code&gt;的汇编代码：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;solve&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; before &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xb4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; buf&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; after &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xaf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;Gets&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;before &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x3331323531&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;win&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x15213&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;after &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x3331323831&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;win&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x18213&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;看一下 &lt;code&gt;solve&lt;/code&gt;  的汇编代码：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas solve
 Dump of assembler code for function solve:
    0x00000000000011df &amp;lt;+0&amp;gt;:     endbr64
@@ -71,56 +57,45 @@ Dump of assembler code for function solve:
    0x0000000000001246 &amp;lt;+103&amp;gt;:   jmp    0x122b &amp;lt;solve+76&amp;gt;
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;函数给&lt;code&gt;solve&lt;/code&gt;预留了 56 个字节的空间：&lt;/p&gt;
+&lt;p&gt;函数给 &lt;code&gt;solve&lt;/code&gt;  预留了 56 个字节的空间：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;before = 0xb4&lt;/code&gt;移动到&lt;code&gt;%rsp + 40&lt;/code&gt;处&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;after = 0xaf&lt;/code&gt;移动到&lt;code&gt;%rsp + 8&lt;/code&gt;处&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;before = 0xb4&lt;/code&gt;  移动到 &lt;code&gt;%rsp + 40&lt;/code&gt;  处&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;after = 0xaf&lt;/code&gt;  移动到 &lt;code&gt;%rsp + 8&lt;/code&gt;  处&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;%rdi = %rsp + 16&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;调用&lt;code&gt;gets&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%rdx = *(%rsp + 40)&lt;/code&gt;，把&lt;code&gt;before&lt;/code&gt;赋给&lt;code&gt;%rdx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;调用 &lt;code&gt;gets&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%rdx = *(%rsp + 40)&lt;/code&gt; ，把 &lt;code&gt;before&lt;/code&gt;  赋给 &lt;code&gt;%rdx&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;%rax = $0x3331323531&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;接下来是个判断：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;if(rdx == rax) &amp;#123;
-    edi = 0x15213;
-    callq win
-&amp;#125;
-rdx = *(rsp + 8);
-rax = 0x3331323831;
-if(rdx == rax) &amp;#123;
-  edi = 0x18213;
-  callq win;
-&amp;#125;
-rsp += 40;
-return;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;完成&lt;code&gt;gets&lt;/code&gt;之前的调用后，栈分布大致如下（一共 56 个字节的分配）：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rdx &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; rax&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    edi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x15213&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    callq win&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rdx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rsp &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x3331323831&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rdx &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; rax&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  edi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x18213&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  callq win&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rsp &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;完成 &lt;code&gt;gets&lt;/code&gt;  之前的调用后，栈分布大致如下（一共 56 个字节的分配）：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;rsp&lt;/code&gt;处没有值&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rsp + 8&lt;/code&gt;处存储&lt;code&gt;after = 0xaf&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rsp + 16 ~ rsp + 24&lt;/code&gt;处存储 16 字节的&lt;code&gt;buf&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rsp + 32&lt;/code&gt;处 8 个字节空闲&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rsp + 40&lt;/code&gt;处存储&lt;code&gt;before = 0xb4&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rsp + 56&lt;/code&gt;处存储的是调用&lt;code&gt;solve&lt;/code&gt;的&lt;code&gt;return address&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsp&lt;/code&gt;  处没有值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsp + 8&lt;/code&gt;  处存储 &lt;code&gt;after = 0xaf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsp + 16 ~ rsp + 24&lt;/code&gt;  处存储 16 字节的 &lt;code&gt;buf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsp + 32&lt;/code&gt;  处 8 个字节空闲&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsp + 40&lt;/code&gt;  处存储 &lt;code&gt;before = 0xb4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rsp + 56&lt;/code&gt;  处存储的是调用 &lt;code&gt;solve&lt;/code&gt;  的 &lt;code&gt;return address&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;普通缓冲区溢出&#34;&gt;&lt;a href=&#34;#普通缓冲区溢出&#34; class=&#34;headerlink&#34; title=&#34;普通缓冲区溢出&#34;&gt;&lt;/a&gt;普通缓冲区溢出&lt;/h3&gt;&lt;p&gt;查看代码可以理解，要让程序调用&lt;code&gt;win(0x15213)&lt;/code&gt;，需要让&lt;code&gt;rdx == 0x3331323531&lt;/code&gt;，而在这之前&lt;code&gt;rdx = before&lt;/code&gt;，所以我们的根本目的是让&lt;code&gt;before = 0x3331323531&lt;/code&gt;。就得让&lt;code&gt;buf&lt;/code&gt;前 24 个字节为 0，后八个字节等于&lt;code&gt;0x3331323531&lt;/code&gt;。该机器为小端法机器，那么这 8 个字节从低地址到高地址的顺序应该是：&lt;code&gt;0x31 0x35 0x32 0x31 0x33 0x00 0x00 0x00&lt;/code&gt;，这 8 个个字节翻译成&lt;code&gt;ASCII码&lt;/code&gt;就是&lt;code&gt;15213&lt;/code&gt;。此外&lt;code&gt;gets&lt;/code&gt;一定要读到&lt;code&gt;\n&lt;/code&gt;字符，它会把&lt;code&gt;\n&lt;/code&gt;替换为&lt;code&gt;\0&lt;/code&gt;字符。它不是读到&lt;code&gt;\0&lt;/code&gt;字符就终止。后面不需要加&lt;code&gt;0&lt;/code&gt;，因为&lt;code&gt;0&lt;/code&gt;的&lt;code&gt;ASCII&lt;/code&gt;编码是&lt;code&gt;0x30&lt;/code&gt;。如果最后加了 3 个&lt;code&gt;0&lt;/code&gt;的话，最后 8 个字节的地址就会变成&lt;code&gt;0x31 0x35 0x32 0x31 0x33 0x30 0x30 0x30&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;普通缓冲区溢出&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#普通缓冲区溢出&#34;&gt;#&lt;/a&gt; 普通缓冲区溢出&lt;/h3&gt;
+&lt;p&gt;查看代码可以理解，要让程序调用 &lt;code&gt;win(0x15213)&lt;/code&gt; ，需要让 &lt;code&gt;rdx == 0x3331323531&lt;/code&gt; ，而在这之前 &lt;code&gt;rdx = before&lt;/code&gt; ，所以我们的根本目的是让 &lt;code&gt;before = 0x3331323531&lt;/code&gt; 。就得让 &lt;code&gt;buf&lt;/code&gt;  前 24 个字节为 0，后八个字节等于 &lt;code&gt;0x3331323531&lt;/code&gt; 。该机器为小端法机器，那么这 8 个字节从低地址到高地址的顺序应该是： &lt;code&gt;0x31 0x35 0x32 0x31 0x33 0x00 0x00 0x00&lt;/code&gt; ，这 8 个个字节翻译成 &lt;code&gt;ASCII码&lt;/code&gt; 就是 &lt;code&gt;15213&lt;/code&gt; 。此外 &lt;code&gt;gets&lt;/code&gt;  一定要读到 &lt;code&gt;\n&lt;/code&gt;  字符，它会把 &lt;code&gt;\n&lt;/code&gt;  替换为 &lt;code&gt;\0&lt;/code&gt;  字符。它不是读到 &lt;code&gt;\0&lt;/code&gt;  字符就终止。后面不需要加 &lt;code&gt;0&lt;/code&gt; ，因为 &lt;code&gt;0&lt;/code&gt;  的 &lt;code&gt;ASCII&lt;/code&gt;  编码是 &lt;code&gt;0x30&lt;/code&gt; 。如果最后加了 3 个 &lt;code&gt;0&lt;/code&gt;  的话，最后 8 个字节的地址就会变成 &lt;code&gt;0x31 0x35 0x32 0x31 0x33 0x30 0x30 0x30&lt;/code&gt; 。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;有几条要注意的点：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;机器为小端法机器，写内存的时候要把数字倒过来&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;0x00&lt;/code&gt;是在 ASCII 码里面是空字符，&lt;code&gt;0x30&lt;/code&gt;在 ASCII 码里面是&lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;gets&lt;/code&gt;要读到&lt;code&gt;\n&lt;/code&gt;，他会把&lt;code&gt;\n&lt;/code&gt;替换成&lt;code&gt;\0&lt;/code&gt;存储在&lt;code&gt;buf&lt;/code&gt;中，无需手动&lt;code&gt;\0&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;输入的时候只能输入字符串，而不能输入 10 进制或者 16 进制的值，如果函数没有调用&lt;code&gt;atoi&lt;/code&gt;，输入一律被当作字符串处理。因此我们需要输入&lt;code&gt;0x3331323531&lt;/code&gt;对应的&lt;code&gt;ASCII&lt;/code&gt;编码，而不是这个值本身。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;0x00&lt;/code&gt;  是在 ASCII 码里面是空字符， &lt;code&gt;0x30&lt;/code&gt;  在 ASCII 码里面是 &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gets&lt;/code&gt;  要读到 &lt;code&gt;\n&lt;/code&gt; ，他会把 &lt;code&gt;\n&lt;/code&gt;  替换成 &lt;code&gt;\0&lt;/code&gt;  存储在 &lt;code&gt;buf&lt;/code&gt;  中，无需手动 &lt;code&gt;\0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;输入的时候只能输入字符串，而不能输入 10 进制或者 16 进制的值，如果函数没有调用 &lt;code&gt;atoi&lt;/code&gt; ，输入一律被当作字符串处理。因此我们需要输入 &lt;code&gt;0x3331323531&lt;/code&gt;  对应的 &lt;code&gt;ASCII&lt;/code&gt;  编码，而不是这个值本身。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;输入&lt;code&gt;01234567890123456789012315213&lt;/code&gt;，成功调用&lt;code&gt;win(0x15213)&lt;/code&gt;。如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;01234567890123456789012315213&lt;/code&gt; ，成功调用 &lt;code&gt;win(0x15213)&lt;/code&gt; 。如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;gwen@gwen-virtual-machine:~/Documents/report/code/15213/Ch3 Machine Level Programming/rec5/src$ ./activity
 01234567890123456789012315213
 You win 1 cookie! Great start!
 Returning normally from main
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;包含返回地址攻击的缓冲区溢出&#34;&gt;&lt;a href=&#34;#包含返回地址攻击的缓冲区溢出&#34; class=&#34;headerlink&#34; title=&#34;包含返回地址攻击的缓冲区溢出&#34;&gt;&lt;/a&gt;包含返回地址攻击的缓冲区溢出&lt;/h3&gt;&lt;p&gt;要让这个&lt;code&gt;solve&lt;/code&gt;函数跳转到我们插入的代码段（未开启栈随机化&amp;#x2F;&lt;code&gt;canary&lt;/code&gt;&amp;#x2F;&lt;code&gt;NX bit&lt;/code&gt;及其他防护机制，不考虑&lt;code&gt;nop sled&lt;/code&gt;），我们需要利用缓冲区溢出，让&lt;code&gt;return address&lt;/code&gt;修改为我们所插入的代码段的地址。我们需要让&lt;code&gt;buf&lt;/code&gt;的前 40 个字节为任意内容，最后 8 个字节为我们插入的攻击代码的地址。&lt;/p&gt;
-&lt;p&gt;我们这次的目的是想调到&lt;code&gt;&amp;lt;solve +93&amp;gt;&lt;/code&gt;位置处，本次运行过程中该位置的地址是&lt;code&gt;0x000055555555523c&lt;/code&gt;，过会儿我们要将其插入&lt;code&gt;buf&lt;/code&gt;的第 48-48 字节处。该地址的值换算成小端法是&lt;code&gt;0x3c 0x52 0x55 0x55 0x55 0x55 0x00 0x00&lt;/code&gt;。其对应的&lt;code&gt;ASCII码&lt;/code&gt;是&lt;code&gt;&amp;lt;RUUUU&lt;/code&gt;，后面的&lt;code&gt;null&lt;/code&gt;为&lt;code&gt;0x00&lt;/code&gt;。我们要让程序返回的时候跳转到&lt;code&gt;mov $0x18213,%edi&lt;/code&gt;。那么构造的字符串应该是&lt;code&gt;0123456789012345678901234567890123456789&amp;lt;RUUUU&lt;/code&gt;。结果如下：&lt;/p&gt;
+&lt;h3 id=&#34;包含返回地址攻击的缓冲区溢出&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#包含返回地址攻击的缓冲区溢出&#34;&gt;#&lt;/a&gt; 包含返回地址攻击的缓冲区溢出&lt;/h3&gt;
+&lt;p&gt;要让这个 &lt;code&gt;solve&lt;/code&gt;  函数跳转到我们插入的代码段（未开启栈随机化 / &lt;code&gt;canary&lt;/code&gt; / &lt;code&gt;NX bit&lt;/code&gt;  及其他防护机制，不考虑 &lt;code&gt;nop sled&lt;/code&gt; ），我们需要利用缓冲区溢出，让 &lt;code&gt;return address&lt;/code&gt;  修改为我们所插入的代码段的地址。我们需要让 &lt;code&gt;buf&lt;/code&gt;  的前 40 个字节为任意内容，最后 8 个字节为我们插入的攻击代码的地址。&lt;/p&gt;
+&lt;p&gt;我们这次的目的是想调到 &lt;code&gt;&amp;lt;solve +93&amp;gt;&lt;/code&gt;  位置处，本次运行过程中该位置的地址是 &lt;code&gt;0x000055555555523c&lt;/code&gt; ，过会儿我们要将其插入 &lt;code&gt;buf&lt;/code&gt;  的第 48-48 字节处。该地址的值换算成小端法是 &lt;code&gt;0x3c 0x52 0x55 0x55 0x55 0x55 0x00 0x00&lt;/code&gt; 。其对应的 &lt;code&gt;ASCII码&lt;/code&gt; 是 &lt;code&gt;&amp;lt;RUUUU&lt;/code&gt; ，后面的 &lt;code&gt;null&lt;/code&gt;  为 &lt;code&gt;0x00&lt;/code&gt; 。我们要让程序返回的时候跳转到 &lt;code&gt;mov $0x18213,%edi&lt;/code&gt; 。那么构造的字符串应该是 &lt;code&gt;0123456789012345678901234567890123456789&amp;lt;RUUUU&lt;/code&gt; 。结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;43          if (after == 0x3331323831) &amp;#123;
 (gdb) n
 solve () at activity.c:44
@@ -130,7 +105,8 @@ You win 2 cookies! Woohoo!
 0x0000000000000000 in ?? ()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;成功！&lt;/p&gt;
-&lt;h3 id=&#34;引导程序到攻击代码&#34;&gt;&lt;a href=&#34;#引导程序到攻击代码&#34; class=&#34;headerlink&#34; title=&#34;引导程序到攻击代码&#34;&gt;&lt;/a&gt;引导程序到攻击代码&lt;/h3&gt;&lt;p&gt;此处我们进行更进阶的攻击，程序中函数&lt;code&gt;solve()&lt;/code&gt;并未调用过&lt;code&gt;win(0x18613)&lt;/code&gt;，让我们尝试返回到&lt;code&gt;win(0x18613)&lt;/code&gt;中。此时我们不光只破解&lt;code&gt;solve()&lt;/code&gt;，还需要对&lt;code&gt;win&lt;/code&gt;函数的代码进行分析。结果如下：&lt;/p&gt;
+&lt;h3 id=&#34;引导程序到攻击代码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#引导程序到攻击代码&#34;&gt;#&lt;/a&gt; 引导程序到攻击代码&lt;/h3&gt;
+&lt;p&gt;此处我们进行更进阶的攻击，程序中函数 &lt;code&gt;solve()&lt;/code&gt;  并未调用过 &lt;code&gt;win(0x18613)&lt;/code&gt; ，让我们尝试返回到 &lt;code&gt;win(0x18613)&lt;/code&gt;  中。此时我们不光只破解 &lt;code&gt;solve()&lt;/code&gt; ，还需要对 &lt;code&gt;win&lt;/code&gt;  函数的代码进行分析。结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas win
 Dump of assembler code for function win:
    0x0000555555555169 &amp;lt;+0&amp;gt;:     endbr64
@@ -162,7 +138,7 @@ Dump of assembler code for function win:
    0x00005555555551dd &amp;lt;+116&amp;gt;:   jmp    0x5555555551a2 &amp;lt;win+57&amp;gt;
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;我们需要跳转到&lt;code&gt;if(arg == 0x18613)&lt;/code&gt;后面那句，也就是&lt;code&gt;&amp;lt;win+90&amp;gt;&lt;/code&gt;处，该条指令的地址是&lt;code&gt;0x00005555555551c3&lt;/code&gt;，转化成小端法是&lt;code&gt;0xc3 0x51 0x55 0x55 0x55 0x55 0x00 0x00&lt;/code&gt;，转化成&lt;code&gt;ASCII码&lt;/code&gt;也就是&lt;code&gt;ÃQUUUU&lt;/code&gt;。因此，我们构造的字符串应该是&lt;code&gt;0123456789012345678901234567890123456789ÃQUUUU&lt;/code&gt;。结果如下：&lt;/p&gt;
+&lt;p&gt;我们需要跳转到 &lt;code&gt;if(arg == 0x18613)&lt;/code&gt;  后面那句，也就是 &lt;code&gt;&amp;lt;win+90&amp;gt;&lt;/code&gt;  处，该条指令的地址是 &lt;code&gt;0x00005555555551c3&lt;/code&gt; ，转化成小端法是 &lt;code&gt;0xc3 0x51 0x55 0x55 0x55 0x55 0x00 0x00&lt;/code&gt; ，转化成 &lt;code&gt;ASCII码&lt;/code&gt; 也就是 &lt;code&gt;ÃQUUUU&lt;/code&gt; 。因此，我们构造的字符串应该是 &lt;code&gt;0123456789012345678901234567890123456789ÃQUUUU&lt;/code&gt; 。结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) p $rsp
 $2 = (void *) 0x555555559018 &amp;lt;my_stack+4056&amp;gt;
 (gdb) x/s 0x555555559018
@@ -170,11 +146,12 @@ $2 = (void *) 0x555555559018 &amp;lt;my_stack+4056&amp;gt;
 (gdb) x/6bx 0x555555559018
 0x555555559018 &amp;lt;my_stack+4056&amp;gt;: 0xc3    0x83    0x51    0x55    0x55    0x55
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里出现了一点问题，就是&lt;code&gt;Ã&lt;/code&gt;采用&lt;code&gt;Unicode&lt;/code&gt;扩展编码，其编码为&lt;code&gt;0xc3 0x83&lt;/code&gt;，而我们仅仅需要&lt;code&gt;0xc3&lt;/code&gt;，因此我们需要将 16 进制的地址写在文件里，然后用文件作为&lt;code&gt;activity&lt;/code&gt;的输入。&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY3MuY211LmVkdS9hZnMvY3MvYWNhZGVtaWMvY2xhc3MvMTUyMTMtZjIzL3d3dy9yZWNpdGF0aW9ucy9yZWMwNF9zbGlkZXMucGRm&#34;&gt;Slides 中最后一页&lt;/span&gt;告诉我们，提供了&lt;code&gt;hex2raw&lt;/code&gt;脚本，可以把 16 进制值写到&lt;code&gt;input2.txt&lt;/code&gt;中，然后通过&lt;code&gt;hex2raw&lt;/code&gt;转化为&lt;code&gt;input2.bin&lt;/code&gt;。我们在&lt;code&gt;input2.txt&lt;/code&gt;中写入值&lt;code&gt;30 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30 31 32 33 31 35 32 31 33 00 30 31 32 33 34 35 36 37 38 39 c3 51 55 55 55 55&lt;/code&gt;，将其转化，然后输入&lt;code&gt;./activity &amp;lt; ../inputs/input2.bin&lt;/code&gt;。&lt;br&gt;结果如下：&lt;/p&gt;
+&lt;p&gt;这里出现了一点问题，就是 &lt;code&gt;Ã&lt;/code&gt;  采用 &lt;code&gt;Unicode&lt;/code&gt;  扩展编码，其编码为 &lt;code&gt;0xc3 0x83&lt;/code&gt; ，而我们仅仅需要 &lt;code&gt;0xc3&lt;/code&gt; ，因此我们需要将 16 进制的地址写在文件里，然后用文件作为 &lt;code&gt;activity&lt;/code&gt;  的输入。&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY3MuY211LmVkdS9hZnMvY3MvYWNhZGVtaWMvY2xhc3MvMTUyMTMtZjIzL3d3dy9yZWNpdGF0aW9ucy9yZWMwNF9zbGlkZXMucGRm&#34;&gt;Slides 中最后一页&lt;/span&gt;告诉我们，提供了 &lt;code&gt;hex2raw&lt;/code&gt;  脚本，可以把 16 进制值写到 &lt;code&gt;input2.txt&lt;/code&gt;  中，然后通过 &lt;code&gt;hex2raw&lt;/code&gt;  转化为 &lt;code&gt;input2.bin&lt;/code&gt; 。我们在 &lt;code&gt;input2.txt&lt;/code&gt;  中写入值 &lt;code&gt;30 31 32 33 34 35 36 37 38 39 30 31 32 33 34 35 36 37 38 39 30 31 32 33 31 35 32 31 33 00 30 31 32 33 34 35 36 37 38 39 c3 51 55 55 55 55&lt;/code&gt; ，将其转化，然后输入 &lt;code&gt;./activity &amp;lt; ../inputs/input2.bin&lt;/code&gt; 。&lt;br&gt;
+结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) r &amp;lt; ../inputs/input2.bin
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/rec5/src/activity &amp;lt; ../inputs/input2.bin
-You win 3 cookies! That&amp;#39;s right!
+You win 3 cookies! That&#39;s right!
 
 Program received signal SIGSEGV, Segmentation fault.
 &lt;/code&gt;&lt;/pre&gt;
@@ -186,10 +163,11 @@ Program received signal SIGSEGV, Segmentation fault.
             <title>15-213 Bomb lab recitation 记录</title>
             <link>https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Bomb%20lab%20recitation/</link>
             <pubDate>Thu, 29 Feb 2024 17:19:39 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;act1&#34;&gt;&lt;a href=&#34;#act1&#34; class=&#34;headerlink&#34; title=&#34;act1&#34;&gt;&lt;/a&gt;act1&lt;/h2&gt;&lt;p&gt;依次输入如下指令：&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;act1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#act1&#34;&gt;#&lt;/a&gt; act1&lt;/h2&gt;
+&lt;p&gt;依次输入如下指令：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble main // show the assembly instructions in main
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其&lt;code&gt;main&lt;/code&gt;函数反汇编结果如下：&lt;/p&gt;
+&lt;p&gt;其 &lt;code&gt;main&lt;/code&gt;  函数反汇编结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble main
 Dump of assembler code for function main:
    0x0000000000401730 &amp;lt;+0&amp;gt;:     endbr64
@@ -207,13 +185,8 @@ Dump of assembler code for function main:
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;该汇编代码的过程如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;int main(int argc, char*argv[])
-&amp;#123;
-    int ret = printf(&amp;quot;%s\n&amp;quot;,argv[argc-1]);
-    return ret;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;act2&#34;&gt;&lt;a href=&#34;#act2&#34; class=&#34;headerlink&#34; title=&#34;act2&#34;&gt;&lt;/a&gt;act2&lt;/h2&gt;&lt;p&gt;反汇编&lt;code&gt;main&lt;/code&gt;函数：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; argc&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;%s\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;argc&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;act2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#act2&#34;&gt;#&lt;/a&gt; act2&lt;/h2&gt;
+&lt;p&gt;反汇编 &lt;code&gt;main&lt;/code&gt;  函数：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas main
 Dump of assembler code for function main:
    0x00000000004016c0 &amp;lt;+0&amp;gt;:     endbr64
@@ -228,14 +201,14 @@ Dump of assembler code for function main:
    0x00000000004016e4 &amp;lt;+36&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入下列指令用 16 进制打印&lt;code&gt;%rsi&lt;/code&gt;和&lt;code&gt;%rdi&lt;/code&gt;的值：&lt;/p&gt;
+&lt;p&gt;输入下列指令用 16 进制打印 &lt;code&gt;%rsi&lt;/code&gt;  和 &lt;code&gt;%rdi&lt;/code&gt;  的值：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) print /x $rsi
 $1 = 0x7fffffffdf18
 (gdb) print /x $rdi
 $2 = 0x1
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;由此看&lt;code&gt;$rdi&lt;/code&gt;应该是&lt;code&gt;argc&lt;/code&gt;,而&lt;code&gt;$rsi&lt;/code&gt;应该是&lt;code&gt;argv&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;再输入&lt;code&gt;disas stc&lt;/code&gt;，获得如下结果：&lt;/p&gt;
+&lt;p&gt;由此看 &lt;code&gt;$rdi&lt;/code&gt;  应该是 &lt;code&gt;argc&lt;/code&gt; , 而 &lt;code&gt;$rsi&lt;/code&gt;  应该是 &lt;code&gt;argv&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;再输入 &lt;code&gt;disas stc&lt;/code&gt; ，获得如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas stc
 Dump of assembler code for function stc:
    0x0000000000401c75 &amp;lt;+0&amp;gt;:     push   %rbx
@@ -249,20 +222,8 @@ Dump of assembler code for function stc:
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;将其转化为 C 语言函数应该是：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// a:rsi b:rdi
-int stc(char* a, char* b)
-&amp;#123;
-   // 压入原rbx
-   rbx = rsi;
-   puts(rbx);
-   rdi = rbx;
-   puts(rbx);
-   // 恢复rbx
-   // nopl是干嘛用的？
-   return rax;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;act3&#34;&gt;&lt;a href=&#34;#act3&#34; class=&#34;headerlink&#34; title=&#34;act3&#34;&gt;&lt;/a&gt;act3&lt;/h2&gt;&lt;p&gt;观察&lt;code&gt;main&lt;/code&gt;函数的 C 代码，发现只要&lt;code&gt;compare&lt;/code&gt;函数返回 1 即可通关。对&lt;code&gt;compare&lt;/code&gt;函数进行反汇编可得：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// a:rsi b:rdi&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;stc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token comment&#34;&gt;// 压入原 rbx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rbx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; rsi&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token function&#34;&gt;puts&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rbx&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rdi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; rbx&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token function&#34;&gt;puts&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rbx&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token comment&#34;&gt;// 恢复 rbx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token comment&#34;&gt;//nopl 是干嘛用的？&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; rax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;act3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#act3&#34;&gt;#&lt;/a&gt; act3&lt;/h2&gt;
+&lt;p&gt;观察 &lt;code&gt;main&lt;/code&gt;  函数的 C 代码，发现只要 &lt;code&gt;compare&lt;/code&gt;  函数返回 1 即可通关。对 &lt;code&gt;compare&lt;/code&gt;  函数进行反汇编可得：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas compare
 Dump of assembler code for function compare:
    0x0000000000401c95 &amp;lt;+0&amp;gt;:     push   %rbx
@@ -277,66 +238,17 @@ Dump of assembler code for function compare:
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;还原其 C 代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// rdi:a rsi:b
-int compare(int a,int b)
-&amp;#123;
-   int ret;
-   //压入原rbx
-   rbx = a;
-   rbx += 0x5;
-   rbx += b;
-   rbx = a + b + 0x5;
-   if(rbx == 0x3b6d) &amp;#123;
-      ret = 1;
-   &amp;#125;
-   else &amp;#123;
-      ret = 0;
-   &amp;#125;
-   // 恢复原Rbx
-   return ret;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;发现&lt;code&gt;compare&lt;/code&gt;就要求&lt;code&gt;a + b = 0x3b68(10进制15208)&lt;/code&gt;。在&lt;code&gt;gdb&lt;/code&gt;中只能输入 10 进制数字，如果输入 16 进制数字的话会被当成字符串。运行&lt;code&gt;./act3 15208 0&lt;/code&gt;，成功！&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// rdi:a rsi:b&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;compare&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token comment&#34;&gt;// 压入原 rbx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rbx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rbx &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rbx &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rbx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; a &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; b &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rbx &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x3b6d&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token comment&#34;&gt;// 恢复原 Rbx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;发现 &lt;code&gt;compare&lt;/code&gt;  就要求 &lt;code&gt;a + b = 0x3b68(10进制15208)&lt;/code&gt; 。在 &lt;code&gt;gdb&lt;/code&gt;  中只能输入 10 进制数字，如果输入 16 进制数字的话会被当成字符串。运行 &lt;code&gt;./act3 15208 0&lt;/code&gt; ，成功！&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;gwen@gwen-virtual-machine:~/Documents/report/code/15213/Ch3 Machine Level Programming/rec4$ ./act3 15208 0
 good args!
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;act4&#34;&gt;&lt;a href=&#34;#act4&#34; class=&#34;headerlink&#34; title=&#34;act4&#34;&gt;&lt;/a&gt;act4&lt;/h2&gt;&lt;p&gt;先查看&lt;code&gt;act4.c&lt;/code&gt;的代码，看看是干嘛的：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;void compute(int inArg)
-&amp;#123;
-    int st;
-    inArg *= 3;
-    st = inArg &amp;amp; 0xf;
-    do &amp;#123;
-        switch(st)
-        &amp;#123;
-            case 0: printf(&amp;quot;Finish\n&amp;quot;); inArg = -1; break;
-            case 1: inArg *= 2; break;
-            case 2: inArg &amp;gt;&amp;gt;= 2; break;
-            case 3: inArg &amp;amp;= 1; break;
-            case 4: inArg--; break;
-            default:  break;
-        &amp;#125;
-        st = inArg &amp;amp; 0xf;
-    &amp;#125; while (inArg &amp;gt;= 0);
-&amp;#125;
-
-int main(int argc, char** argv)
-&amp;#123;
-    int inArg;
-    if (argc == 1) &amp;#123;fprintf(stderr, &amp;quot;Please rerun with a positive number argument\n&amp;quot;); return 1;&amp;#125;
-
-    inArg = atoi(argv[1]);
-    if (inArg &amp;lt; 0) &amp;#123;fprintf(stderr, &amp;quot;Argument was not a positive integer\n&amp;quot;); return 1;&amp;#125;
-    compute(inArg);
-
-    return 0;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;所以我们要让 gdb 打印&lt;code&gt;Finish&lt;/code&gt;，st 就得为 0，&lt;code&gt;inArg&lt;/code&gt;就得为 0，那么就输入 1 个参数&lt;code&gt;0&lt;/code&gt;即可。&lt;/p&gt;
+&lt;h2 id=&#34;act4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#act4&#34;&gt;#&lt;/a&gt; act4&lt;/h2&gt;
+&lt;p&gt;先查看 &lt;code&gt;act4.c&lt;/code&gt;  的代码，看看是干嘛的：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;compute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; inArg&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; st&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inArg &lt;span class=&#34;token operator&#34;&gt;*=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    st &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; inArg &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;switch&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;st&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Finish\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; inArg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; inArg &lt;span class=&#34;token operator&#34;&gt;*=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; inArg &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; inArg &lt;span class=&#34;token operator&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; inArg&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;  &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        st &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; inArg &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;inArg &lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; argc&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; argv&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; inArg&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;argc &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;stderr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Please rerun with a positive number argument\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    inArg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;atoi&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;inArg &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;stderr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Argument was not a positive integer\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;compute&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;inArg&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;所以我们要让 gdb 打印 &lt;code&gt;Finish&lt;/code&gt; ，st 就得为 0， &lt;code&gt;inArg&lt;/code&gt;  就得为 0，那么就输入 1 个参数 &lt;code&gt;0&lt;/code&gt;  即可。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;gwen@gwen-virtual-machine:~/Documents/report/code/15213/Ch3 Machine Level Programming/rec4$ ./act4 0
 Finish
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;我们要对汇编代码进行分析，就要使用&lt;code&gt;gdb&lt;/code&gt;。输入&lt;code&gt;gdb act4&lt;/code&gt;，输入&lt;code&gt;disas main&lt;/code&gt;，得到如下结果：&lt;/p&gt;
+&lt;p&gt;我们要对汇编代码进行分析，就要使用 &lt;code&gt;gdb&lt;/code&gt; 。输入 &lt;code&gt;gdb act4&lt;/code&gt; ，输入 &lt;code&gt;disas main&lt;/code&gt; ，得到如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas main
 Dump of assembler code for function main:
    0x0000000000401730 &amp;lt;+0&amp;gt;:     endbr64
@@ -365,47 +277,8 @@ Dump of assembler code for function main:
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这里代码分析如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// 初始化 $rdi = 0x1, $rsi = 0x7fffffffdf18。因此 rdi = argc, rsi = argv
-int main(int argc, char* argv[])
-&amp;#123;
-   // 预留8个字节的栈空间
-   rdx = rip + 0x938e1 -&amp;gt; 这句是干嘛的？
-   if(edi == 1) &amp;#123;
-      rdi = rip + 0xbef54; -&amp;gt; stderr
-      esi = 0x1;
-      eax = 0;
-      call fprintf
-      eax = 1;
-      // rsp 恢复
-      return eax;
-   &amp;#125;
-   else &amp;#123;
-      rdi = *(rsi + 0x8);
-      ecx = 0xa;
-      esi = 0;
-      call strtoq;
-      if(eax &amp;lt; 0) &amp;#123;
-         rdx = 0x938e3 + rip;
-         rdi = *(rip + 0xbef54); -&amp;gt; stderr
-         esi = 0x1;
-         eax = 0;
-         call fprintf
-         eax = 1;
-         // rsp 恢复
-         return eax;
-      &amp;#125;
-      else &amp;#123;
-         edi = eax;
-         call compute
-         eax = 0;
-         // rsp 恢复
-         return eax;
-      &amp;#125;
-   &amp;#125;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里涉及到三个函数：&lt;code&gt;fprintf&lt;/code&gt;，&lt;code&gt;strtoq&lt;/code&gt;,&lt;code&gt;compute&lt;/code&gt;。&lt;code&gt;fprintf&lt;/code&gt;通常和&lt;code&gt;stderr&lt;/code&gt;结合在一起。&lt;/p&gt;
-&lt;p&gt;对&lt;code&gt;strtoq&lt;/code&gt;进行反汇编得到如下结果：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 初始化 $rdi = 0x1, $rsi = 0x7fffffffdf18。因此 rdi = argc, rsi = argv&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; argc&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token comment&#34;&gt;// 预留 8 个字节的栈空间&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   rdx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; rip &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x938e1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt; 这句是干嘛的？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;edi &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      rdi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; rip &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xbef54&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;stderr&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      esi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      call fprintf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token comment&#34;&gt;//rsp 恢复&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      rdi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rsi &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      ecx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xa&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      esi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      call strtoq&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;eax &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         rdx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x938e3&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; rip&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         rdi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rip &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xbef54&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;stderr&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         esi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         call fprintf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token comment&#34;&gt;//rsp 恢复&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         edi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         call compute&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token comment&#34;&gt;//rsp 恢复&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这里涉及到三个函数： &lt;code&gt;fprintf&lt;/code&gt; ， &lt;code&gt;strtoq&lt;/code&gt; , &lt;code&gt;compute&lt;/code&gt; 。 &lt;code&gt;fprintf&lt;/code&gt;  通常和 &lt;code&gt;stderr&lt;/code&gt;  结合在一起。&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;strtoq&lt;/code&gt;  进行反汇编得到如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas strtoq
 Dump of assembler code for function strtoq:
    0x0000000000410310 &amp;lt;+0&amp;gt;:     endbr64
@@ -415,7 +288,7 @@ Dump of assembler code for function strtoq:
    0x0000000000410321 &amp;lt;+17&amp;gt;:    jmpq   0x410370 &amp;lt;____strtoll_l_internal&amp;gt;
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对&lt;code&gt;compute&lt;/code&gt;进行反汇编得到如下结果：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;compute&lt;/code&gt;  进行反汇编得到如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disas compute
 Dump of assembler code for function compute:
    0x0000000000401d20 &amp;lt;+0&amp;gt;:     endbr64
@@ -459,46 +332,47 @@ End of assembler dump.
             <title>15-213 Machine Procedures Activity 记录</title>
             <link>https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Machine%20procedures%20activity/</link>
             <pubDate>Thu, 29 Feb 2024 17:18:15 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Activity-1&#34;&gt;&lt;a href=&#34;#Activity-1&#34; class=&#34;headerlink&#34; title=&#34;Activity 1&#34;&gt;&lt;/a&gt;Activity 1&lt;/h2&gt;&lt;p&gt;输入&lt;code&gt;gdb --args ./calls&lt;/code&gt;，输入&lt;code&gt;r&lt;/code&gt;，提示如下：&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;activity-1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#activity-1&#34;&gt;#&lt;/a&gt; Activity 1&lt;/h2&gt;
+&lt;p&gt;输入 &lt;code&gt;gdb --args ./calls&lt;/code&gt; ，输入 &lt;code&gt;r&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;  (gdb) r
-If you didn&amp;#39;t run it that way, it will now crash.
+If you didn&#39;t run it that way, it will now crash.
 Otherwise, you will get the (gdb) prompt back.
 
-Type &amp;#39;c&amp;#39; (short for &amp;#39;continue&amp;#39;) at the (gdb) prompt.
+Type &#39;c&#39; (short for &#39;continue&#39;) at the (gdb) prompt.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/calls.c:148
 148     machine-procedures/calls.c: No such file or directory.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入两次&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;输入两次 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-showStack has been called again. Let&amp;#39;s look at the contents
+showStack has been called again. Let&#39;s look at the contents
 of the stack right now (just before the pop is executed):
 (gdb) x/2gx $rsp
 
-(Recall that the &amp;#39;x&amp;#39; command prints memory. The &amp;#39;/2gx&amp;#39; modifier
-tells it to print two &amp;#39;g&amp;#39;iant (64-bit) values in he&amp;#39;x&amp;#39;adecimal,
-and &amp;#39;$rsp&amp;#39; means to start at the current value of the %rsp
+(Recall that the &#39;x&#39; command prints memory. The &#39;/2gx&#39; modifier
+tells it to print two &#39;g&#39;iant (64-bit) values in he&#39;x&#39;adecimal,
+and &#39;$rsp&#39; means to start at the current value of the %rsp
 register, i.e. the stack pointer.)
 
 Answer Problem 1 now: fill in the blanks with the value of the stack pointer
-and the contents of the stack. When you are finished, &amp;#39;c&amp;#39;ontinue.
+and the contents of the stack. When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 0x00000000004011e1 in showStack ()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;x/2gx $rsp&lt;/code&gt;，得到如下信息：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;x/2gx $rsp&lt;/code&gt; ，得到如下信息：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) x/2gx $rsp
 0x7fffffffdde0: 0x0000000000015213      0x000000000040117a
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;此时&lt;code&gt;$rsp = (void *) 0x7fffffffdde0&lt;/code&gt;，其指向的地址的值如上图所示。打印&lt;code&gt;0x000000000040117a&lt;/code&gt;处的值，可以看到如下结果：&lt;/p&gt;
+&lt;p&gt;此时 &lt;code&gt;$rsp = (void *) 0x7fffffffdde0&lt;/code&gt; ，其指向的地址的值如上图所示。打印 &lt;code&gt;0x000000000040117a&lt;/code&gt;  处的值，可以看到如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) x/2gx 0x000000000040117a
 0x40117a &amp;lt;main+48&amp;gt;:     0xe37e02fb8301c383      0xfea4e800402108bf
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;gdb&lt;/code&gt;显示这里是&lt;code&gt;&amp;lt;main + 48&amp;gt;&lt;/code&gt;，那么我们对&lt;code&gt;main&lt;/code&gt;函数进行反汇编：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gdb&lt;/code&gt;  显示这里是 &lt;code&gt;&amp;lt;main + 48&amp;gt;&lt;/code&gt; ，那么我们对 &lt;code&gt;main&lt;/code&gt;  函数进行反汇编：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble main
 Dump of assembler code for function main:
    0x000000000040114a &amp;lt;+0&amp;gt;:     push   %rbx
@@ -530,14 +404,14 @@ Dump of assembler code for function main:
    0x00000000004011a8 &amp;lt;+94&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以看到这个值是&lt;code&gt;callq  0x4011db &amp;lt;showStack&amp;gt;&lt;/code&gt;的下一条指令地址，也就是&lt;code&gt;callq&lt;/code&gt;调用的返回地址。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;继续，提示如下：&lt;/p&gt;
+&lt;p&gt;可以看到这个值是 &lt;code&gt;callq  0x4011db &amp;lt;showStack&amp;gt;&lt;/code&gt;  的下一条指令地址，也就是 &lt;code&gt;callq&lt;/code&gt;  调用的返回地址。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt;  继续，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-showStack has been called a third time. Now let&amp;#39;s watch it return.
+showStack has been called a third time. Now let&#39;s watch it return.
 GDB provides many commands for advancing through the program
-other than &amp;#39;c&amp;#39;ontinue. The &amp;#39;si&amp;#39; command, for instance,
+other than &#39;c&#39;ontinue. The &#39;si&#39; command, for instance,
 executes a single assembly instruction.
 
 Use this command twice now.
@@ -548,18 +422,18 @@ After each step, print the values of %rsp and %rip:
 (gdb) p $rip
 
 Based on how %rsp and %rip changed after each instruction,
-answer Problems 2 and 3 now. When you are finished, &amp;#39;c&amp;#39;ontinue.
+answer Problems 2 and 3 now. When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;si&lt;/code&gt;，&lt;code&gt;%rsp&lt;/code&gt;和&lt;code&gt;%rip&lt;/code&gt;的值如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;si&lt;/code&gt; ， &lt;code&gt;%rsp&lt;/code&gt;  和 &lt;code&gt;%rip&lt;/code&gt;  的值如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) p $rsp
 $1 = (void *) 0x7fffffffdde8
 (gdb) p $rip
 $2 = (void (*)()) 0x4011e2 &amp;lt;showStack+7&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对&lt;code&gt;showStack&lt;/code&gt;函数进行反汇编可以看到：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;showStack&lt;/code&gt;  函数进行反汇编可以看到：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble showStack
 Dump of assembler code for function showStack:
    0x00000000004011db &amp;lt;+0&amp;gt;:     pushq  $0x15213
@@ -568,30 +442,30 @@ Dump of assembler code for function showStack:
 =&amp;gt; 0x00000000004011e2 &amp;lt;+7&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里&lt;code&gt;%rip&lt;/code&gt;指向的是&lt;code&gt;retq&lt;/code&gt;指令，再次打印&lt;code&gt;%rsp&lt;/code&gt;和&lt;code&gt;%rip&lt;/code&gt;的值可以看到：&lt;/p&gt;
+&lt;p&gt;这里 &lt;code&gt;%rip&lt;/code&gt;  指向的是 &lt;code&gt;retq&lt;/code&gt;  指令，再次打印 &lt;code&gt;%rsp&lt;/code&gt;  和 &lt;code&gt;%rip&lt;/code&gt;  的值可以看到：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) p $rsp
 $3 = (void *) 0x7fffffffddf0
 (gdb) p $rip
 $4 = (void (*)()) 0x40117a &amp;lt;main+48&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这里&lt;code&gt;%rsp&lt;/code&gt;的值相对于&lt;code&gt;retq&lt;/code&gt;前+8，并且&lt;code&gt;$rip&lt;/code&gt;的值等于下一条指令的地址。由此可以推断，此处&lt;code&gt;ret&lt;/code&gt;指令将栈顶的地址弹出，并赋值给&lt;code&gt;%rip&lt;/code&gt;。那么&lt;code&gt;callq&lt;/code&gt;指令做的事就是将下一条指令的地址压栈，然后将&lt;code&gt;%rip&lt;/code&gt;的值设置为&lt;code&gt;callq&lt;/code&gt;的目标地址。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;继续，指令如下：&lt;/p&gt;
+&lt;p&gt;这里 &lt;code&gt;%rsp&lt;/code&gt;  的值相对于 &lt;code&gt;retq&lt;/code&gt;  前 + 8，并且 &lt;code&gt;$rip&lt;/code&gt;  的值等于下一条指令的地址。由此可以推断，此处 &lt;code&gt;ret&lt;/code&gt;  指令将栈顶的地址弹出，并赋值给 &lt;code&gt;%rip&lt;/code&gt; 。那么 &lt;code&gt;callq&lt;/code&gt;  指令做的事就是将下一条指令的地址压栈，然后将 &lt;code&gt;%rip&lt;/code&gt;  的值设置为 &lt;code&gt;callq&lt;/code&gt;  的目标地址。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt;  继续，指令如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-As you&amp;#39;ve seen, a ret pops a 64-bit address off the
+As you&#39;ve seen, a ret pops a 64-bit address off the
 top of the stack and jumps to that location.
 
 Now disassemble the function returnOne. It calls another function, abs.
 Based on what you see, and your knowledge of the ret instruction,
-answer Problem 4 now. When you are finished, &amp;#39;c&amp;#39;ontinue.
+answer Problem 4 now. When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/calls.c:156
 156     in machine-procedures/calls.c
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对&lt;code&gt;returnOne&lt;/code&gt;进行反汇编可以看到：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;returnOne&lt;/code&gt;  进行反汇编可以看到：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble returnOne
 Dump of assembler code for function returnOne:
    0x00000000004011e7 &amp;lt;+0&amp;gt;:     mov    $0xffffffff,%edi
@@ -599,14 +473,14 @@ Dump of assembler code for function returnOne:
    0x00000000004011f1 &amp;lt;+10&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对&lt;code&gt;returnOneOpt&lt;/code&gt;进行反汇编即可看到：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;returnOneOpt&lt;/code&gt;  进行反汇编即可看到：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble returnOneOpt
 Dump of assembler code for function returnOneOpt:
    0x00000000004011f2 &amp;lt;+0&amp;gt;:     mov    $0xffffffff,%edi
    0x00000000004011f7 &amp;lt;+5&amp;gt;:     jmpq   0x401142 &amp;lt;abs&amp;gt;
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对&lt;code&gt;abs&lt;/code&gt;反汇编结果如下：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;abs&lt;/code&gt;  反汇编结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble abs
 Dump of assembler code for function abs:
    0x0000000000401142 &amp;lt;+0&amp;gt;:     mov    %edi,%eax
@@ -616,30 +490,30 @@ Dump of assembler code for function abs:
    0x0000000000401149 &amp;lt;+7&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;returnOne&lt;/code&gt;中的过程是，先&lt;code&gt;callq  0x401142 &amp;lt;abs&amp;gt;&lt;/code&gt;，然后&lt;code&gt;retq&lt;/code&gt;。&lt;code&gt;returnOneOpt&lt;/code&gt;改为直接&lt;code&gt;jmpq   0x401142 &amp;lt;abs&amp;gt;&lt;/code&gt;。而&lt;code&gt;abs&lt;/code&gt;执行完后直接&lt;code&gt;retq&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;对&lt;code&gt;returnOne&lt;/code&gt;，其过程为：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;returnOne&lt;/code&gt;  中的过程是，先 &lt;code&gt;callq  0x401142 &amp;lt;abs&amp;gt;&lt;/code&gt; ，然后 &lt;code&gt;retq&lt;/code&gt; 。 &lt;code&gt;returnOneOpt&lt;/code&gt;  改为直接 &lt;code&gt;jmpq   0x401142 &amp;lt;abs&amp;gt;&lt;/code&gt; 。而 &lt;code&gt;abs&lt;/code&gt;  执行完后直接 &lt;code&gt;retq&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;returnOne&lt;/code&gt; ，其过程为：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;将 main 函数中下一条指令地址压栈，将&lt;code&gt;returnOne&lt;/code&gt;地址赋给&lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;执行一段，调用&lt;code&gt;abs&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;将&lt;code&gt;returnOne&lt;/code&gt;中下一条指令地址压栈，把&lt;code&gt;abs&lt;/code&gt;地址付给&lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;执行一段，从&lt;code&gt;abs&lt;/code&gt;返回（执行&lt;code&gt;abs&lt;/code&gt;的&lt;code&gt;retq&lt;/code&gt;），从栈中弹出&lt;code&gt;returnOne&lt;/code&gt;中&lt;code&gt;retq&lt;/code&gt;地址赋给&lt;code&gt;$rip&lt;/code&gt;，&lt;code&gt;$rip&lt;/code&gt;跳转到&lt;code&gt;returnOne&lt;/code&gt;的&lt;code&gt;retq&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;执行&lt;code&gt;returnOne&lt;/code&gt;的&lt;code&gt;retq&lt;/code&gt;，将栈顶返回地址弹出，赋给&lt;code&gt;$rip&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;将 main 函数中下一条指令地址压栈，将 &lt;code&gt;returnOne&lt;/code&gt;  地址赋给 &lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;执行一段，调用 &lt;code&gt;abs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;returnOne&lt;/code&gt;  中下一条指令地址压栈，把 &lt;code&gt;abs&lt;/code&gt;  地址付给 &lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;执行一段，从 &lt;code&gt;abs&lt;/code&gt;  返回（执行 &lt;code&gt;abs&lt;/code&gt;  的 &lt;code&gt;retq&lt;/code&gt; ），从栈中弹出 &lt;code&gt;returnOne&lt;/code&gt;  中 &lt;code&gt;retq&lt;/code&gt;  地址赋给 &lt;code&gt;$rip&lt;/code&gt; ， &lt;code&gt;$rip&lt;/code&gt;  跳转到 &lt;code&gt;returnOne&lt;/code&gt;  的 &lt;code&gt;retq&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;执行 &lt;code&gt;returnOne&lt;/code&gt;  的 &lt;code&gt;retq&lt;/code&gt; ，将栈顶返回地址弹出，赋给 &lt;code&gt;$rip&lt;/code&gt; 。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;对&lt;code&gt;returnOneOpt&lt;/code&gt;，其过程为：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;returnOneOpt&lt;/code&gt; ，其过程为：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;将 main 函数中下一条指令地址压栈，将&lt;code&gt;returnOne&lt;/code&gt;地址赋给&lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;执行一段，跳转到&lt;code&gt;abs&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;将&lt;code&gt;returnOne&lt;/code&gt;中下一条指令地址压栈，把&lt;code&gt;abs&lt;/code&gt;地址付给&lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;执行一段，从&lt;code&gt;abs&lt;/code&gt;返回（执行&lt;code&gt;abs&lt;/code&gt;的&lt;code&gt;retq&lt;/code&gt;），从栈中弹出&lt;code&gt;main&lt;/code&gt;中&lt;code&gt;retq&lt;/code&gt;地址赋给&lt;code&gt;$rip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将 main 函数中下一条指令地址压栈，将 &lt;code&gt;returnOne&lt;/code&gt;  地址赋给 &lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;执行一段，跳转到 &lt;code&gt;abs&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;returnOne&lt;/code&gt;  中下一条指令地址压栈，把 &lt;code&gt;abs&lt;/code&gt;  地址付给 &lt;code&gt;%rip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;执行一段，从 &lt;code&gt;abs&lt;/code&gt;  返回（执行 &lt;code&gt;abs&lt;/code&gt;  的 &lt;code&gt;retq&lt;/code&gt; ），从栈中弹出 &lt;code&gt;main&lt;/code&gt;  中 &lt;code&gt;retq&lt;/code&gt;  地址赋给 &lt;code&gt;$rip&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;可以这样进行优化的原因是两条&lt;code&gt;retq&lt;/code&gt;指令连在一起，所以没有必要&lt;code&gt;retq&lt;/code&gt;两次，将&lt;code&gt;abs&lt;/code&gt;和&lt;code&gt;returnOne&lt;/code&gt;的过程接在一起构成一个&lt;code&gt;procedure&lt;/code&gt;，&lt;code&gt;retq&lt;/code&gt;一次即可。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，题目中给出了答案：&lt;/p&gt;
+&lt;p&gt;可以这样进行优化的原因是两条 &lt;code&gt;retq&lt;/code&gt;  指令连在一起，所以没有必要 &lt;code&gt;retq&lt;/code&gt;  两次，将 &lt;code&gt;abs&lt;/code&gt;  和 &lt;code&gt;returnOne&lt;/code&gt;  的过程接在一起构成一个 &lt;code&gt;procedure&lt;/code&gt; ， &lt;code&gt;retq&lt;/code&gt;  一次即可。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，题目中给出了答案：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
 The transformation you just witnessed is a simple example of tail-call
 optimization. Because a call was the last instruction before a ret,
-within a function that doesn&amp;#39;t adjust the stack pointer, the compiler
+within a function that doesn&#39;t adjust the stack pointer, the compiler
 could skip allocating a stack frame: both the call and the ret could be
 replaced with a simple jmp to the called function. That function must
 end in its own ret instruction, which will use the return address
@@ -648,12 +522,13 @@ valuable when applied to recursive functions.
 
 End of Activity 1. This program will now exit.
 
-Use the &amp;#39;q&amp;#39;uit command to leave GDB.
+Use the &#39;q&#39;uit command to leave GDB.
 
 [Inferior 1 (process 68527) exited normally]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;原来这里是尾递归优化的精髓啊！明白啦！&lt;/p&gt;
-&lt;h2 id=&#34;Activity-2&#34;&gt;&lt;a href=&#34;#Activity-2&#34; class=&#34;headerlink&#34; title=&#34;Activity 2&#34;&gt;&lt;/a&gt;Activity 2&lt;/h2&gt;&lt;p&gt;输入&lt;code&gt;gdb --args ./locals&lt;/code&gt;，输入&lt;code&gt;r&lt;/code&gt;，再输入&lt;code&gt;c&lt;/code&gt;，得到的提示如下：&lt;/p&gt;
+&lt;h2 id=&#34;activity-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#activity-2&#34;&gt;#&lt;/a&gt; Activity 2&lt;/h2&gt;
+&lt;p&gt;输入 &lt;code&gt;gdb --args ./locals&lt;/code&gt; ，输入 &lt;code&gt;r&lt;/code&gt; ，再输入 &lt;code&gt;c&lt;/code&gt; ，得到的提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;The stack is also used to pass data between procedures, but nowadays
 most function arguments are passed in registers instead.  You have
 already seen the first two argument-passing registers (%rdi and %rsi,
@@ -666,14 +541,14 @@ Based on what you see in the disasssembly, answer Problem 6.
 Check your answer using:
 (gdb) x/s &amp;lt;value passed in %rdi&amp;gt;.
 
-When you are finished, &amp;#39;c&amp;#39;ontinue.
+When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/locals.c:156
 156     in machine-procedures/locals.c
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble seeArgs&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;disassemble seeArgs&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble seeArgs
 Dump of assembler code for function seeArgs:
    0x0000000000401152 &amp;lt;+0&amp;gt;:     sub    $0x8,%rsp
@@ -689,25 +564,25 @@ Dump of assembler code for function seeArgs:
    0x0000000000401184 &amp;lt;+50&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;第一个传入的参数保存在&lt;code&gt;%edi&lt;/code&gt;中，其值是&lt;code&gt;0x402016&lt;/code&gt;。估摸着是&lt;code&gt;int&lt;/code&gt;类型。输入&lt;code&gt;x/s 0x402016&lt;/code&gt;，显示：&lt;/p&gt;
+&lt;p&gt;第一个传入的参数保存在 &lt;code&gt;%edi&lt;/code&gt;  中，其值是 &lt;code&gt;0x402016&lt;/code&gt; 。估摸着是 &lt;code&gt;int&lt;/code&gt;  类型。输入 &lt;code&gt;x/s 0x402016&lt;/code&gt; ，显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) x/s 0x402016
 0x402016:       &amp;quot;%d %d %d %d %d&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;确实是&lt;code&gt;int&lt;/code&gt;类型，那么此处猜测&lt;code&gt;x/s&lt;/code&gt;是打印从该处开始的字符串。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;确实是 &lt;code&gt;int&lt;/code&gt;  类型，那么此处猜测 &lt;code&gt;x/s&lt;/code&gt;  是打印从该处开始的字符串。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
 Now disassemble the function seeMoreArgs.
 It calls printf with eight arguments.
 Based on what you see in the disasssembly, answer Problem 7.
-When you are finished, &amp;#39;c&amp;#39;ontinue.
+When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/locals.c:156
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble seeMoreArgs&lt;/code&gt;，输出如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;disassemble seeMoreArgs&lt;/code&gt; ，输出如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble seeMoreArgs
 Dump of assembler code for function seeMoreArgs:
    0x0000000000401185 &amp;lt;+0&amp;gt;:     sub    $0x8,%rsp
@@ -726,7 +601,7 @@ Dump of assembler code for function seeMoreArgs:
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;第 7 个和第 8 个被压在栈上。寄存器只有 6 个，多的就压在栈上。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
@@ -736,13 +611,13 @@ Now disassemble the function getV.
 It contains a local array of 4 ints.
 (The compiler has chosen to reserve some extra stack space.)
 Based on what you see in the disasssembly, answer Problems 7 and 8.
-When you are finished, &amp;#39;c&amp;#39;ontinue.
+When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/locals.c:156
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble getV&lt;/code&gt;，结果如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;disassemble getV&lt;/code&gt; ，结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble getV
 Dump of assembler code for function getV:
    0x00000000004011bc &amp;lt;+0&amp;gt;:     sub    $0x18,%rsp
@@ -753,19 +628,20 @@ Dump of assembler code for function getV:
    0x00000000004011cf &amp;lt;+19&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;getV&lt;/code&gt;的调用过程如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;getV&lt;/code&gt;  的调用过程如下：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;%rsp - 24&lt;/code&gt;，留出 24 个字节的位置&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%rsi = %edi, %rdi = %rsp&lt;/code&gt;&lt;br&gt;将&lt;code&gt;%rsp&lt;/code&gt;的位置通过&lt;code&gt;%rdi&lt;/code&gt;传入。&lt;code&gt;%rsp&lt;/code&gt;指向数组的起始位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%rsp - 24&lt;/code&gt; ，留出 24 个字节的位置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%rsi = %edi, %rdi = %rsp&lt;/code&gt; &lt;br&gt;
+ 将 &lt;code&gt;%rsp&lt;/code&gt;  的位置通过 &lt;code&gt;%rdi&lt;/code&gt;  传入。 &lt;code&gt;%rsp&lt;/code&gt;  指向数组的起始位置。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;对&lt;code&gt;getValue&lt;/code&gt;进行反汇编结果如下：&lt;/p&gt;
+&lt;p&gt;对 &lt;code&gt;getValue&lt;/code&gt;  进行反汇编结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble getValue
 Dump of assembler code for function getValue:
    0x0000000000401284 &amp;lt;+0&amp;gt;:     mov    (%rdi,%rsi,4),%eax
    0x0000000000401287 &amp;lt;+3&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;继续，结果如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt;  继续，结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
@@ -777,41 +653,41 @@ Each register is either call-preserved or call-clobbered.
 When a function returns, all the call-preserved registers must
 have the same values that they did when the function was called.
 That means, if a function wants to use a call-preserved register,
-it must save the old value first, and restore it when it&amp;#39;s done using
+it must save the old value first, and restore it when it&#39;s done using
 the register. (The push and pop instructions are often used for this.)
 
-(More text to follow, &amp;#39;c&amp;#39;ontinue to go on...)
+(More text to follow, &#39;c&#39;ontinue to go on...)
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/locals.c:156
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;继续输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;继续输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-... The call-clobbered registers, on the other hand, don&amp;#39;t have to be
+... The call-clobbered registers, on the other hand, don&#39;t have to be
 saved and restored. A function that wants to use them can just use
 them, without worrying about whether its callers were using them also.
 However, if a function has an important value in a call-clobbered
 register, and it needs to call some other function, and then use that
 important value afterward, it has to save the value itself!
 
-(Some people use the term &amp;#39;callee-save&amp;#39; instead of &amp;#39;call-preserved&amp;#39;,
-and &amp;#39;caller-save&amp;#39; instead of &amp;#39;call-clobbered&amp;#39;. We don&amp;#39;t like those
-terms because there&amp;#39;s only one letter of difference between them.)
+(Some people use the term &#39;callee-save&#39; instead of &#39;call-preserved&#39;,
+and &#39;caller-save&#39; instead of &#39;call-clobbered&#39;. We don&#39;t like those
+terms because there&#39;s only one letter of difference between them.)
 
 Disassemble the function mult4 and think about how it is using the registers.
-Using what you find, answer Problem 9. When you are finished, &amp;#39;c&amp;#39;ontinue.
+Using what you find, answer Problem 9. When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/locals.c:156
 156     in machine-procedures/locals.c
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;本段提示主要讲了&lt;code&gt;caller saved registers&lt;/code&gt;的概念。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;caller saved registers&lt;/code&gt;(我个人觉得更准确的说法是&lt;code&gt;caller preserver &amp;amp; restore&lt;/code&gt;)，例如下列的过程调用（写的比较粗糙）：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;call_echo:
+&lt;p&gt;本段提示主要讲了 &lt;code&gt;caller saved registers&lt;/code&gt;  的概念。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;caller saved registers&lt;/code&gt;  (我个人觉得更准确的说法是 &lt;code&gt;caller preserver &amp;amp; restore&lt;/code&gt; )，例如下列的过程调用（写的比较粗糙）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;call_echo:
     pushq %rbx
     callq echo&amp;lt;xxxx&amp;gt;
     popq %rbx
@@ -822,8 +698,8 @@ echo:
     call printf&amp;lt;xxxx&amp;gt;
     ret
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;echo&lt;/code&gt;的过程中会修改&lt;code&gt;%rbx&lt;/code&gt;的值，那么在对其进行调用前就必须&lt;code&gt;pushq %rbx&lt;/code&gt;，并且在调用完后&lt;code&gt;popq %rbx&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble mult4&lt;/code&gt;可得如下结果：&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;echo&lt;/code&gt;  的过程中会修改 &lt;code&gt;%rbx&lt;/code&gt;  的值，那么在对其进行调用前就必须 &lt;code&gt;pushq %rbx&lt;/code&gt; ，并且在调用完后 &lt;code&gt;popq %rbx&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;disassemble mult4&lt;/code&gt;  可得如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble mult4
 Dump of assembler code for function mult4:
    0x0000000000401250 &amp;lt;+0&amp;gt;:     push   %rbx
@@ -845,7 +721,7 @@ Dump of assembler code for function mult4:
    0x000000000040127b &amp;lt;+43&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然后&lt;code&gt;disassemble mult2&lt;/code&gt;，结果如下：&lt;/p&gt;
+&lt;p&gt;然后 &lt;code&gt;disassemble mult2&lt;/code&gt; ，结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble mult2
 Dump of assembler code for function mult2:
    0x000000000040124a &amp;lt;+0&amp;gt;:     mov    %edi,%eax
@@ -853,23 +729,23 @@ Dump of assembler code for function mult2:
    0x000000000040124f &amp;lt;+5&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以看到&lt;code&gt;mult2&lt;/code&gt;函数中主要使用到的是&lt;code&gt;%edi&lt;/code&gt;和&lt;code&gt;%esi&lt;/code&gt;两个寄存器。返回值在&lt;code&gt;%eax&lt;/code&gt;中。在&lt;code&gt;mult4&lt;/code&gt;中，压入了&lt;code&gt;%rbx %r12 %r13&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;可以看到 &lt;code&gt;mult2&lt;/code&gt;  函数中主要使用到的是 &lt;code&gt;%edi&lt;/code&gt;  和 &lt;code&gt;%esi&lt;/code&gt;  两个寄存器。返回值在 &lt;code&gt;%eax&lt;/code&gt;  中。在 &lt;code&gt;mult4&lt;/code&gt;  中，压入了 &lt;code&gt;%rbx %r12 %r13&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-For the final step in today&amp;#39;s activity, we will look at recursive
+For the final step in today&#39;s activity, we will look at recursive
 calls. Each recursive invocation of a function has its own space on
-the stack, separate from any other call&amp;#39;s space.
+the stack, separate from any other call&#39;s space.
 
 Disassemble the function mrec and think about what it does.
-Answer Problem 10. When you are finished, &amp;#39;c&amp;#39;ontinue.
+Answer Problem 10. When you are finished, &#39;c&#39;ontinue.
 
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-procedures/locals.c:156
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble mrec&lt;/code&gt;，得到如下结果：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;disassemble mrec&lt;/code&gt; ，得到如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble mrec
 Dump of assembler code for function mrec:
    0x00000000004011d0 &amp;lt;+0&amp;gt;:     push   %rbx
@@ -886,38 +762,13 @@ Dump of assembler code for function mrec:
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;将该函数转化为 C 函数，如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// arg in %rbx
-int mrec(int* rbx)
-&amp;#123;
-    // int* temp = rbx; // 保存%rbx
-    ebx = edi; // rbx 重新赋值
-    if(edi == 0x1) &amp;#123;
-        eax = edi; // 返回值 = edi
-        // rbx = temp; // 获得rbx原值
-        return eax;
-    &amp;#125;
-    edi = rdi - 0x1; // edi -= 1
-    int eax = mrec(rbx); // 获得返回值
-    eax *= ebx; // 返回值 * ebx
-    // rbx = temp; // 获得rbx原值
-    return eax;
-&amp;#125;
-
-// 一个更加C的版本
-int mrec(int x)
-&amp;#123;
-    if(x == 0x1) &amp;#123;
-        return x;
-    &amp;#125;
-    return x * mrec(x-1);
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;推测该函数实现了&lt;code&gt;x&lt;/code&gt;的阶乘？&lt;/p&gt;
-&lt;h2 id=&#34;Activity-3&#34;&gt;&lt;a href=&#34;#Activity-3&#34; class=&#34;headerlink&#34; title=&#34;Activity 3&#34;&gt;&lt;/a&gt;Activity 3&lt;/h2&gt;&lt;p&gt;重新运行&lt;code&gt;gdb -args ./calls&lt;/code&gt;，运行到&lt;code&gt;showStack&lt;/code&gt;处，打印&lt;code&gt;$rip&lt;/code&gt;前 3 个字节，得到如下结果：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// arg in %rbx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;mrec&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; rbx&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//int* temp = rbx; // 保存 % rbx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ebx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; edi&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;//rbx 重新赋值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;edi &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; edi&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 返回值 = edi&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;//rbx = temp; // 获得 rbx 原值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    edi &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; rdi &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// edi -= 1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;mrec&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;rbx&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 获得返回值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    eax &lt;span class=&#34;token operator&#34;&gt;*=&lt;/span&gt; ebx&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 返回值 * ebx&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//rbx = temp; // 获得 rbx 原值&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 一个更加 C 的版本&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;mrec&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; x &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;mrec&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;x&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;推测该函数实现了 &lt;code&gt;x&lt;/code&gt;  的阶乘？&lt;/p&gt;
+&lt;h2 id=&#34;activity-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#activity-3&#34;&gt;#&lt;/a&gt; Activity 3&lt;/h2&gt;
+&lt;p&gt;重新运行 &lt;code&gt;gdb -args ./calls&lt;/code&gt; ，运行到 &lt;code&gt;showStack&lt;/code&gt;  处，打印 &lt;code&gt;$rip&lt;/code&gt;  前 3 个字节，得到如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) x/3b $rsp
 0x7fffffffdde0: 0x13    0x52    0x01
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以看到数字&lt;code&gt;0x15213&lt;/code&gt;的高位存放在高字节中，低位存放在低字节中，该机器使用的是小端法。&lt;/p&gt;
+&lt;p&gt;可以看到数字 &lt;code&gt;0x15213&lt;/code&gt;  的高位存放在高字节中，低位存放在低字节中，该机器使用的是小端法。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -1113,13 +964,12 @@ End of assembler dump.
             <title>15-213 Machine Control Activity 记录</title>
             <link>https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Machine%20control%20activity/</link>
             <pubDate>Thu, 29 Feb 2024 17:14:07 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Basic-Control-Flow&#34;&gt;&lt;a href=&#34;#Basic-Control-Flow&#34; class=&#34;headerlink&#34; title=&#34;Basic Control Flow&#34;&gt;&lt;/a&gt;Basic Control Flow&lt;/h2&gt;&lt;p&gt;首先回答 Q1：为什么 JZ 和 JE 指令相同？&lt;br&gt;对于 JZ，即 jump if zero，在跳转之前，我们首先需要将其与 0 做差，判断结果的 ZF 是否等于 1。对于 JE，我们首先将两数做差（也可以使用&lt;code&gt;testq&lt;/code&gt;指令？），然后判断 ZF 是否等于 1。JZ 和 JE 都是对 ZF 进行判断，然后进行跳转。&lt;/p&gt;
-&lt;p&gt;然后我们回答 Q2：首先阅读&lt;code&gt;jumps.S&lt;/code&gt;。我们发现&lt;code&gt;jumps.S&lt;/code&gt;就是以&lt;code&gt;jump_insns&lt;/code&gt;开头的一群跳转指令的集合。然后我们输入如下指令：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ as jumps.S -o jumps.o
-$ objdump -d jumps.o
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其结果如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;basic-control-flow&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#basic-control-flow&#34;&gt;#&lt;/a&gt; Basic Control Flow&lt;/h2&gt;
+&lt;p&gt;首先回答 Q1：为什么 JZ 和 JE 指令相同？&lt;br&gt;
+对于 JZ，即 jump if zero，在跳转之前，我们首先需要将其与 0 做差，判断结果的 ZF 是否等于 1。对于 JE，我们首先将两数做差（也可以使用 &lt;code&gt;testq&lt;/code&gt;  指令？），然后判断 ZF 是否等于 1。JZ 和 JE 都是对 ZF 进行判断，然后进行跳转。&lt;/p&gt;
+&lt;p&gt;然后我们回答 Q2：首先阅读 &lt;code&gt;jumps.S&lt;/code&gt; 。我们发现 &lt;code&gt;jumps.S&lt;/code&gt;  就是以 &lt;code&gt;jump_insns&lt;/code&gt;  开头的一群跳转指令的集合。然后我们输入如下指令：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ as jumps.S &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; jumps.o&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ objdump &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; jumps.o&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其结果如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;
 jumps.o:     file format elf64-x86-64
 
 
@@ -1157,8 +1007,8 @@ Disassembly of section .text:
 0000000000000036 &amp;lt;destination&amp;gt;:
   36:   c3                      retq
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这些指令的共同点就是都跳转到地址为 36 的&lt;code&gt;destination&lt;/code&gt;处。此外，每个跳转指令的编码都是 2 个字节，第二个字节的值即为跳转的相对偏移地址，其值 &amp;#x3D; 目的地址 - 下一套指令的地址（因为执行到这里的时候 PC 已经指向下一条了），所以需要将该值增加到 PC 中，然后进行跳转。&lt;/p&gt;
-&lt;p&gt;接下来我们将&lt;code&gt;.skip 97&lt;/code&gt;一行注释掉，然后再编译并且反汇编看看：&lt;/p&gt;
+&lt;p&gt;这些指令的共同点就是都跳转到地址为 36 的 &lt;code&gt;destination&lt;/code&gt;  处。此外，每个跳转指令的编码都是 2 个字节，第二个字节的值即为跳转的相对偏移地址，其值 = 目的地址 - 下一套指令的地址（因为执行到这里的时候 PC 已经指向下一条了），所以需要将该值增加到 PC 中，然后进行跳转。&lt;/p&gt;
+&lt;p&gt;接下来我们将 &lt;code&gt;.skip 97&lt;/code&gt;  一行注释掉，然后再编译并且反汇编看看：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;
 jumps.o:     file format elf64-x86-64
 
@@ -1244,45 +1094,47 @@ Disassembly of section .text:
   c7:   c3                      retq
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;下一个问题是：为什么会这样？指令&lt;code&gt;eb f0&lt;/code&gt;又是做什么的？This happens for each instruction that needs to&lt;br&gt;encode a change in %rip larger than 0x7F.（源自&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY3MuY211LmVkdS9hZnMvY3MvYWNhZGVtaWMvY2xhc3MvMTUyMTMtZjIzL3d3dy9hY3Rpdml0aWVzL21hY2hpbmUtY29udHJvbC1zb2xuLnBkZg==&#34;&gt;Solution&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;下一个问题是：为什么会这样？指令 &lt;code&gt;eb f0&lt;/code&gt;  又是做什么的？This happens for each instruction that needs to&lt;br&gt;
+encode a change in % rip larger than 0x7F.（源自&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY3MuY211LmVkdS9hZnMvY3MvYWNhZGVtaWMvY2xhc3MvMTUyMTMtZjIzL3d3dy9hY3Rpdml0aWVzL21hY2hpbmUtY29udHJvbC1zb2xuLnBkZg==&#34;&gt; Solution&lt;/span&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;Comparisons-and-Conditional-Set-Instructions&#34;&gt;&lt;a href=&#34;#Comparisons-and-Conditional-Set-Instructions&#34; class=&#34;headerlink&#34; title=&#34;Comparisons and Conditional Set Instructions&#34;&gt;&lt;/a&gt;Comparisons and Conditional Set Instructions&lt;/h2&gt;&lt;p&gt;运行&lt;code&gt;gdb ./cmp-set&lt;/code&gt;，输入&lt;code&gt;r&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;h2 id=&#34;comparisons-and-conditional-set-instructions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#comparisons-and-conditional-set-instructions&#34;&gt;#&lt;/a&gt; Comparisons and Conditional Set Instructions&lt;/h2&gt;
+&lt;p&gt;运行 &lt;code&gt;gdb ./cmp-set&lt;/code&gt; ，输入 &lt;code&gt;r&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) r
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/machine-control/cmp-set
 
 This program should be run inside GDB:
   $ gdb /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/machine-control/cmp-set
   (gdb) r
-If you didn&amp;#39;t run it that way, it will now crash.
+If you didn&#39;t run it that way, it will now crash.
 Otherwise, you will get the (gdb) prompt back.
 
-Type &amp;#39;c&amp;#39; (short for &amp;#39;continue&amp;#39;) at the (gdb) prompt.
+Type &#39;c&#39; (short for &#39;continue&#39;) at the (gdb) prompt.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-control/cmp-set.c:43
 43      machine-control/cmp-set.c: No such file or directory.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-Besides &amp;#39;main&amp;#39;, this program defines three functions:
-    &amp;#39;sete&amp;#39;, &amp;#39;seta&amp;#39;, and &amp;#39;setg&amp;#39;.
+Besides &#39;main&#39;, this program defines three functions:
+    &#39;sete&#39;, &#39;seta&#39;, and &#39;setg&#39;.
 
-Use the &amp;#39;disassemble&amp;#39; command on each to see their code.
-Then, as instructed in the handout, use the &amp;#39;call&amp;#39; command
+Use the &#39;disassemble&#39; command on each to see their code.
+Then, as instructed in the handout, use the &#39;call&#39; command
 to call them with various arguments.
 
 When you have answered all the questions in this section of
-the handout, use the &amp;#39;c&amp;#39; command to go on.
+the handout, use the &#39;c&#39; command to go on.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-control/cmp-set.c:45
 45      in machine-control/cmp-set.c
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;分别使用&lt;code&gt;disassemble&lt;/code&gt;命令来查看&lt;code&gt;sete&lt;/code&gt;,&lt;code&gt;seta&lt;/code&gt;和&lt;code&gt;setg&lt;/code&gt;三条指令，使用&lt;code&gt;call&lt;/code&gt;命令来调用他们，完成任务后使用&lt;code&gt;c&lt;/code&gt;来继续。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sete&lt;/code&gt;反汇编结果如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;(gdb) disassemble sete
+&lt;p&gt;分别使用 &lt;code&gt;disassemble&lt;/code&gt;  命令来查看 &lt;code&gt;sete&lt;/code&gt; , &lt;code&gt;seta&lt;/code&gt;  和 &lt;code&gt;setg&lt;/code&gt;  三条指令，使用 &lt;code&gt;call&lt;/code&gt;  命令来调用他们，完成任务后使用 &lt;code&gt;c&lt;/code&gt;  来继续。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sete&lt;/code&gt;  反汇编结果如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;(gdb) disassemble sete
 Dump of assembler code for function sete:
    0x0000000000401178 &amp;lt;+0&amp;gt;:     cmp    %si,%di
    0x000000000040117b &amp;lt;+3&amp;gt;:     sete   %al
@@ -1290,17 +1142,11 @@ Dump of assembler code for function sete:
    0x0000000000401181 &amp;lt;+9&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;sete&lt;/code&gt;中，&lt;code&gt;%si&lt;/code&gt;和&lt;code&gt;%di&lt;/code&gt;包含参数，&lt;code&gt;%eax&lt;/code&gt;中包含返回值。该函数的 C 代码还原如下：&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;sete&lt;/code&gt;  中， &lt;code&gt;%si&lt;/code&gt;  和 &lt;code&gt;%di&lt;/code&gt;  包含参数， &lt;code&gt;%eax&lt;/code&gt;  中包含返回值。该函数的 C 代码还原如下：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这里到底是&lt;code&gt;uint16_t&lt;/code&gt;还是&lt;code&gt;int16_t&lt;/code&gt;?有区别吗?&lt;/p&gt;
+&lt;p&gt;这里到底是 &lt;code&gt;uint16_t&lt;/code&gt;  还是 &lt;code&gt;int16_t&lt;/code&gt; ? 有区别吗？&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;#include &amp;lt;stdint.h&amp;gt;
-sete(uint16_t si, uint16_t di)
-&amp;#123;
-    return si == di;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;seta&lt;/code&gt;函数的反汇编结果如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdint.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sete&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint16_t&lt;/span&gt; si&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;uint16_t&lt;/span&gt; di&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; si &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; di&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;seta&lt;/code&gt;  函数的反汇编结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble seta
 Dump of assembler code for function seta:
    0x000000000040118c &amp;lt;+0&amp;gt;:     cmp    %si,%di
@@ -1309,14 +1155,8 @@ Dump of assembler code for function seta:
    0x0000000000401195 &amp;lt;+9&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;seta&lt;/code&gt;比较的是无符号数，其 C 语言代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;#include &amp;lt;stdint.h&amp;gt;
-sete(uint16_t si, uint16_t di)
-&amp;#123;
-    return di &amp;gt; si;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;setg&lt;/code&gt;函数的反汇编结果如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;seta&lt;/code&gt;  比较的是无符号数，其 C 语言代码如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdint.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sete&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint16_t&lt;/span&gt; si&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;uint16_t&lt;/span&gt; di&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; di &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; si&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;setg&lt;/code&gt;  函数的反汇编结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble setg
 Dump of assembler code for function setg:
    0x0000000000401182 &amp;lt;+0&amp;gt;:     cmp    %si,%di
@@ -1325,14 +1165,9 @@ Dump of assembler code for function setg:
    0x000000000040118b &amp;lt;+9&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;setg&lt;/code&gt;比较的是有符号数，其 C 语言代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;#include &amp;lt;stdint.h&amp;gt;
-sete(int16_t si, int16_t di)
-&amp;#123;
-    return di &amp;gt; si;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;注意&lt;code&gt;setg&lt;/code&gt;和&lt;code&gt;seta&lt;/code&gt;有区别。&lt;br&gt;对不同组别的值分别调用&lt;code&gt;sete&lt;/code&gt;,&lt;code&gt;seta&lt;/code&gt;和&lt;code&gt;setg&lt;/code&gt;，其值如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;setg&lt;/code&gt;  比较的是有符号数，其 C 语言代码如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdint.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sete&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;int16_t&lt;/span&gt; si&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;int16_t&lt;/span&gt; di&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; di &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; si&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意 &lt;code&gt;setg&lt;/code&gt;  和 &lt;code&gt;seta&lt;/code&gt;  有区别。&lt;br&gt;
+对不同组别的值分别调用 &lt;code&gt;sete&lt;/code&gt; , &lt;code&gt;seta&lt;/code&gt;  和 &lt;code&gt;setg&lt;/code&gt; ，其值如下：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1343,7 +1178,8 @@ sete(int16_t si, int16_t di)
 &lt;th&gt;&lt;code&gt;seta&lt;/code&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
@@ -1420,9 +1256,11 @@ sete(int16_t si, int16_t di)
 &lt;td&gt;-&lt;/td&gt;
 &lt;td&gt;-&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;从&lt;code&gt;-1&lt;/code&gt;和&lt;code&gt;0&lt;/code&gt;的两行比较可以看得出来，&lt;code&gt;seta&lt;/code&gt;是先将负数转化为&lt;code&gt;unsigned&lt;/code&gt;类型的数，然后再相减。当数字的值超过&lt;code&gt;signed&lt;/code&gt;类型范围后，会转化为负数，然后再比较。此处&lt;code&gt;32768&lt;/code&gt;在进行有符号数比较时都被转化为&lt;code&gt;-32768&lt;/code&gt;了&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;Tests-and-Conditional-Move-Instructions&#34;&gt;&lt;a href=&#34;#Tests-and-Conditional-Move-Instructions&#34; class=&#34;headerlink&#34; title=&#34;Tests and Conditional Move Instructions&#34;&gt;&lt;/a&gt;Tests and Conditional Move Instructions&lt;/h2&gt;&lt;p&gt;输入下列指令开启当前 Activity:&lt;/p&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;从 &lt;code&gt;-1&lt;/code&gt;  和 &lt;code&gt;0&lt;/code&gt;  的两行比较可以看得出来， &lt;code&gt;seta&lt;/code&gt;  是先将负数转化为 &lt;code&gt;unsigned&lt;/code&gt;  类型的数，然后再相减。当数字的值超过 &lt;code&gt;signed&lt;/code&gt;  类型范围后，会转化为负数，然后再比较。此处 &lt;code&gt;32768&lt;/code&gt;  在进行有符号数比较时都被转化为 &lt;code&gt;-32768&lt;/code&gt;  了&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tests-and-conditional-move-instructions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tests-and-conditional-move-instructions&#34;&gt;#&lt;/a&gt; Tests and Conditional Move Instructions&lt;/h2&gt;
+&lt;p&gt;输入下列指令开启当前 Activity:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ gdb ./test-cmov
 (gdb) r
 &lt;/code&gt;&lt;/pre&gt;
@@ -1433,36 +1271,36 @@ Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Progr
 This program should be run inside GDB:
   $ gdb /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/machine-control/test-cmov
   (gdb) r
-If you didn&amp;#39;t run it that way, it will now crash.
+If you didn&#39;t run it that way, it will now crash.
 Otherwise, you will get the (gdb) prompt back.
 
-Type &amp;#39;c&amp;#39; (short for &amp;#39;continue&amp;#39;) at the (gdb) prompt.
+Type &#39;c&#39; (short for &#39;continue&#39;) at the (gdb) prompt.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-control/test-cmov.c:43
 43      machine-control/test-cmov.c: No such file or directory.
 (gdb)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;继续，得到如下提示：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt;  继续，得到如下提示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 
-Besides &amp;#39;main&amp;#39;, this program defines three functions:
-    &amp;#39;cmove&amp;#39;, &amp;#39;cmovs&amp;#39;, and &amp;#39;cmovc&amp;#39;.
+Besides &#39;main&#39;, this program defines three functions:
+    &#39;cmove&#39;, &#39;cmovs&#39;, and &#39;cmovc&#39;.
 
-Use the &amp;#39;disassemble&amp;#39; command on each to see their code.
-Then, as instructed in the handout, use the &amp;#39;call&amp;#39; command
+Use the &#39;disassemble&#39; command on each to see their code.
+Then, as instructed in the handout, use the &#39;call&#39; command
 to call them with various arguments.
 
 When you have answered all the questions in this section of
-the handout, use the &amp;#39;c&amp;#39; command to go on.
+the handout, use the &#39;c&#39; command to go on.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 main (argc=&amp;lt;optimized out&amp;gt;, argv=&amp;lt;optimized out&amp;gt;) at machine-control/test-cmov.c:45
 45      in machine-control/test-cmov.c
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;对&lt;code&gt;cmove&lt;/code&gt;，&lt;code&gt;cmovs&lt;/code&gt;和&lt;code&gt;cmovc&lt;/code&gt;三个函数分别进行反汇编可以得到如下结果：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;(gdb) disassemble cmove
+&lt;p&gt;对 &lt;code&gt;cmove&lt;/code&gt; ， &lt;code&gt;cmovs&lt;/code&gt;  和 &lt;code&gt;cmovc&lt;/code&gt;  三个函数分别进行反汇编可以得到如下结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;(gdb) disassemble cmove
 Dump of assembler code for function cmove:
    0x00000000004005b3 &amp;lt;+0&amp;gt;:     mov    $0x0,%eax
    0x00000000004005b8 &amp;lt;+5&amp;gt;:     test   %di,%di
@@ -1484,21 +1322,23 @@ Dump of assembler code for function cmovc:
    0x00000000004005d6 &amp;lt;+11&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;首先我们需要了解&lt;code&gt;cmov&lt;/code&gt;三条指令分别是做什么的，可以参见&lt;img data-src=&#34;/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Machine%20control%20activity/mov.jpg&#34; alt=&#34;这张图&#34;&gt;&lt;/p&gt;
-&lt;p&gt;其中&lt;code&gt;cmove&lt;/code&gt;是当&lt;code&gt;ZF = 1&lt;/code&gt;时为 1（相等或等于 0），&lt;code&gt;cmovs&lt;/code&gt;是当&lt;code&gt;SF = 1&lt;/code&gt;时为 1（为负数），&lt;code&gt;cmovb&lt;/code&gt;时当&lt;code&gt;CF = 1&lt;/code&gt;时为 1（低于，无符号&lt;code&gt;&amp;lt;&lt;/code&gt;）。上述三个函数的两个传入参数是&lt;code&gt;%di&lt;/code&gt;和&lt;code&gt;%esi&lt;/code&gt;。若&lt;code&gt;%di&lt;/code&gt;满足条件，则将返回值设置为&lt;code&gt;%esi&lt;/code&gt;。否则&lt;code&gt;%eax = 0&lt;/code&gt;。由此可得，&lt;code&gt;arg1&lt;/code&gt;是&lt;code&gt;%di&lt;/code&gt;,&lt;code&gt;arg2&lt;/code&gt;是&lt;code&gt;%esi&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;Q1: 为什么&lt;code&gt;cmovc&lt;/code&gt;中使用的是&lt;code&gt;cmovb&lt;/code&gt;指令？因为&lt;code&gt;cmovc&lt;/code&gt;指令的意义是&lt;code&gt;move if carry&lt;/code&gt;&lt;br&gt;Q2: &lt;code&gt;test&lt;/code&gt;指令使用的什么寄存器？使用的是&lt;code&gt;%di&lt;/code&gt;，2 个字节。&lt;/p&gt;
+&lt;p&gt;首先我们需要了解 &lt;code&gt;cmov&lt;/code&gt;  三条指令分别是做什么的，可以参见&lt;img data-src=&#34;mov.jpg&#34; alt=&#34;这张图&#34;&gt;&lt;/p&gt;
+&lt;p&gt;其中 &lt;code&gt;cmove&lt;/code&gt;  是当 &lt;code&gt;ZF = 1&lt;/code&gt;  时为 1（相等或等于 0）， &lt;code&gt;cmovs&lt;/code&gt;  是当 &lt;code&gt;SF = 1&lt;/code&gt;  时为 1（为负数）， &lt;code&gt;cmovb&lt;/code&gt;  时当 &lt;code&gt;CF = 1&lt;/code&gt;  时为 1（低于，无符号 &lt;code&gt;&amp;lt;&lt;/code&gt; ）。上述三个函数的两个传入参数是 &lt;code&gt;%di&lt;/code&gt;  和 &lt;code&gt;%esi&lt;/code&gt; 。若 &lt;code&gt;%di&lt;/code&gt;  满足条件，则将返回值设置为 &lt;code&gt;%esi&lt;/code&gt; 。否则 &lt;code&gt;%eax = 0&lt;/code&gt; 。由此可得， &lt;code&gt;arg1&lt;/code&gt;  是 &lt;code&gt;%di&lt;/code&gt; , &lt;code&gt;arg2&lt;/code&gt;  是 &lt;code&gt;%esi&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;Q1: 为什么 &lt;code&gt;cmovc&lt;/code&gt;  中使用的是 &lt;code&gt;cmovb&lt;/code&gt;  指令？因为 &lt;code&gt;cmovc&lt;/code&gt;  指令的意义是 &lt;code&gt;move if carry&lt;/code&gt; &lt;br&gt;
+Q2:  &lt;code&gt;test&lt;/code&gt;  指令使用的什么寄存器？使用的是 &lt;code&gt;%di&lt;/code&gt; ，2 个字节。&lt;/p&gt;
 &lt;p&gt;接下来填表：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;Arg 1(&lt;code&gt;%di&lt;/code&gt;)&lt;/th&gt;
-&lt;th&gt;Arg 2(&lt;code&gt;%esi&lt;/code&gt;)&lt;/th&gt;
-&lt;th&gt;cmove(相等&amp;#x2F;0)&lt;/th&gt;
-&lt;th&gt;cmovs(负数)&lt;/th&gt;
-&lt;th&gt;cmovb(无符号&lt;code&gt;&amp;lt;&lt;/code&gt;)&lt;/th&gt;
+&lt;th&gt;Arg 1( &lt;code&gt;%di&lt;/code&gt; )&lt;/th&gt;
+&lt;th&gt;Arg 2( &lt;code&gt;%esi&lt;/code&gt; )&lt;/th&gt;
+&lt;th&gt;cmove (相等 / 0)&lt;/th&gt;
+&lt;th&gt;cmovs (负数)&lt;/th&gt;
+&lt;th&gt;cmovb (无符号 &lt;code&gt;&amp;lt;&lt;/code&gt; )&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1575,10 +1415,12 @@ End of assembler dump.
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;p&gt;未填写部分全为 0。从上表我们可以看到&lt;code&gt;cmove&lt;/code&gt;只有在&lt;code&gt;%di&lt;/code&gt;等于 0 时，才会等于&lt;code&gt;%esi&lt;/code&gt;。而&lt;code&gt;%esi&lt;/code&gt;只有在为&lt;code&gt;%di&lt;/code&gt;负数时，才会等于&lt;code&gt;%esi&lt;/code&gt;（此外，如果&lt;code&gt;%di&lt;/code&gt;的值超过了有符号数的上界，如&lt;code&gt;32768&lt;/code&gt;，那么其会被转化为&lt;code&gt;-32768&lt;/code&gt;，也就是最后一行，那么&lt;code&gt;%di&lt;/code&gt;也是负数，因此&lt;code&gt;%eax&lt;/code&gt;被赋值为 1）。此外，&lt;code&gt;cmovb&lt;/code&gt;一直等于 0，因为这里没有无符号的小于。&lt;/p&gt;
-&lt;h2 id=&#34;Loops&#34;&gt;&lt;a href=&#34;#Loops&#34; class=&#34;headerlink&#34; title=&#34;Loops&#34;&gt;&lt;/a&gt;Loops&lt;/h2&gt;&lt;p&gt;按照 handout 提示输入&lt;code&gt;objdump -d loops.o&lt;/code&gt;，得到如下结果：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;未填写部分全为 0。从上表我们可以看到 &lt;code&gt;cmove&lt;/code&gt;  只有在 &lt;code&gt;%di&lt;/code&gt;  等于 0 时，才会等于 &lt;code&gt;%esi&lt;/code&gt; 。而 &lt;code&gt;%esi&lt;/code&gt;  只有在为 &lt;code&gt;%di&lt;/code&gt;  负数时，才会等于 &lt;code&gt;%esi&lt;/code&gt; （此外，如果 &lt;code&gt;%di&lt;/code&gt;  的值超过了有符号数的上界，如 &lt;code&gt;32768&lt;/code&gt; ，那么其会被转化为 &lt;code&gt;-32768&lt;/code&gt; ，也就是最后一行，那么 &lt;code&gt;%di&lt;/code&gt;  也是负数，因此 &lt;code&gt;%eax&lt;/code&gt;  被赋值为 1）。此外， &lt;code&gt;cmovb&lt;/code&gt;  一直等于 0，因为这里没有无符号的小于。&lt;/p&gt;
+&lt;h2 id=&#34;loops&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#loops&#34;&gt;#&lt;/a&gt; Loops&lt;/h2&gt;
+&lt;p&gt;按照 handout 提示输入 &lt;code&gt;objdump -d loops.o&lt;/code&gt; ，得到如下结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;
 loops.o:     file format elf64-x86-64
 
 
@@ -1597,16 +1439,7 @@ Disassembly of section .text:
   1b:   c3                      retq
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;该汇编代码的 C 语言形式如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;
-int forLoop(int* x, int len) &amp;#123;
-   int ret = 0;
-   for (i = 0; i &amp;lt; len; i++) &amp;#123;
-      ret += x[i];
-   &amp;#125;
-   return ret;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;000000000000001c &amp;lt;whileLoop&amp;gt;:
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;forLoop&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; len&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      ret &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;pre&gt;&lt;code&gt;000000000000001c &amp;lt;whileLoop&amp;gt;:
   1c:   ba 00 00 00 00          mov    $0x0,%edx
   21:   b8 00 00 00 00          mov    $0x0,%eax
   26:   39 f0                   cmp    %esi,%eax
@@ -1619,16 +1452,7 @@ int forLoop(int* x, int len) &amp;#123;
   37:   c3                      retq
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;该循环的 C 形式代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;int whileLoop (int* x, int len) &amp;#123;
-   int ret = 0;
-   while (i &amp;lt; len) &amp;#123;
-      ret += x[i];
-      i++;
-   &amp;#125;
-   return ret;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;0000000000000038 &amp;lt;doWhileLoop&amp;gt;:
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;whileLoop&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; len&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      ret &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;pre&gt;&lt;code&gt;0000000000000038 &amp;lt;doWhileLoop&amp;gt;:
   38:   ba 00 00 00 00          mov    $0x0,%edx
   3d:   b8 00 00 00 00          mov    $0x0,%eax
   42:   48 63 c8                movslq %eax,%rcx
@@ -1639,19 +1463,10 @@ int forLoop(int* x, int len) &amp;#123;
   4f:   89 d0                   mov    %edx,%eax
   51:   c3                      retq
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;doWhileLoop&lt;/code&gt;的 C 循环代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;int doWhileLoop (int* x, int len) &amp;#123;
-   int ret = 0;
-   int i = 0;
-   do &amp;#123;
-      ret += x[i];
-      i++;
-   &amp;#125; while (i &amp;lt; len);
-   return ret;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;Switch-Statements&#34;&gt;&lt;a href=&#34;#Switch-Statements&#34; class=&#34;headerlink&#34; title=&#34;Switch Statements&#34;&gt;&lt;/a&gt;Switch Statements&lt;/h2&gt;&lt;p&gt;&lt;code&gt;switch&lt;/code&gt;语句汇编代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;switcher:
+&lt;p&gt;&lt;code&gt;doWhileLoop&lt;/code&gt;  的 C 循环代码如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;doWhileLoop&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; len&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      ret &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; len&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;switch-statements&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#switch-statements&#34;&gt;#&lt;/a&gt; Switch Statements&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;switch&lt;/code&gt;  语句汇编代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;switcher:
    cmpq $7 , %rdi
    ja .L2
    jmp *.L4(, %rdi , 8)
@@ -1680,36 +1495,11 @@ int forLoop(int* x, int len) &amp;#123;
    .quad .L7 ;;x = 5 -&amp;gt; rsi = rsi ^ 15; rdx = rsi;
    .quad .L2 ;;x = 6 -&amp;gt; default
    .quad .L5 ;;x = 7 -&amp;gt; rdi = rdx + rsi; rdi = rdi &amp;lt;&amp;lt; 2; break;
+
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;其还原的 C 语句代码如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// 1, 3, 6没有；只有 0，2，4，5，7
-// %rdi = a and val , %rsi = b, %rdx = c, %rcx = dest
-void switcher(long a, long b, long c, long *dest) &amp;#123;
-   long val;
-   switch (a) &amp;#123;
-      case 5:
-         c = b ^ 15;
-      case 0:
-         val = c + 112;
-         break;
-      case 2:
-      case 7:
-         val = (c + b) &amp;lt;&amp;lt; 2;
-         break;
-      case 4:
-         val = a;
-         break;
-      default:
-         val = b;
-   &amp;#125;
-   *dest = val;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;注意&lt;code&gt;case 4&lt;/code&gt;中，按理来说&lt;code&gt;.L4&lt;/code&gt;时&lt;code&gt;val = a&lt;/code&gt;而不是&lt;code&gt;*dest = val&lt;/code&gt;（汇编来看）。这里我们再将 C 编译成汇编语句时，对 C 语言的语句做了一个优化，将&lt;code&gt;*dest = val&lt;/code&gt;转化为两句：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;val = a;
-*dest = val;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这样转化的原因&lt;strong&gt;是在 C 语言中&lt;code&gt;*dest = val&lt;/code&gt;是所有语句共同需要执行的部分，因此我们将它放在&lt;code&gt;switch&lt;/code&gt;语句之外，而将&lt;code&gt;val = a&lt;/code&gt;放在语句内&lt;/strong&gt;。这样语句前后意思是一样的，而&lt;code&gt;switch&lt;/code&gt;语句的目的也达到了。而汇编层面做了优化，将&lt;code&gt;*dest = val&lt;/code&gt;直接放在&lt;code&gt;.L6&lt;/code&gt;处，其他语句执行完后跳转到&lt;code&gt;.L6&lt;/code&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 1, 3, 6 没有；只有 0，2，4，5，7&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// %rdi = a and val , %rsi = b, %rdx = c, %rcx = dest&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;switcher&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; c&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;dest&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token keyword&#34;&gt;switch&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;a&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         c &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; b &lt;span class=&#34;token operator&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; c &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;112&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;c &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token keyword&#34;&gt;break&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;dest &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意 &lt;code&gt;case 4&lt;/code&gt;  中，按理来说 &lt;code&gt;.L4&lt;/code&gt;  时 &lt;code&gt;val = a&lt;/code&gt;  而不是 &lt;code&gt;*dest = val&lt;/code&gt; （汇编来看）。这里我们再将 C 编译成汇编语句时，对 C 语言的语句做了一个优化，将 &lt;code&gt;*dest = val&lt;/code&gt;  转化为两句：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;dest &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; val&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这样转化的原因&lt;strong&gt;是在 C 语言中 &lt;code&gt;*dest = val&lt;/code&gt;  是所有语句共同需要执行的部分，因此我们将它放在 &lt;code&gt;switch&lt;/code&gt;  语句之外，而将 &lt;code&gt;val = a&lt;/code&gt;  放在语句内&lt;/strong&gt;。这样语句前后意思是一样的，而 &lt;code&gt;switch&lt;/code&gt;  语句的目的也达到了。而汇编层面做了优化，将 &lt;code&gt;*dest = val&lt;/code&gt;  直接放在 &lt;code&gt;.L6&lt;/code&gt;  处，其他语句执行完后跳转到 &lt;code&gt;.L6&lt;/code&gt; 。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -1717,12 +1507,14 @@ void switcher(long a, long b, long c, long *dest) &amp;#123;
             <title>15-213 Bomb lab Activity 记录</title>
             <link>https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/Bomb%20lab%20activity/</link>
             <pubDate>Thu, 29 Feb 2024 17:11:59 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Part-I&#34;&gt;&lt;a href=&#34;#Part-I&#34; class=&#34;headerlink&#34; title=&#34;Part I&#34;&gt;&lt;/a&gt;Part I&lt;/h2&gt;&lt;p&gt;输入如下命令：&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;part-i&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#part-i&#34;&gt;#&lt;/a&gt; Part I&lt;/h2&gt;
+&lt;p&gt;输入如下命令：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ gcc -o phase1 -g -std=c99 phase1.c
 $ gdb ./phase1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;按照 handout 依次输入命令并观察结果。&lt;/p&gt;
-&lt;h3 id=&#34;打断点&#34;&gt;&lt;a href=&#34;#打断点&#34; class=&#34;headerlink&#34; title=&#34;打断点&#34;&gt;&lt;/a&gt;打断点&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;(gdb) break main
+&lt;h3 id=&#34;打断点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#打断点&#34;&gt;#&lt;/a&gt; 打断点&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;(gdb) break main
 Breakpoint 1 at 0x13b2: file phase1.c, line 54.
 (gdb) break unscramble
 Breakpoint 2 at 0x1308: file phase1.c, line 39.
@@ -1737,7 +1529,8 @@ Num     Type           Disp Enb Address            What
 3       breakpoint     keep y   0x0000000000001274 in reverse at phase1.c:30
 4       breakpoint     keep y   0x00000000000011e7 in toggleCase at phase1.c:18
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;运行程序-打印值&#34;&gt;&lt;a href=&#34;#运行程序-打印值&#34; class=&#34;headerlink&#34; title=&#34;运行程序 &amp;amp; 打印值&#34;&gt;&lt;/a&gt;运行程序 &amp;amp; 打印值&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;(gdb) run
+&lt;h3 id=&#34;运行程序-打印值&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#运行程序-打印值&#34;&gt;#&lt;/a&gt; 运行程序 &amp;amp; 打印值&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;(gdb) run
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/lab2_handout/phase1
 
 Breakpoint 1, main () at phase1.c:54
@@ -1753,7 +1546,8 @@ $1 = &amp;#123;str = 0x0, len = 0&amp;#125;
 (gdb) print *(word_t*)secret_msg
 $2 = &amp;#123;str = 0x5555555592c0 &amp;quot;&amp;quot;, len = 0&amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;单步调试-watchpoint&#34;&gt;&lt;a href=&#34;#单步调试-watchpoint&#34; class=&#34;headerlink&#34; title=&#34;单步调试 &amp;amp; watchpoint&#34;&gt;&lt;/a&gt;单步调试 &amp;amp; watchpoint&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Breakpoint 2, unscramble (msg=0x555555555480 &amp;lt;__libc_csu_init&amp;gt;) at phase1.c:39
+&lt;h3 id=&#34;单步调试-watchpoint&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#单步调试-watchpoint&#34;&gt;#&lt;/a&gt; 单步调试 &amp;amp; watchpoint&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Breakpoint 2, unscramble (msg=0x555555555480 &amp;lt;__libc_csu_init&amp;gt;) at phase1.c:39
 39      void unscramble (word_t *msg) &amp;#123;
 (gdb) step
 41          char chng = 13;
@@ -1762,7 +1556,7 @@ $2 = &amp;#123;str = 0x5555555592c0 &amp;quot;&amp;quot;, len = 0&amp;#125;
 (gdb) next
 43              ltr = msg-&amp;gt;str[i];
 (gdb) print(ltr)
-$3 = 85 &amp;#39;U&amp;#39;
+$3 = 85 &#39;U&#39;
 (gdb) print isAlpha(ltr)
 $4 = true
 (gdb) watch ltr
@@ -1772,28 +1566,34 @@ Continuing.
 
 Hardware watchpoint 5: ltr
 
-Old value = 85 &amp;#39;U&amp;#39;
-New value = 33 &amp;#39;!&amp;#39;
+Old value = 85 &#39;U&#39;
+New value = 33 &#39;!&#39;
 unscramble (msg=0x5555555592a0) at phase1.c:44
 44              if (isAlpha(ltr)) &amp;#123;
 (gdb) step
-isAlpha (ltr=85 &amp;#39;U&amp;#39;) at phase1.c:13
+isAlpha (ltr=85 &#39;U&#39;) at phase1.c:13
 13      bool isAlpha (char ltr) &amp;#123;
 (gdb) backtrace
-#0  isAlpha (ltr=85 &amp;#39;U&amp;#39;) at phase1.c:13
+#0  isAlpha (ltr=85 &#39;U&#39;) at phase1.c:13
 #1  0x0000555555555345 in unscramble (msg=0x5555555592a0) at phase1.c:44
 #2  0x0000555555555429 in main () at phase1.c:60
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;3-Questions&#34;&gt;&lt;a href=&#34;#3-Questions&#34; class=&#34;headerlink&#34; title=&#34;3 Questions&#34;&gt;&lt;/a&gt;3 Questions&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;What does &lt;code&gt;unscramble(word_t *msg)&lt;/code&gt; do? And how?&lt;br&gt;将&lt;code&gt;secret_msg&lt;/code&gt;指向的结构体中的&lt;code&gt;!312 Av XPHy QBBt&lt;/code&gt;替换成了&lt;code&gt;!312 Ni KCUl DOOg&lt;/code&gt;。&lt;br&gt;&lt;code&gt;unscramble&lt;/code&gt;的作用是：判断&lt;code&gt;msg_str&lt;/code&gt;当前的字符，如果&lt;code&gt;M &amp;lt; ltr &amp;lt;= Z&lt;/code&gt;，就将其字符值减去 13。否则加上 13。&lt;/li&gt;
-&lt;li&gt;What does &lt;code&gt;reverse(word_t *msg)&lt;/code&gt; do? And how?&lt;br&gt;将&lt;code&gt;secret_msg&lt;/code&gt;指向的结构体中的&lt;code&gt;!312 Ni KCUl DOOg&lt;/code&gt;替换成了&lt;code&gt;gOOD lUCK iN 213!&lt;/code&gt;。该函数反转字符串。&lt;/li&gt;
-&lt;li&gt;What does &lt;code&gt;toggleCase(word_t *msg)&lt;/code&gt; do? And how?&lt;br&gt;将&lt;code&gt;secret_msg&lt;/code&gt;指向的结构体中的&lt;code&gt;gOOD lUCK iN 213!&lt;/code&gt;替换成了&lt;code&gt;Good Luck In 213!&lt;/code&gt;。该函数反转字符串大小写。&lt;/li&gt;
+&lt;h3 id=&#34;3-questions&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-questions&#34;&gt;#&lt;/a&gt; 3 Questions&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;What does  &lt;code&gt;unscramble(word_t *msg)&lt;/code&gt;  do? And how?&lt;br&gt;
+ 将 &lt;code&gt;secret_msg&lt;/code&gt;  指向的结构体中的 &lt;code&gt;!312 Av XPHy QBBt&lt;/code&gt;  替换成了 &lt;code&gt;!312 Ni KCUl DOOg&lt;/code&gt; 。&lt;br&gt;
+ &lt;code&gt;unscramble&lt;/code&gt;  的作用是：判断 &lt;code&gt;msg_str&lt;/code&gt;  当前的字符，如果 &lt;code&gt;M &amp;lt; ltr &amp;lt;= Z&lt;/code&gt; ，就将其字符值减去 13。否则加上 13。&lt;/li&gt;
+&lt;li&gt;What does  &lt;code&gt;reverse(word_t *msg)&lt;/code&gt;  do? And how?&lt;br&gt;
+ 将 &lt;code&gt;secret_msg&lt;/code&gt;  指向的结构体中的 &lt;code&gt;!312 Ni KCUl DOOg&lt;/code&gt;  替换成了 &lt;code&gt;gOOD lUCK iN 213!&lt;/code&gt; 。该函数反转字符串。&lt;/li&gt;
+&lt;li&gt;What does  &lt;code&gt;toggleCase(word_t *msg)&lt;/code&gt;  do? And how?&lt;br&gt;
+ 将 &lt;code&gt;secret_msg&lt;/code&gt;  指向的结构体中的 &lt;code&gt;gOOD lUCK iN 213!&lt;/code&gt;  替换成了 &lt;code&gt;Good Luck In 213!&lt;/code&gt; 。该函数反转字符串大小写。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;Part-II&#34;&gt;&lt;a href=&#34;#Part-II&#34; class=&#34;headerlink&#34; title=&#34;Part II&#34;&gt;&lt;/a&gt;Part II&lt;/h2&gt;&lt;p&gt;输入&lt;code&gt;gcc -std=c99 -o phase2 -g phase2.c&lt;/code&gt;编译生成&lt;code&gt;phase2&lt;/code&gt;，对其利用&lt;code&gt;gdb&lt;/code&gt;进行排错发现&lt;code&gt;S-&amp;gt;top-&amp;gt;len&lt;/code&gt;为 0，导致浮点数相除时发生错误。我们进行如下修改：&lt;/p&gt;
+&lt;h2 id=&#34;part-ii&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#part-ii&#34;&gt;#&lt;/a&gt; Part II&lt;/h2&gt;
+&lt;p&gt;输入 &lt;code&gt;gcc -std=c99 -o phase2 -g phase2.c&lt;/code&gt;  编译生成 &lt;code&gt;phase2&lt;/code&gt; ，对其利用 &lt;code&gt;gdb&lt;/code&gt;  进行排错发现 &lt;code&gt;S-&amp;gt;top-&amp;gt;len&lt;/code&gt;  为 0，导致浮点数相除时发生错误。我们进行如下修改：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在初始化栈的时候让栈顶的长度为 0&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;push&lt;/code&gt;新结点的时候让结点的&lt;code&gt;len&lt;/code&gt;为栈顶结点的长度加 1，然后让栈顶指向结点&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pop&lt;/code&gt;时结点弹出，栈顶指向的新结点的长度值为弹出结点长度减 1&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;push&lt;/code&gt;  新结点的时候让结点的 &lt;code&gt;len&lt;/code&gt;  为栈顶结点的长度加 1，然后让栈顶指向结点&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pop&lt;/code&gt;  时结点弹出，栈顶指向的新结点的长度值为弹出结点长度减 1&lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
         </item>
@@ -1802,11 +1602,9 @@ isAlpha (ltr=85 &amp;#39;U&amp;#39;) at phase1.c:13
             <title>15-213 GDB and Assembly Activity 记录</title>
             <link>https://salvely.github.io/blog/2024/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8/15-213/15-213%20Activity/gdb%20&amp;%20asm%20activity/</link>
             <pubDate>Thu, 29 Feb 2024 17:10:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Activity-1&#34;&gt;&lt;a href=&#34;#Activity-1&#34; class=&#34;headerlink&#34; title=&#34;Activity 1&#34;&gt;&lt;/a&gt;Activity 1&lt;/h2&gt;&lt;p&gt;运行&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;gdb ./act1
-(gdb) r 1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;出现如下提示:&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;activity-1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#activity-1&#34;&gt;#&lt;/a&gt; Activity 1&lt;/h2&gt;
+&lt;p&gt;运行&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gdb ./act1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;gdb&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; r &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;出现如下提示:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;If you have questions about the commands, type (gdb) help &amp;lt;command&amp;gt;
 Now type (gdb) info registers
 This will display all of the integer registers.
@@ -1827,41 +1625,14 @@ GDB may ask you if you want to start the program from the beginning (y or n) y
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;根据提示，输入&lt;code&gt;info registers&lt;/code&gt;后，显示值如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;(gdb) info registers
-rax            0x4f                79
-rbx            0x0                 0
-rcx            0x7ffff7ec3297      140737352839831
-rdx            0x0                 0
-rsi            0x6042a0            6308512
-rdi            0x1                 1
-rbp            0x0                 0x0
-rsp            0x7fffffffde40      0x7fffffffde40
-r8             0x4f                79
-r9             0x39                57
-r10            0x400397            4195223
-r11            0x246               582
-r12            0x400590            4195728
-r13            0x7fffffffdf40      140737488346944
-r14            0x0                 0
-r15            0x0                 0
-rip            0x40077f            0x40077f &amp;lt;printStep2+191&amp;gt;
-eflags         0x246               [ PF ZF IF ]
-cs             0x33                51
-ss             0x2b                43
-ds             0x0                 0
-es             0x0                 0
---Type &amp;lt;RET&amp;gt; for more, q to quit, c to continue without paging--
-fs             0x0                 0
-gs             0x0                 0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;该处&lt;code&gt;%rdi&lt;/code&gt;寄存器的值为 1，&lt;code&gt;%rsp&lt;/code&gt;的值为&lt;code&gt;0x7fffffffde40&lt;/code&gt;,&lt;code&gt;%rax&lt;/code&gt;的值为&lt;code&gt;79&lt;/code&gt;。&lt;code&gt;%rsp&lt;/code&gt;寄存器中存储的值应当是地址，&lt;code&gt;%rax&lt;/code&gt;中存储返回值，&lt;code&gt;%rdi&lt;/code&gt;中存储传入参数。&lt;/p&gt;
-&lt;p&gt;接下来输入&lt;code&gt;r 2&lt;/code&gt;。提示信息如下：&lt;/p&gt;
+&lt;p&gt;根据提示，输入 &lt;code&gt;info registers&lt;/code&gt;  后，显示值如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;gdb&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; info registers&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rax            0x4f                &lt;span class=&#34;token number&#34;&gt;79&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rbx            0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rcx            0x7ffff7ec3297      &lt;span class=&#34;token number&#34;&gt;140737352839831&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rdx            0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rsi            0x6042a0            &lt;span class=&#34;token number&#34;&gt;6308512&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rdi            0x1                 &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rbp            0x0                 0x0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rsp            0x7fffffffde40      0x7fffffffde40&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r8             0x4f                &lt;span class=&#34;token number&#34;&gt;79&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r9             0x39                &lt;span class=&#34;token number&#34;&gt;57&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r10            0x400397            &lt;span class=&#34;token number&#34;&gt;4195223&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r11            0x246               &lt;span class=&#34;token number&#34;&gt;582&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r12            0x400590            &lt;span class=&#34;token number&#34;&gt;4195728&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r13            0x7fffffffdf40      &lt;span class=&#34;token number&#34;&gt;140737488346944&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r14            0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r15            0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;rip            0x40077f            0x40077f &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;printStep2+19&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;1&lt;/span&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;eflags         0x246               &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt; PF ZF IF &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cs             0x33                &lt;span class=&#34;token number&#34;&gt;51&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ss             0x2b                &lt;span class=&#34;token number&#34;&gt;43&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ds             0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;es             0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;--Type&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;RET&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; more, q to quit, c to &lt;span class=&#34;token builtin class-name&#34;&gt;continue&lt;/span&gt; without paging--&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fs             0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gs             0x0                 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;该处 &lt;code&gt;%rdi&lt;/code&gt;  寄存器的值为 1， &lt;code&gt;%rsp&lt;/code&gt;  的值为 &lt;code&gt;0x7fffffffde40&lt;/code&gt; , &lt;code&gt;%rax&lt;/code&gt;  的值为 &lt;code&gt;79&lt;/code&gt; 。 &lt;code&gt;%rsp&lt;/code&gt;  寄存器中存储的值应当是地址， &lt;code&gt;%rax&lt;/code&gt;  中存储返回值， &lt;code&gt;%rdi&lt;/code&gt;  中存储传入参数。&lt;/p&gt;
+&lt;p&gt;接下来输入 &lt;code&gt;r 2&lt;/code&gt; 。提示信息如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) r 2
 The program being debugged has been started already.
 Start it from the beginning? (y or n) y
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/gdb-and-assembly/act1 2
-Let&amp;#39;s look at some assembly and registers.
+Let&#39;s look at some assembly and registers.
 There are two styles of assembly printing: AT&amp;amp;T and Intel
 AT&amp;amp;T prints OP SRC, DEST, while Intel prints OP DEST, SRC
 OP - opcode or instruction such as mov, ret, add, etc
@@ -1876,7 +1647,7 @@ This will continue execution, please do so after each question.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;该提示介绍了一下&lt;code&gt;AT &amp;amp; T&lt;/code&gt;格式和&lt;code&gt;intel&lt;/code&gt;格式的区别，主要是&lt;code&gt;src&lt;/code&gt;和&lt;code&gt;dest&lt;/code&gt;的位置不一样。按照提示输入&lt;code&gt;c&lt;/code&gt;查看：&lt;/p&gt;
+&lt;p&gt;该提示介绍了一下 &lt;code&gt;AT &amp;amp; T&lt;/code&gt;  格式和 &lt;code&gt;intel&lt;/code&gt;  格式的区别，主要是 &lt;code&gt;src&lt;/code&gt;  和 &lt;code&gt;dest&lt;/code&gt;  的位置不一样。按照提示输入 &lt;code&gt;c&lt;/code&gt;  查看：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 You will commonly dissassemble a function.  There will be a header and footer.
@@ -1891,22 +1662,16 @@ Q.  Fill in the blank in the pseudo C code for this function.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble squareInt&lt;/code&gt;，得到如下结果：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;(gdb) disassemble squareInt
+&lt;p&gt;输入 &lt;code&gt;disassemble squareInt&lt;/code&gt; ，得到如下结果：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;(gdb) disassemble squareInt
 Dump of assembler code for function squareInt:
    0x00000000004009c3 &amp;lt;+0&amp;gt;:     mov    %edi,%eax
    0x00000000004009c5 &amp;lt;+2&amp;gt;:     imul   %edi,%eax
    0x00000000004009c8 &amp;lt;+5&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;提示说&lt;code&gt;%edi holds the argument to the function and %eax its return value&lt;/code&gt;，那么还原&lt;code&gt;squareInt&lt;/code&gt;函数如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// x in %edi, return value in %eax
-int squareInt(int x)
-&amp;#123;
-    return x * x;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示&lt;/p&gt;
+&lt;p&gt;提示说 &lt;code&gt;%edi holds the argument to the function and %eax its return value&lt;/code&gt; ，那么还原 &lt;code&gt;squareInt&lt;/code&gt;  函数如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// x in %edi, return value in %eax&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;squareInt&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; x &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 Type (gdb) disassemble squareLInt  (Note the L before Int)
@@ -1914,15 +1679,15 @@ Q.  How do the names of the registers differ between the functions?
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;按照提示输入&lt;code&gt;disassemble squareLInt&lt;/code&gt;，看看&lt;code&gt;Q.  How do the names of the registers differ between the functions?&lt;/code&gt;，结果如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;Dump of assembler code for function squareLInt:
+&lt;p&gt;按照提示输入 &lt;code&gt;disassemble squareLInt&lt;/code&gt; ，看看 &lt;code&gt;Q.  How do the names of the registers differ between the functions?&lt;/code&gt; ，结果如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;Dump of assembler code for function squareLInt:
    0x00000000004009c9 &amp;lt;+0&amp;gt;:     mov    %rdi,%rax
    0x00000000004009cc &amp;lt;+3&amp;gt;:     imul   %rdi,%rax
    0x00000000004009d0 &amp;lt;+7&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以看到此处使用的是&lt;code&gt;%rdi&lt;/code&gt;和&lt;code&gt;%rax&lt;/code&gt;。&lt;code&gt;%rdi&lt;/code&gt;和&lt;code&gt;%rax&lt;/code&gt;是 64 位，而&lt;code&gt;%edi&lt;/code&gt;和&lt;code&gt;%eax&lt;/code&gt;是 32 位。因为前面用的是&lt;code&gt;int&lt;/code&gt;，此处可能用的是&lt;code&gt;long&lt;/code&gt;。&lt;code&gt;int&lt;/code&gt;类型是 4 个字节，32 位，存储在&lt;code&gt;%eax&lt;/code&gt;和&lt;code&gt;%edi&lt;/code&gt;中。而&lt;code&gt;long&lt;/code&gt;类型是 64 位，可以存储在&lt;code&gt;%rdi&lt;/code&gt;和&lt;code&gt;%rax&lt;/code&gt;中。&lt;/p&gt;
-&lt;p&gt;继续输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;可以看到此处使用的是 &lt;code&gt;%rdi&lt;/code&gt;  和 &lt;code&gt;%rax&lt;/code&gt; 。 &lt;code&gt;%rdi&lt;/code&gt;  和 &lt;code&gt;%rax&lt;/code&gt;  是 64 位，而 &lt;code&gt;%edi&lt;/code&gt;  和 &lt;code&gt;%eax&lt;/code&gt;  是 32 位。因为前面用的是 &lt;code&gt;int&lt;/code&gt; ，此处可能用的是 &lt;code&gt;long&lt;/code&gt; 。 &lt;code&gt;int&lt;/code&gt;  类型是 4 个字节，32 位，存储在 &lt;code&gt;%eax&lt;/code&gt;  和 &lt;code&gt;%edi&lt;/code&gt;  中。而 &lt;code&gt;long&lt;/code&gt;  类型是 64 位，可以存储在 &lt;code&gt;%rdi&lt;/code&gt;  和 &lt;code&gt;%rax&lt;/code&gt;  中。&lt;/p&gt;
+&lt;p&gt;继续输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 squareLInt used long ints, hence it accessed %rdi, which is 64 bits.
@@ -1932,14 +1697,14 @@ Q.  Did squareFloat use the same registers from before?
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;diassemble squareFloat&lt;/code&gt;看看，结果如下:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;(gdb) disassemble squareFloat
+&lt;p&gt;输入 &lt;code&gt;diassemble squareFloat&lt;/code&gt;  看看，结果如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;(gdb) disassemble squareFloat
 Dump of assembler code for function squareFloat:
    0x00000000004009d1 &amp;lt;+0&amp;gt;:     mulss  %xmm0,%xmm0
    0x00000000004009d5 &amp;lt;+4&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;浮点数和之前使用的不是同一套寄存器。继续输入&lt;code&gt;c&lt;/code&gt;，可以看到程序退出。按照课程提示，输入&lt;code&gt;r 3&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;浮点数和之前使用的不是同一套寄存器。继续输入 &lt;code&gt;c&lt;/code&gt; ，可以看到程序退出。按照课程提示，输入 &lt;code&gt;r 3&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/gdb-and-assembly/act1 3
 We are going to look at how to access memory.
 We already saw the mov instruction between registers.  Now we will load and
@@ -1955,7 +1720,7 @@ We conclude activity 1.  When you are finished, please exit (q &amp;lt;enter&amp
 Program received signal SIGTRAP, Trace/breakpoint trap.
 0x0000000000400918 in runStep4 ()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这部分让我们掌握&lt;code&gt;load &amp;amp; store&lt;/code&gt;指令，输入&lt;code&gt;disassemble whatIsThis&lt;/code&gt;，可得如下结果：&lt;/p&gt;
+&lt;p&gt;这部分让我们掌握 &lt;code&gt;load &amp;amp; store&lt;/code&gt;  指令，输入 &lt;code&gt;disassemble whatIsThis&lt;/code&gt; ，可得如下结果：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble whatIsThis
 Dump of assembler code for function whatIsThis:
    0x00000000004008a1 &amp;lt;+0&amp;gt;:     mov    (%rdi),%edx
@@ -1965,50 +1730,43 @@ Dump of assembler code for function whatIsThis:
    0x00000000004008a9 &amp;lt;+8&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其中&lt;code&gt;%rdi&lt;/code&gt;是第一个参数，&lt;code&gt;%rsi&lt;/code&gt;是第二个参数。设第一个参数为&lt;code&gt;x&lt;/code&gt;，第二个参数为&lt;code&gt;y&lt;/code&gt;，(本来以为&lt;code&gt;x&lt;/code&gt;和&lt;code&gt;y&lt;/code&gt;是&lt;code&gt;long&lt;/code&gt;类型整数，后来发现有指针，而赋值的变量又是&lt;code&gt;int&lt;/code&gt;类型，那么可能&lt;code&gt;x&lt;/code&gt;和&lt;code&gt;y&lt;/code&gt;是&lt;code&gt;int*&lt;/code&gt;类型的指针变量）。那么&lt;code&gt;whatIsThis&lt;/code&gt;函数如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;// x in %rdi, y in %rsi
-void whatIsThis(int* x, int* y) &amp;#123;
-    int edx = *x;
-    int eax = *y;
-    *y = edx;
-    *x = eax;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以看到，此函数的作用为交换两个变量的位置。输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;其中 &lt;code&gt;%rdi&lt;/code&gt;  是第一个参数， &lt;code&gt;%rsi&lt;/code&gt;  是第二个参数。设第一个参数为 &lt;code&gt;x&lt;/code&gt; ，第二个参数为 &lt;code&gt;y&lt;/code&gt; ，(本来以为 &lt;code&gt;x&lt;/code&gt;  和 &lt;code&gt;y&lt;/code&gt;  是 &lt;code&gt;long&lt;/code&gt;  类型整数，后来发现有指针，而赋值的变量又是 &lt;code&gt;int&lt;/code&gt;  类型，那么可能 &lt;code&gt;x&lt;/code&gt;  和 &lt;code&gt;y&lt;/code&gt;  是 &lt;code&gt;int*&lt;/code&gt;  类型的指针变量）。那么 &lt;code&gt;whatIsThis&lt;/code&gt;  函数如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// x in %rdi, y in %rsi&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;whatIsThis&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; y&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; edx &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;x&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; eax &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;y&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;y &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; edx&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;x &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; eax&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;可以看到，此函数的作用为交换两个变量的位置。输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 Input two integers to test whatIsThis: &amp;lt;x&amp;gt; &amp;lt;y&amp;gt;
 2 3
-Let&amp;#39;s examine memory before we execute whatIsThis
+Let&#39;s examine memory before we execute whatIsThis
 Please type (gdb) x/8d $rsp
   This will dump the memory (x) containing eight (8) decimal integers ([%]d)
   starting from the stack pointer ($rsp).
-Once you&amp;#39;ve examined the memory dump, continue.
+Once you&#39;ve examined the memory dump, continue.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意 gdb 中寄存器以&lt;code&gt;$&lt;/code&gt;开头，而不是&lt;code&gt;%&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;注意 gdb 中寄存器以 &lt;code&gt;$&lt;/code&gt;  开头，而不是 &lt;code&gt;%&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;输入&lt;code&gt;2 3&lt;/code&gt;，提示要求我们在执行&lt;code&gt;whatIsThis&lt;/code&gt;之前，查看一下当前的内存分布。首先输入&lt;code&gt;x/8d $rsp&lt;/code&gt;查看一下&lt;code&gt;%rsp&lt;/code&gt;开始处 8 个整数的值。结果如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;2 3&lt;/code&gt; ，提示要求我们在执行 &lt;code&gt;whatIsThis&lt;/code&gt;  之前，查看一下当前的内存分布。首先输入 &lt;code&gt;x/8d $rsp&lt;/code&gt;  查看一下 &lt;code&gt;%rsp&lt;/code&gt;  开始处 8 个整数的值。结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) p $rsp
 $1 = (void *) 0x7fffffffde30
 (gdb) x/8d $rsp
 0x7fffffffde30: -8384   32767   2       3
 0x7fffffffde40: 0       0       4196939 0`
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示再次查看&lt;code&gt;%rsp&lt;/code&gt;处的值：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示再次查看 &lt;code&gt;%rsp&lt;/code&gt;  处的值：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;0x7fffffffde30: -8384   32767   3       2
 0x7fffffffde40: 0       0       4196939 0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;可以看到 2 和 3 的位置交换了。Activity 1 完成。&lt;/p&gt;
-&lt;h2 id=&#34;Activity-2&#34;&gt;&lt;a href=&#34;#Activity-2&#34; class=&#34;headerlink&#34; title=&#34;Activity 2&#34;&gt;&lt;/a&gt;Activity 2&lt;/h2&gt;&lt;p&gt;输入&lt;code&gt;./act2&lt;/code&gt;，提示显示&lt;code&gt;Did whatIsThis(): compare, swap, add, or multiply two numbers? Enter the keyword corresponding to the correct operation. &lt;/code&gt;，根据上一问结果，输入&lt;code&gt;swap&lt;/code&gt;。因为&lt;code&gt;whatIsThis&lt;/code&gt;交换了两个变量的值。提示&lt;code&gt;Correct! Please rerun in gdb with r s.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;输入&lt;code&gt;gdb ./act2&lt;/code&gt;，再输入&lt;code&gt;r s&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;h2 id=&#34;activity-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#activity-2&#34;&gt;#&lt;/a&gt; Activity 2&lt;/h2&gt;
+&lt;p&gt;输入 &lt;code&gt;./act2&lt;/code&gt; ，提示显示 &lt;code&gt;Did whatIsThis(): compare, swap, add, or multiply two numbers? Enter the keyword corresponding to the correct operation. &lt;/code&gt; ，根据上一问结果，输入 &lt;code&gt;swap&lt;/code&gt; 。因为 &lt;code&gt;whatIsThis&lt;/code&gt;  交换了两个变量的值。提示 &lt;code&gt;Correct! Please rerun in gdb with r s.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;gdb ./act2&lt;/code&gt; ，再输入 &lt;code&gt;r s&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) r s
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/gdb-and-assembly/act2 s
 We are going to learn about memory access.  First, displacements.
 A displacement is an immediate added to a memory access.
 It is of the form: D(mem), so that the address accessed is D + mem.
 Please disassemble viewThis.
-Q.  What are the function&amp;#39;s argument(s)?
+Q.  What are the function&#39;s argument(s)?
 Q.  What is the return register of the function?
 Q.  Which instruction(s) initialize the return register?
 Q.  What does the function do?
@@ -2016,7 +1774,7 @@ After you have your answer, please rerun with r a.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;提示要求我们反汇编&lt;code&gt;viewThis&lt;/code&gt;函数，并且回答四个问题。输入&lt;code&gt;disassemble viewThis&lt;/code&gt;，显示如下：&lt;/p&gt;
+&lt;p&gt;提示要求我们反汇编 &lt;code&gt;viewThis&lt;/code&gt;  函数，并且回答四个问题。输入 &lt;code&gt;disassemble viewThis&lt;/code&gt; ，显示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble viewThis
 Dump of assembler code for function viewThis:
    0x0000000000400687 &amp;lt;+0&amp;gt;:     mov    0x4(%rdi),%eax
@@ -2032,12 +1790,12 @@ Q2: 函数返回值在%eax中
 Q3: mov    0x4(%rdi),%eax 指令初始化了返回值寄存器%rax
 Q4: 对一个4个int类型的数组求和
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;根据提示，输入&lt;code&gt;r a&lt;/code&gt;，提示信息如下：&lt;/p&gt;
+&lt;p&gt;根据提示，输入 &lt;code&gt;r a&lt;/code&gt; ，提示信息如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) r a
 The program being debugged has been started already.
 Start it from the beginning? (y or n) y
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/gdb-and-assembly/act2 a
-Since viewThis added 4 numbers from an array, let&amp;#39;s look at more array
+Since viewThis added 4 numbers from an array, let&#39;s look at more array
 accesses.  The general form of a memory reference is D(B,I,S)
 D + B + I * S
 Disassemble: viewThisNext.
@@ -2048,51 +1806,46 @@ Then continue.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上一题答对啦：&lt;code&gt;viewThis&lt;/code&gt;就是累加 4 个 int 类型元素的数组。输入&lt;code&gt;disassemble viewThisNext&lt;/code&gt;，显示如下：&lt;/p&gt;
+&lt;p&gt;上一题答对啦： &lt;code&gt;viewThis&lt;/code&gt;  就是累加 4 个 int 类型元素的数组。输入 &lt;code&gt;disassemble viewThisNext&lt;/code&gt; ，显示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble viewThisNext
 Dump of assembler code for function viewThisNext:
    0x0000000000400693 &amp;lt;+0&amp;gt;:     mov    (%rdi,%rsi,4),%eax
    0x0000000000400696 &amp;lt;+3&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上述代码的逻辑为：&lt;code&gt;int ret = *(rdi + rsi * 4); 因为汇编代码是从字节出发，而&lt;/code&gt;C&lt;code&gt;代码的指针递增，每次加&lt;/code&gt;sizeof(T)&lt;code&gt;个字节。这里是&lt;/code&gt;4&lt;code&gt;,那么推测&lt;/code&gt;sizeof(T) &amp;#x3D; 4&lt;code&gt;，这里的类型应该是 int。那么&lt;/code&gt;%rdi&lt;code&gt;应该是数组的起始位置，&lt;/code&gt;%rsi&lt;code&gt;等于要取的数字的索引，最后返回到&lt;/code&gt;%eax&amp;#96;中。其 C 语言描述如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;c&#34;&gt;int get_val(int* arr,long index)
-&amp;#123;
-    return arr[index];
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;p/x &amp;amp;arr&lt;/code&gt;，结果如下：&lt;/p&gt;
+&lt;p&gt;上述代码的逻辑为： &lt;code&gt;int ret = *(rdi + rsi * 4); 因为汇编代码是从字节出发，而&lt;/code&gt;  C &lt;code&gt;代码的指针递增，每次加&lt;/code&gt;  sizeof (T) &lt;code&gt;个字节。这里是&lt;/code&gt;  4 &lt;code&gt;,那么推测&lt;/code&gt;  sizeof (T) = 4 &lt;code&gt;，这里的类型应该是 int。那么&lt;/code&gt;  % rdi &lt;code&gt;应该是数组的起始位置，&lt;/code&gt; %rsi &lt;code&gt;等于要取的数字的索引，最后返回到&lt;/code&gt;  % eax` 中。其 C 语言描述如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_val&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; arr&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; index&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; arr&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;index&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;输入 &lt;code&gt;p/x &amp;amp;arr&lt;/code&gt; ，结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) p/x &amp;amp;arr
 $1 = 0x602080
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;x/10d &amp;amp;arr&lt;/code&gt;来打印从&lt;code&gt;arr&lt;/code&gt;地址开始处后 10 个整数。显示结果如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;x/10d &amp;amp;arr&lt;/code&gt;  来打印从 &lt;code&gt;arr&lt;/code&gt;  地址开始处后 10 个整数。显示结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) x/10d &amp;amp;arr
 0x602080 &amp;lt;arr&amp;gt;: 0       1       2       3
 0x602090 &amp;lt;arr+16&amp;gt;:      4       5       6       7
 0x6020a0 &amp;lt;arr+32&amp;gt;:      8       9
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以看到 arr 地址开始后存储了 10 个整数，从 0 到 9。输入&lt;code&gt;c&lt;/code&gt;继续，提示显示：&lt;/p&gt;
+&lt;p&gt;可以看到 arr 地址开始后存储了 10 个整数，从 0 到 9。输入 &lt;code&gt;c&lt;/code&gt;  继续，提示显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
-Now we&amp;#39;ll actually call viewThisNext.  Please input a number between 0 and 9.
+Now we&#39;ll actually call viewThisNext.  Please input a number between 0 and 9.
 5
 You requested: 0x602094 = 5
 
 Now rerun with r L.
 [Inferior 1 (process 42895) exited normally]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;我想要 5，该值在 0x605094 位置处。输入&lt;code&gt;r L&lt;/code&gt;。提示如下：&lt;/p&gt;
+&lt;p&gt;我想要 5，该值在 0x605094 位置处。输入 &lt;code&gt;r L&lt;/code&gt; 。提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) r L
 Starting program: /home/gwen/Documents/report/code/15213/Ch3 Machine Level Programming/gdb-and-assembly/act2 L
 Many times, the compiler will need to compute the address before it is used.
 The instruction LEA provides this capability.
 Disassemble: viewThisL.
 It does the same calculation as before, except it passes along the pointer.
-Once you&amp;#39;re done looking at the disassembly dump, continue.
+Once you&#39;re done looking at the disassembly dump, continue.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;diassemble viewThisL&lt;/code&gt;后，提示显示：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;diassemble viewThisL&lt;/code&gt;  后，提示显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble viewThisL
 Dump of assembler code for function viewThisL:
    0x0000000000400697 &amp;lt;+0&amp;gt;:     sub    $0x8,%rsp
@@ -2102,19 +1855,19 @@ Dump of assembler code for function viewThisL:
    0x00000000004006a8 &amp;lt;+17&amp;gt;:    retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;c&lt;/code&gt;，提示如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;c&lt;/code&gt; ，提示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) c
 Continuing.
 LEA can also be used to do actual math.  The function mx mutliplies its
 argument by some value.  Note the use of the SHL instruction to left shift.
 Disassemble: mx.
-Q.  Write down the four parts of LEA&amp;#39;s displacement-mode address.
+Q.  Write down the four parts of LEA&#39;s displacement-mode address.
 Q.  After accounting for the left shift, what value does mx() multiply its argument by?
 For your final exercise, leave gdb and type head -n 8 act3.c.
 
 Program received signal SIGTRAP, Trace/breakpoint trap.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;输入&lt;code&gt;disassemble mx&lt;/code&gt;，显示结果如下：&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;disassemble mx&lt;/code&gt; ，显示结果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(gdb) disassemble mx
 Dump of assembler code for function mx:
    0x00000000004006a9 &amp;lt;+0&amp;gt;:     lea    (%rdi,%rdi,2),%rax
@@ -2122,8 +1875,9 @@ Dump of assembler code for function mx:
    0x00000000004006b1 &amp;lt;+8&amp;gt;:     retq
 End of assembler dump.
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;LEA 内存地址偏移计算模式为 D(B,I,S)。其中地址 &amp;#x3D; B + I*S + D。这里的指令为&lt;code&gt;lea    (%rdi,%rdi,2),%rax&lt;/code&gt;。那么结果为&lt;code&gt;%rax = %rdi + 2 * %rdi = 3 \_ %rdi&lt;/code&gt;。然后左移两位，也就是 * 4。最后&lt;code&gt;%rax&lt;/code&gt;的值为&lt;code&gt;12 \* %rdi&lt;/code&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;Activity-3&#34;&gt;&lt;a href=&#34;#Activity-3&#34; class=&#34;headerlink&#34; title=&#34;Activity 3&#34;&gt;&lt;/a&gt;Activity 3&lt;/h2&gt;&lt;p&gt;接下来，退出 gdb，并且输入&lt;code&gt;head -n 8 act3.c&lt;/code&gt;。显示如下：&lt;/p&gt;
+&lt;p&gt;LEA 内存地址偏移计算模式为 D (B,I,S)。其中地址 = B + I*S + D。这里的指令为 &lt;code&gt;lea    (%rdi,%rdi,2),%rax&lt;/code&gt; 。那么结果为 &lt;code&gt;%rax = %rdi + 2 * %rdi = 3 \_ %rdi&lt;/code&gt; 。然后左移两位，也就是 * 4。最后 &lt;code&gt;%rax&lt;/code&gt;  的值为 &lt;code&gt;12 \* %rdi&lt;/code&gt; 。&lt;/p&gt;
+&lt;h2 id=&#34;activity-3&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#activity-3&#34;&gt;#&lt;/a&gt; Activity 3&lt;/h2&gt;
+&lt;p&gt;接下来，退出 gdb，并且输入 &lt;code&gt;head -n 8 act3.c&lt;/code&gt; 。显示如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;//
 // This quick activity looks at compilation and assembly.
 //   type gcc -Og -S act3.c
@@ -2133,8 +1887,8 @@ End of assembler dump.
 // Then type objdump -d act3.o
 //
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;根据提示，输入&lt;code&gt;gcc -Og -S act3.c&lt;/code&gt;，然后输入&lt;code&gt;objdump -d act3.o&lt;/code&gt;。显示如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;asm&#34;&gt;
+&lt;p&gt;根据提示，输入 &lt;code&gt;gcc -Og -S act3.c&lt;/code&gt; ，然后输入 &lt;code&gt;objdump -d act3.o&lt;/code&gt; 。显示如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;
 act3.o:     file format elf64-x86-64
 
 
