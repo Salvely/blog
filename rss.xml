@@ -8,15 +8,15 @@
         <pubDate>Thu, 29 Feb 2024 17:20:40 +0800</pubDate>
         <lastBuildDate>Thu, 29 Feb 2024 17:20:40 +0800</lastBuildDate>
         <category>C++</category>
-        <category>Arch</category>
-        <category>Linux</category>
-        <category>配置教程</category>
-        <category>操作系统</category>
-        <category>notes</category>
-        <category>安装教程</category>
         <category>Debian</category>
+        <category>Linux</category>
+        <category>操作系统</category>
         <category>包管理</category>
+        <category>notes</category>
+        <category>Arch</category>
+        <category>配置教程</category>
         <category>参考资料</category>
+        <category>安装教程</category>
         <category>CMake</category>
         <category>Makefile</category>
         <item>
@@ -1951,12 +1951,43 @@ Disassembly of section .text:
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;整数的表示和运算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#整数的表示和运算&#34;&gt;#&lt;/a&gt; 整数的表示和运算&lt;/h2&gt;
 &lt;p&gt;&lt;img data-src=&#34;numbers.png&#34; alt=&#34;numbers.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;通过引用 &lt;code&gt;#include &amp;lt;stdint.h&amp;gt;&lt;/code&gt; ，然后使用 &lt;code&gt;INTX_t&lt;/code&gt; ，就可以使用特定位数的某种类型。可以使用宏 &lt;code&gt;%&amp;quot; PRId32 &amp;quot;&lt;/code&gt;  来打印串。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;code&gt;&amp;lt;limits.h&amp;gt;&lt;/code&gt;  中限定了 &lt;code&gt;INT_MAX&lt;/code&gt; , &lt;code&gt;INT_MIN&lt;/code&gt; ， &lt;code&gt;UINT_MAX&lt;/code&gt;  等等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;INT_MIN = -(-INT_MAX - 1)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;浮点数的表示&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浮点数的表示&#34;&gt;#&lt;/a&gt; 浮点数的表示&lt;/h2&gt;
+&lt;p&gt;浮点数针对范围大，精度低的表示。整数针对范围小，精度高的表示。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;单精度浮点数 ( &lt;code&gt;float&lt;/code&gt; )：1 位符号位 + 8 位阶码 + 23 位位数&lt;/li&gt;
 &lt;li&gt;双精度浮点数 ( &lt;code&gt;double&lt;/code&gt; )：1 位符号位 + 11 位阶码 + 52 位尾数&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;规格化数：&lt;/p&gt;
+&lt;p&gt;其表示包含四种情况：&lt;/p&gt;
+&lt;p&gt;阶码部分是使用了移码计算，其计算方法如下：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex-display&#34;&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;bias = 2^{k-1} - 1
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.6944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;bia&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.9824em;vertical-align:-0.0833em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8991em;&#34;&gt;&lt;span style=&#34;top:-3.113em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;&lt;span class=&#34;mord mathnormal mtight&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;mbin mtight&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mord mtight&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.6444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex-display&#34;&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;exp = E - bias
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.625em;vertical-align:-0.1944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.7667em;vertical-align:-0.0833em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.6944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;bia&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;规格化数：阶码部分不全为 0 也不全为 1&lt;br&gt;
+ 其尾数计算方法如下：&lt;p&gt;&lt;span class=&#34;katex-display&#34;&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt; M = 1 + f
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.6833em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.7278em;vertical-align:-0.0833em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8889em;vertical-align:-0.1944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;非规格化数：阶码部分全为 0&lt;br&gt;
+ 其尾数部分为&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;f&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8889em;vertical-align:-0.1944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，阶码部分计算如下：&lt;p&gt;&lt;span class=&#34;katex-display&#34;&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;  exp = 1 - bias
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.625em;vertical-align:-0.1944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.7278em;vertical-align:-0.0833em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.6944em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;bia&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;s&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+这种阶码的计算方式实现了非规格化数到规格化数的平滑过渡。&lt;/li&gt;
+&lt;li&gt;无穷大：阶码部分全为 1，尾数部分全为 0&lt;/li&gt;
+&lt;li&gt;NaN：阶码部分全为 1，尾数部分不为 0&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;重点习题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#重点习题&#34;&gt;#&lt;/a&gt; 重点习题&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;2 进制，16 进制，10 进制之间的转化&lt;/li&gt;
@@ -1969,6 +2000,30 @@ Disassembly of section .text:
 &lt;li&gt;使用位级运算和逻辑运算实现 &lt;code&gt;^&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;移位运算的计算&lt;/li&gt;
 &lt;li&gt;同样位表示的无符号和补码值&lt;/li&gt;
+&lt;li&gt;相同位表示下，无符号数和补码值的转换&lt;/li&gt;
+&lt;li&gt;无符号数和有符号数的比较（默认转化为无符号数后比较）&lt;/li&gt;
+&lt;li&gt;有符号数 / 无符号数的符号扩展&lt;/li&gt;
+&lt;li&gt;不同类型 + 大小之间的值的转换&lt;/li&gt;
+&lt;li&gt;数值的截断&lt;/li&gt;
+&lt;li&gt;隐式转换可能带来的程序问题，以及如何避免&lt;/li&gt;
+&lt;li&gt;无符号数的加法和溢出判定&lt;/li&gt;
+&lt;li&gt;无符号数求反&lt;/li&gt;
+&lt;li&gt;有符号的加法和溢出判定&lt;/li&gt;
+&lt;li&gt;有符号数求反&lt;/li&gt;
+&lt;li&gt;无符号的乘法&lt;/li&gt;
+&lt;li&gt;补码乘法&lt;/li&gt;
+&lt;li&gt;无符号的乘法&lt;/li&gt;
+&lt;li&gt;乘以 2 的幂&lt;/li&gt;
+&lt;li&gt;乘以常数 &amp;amp; 2 种移位运算&lt;/li&gt;
+&lt;li&gt;无符号数除法&lt;/li&gt;
+&lt;li&gt;有符号数除法（向上舍入）&lt;/li&gt;
+&lt;li&gt;小数的二进制表示和十进制表示&lt;/li&gt;
+&lt;li&gt;浮点数的表示（规格化，非规格化，INF，NaN 的情况）&lt;/li&gt;
+&lt;li&gt;浮点数的计算&lt;/li&gt;
+&lt;li&gt;浮点数的范围&lt;/li&gt;
+&lt;li&gt;整数和浮点数之间的转换，以及其共有部分&lt;/li&gt;
+&lt;li&gt;浮点数的舍入&lt;/li&gt;
+&lt;li&gt;不同类型之间转换带来的精度损失（溢出或舍入）&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -5074,11 +5129,11 @@ Congratulations! You&#39;ve defused the bomb!
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</guid>
             <title>Arch Linux系统配置教程</title>
             <link>https://salvely.github.io/blog/2023/10/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</link>
-            <category>Arch</category>
             <category>Linux</category>
-            <category>配置教程</category>
             <category>操作系统</category>
             <category>notes</category>
+            <category>Arch</category>
+            <category>配置教程</category>
             <pubDate>Sun, 15 Oct 2023 09:38:16 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;初始化用户和组&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#初始化用户和组&#34;&gt;#&lt;/a&gt; 初始化用户和组&lt;/h1&gt;
 &lt;h1 id=&#34;权限授予&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#权限授予&#34;&gt;#&lt;/a&gt; 权限授予&lt;/h1&gt;
@@ -5091,11 +5146,11 @@ Congratulations! You&#39;ve defused the bomb!
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
             <title>Debian包管理初探</title>
             <link>https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+            <category>Debian</category>
             <category>Linux</category>
             <category>操作系统</category>
-            <category>notes</category>
-            <category>Debian</category>
             <category>包管理</category>
+            <category>notes</category>
             <pubDate>Sat, 14 Oct 2023 14:23:52 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;linux-发行版&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-发行版&#34;&gt;#&lt;/a&gt; Linux 发行版&lt;/h1&gt;
 &lt;p&gt;Linux 操作系统 = Linux 内核 + 不同功能&lt;br&gt;
@@ -5345,10 +5400,10 @@ App Store:
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
             <title>Arch Linux安装实录&amp;知识讲解&amp;踩坑分析（超详细！）</title>
             <link>https://salvely.github.io/blog/2023/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Arch/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
-            <category>Arch</category>
             <category>Linux</category>
             <category>操作系统</category>
             <category>notes</category>
+            <category>Arch</category>
             <category>安装教程</category>
             <pubDate>Thu, 12 Oct 2023 13:50:44 +0800</pubDate>
             <description><![CDATA[ &lt;div class=&#34;note danger&#34;&gt;

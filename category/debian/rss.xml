@@ -8,26 +8,26 @@
         <pubDate>Sat, 14 Oct 2023 14:23:52 +0800</pubDate>
         <lastBuildDate>Sat, 14 Oct 2023 14:23:52 +0800</lastBuildDate>
         <category>C++</category>
-        <category>Arch</category>
-        <category>Linux</category>
-        <category>配置教程</category>
-        <category>操作系统</category>
-        <category>notes</category>
-        <category>安装教程</category>
         <category>Debian</category>
+        <category>Linux</category>
+        <category>操作系统</category>
         <category>包管理</category>
+        <category>notes</category>
+        <category>Arch</category>
+        <category>配置教程</category>
         <category>参考资料</category>
+        <category>安装教程</category>
         <category>CMake</category>
         <category>Makefile</category>
         <item>
             <guid isPermalink="true">https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
             <title>Debian包管理初探</title>
             <link>https://salvely.github.io/blog/2023/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Debian/Debain%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+            <category>Debian</category>
             <category>Linux</category>
             <category>操作系统</category>
-            <category>notes</category>
-            <category>Debian</category>
             <category>包管理</category>
+            <category>notes</category>
             <pubDate>Sat, 14 Oct 2023 14:23:52 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;linux-发行版&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-发行版&#34;&gt;#&lt;/a&gt; Linux 发行版&lt;/h1&gt;
 &lt;p&gt;Linux 操作系统 = Linux 内核 + 不同功能&lt;br&gt;

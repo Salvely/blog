@@ -5,15 +5,15 @@
     <link href="https://salvely.github.io/blog" />
     <updated>2023-10-15T01:38:16.000Z</updated>
     <category term="C++" />
-    <category term="Arch" />
-    <category term="Linux" />
-    <category term="配置教程" />
-    <category term="操作系统" />
-    <category term="notes" />
-    <category term="安装教程" />
     <category term="Debian" />
+    <category term="Linux" />
+    <category term="操作系统" />
     <category term="包管理" />
+    <category term="notes" />
+    <category term="Arch" />
+    <category term="配置教程" />
     <category term="参考资料" />
+    <category term="安装教程" />
     <category term="CMake" />
     <category term="Makefile" />
     <entry>
@@ -26,11 +26,11 @@
 &lt;h1 id=&#34;安装基本组件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装基本组件&#34;&gt;#&lt;/a&gt; 安装基本组件&lt;/h1&gt;
 &lt;h1 id=&#34;让系统更易用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#让系统更易用&#34;&gt;#&lt;/a&gt; 让系统更易用&lt;/h1&gt;
 </content>
-        <category term="Arch" />
         <category term="Linux" />
-        <category term="配置教程" />
         <category term="操作系统" />
         <category term="notes" />
+        <category term="Arch" />
+        <category term="配置教程" />
         <updated>2023-10-15T01:38:16.000Z</updated>
     </entry>
     <entry>
@@ -280,11 +280,11 @@ App Store:
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90bGRyLnNoLw==&#34;&gt;TLDR 页面&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
+        <category term="Debian" />
         <category term="Linux" />
         <category term="操作系统" />
-        <category term="notes" />
-        <category term="Debian" />
         <category term="包管理" />
+        <category term="notes" />
         <updated>2023-10-14T06:23:52.000Z</updated>
     </entry>
     <entry>
@@ -703,10 +703,10 @@ GnuPG 是完整实现了 RFC4880（即 PGP）所定义的 OpenPGP 标准的自�
 &lt;h1 id=&#34;安装后的工作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装后的工作&#34;&gt;#&lt;/a&gt; 安装后的工作&lt;/h1&gt;
 &lt;p&gt;参见&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQiVCQSVFOCVBRSVBRSVFOSU5OCU4NSVFOCVBRiVCQg==&#34;&gt;建议阅读列表&lt;/span&gt;及&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpLyVFNSVCQSU5NCVFNyU5NCVBOCVFNyVBOCU4QiVFNSVCQSU4RiVFNSU4OCU5NyVFOCVBMSVBOA==&#34;&gt;应用程序列表&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="Arch" />
         <category term="Linux" />
         <category term="操作系统" />
         <category term="notes" />
+        <category term="Arch" />
         <category term="安装教程" />
         <updated>2023-10-12T05:50:44.000Z</updated>
     </entry>
